@@ -62,7 +62,6 @@ int main(void)
   /*** End of Processor Expert internal initialization.                    ***/
 
   /* Write your code here */
-  //USB1_Init();
   USBMIDI1_Init();
   USB1_usb_int_en();
   usb_run();

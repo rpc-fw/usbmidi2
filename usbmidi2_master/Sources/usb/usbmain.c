@@ -20,10 +20,13 @@ void usb_run(void) {
     		UsbMidiRx_Get(&cmd.b1);
     		UsbMidiRx_Get(&cmd.b2);
     		UsbMidiRx_Get(&cmd.b3);
-    		UsbMidiTx_Put(cmd.header);
-    		UsbMidiTx_Put(cmd.b1);
-    		UsbMidiTx_Put(cmd.b2);
-    		UsbMidiTx_Put(cmd.b3);
+
+    		if (UsbMidiTx_NofFreeElements() >= 4) {
+				UsbMidiTx_Put(cmd.header);
+				UsbMidiTx_Put(cmd.b1);
+				UsbMidiTx_Put(cmd.b2);
+				UsbMidiTx_Put(cmd.b3);
+    		}
     	}
 
 #if 0

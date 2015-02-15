@@ -26,7 +26,7 @@ byte USBMIDI1_App_Task(byte *txBuf, size_t txBufSize)
 
   /* check whether enumeration is complete or not */
   if (start_app == TRUE) {
-    if (UsbMidiTx_NofElements() >= 4) {
+    if (UsbMidiTx_NofElements() >= 4 && !transactionOngoing) {
 
       i = 0;
       while(i < 4 && UsbMidiTx_Get(&txBuf[i]) == ERR_OK) {
@@ -39,7 +39,7 @@ byte USBMIDI1_App_Task(byte *txBuf, size_t txBufSize)
         transactionOngoing = FALSE;
         return ERR_FAULT;
       }
-      while(transactionOngoing) {} /* wait until transaction is finished */
+
 
 #if 0 /* workaround for problem in USB stack v3.1.1: if last block is 8, 16, 32, 40, 48, ... bytes, it does not get out until the next transfer? */
       if ((i%8)==0) {
