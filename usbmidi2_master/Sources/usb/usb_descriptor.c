@@ -37,50 +37,6 @@ USB_DESC_CONST USB_ENDPOINTS usb_desc_ep =
 						64				/* buffer size */
 				}
 		}
-#if 0
-    CDC_DESC_ENDPOINT_COUNT,
-    {
-        #if DATA_CLASS_SUPPORT
-            #if DIC_ISOCHRONOUS_SETTING
-            {
-                DIC_ISO_IN_ENDPOINT,
-                USB_ISOCHRONOUS_PIPE,
-                USB_SEND,
-                DIC_ISO_IN_ENDP_PACKET_SIZE
-            },
-            {
-                DIC_ISO_OUT_ENDPOINT,
-                USB_ISOCHRONOUS_PIPE,
-                USB_RECV,
-                DIC_ISO_OUT_ENDP_PACKET_SIZE
-            }
-            #else
-            {
-                DIC_BULK_IN_ENDPOINT,
-                USB_BULK_PIPE,
-                USB_SEND,
-                DIC_BULK_IN_ENDP_PACKET_SIZE
-            },
-            {
-                DIC_BULK_OUT_ENDPOINT,
-                USB_BULK_PIPE,
-                USB_RECV,
-                DIC_BULK_OUT_ENDP_PACKET_SIZE
-            }
-            #endif
-        #endif
-        #if CIC_NOTIF_ELEM_SUPPORT
-        ,
-        {
-            CIC_NOTIF_ENDPOINT,
-            USB_INTERRUPT_PIPE,
-            USB_SEND,
-            CIC_NOTIF_ENDP_PACKET_SIZE
-        }
-        #endif
-
-    }
-#endif
 };
 
 uint_8 USB_DESC_CONST g_device_descriptor[DEVICE_DESCRIPTOR_SIZE] =
@@ -118,7 +74,6 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
     0x32,                    /*  Current draw from bus -- 100mA*/
 
 #if 0
-        , /* comma added for AudioControl interface descriptor */
         /* AUDIOCONTROL INTERFACE DESCRIPTOR */
         IFACE_ONLY_DESC_SIZE,
         USB_IFACE_DESCRIPTOR,
@@ -143,7 +98,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         /* MIDISTREAMING INTERFACE DESCRIPTOR */
         IFACE_ONLY_DESC_SIZE,
         USB_IFACE_DESCRIPTOR,
-        (uint_8)(0x00+0/*DATA_CLASS_SUPPORT*//*+1*/), /* bInterfaceNumber */
+        (uint_8)(0x00/*+1*/), /* bInterfaceNumber */
         0x00, /* bAlternateSetting */
         0x02, /* 2 endpoints */
         AUDIO_CLASS,
@@ -156,7 +111,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         USB_CS_INTERFACE,  /* descriptor type*/
         0x01, /* HEADER subtype */
         0x00, 0x01,  /* USB Class Definitions for AC spec release number in BCD */
-        0x41, 0x00, /* Total size of class-specific descriptors */
+        7+6+6+6+6+9+9+9+9, 0x00, /* Total size of class-specific descriptors */
 
         /* MIDI adapter MIDI IN Jack Descriptor (Embedded) */
         0x06,             /* size of Functional Desc in bytes */
@@ -164,7 +119,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         MIDI_IN_JACK,  /* descriptor type*/
         EMBEDDED,	/* jack type */
         0x01, /* jack ID */
-        0x00, /* unused */
+        0x04, /* unused */
 
         /* MIDI adapter MIDI IN Jack Descriptor (External) */
         0x06,             /* size of Functional Desc in bytes */
@@ -172,29 +127,67 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         MIDI_IN_JACK,  /* descriptor type*/
         EXTERNAL,	/* jack type */
         0x02, /* jack ID */
-        0x00, /* unused */
+        0x04, /* unused */
+
+        /* MIDI adapter MIDI IN Jack Descriptor (Embedded) */
+        0x06,             /* size of Functional Desc in bytes */
+        USB_CS_INTERFACE,  /* descriptor type*/
+        MIDI_IN_JACK,  /* descriptor type*/
+        EMBEDDED,	/* jack type */
+        0x03, /* jack ID */
+        0x05, /* unused */
+
+        /* MIDI adapter MIDI IN Jack Descriptor (External) */
+        0x06,             /* size of Functional Desc in bytes */
+        USB_CS_INTERFACE,  /* descriptor type*/
+        MIDI_IN_JACK,  /* descriptor type*/
+        EXTERNAL,	/* jack type */
+        0x04, /* jack ID */
+        0x05, /* unused */
 
         /* MIDI adapter MIDI OUT Jack Descriptor (Embedded) */
         0x09,             /* size of Functional Desc in bytes */
         USB_CS_INTERFACE,  /* descriptor type*/
         MIDI_OUT_JACK,  /* descriptor type*/
         EMBEDDED,	/* jack type */
-        0x03, /* jack ID */
+        0x05, /* jack ID */
         0x01, /* number of input pins */
         0x02, /* BaSourceID(1) */
         0x01, /* BaSourcePin(1) */
-        0x00, /* unused */
+        0x06, /* unused */
 
         /* MIDI adapter MIDI OUT Jack Descriptor (External) */
         0x09,             /* size of Functional Desc in bytes */
         USB_CS_INTERFACE,  /* descriptor type*/
         MIDI_OUT_JACK,  /* descriptor type*/
         EXTERNAL,	/* jack type */
-        0x04, /* jack ID */
+        0x06, /* jack ID */
         0x01, /* number of input pins */
         0x01, /* BaSourceID(1) */
         0x01, /* BaSourcePin(1) */
-        0x00, /* unused */
+        0x06, /* unused */
+
+        /* MIDI adapter MIDI OUT Jack Descriptor (Embedded) */
+        0x09,             /* size of Functional Desc in bytes */
+        USB_CS_INTERFACE,  /* descriptor type*/
+        MIDI_OUT_JACK,  /* descriptor type*/
+        EMBEDDED,	/* jack type */
+        0x07, /* jack ID */
+        0x01, /* number of input pins */
+        0x02, /* BaSourceID(1) */
+        0x02, /* BaSourcePin(1) */
+        0x07, /* unused */
+
+        /* MIDI adapter MIDI OUT Jack Descriptor (External) */
+        0x09,             /* size of Functional Desc in bytes */
+        USB_CS_INTERFACE,  /* descriptor type*/
+        MIDI_OUT_JACK,  /* descriptor type*/
+        EXTERNAL,	/* jack type */
+        0x08, /* jack ID */
+        0x01, /* number of input pins */
+        0x01, /* BaSourceID(1) */
+        0x02, /* BaSourcePin(1) */
+        0x07, /* unused */
 
         /* MIDI Adapter Standard Bulk OUT Endpoint Descriptor */
         0x09,
@@ -207,11 +200,12 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         0x00, /* synch address */
 
         /* Class-specific MS Bulk OUT Endpoint Descriptor */
-        0x05,
+        0x06,
         USB_CS_ENDPOINT,
         MS_GENERAL,
-        0x01, /* Number of embedded MIDI OUT jacks */
-        0x01, /* ID of the Embedded MIDI OUT jack */
+        0x02, /* Number of embedded MIDI IN jacks */
+        0x01, /* ID of the Embedded MIDI IN jack */
+        0x03, /* ID of the Embedded MIDI IN jack */
 
         /* MIDI Adapter Standard Bulk IN Endpoint Descriptor */
         0x09,
@@ -224,11 +218,12 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         0x00, /* synch address */
 
         /* Class-specific MS Bulk IN Endpoint Descriptor */
-        0x05,
+        0x06,
         USB_CS_ENDPOINT,
         MS_GENERAL,
-        0x01, /* Number of embedded MIDI IN jacks */
-        0x03 /* ID of the Embedded MIDI IN jack */
+        0x02, /* Number of embedded MIDI OUT jacks */
+        0x05, /* ID of the Embedded MIDI OUT jack */
+        0x07 /* ID of the Embedded MIDI OUT jack */
 
 };
 
@@ -279,7 +274,62 @@ uint_8 USB_DESC_CONST USB_STR_2[USB_STR_2_SIZE+USB_STR_DESC_SIZE]
 uint_8 USB_DESC_CONST USB_STR_3[USB_STR_3_SIZE+USB_STR_DESC_SIZE]
                           = {  sizeof(USB_STR_3),
                                USB_STRING_DESCRIPTOR,
-                               '1',0
+                               '0',0
+                          };
+
+uint_8 USB_DESC_CONST USB_STR_4[USB_STR_4_SIZE+USB_STR_DESC_SIZE]
+                          = {  sizeof(USB_STR_4),
+                               USB_STRING_DESCRIPTOR,
+                               'U',0,
+                               'S',0,
+                               'B',0,
+                               ' ',0,
+                               'O',0,
+                               'u',0,
+                               't',0
+                          };
+
+uint_8 USB_DESC_CONST USB_STR_5[USB_STR_5_SIZE+USB_STR_DESC_SIZE]
+                          = {  sizeof(USB_STR_5),
+                               USB_STRING_DESCRIPTOR,
+                               'E',0,
+                               'x',0,
+                               't',0,
+                               ' ',0,
+                               'M',0,
+                               'I',0,
+                               'D',0,
+                               'I',0,
+                               ' ',0,
+                               'O',0,
+                               'u',0,
+                               't',0
+                          };
+uint_8 USB_DESC_CONST USB_STR_6[USB_STR_6_SIZE+USB_STR_DESC_SIZE]
+                          = {  sizeof(USB_STR_6),
+                               USB_STRING_DESCRIPTOR,
+                               'U',0,
+                               'S',0,
+                               'B',0,
+                               ' ',0,
+                               'I',0,
+                               'n',0
+                          };
+
+uint_8 USB_DESC_CONST USB_STR_7[USB_STR_7_SIZE+USB_STR_DESC_SIZE]
+                          = {  sizeof(USB_STR_7),
+                               USB_STRING_DESCRIPTOR,
+                               'E',0,
+                               'x',0,
+                               't',0,
+                               ' ',0,
+                               'M',0,
+                               'I',0,
+                               'D',0,
+                               'I',0,
+                               ' ',0,
+                               'I',0,
+                               'n',0
                           };
 
 uint_8 USB_DESC_CONST USB_STR_n[USB_STR_n_SIZE+USB_STR_DESC_SIZE]
@@ -333,6 +383,10 @@ uint_8 const g_string_desc_size[USB_MAX_STRING_DESCRIPTORS+1] =
                                 sizeof(USB_STR_1),
                                 sizeof(USB_STR_2),
                                 sizeof(USB_STR_3),
+                                sizeof(USB_STR_4),
+                                sizeof(USB_STR_5),
+                                sizeof(USB_STR_6),
+                                sizeof(USB_STR_7),
                                 sizeof(USB_STR_n)
                             };
 
@@ -342,6 +396,10 @@ uint_8_ptr const g_string_descriptors[USB_MAX_STRING_DESCRIPTORS+1] =
                                 (uint_8_ptr const)USB_STR_1,
                                 (uint_8_ptr const)USB_STR_2,
                                 (uint_8_ptr const)USB_STR_3,
+                                (uint_8_ptr const)USB_STR_4,
+                                (uint_8_ptr const)USB_STR_5,
+                                (uint_8_ptr const)USB_STR_6,
+                                (uint_8_ptr const)USB_STR_7,
                                 (uint_8_ptr const)USB_STR_n
                             };
 

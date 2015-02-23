@@ -144,9 +144,10 @@
 /* Various descriptor sizes */
 #define DEVICE_DESCRIPTOR_SIZE            (18)
 #define CONFIG_ONLY_DESC_SIZE             (9)
-#define CONFIG_DESC_SIZE                  (CONFIG_ONLY_DESC_SIZE /*+ 28 +   \
-                                          (CIC_NOTIF_ELEM_SUPPORT & 0x01) \
-                                          * 7 + DATA_CLASS_SUPPORT * 23*/ + (/*9+9*/+9+65))
+#define CONFIG_DESC_SIZE                  (CONFIG_ONLY_DESC_SIZE + \
+										   IFACE_ONLY_DESC_SIZE + \
+										   7+6+6+6+6+9+9+9+9 + \
+										   9+6+9+6)
 #define DEVICE_QUALIFIER_DESCRIPTOR_SIZE  (10)
 #define IFACE_ONLY_DESC_SIZE              (9)
 #define ENDP_ONLY_DESC_SIZE               (7)
@@ -158,7 +159,7 @@
 #define USB_MAX_CONFIG_SUPPORTED          (1)
 
 /* Max string descriptors supported by the Application */
-#define USB_MAX_STRING_DESCRIPTORS        (4)
+#define USB_MAX_STRING_DESCRIPTORS        (8)
 
 /* Max language codes supported by the USB */
 #define USB_MAX_LANGUAGES_SUPPORTED       (1)
@@ -169,6 +170,10 @@
 #define USB_STR_1_SIZE  (22)
 #define USB_STR_2_SIZE  (30)
 #define USB_STR_3_SIZE  (2)
+#define USB_STR_4_SIZE  (14)
+#define USB_STR_5_SIZE  (24)
+#define USB_STR_6_SIZE  (12)
+#define USB_STR_7_SIZE  (22)
 #define USB_STR_n_SIZE  (32)
 
 /* descriptors codes */
