@@ -99,7 +99,8 @@ static uint_8 USB_MIDI_Other_Requests(
 	uint_8_ptr *data,
     USB_PACKET_SIZE *size)
 {
-
+	*size = 0;
+	return USB_OK;
 }
 
  void USB_Class_MIDI_Event(

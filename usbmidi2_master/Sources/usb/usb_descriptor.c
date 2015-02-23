@@ -87,9 +87,9 @@ uint_8 USB_DESC_CONST g_device_descriptor[DEVICE_DESCRIPTOR_SIZE] =
 {
    DEVICE_DESCRIPTOR_SIZE,               /*  Device Descriptor Size         */
    USB_DEVICE_DESCRIPTOR,                /*  Device Type of descriptor      */
-   0x10, 0x01,                           /*  BCD USB version                */
-   0x01,                                 /*  AUDIO device class             */
-   0x03,                                 /*  MIDISTREAMING subclass         */
+   0x00, 0x02,                           /*  BCD USB version                */
+   0x00,                                 /*  Device class            		*/
+   0x00,                                 /*  Device							*/
    0x00,                                 /*  Device Protocol                */
    CONTROL_MAX_PACKET_SIZE,              /*  Max Packet size                */
 #if 0 /* << EST */
@@ -99,10 +99,10 @@ uint_8 USB_DESC_CONST g_device_descriptor[DEVICE_DESCRIPTOR_SIZE] =
    (VID&0xFF),((VID>>8)&0xFF),     /*  Vendor ID from properties      */
    (PID&0xFF),((PID>>8)&0xFF),     /*  Product ID from properties     */
 #endif
-   0x02,0x00,                            /*  BCD Device version             */
+   0x00,0x0a,                            /*  BCD Device version             */
    0x01,                                 /*  Manufacturer string index      */
    0x02,                                 /*  Product string index           */
-   0x00,                                 /*  Serial number string index     */
+   0x03,                                 /*  Serial number string index     */
    0x01                                  /*  Number of configurations       */
 };
 
@@ -111,106 +111,13 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
     CONFIG_ONLY_DESC_SIZE,  /*  Configuration Descriptor Size */
     USB_CONFIG_DESCRIPTOR,  /* "Configuration" type of descriptor */
     CONFIG_DESC_SIZE, 0x00, /*  Total length of the Configuration descriptor */
-    (uint_8)(/*1+DATA_CLASS_SUPPORT*/+2),/*NumInterfaces*/
+    (uint_8)(/*1+DATA_CLASS_SUPPORT*/+1),/*NumInterfaces*/
     0x01,                      /*  Configuration Value */
     0x00,                      /*  Configuration Description String Index*/
     BUS_POWERED,			   /*  Bus powered */
-    0x32                    /*  Current draw from bus -- 100mA*/
+    0x32,                    /*  Current draw from bus -- 100mA*/
+
 #if 0
-    /* CIC INTERFACE DESCRIPTOR */
-    IFACE_ONLY_DESC_SIZE,
-    USB_IFACE_DESCRIPTOR,
-    0x00, /* bInterfaceNumber */
-    0x00, /* bAlternateSetting */
-    CIC_ENDP_COUNT, /* management and notification(optional)element present */
-    0x02, /* Communication Interface Class */
-    CIC_SUBCLASS_CODE,
-    CIC_PROTOCOL_CODE,
-    0x00, /* Interface Description String Index*/
-
-    /* CDC Class-Specific descriptor */
-    0x05,             /* size of Functional Desc in bytes */
-    USB_CS_INTERFACE,  /* descriptor type*/
-    HEADER_FUNC_DESC,
-    0x10, 0x01,  /* USB Class Definitions for CDC spec release number in BCD */
-
-    0x05,             /* Size of this descriptor */
-    USB_CS_INTERFACE, /* descriptor type*/
-    CALL_MANAGEMENT_FUNC_DESC,
-    0x01,/*may use 0x03 */  /* device handales call management itself(D0 set)
-              and will process commands multiplexed over the data interface */
-    0x01,      /* Indicates multiplexed commands are
-                handled via data interface */
-
-    0x04,             /* Size of this descriptor */
-    USB_CS_INTERFACE, /* descriptor type*/
-    ABSTRACT_CONTROL_FUNC_DESC,
-    0x06, /*may use 0x0F */ /* Device Supports all commands for ACM - CDC
-                              PSTN SubClass bmCapabilities */
-
-    0x05,             /* size of Functional Desc in bytes */
-    USB_CS_INTERFACE,  /* descriptor type*/
-    UNION_FUNC_DESC,
-    0x00,           /* Interface Number of Control */
-    0x01            /* Interface Number of Subordinate (Data Class) Interface */
-
-#if CIC_NOTIF_ELEM_SUPPORT    /*Endpoint descriptor */
-    , /* Comma Added if NOTIF ELEM IS TO BE ADDED */
-    ENDP_ONLY_DESC_SIZE,
-    USB_ENDPOINT_DESCRIPTOR,
-    CIC_NOTIF_ENDPOINT|(USB_SEND << 7),
-    USB_INTERRUPT_PIPE,
-    CIC_NOTIF_ENDP_PACKET_SIZE, 0x00,
-    0x0A
-#endif
-
-#if DATA_CLASS_SUPPORT
-        , /* Comma Added if DATA_CLASS_DESC IS TO BE ADDED */
-        IFACE_ONLY_DESC_SIZE,
-        USB_IFACE_DESCRIPTOR,
-        (uint_8)(0x00+DATA_CLASS_SUPPORT), /* bInterfaceNumber */
-        0x00, /* bAlternateSetting */
-        DIC_ENDP_COUNT, /* notification element included */
-        0x0A, /* DATA Interface Class */
-        0x00, /* Data Interface SubClass Code */
-        DIC_PROTOCOL_CODE,
-        0x00, /* Interface Description String Index*/
-
-    #if ! DIC_ISOCHRONOUS_SETTING
-        /*Endpoint descriptor */
-        ENDP_ONLY_DESC_SIZE,
-        USB_ENDPOINT_DESCRIPTOR,
-        DIC_BULK_IN_ENDPOINT|(USB_SEND << 7),
-        USB_BULK_PIPE,
-        DIC_BULK_IN_ENDP_PACKET_SIZE, 0x00,
-        0x00,/* This value is ignored for Bulk ENDPOINT */
-
-        /*Endpoint descriptor */
-        ENDP_ONLY_DESC_SIZE,
-        USB_ENDPOINT_DESCRIPTOR,
-        DIC_BULK_OUT_ENDPOINT|(USB_RECV << 7),
-        USB_BULK_PIPE,
-        DIC_BULK_OUT_ENDP_PACKET_SIZE, 0x00,
-        0x00 /* This value is ignored for Bulk ENDPOINT */
-    #else
-        /*Endpoint descriptor */
-        ENDP_ONLY_DESC_SIZE,
-        USB_ENDPOINT_DESCRIPTOR,
-        DIC_ISO_IN_ENDPOINT|(USB_SEND << 7),
-        USB_ISOCHRONOUS_PIPE,
-        DIC_ISO_IN_ENDP_PACKET_SIZE, 0x00,
-        0x01,/* This value is for Iso ENDPOINT */
-
-        /*Endpoint descriptor */
-        ENDP_ONLY_DESC_SIZE,
-        USB_ENDPOINT_DESCRIPTOR,
-        DIC_ISO_OUT_ENDPOINT|(USB_RECV << 7),
-        USB_ISOCHRONOUS_PIPE,
-        DIC_ISO_OUT_ENDP_PACKET_SIZE, 0x00,
-        0x01 /* This value is for Iso ENDPOINT */
-    #endif
-#endif
-#endif
         , /* comma added for AudioControl interface descriptor */
         /* AUDIOCONTROL INTERFACE DESCRIPTOR */
         IFACE_ONLY_DESC_SIZE,
@@ -231,11 +138,12 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         0x09, 0x00, /* Total size of class-specific descriptors */
         0x01, /* Number of streaming interfaces */
         0x01, /* MIDIStreaming interface 1 belongs to this AC interface */
+#endif
 
         /* MIDISTREAMING INTERFACE DESCRIPTOR */
         IFACE_ONLY_DESC_SIZE,
         USB_IFACE_DESCRIPTOR,
-        (uint_8)(0x00+/*DATA_CLASS_SUPPORT*/+1), /* bInterfaceNumber */
+        (uint_8)(0x00+0/*DATA_CLASS_SUPPORT*//*+1*/), /* bInterfaceNumber */
         0x00, /* bAlternateSetting */
         0x02, /* 2 endpoints */
         AUDIO_CLASS,
@@ -303,7 +211,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         USB_CS_ENDPOINT,
         MS_GENERAL,
         0x01, /* Number of embedded MIDI OUT jacks */
-        0x03, /* ID of the Embedded MIDI OUT jack */
+        0x01, /* ID of the Embedded MIDI OUT jack */
 
         /* MIDI Adapter Standard Bulk IN Endpoint Descriptor */
         0x09,
@@ -320,7 +228,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         USB_CS_ENDPOINT,
         MS_GENERAL,
         0x01, /* Number of embedded MIDI IN jacks */
-        0x01 /* ID of the Embedded MIDI IN jack */
+        0x03 /* ID of the Embedded MIDI IN jack */
 
 };
 
@@ -365,7 +273,13 @@ uint_8 USB_DESC_CONST USB_STR_2[USB_STR_2_SIZE+USB_STR_DESC_SIZE]
                                's',0,
                                't',0,
                                'e',0,
-                               'r',0,
+                               'r',0
+                          };
+
+uint_8 USB_DESC_CONST USB_STR_3[USB_STR_3_SIZE+USB_STR_DESC_SIZE]
+                          = {  sizeof(USB_STR_3),
+                               USB_STRING_DESCRIPTOR,
+                               '1',0
                           };
 
 uint_8 USB_DESC_CONST USB_STR_n[USB_STR_n_SIZE+USB_STR_DESC_SIZE]
@@ -418,6 +332,7 @@ uint_8 const g_string_desc_size[USB_MAX_STRING_DESCRIPTORS+1] =
                                 sizeof(USB_STR_0),
                                 sizeof(USB_STR_1),
                                 sizeof(USB_STR_2),
+                                sizeof(USB_STR_3),
                                 sizeof(USB_STR_n)
                             };
 
@@ -426,6 +341,7 @@ uint_8_ptr const g_string_descriptors[USB_MAX_STRING_DESCRIPTORS+1] =
                                 (uint_8_ptr const)USB_STR_0,
                                 (uint_8_ptr const)USB_STR_1,
                                 (uint_8_ptr const)USB_STR_2,
+                                (uint_8_ptr const)USB_STR_3,
                                 (uint_8_ptr const)USB_STR_n
                             };
 

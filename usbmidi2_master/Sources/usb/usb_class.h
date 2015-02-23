@@ -82,7 +82,7 @@
 #if HIGH_SPEED_DEVICE
 #define CONTROL_MAX_PACKET_SIZE             (64) /* max supported value is 64*/
 #else
-#define CONTROL_MAX_PACKET_SIZE             (32) /* max supported value is 16*/
+#define CONTROL_MAX_PACKET_SIZE             (64) /* max supported value is 16*/
 #endif
 
 /* identification values and masks to identify request types  */
