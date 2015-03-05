@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-08, 19:07, # CodeGen: 0
+**     Date/Time   : 2015-03-04, 23:10, # CodeGen: 23
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -22,12 +22,18 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 0
-**             Output buffer size      : 0
+**             Input buffer size       : 256
+**             Output buffer size      : 256
 **
 **         Registers
 **
+**         Input interrupt
+**             Vector name             : INT_UART2
+**             Priority                : 2
 **
+**         Output interrupt
+**             Vector name             : INT_UART2
+**             Priority                : 2
 **
 **         Used pins:
 **         ----------------------------------------------------------
@@ -42,6 +48,10 @@
 **     Contents    :
 **         RecvChar        - byte MIDIUART1_RecvChar(MIDIUART1_TComData *Chr);
 **         SendChar        - byte MIDIUART1_SendChar(MIDIUART1_TComData Chr);
+**         RecvBlock       - byte MIDIUART1_RecvBlock(MIDIUART1_TComData *Ptr, word Size, word *Rcv);
+**         SendBlock       - byte MIDIUART1_SendBlock(MIDIUART1_TComData *Ptr, word Size, word *Snd);
+**         ClearRxBuf      - byte MIDIUART1_ClearRxBuf(void);
+**         ClearTxBuf      - byte MIDIUART1_ClearTxBuf(void);
 **         GetCharsInRxBuf - word MIDIUART1_GetCharsInRxBuf(void);
 **         GetCharsInTxBuf - word MIDIUART1_GetCharsInTxBuf(void);
 **
@@ -129,6 +139,10 @@ extern "C" {
   typedef byte MIDIUART1_TComData;     /* User type for communication. Size of this type depends on the communication data witdh */
 #endif
 
+#define MIDIUART1_INP_BUF_SIZE  0x0100U /* Length of the RX buffer */
+
+#define MIDIUART1_OUT_BUF_SIZE  0x0100U /* Length of the TX buffer */
+
 /*
 ** ===================================================================
 **     Method      :  MIDIUART1_RecvChar (component AsynchroSerial)
@@ -189,6 +203,100 @@ byte MIDIUART1_SendChar(MIDIUART1_TComData Chr);
 
 /*
 ** ===================================================================
+**     Method      :  MIDIUART1_RecvBlock (component AsynchroSerial)
+**     Description :
+**         If any data is received, this method returns the block of
+**         the data and its length (and incidental error), otherwise it
+**         returns an error code (it does not wait for data).
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**         If less than requested number of characters is received only
+**         the available data is copied from the receive buffer to the
+**         user specified destination. The value ERR_EXEMPTY is
+**         returned and the value of variable pointed by the Rcv
+**         parameter is set to the number of received characters.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of received data
+**         Size            - Size of the block
+**       * Rcv             - Pointer to real number of the received data
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_RXEMPTY - The receive buffer didn't
+**                           contain the requested number of data. Only
+**                           available data has been returned.
+**                           ERR_COMMON - common error occurred (the
+**                           GetError method can be used for error
+**                           specification)
+** ===================================================================
+*/
+byte MIDIUART1_RecvBlock(MIDIUART1_TComData *Ptr,word Size,word *Rcv);
+
+/*
+** ===================================================================
+**     Method      :  MIDIUART1_SendBlock (component AsynchroSerial)
+**     Description :
+**         Sends a block of characters to the channel.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the transmitter property is
+**         enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of data to send
+**         Size            - Size of the block
+**       * Snd             - Pointer to number of data that are sent
+**                           (moved to buffer)
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_TXFULL - It was not possible to send
+**                           requested number of bytes
+** ===================================================================
+*/
+byte MIDIUART1_SendBlock(MIDIUART1_TComData *Ptr,word Size,word *Snd);
+
+/*
+** ===================================================================
+**     Method      :  MIDIUART1_ClearRxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the receive buffer.
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte MIDIUART1_ClearRxBuf(void);
+
+/*
+** ===================================================================
+**     Method      :  MIDIUART1_ClearTxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the transmit buffer.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the receiver property is
+**         enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte MIDIUART1_ClearTxBuf(void);
+
+/*
+** ===================================================================
 **     Method      :  MIDIUART1_GetCharsInRxBuf (component AsynchroSerial)
 **     Description :
 **         Returns the number of characters in the input buffer. This
@@ -228,6 +336,42 @@ word MIDIUART1_GetCharsInTxBuf(void);
 ** ===================================================================
 */
 void MIDIUART1_Init(void);
+
+/*
+** ===================================================================
+**     Method      :  MIDIUART1_ASerialLdd1_OnBlockReceived (component AsynchroSerial)
+**
+**     Description :
+**         This event is called when the requested number of data is 
+**         moved to the input buffer.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd1_OnBlockReceived(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  MIDIUART1_ASerialLdd1_OnBlockSent (component AsynchroSerial)
+**
+**     Description :
+**         This event is called after the last character from the output 
+**         buffer is moved to the transmitter.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd1_OnBlockSent(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  MIDIUART1_ASerialLdd1_OnError (component AsynchroSerial)
+**
+**     Description :
+**         This event is called when a channel error (not the error 
+**         returned by a given method) occurs.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd1_OnError(LDD_TUserData *UserDataPtr);
 
 /*
 ** ===================================================================

@@ -61,8 +61,8 @@ void USB1_usb_int_dis(void)
 void USB1_usb_int_en(void)
 {
   /* Kinetis L2K */
-  NVIC_ICER |= (1<<24);    /* Clear any pending interrupts on USB */
-  NVIC_ISER |= (1<<24);    /* Enable interrupts from USB module */
+  NVIC_ICER = (1<<24);    /* Clear any pending interrupts on USB */
+  NVIC_ISER = (1<<24);    /* Enable interrupts from USB module */
 }
 
 /*
@@ -78,13 +78,14 @@ void USB1_usb_int_en(void)
 byte USB1_Init(void)
 {
   byte err;
-
+#if 0
   /* Initialize the USB interface */
   err = CDC1_Init();
   if(err != ERR_OK) {
     /* Error initializing USB Class */
     return ERR_FAILED;
   }
+#endif
   USB1_usb_int_en();
   return ERR_OK;
 }
