@@ -1,9 +1,77 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 
 #include "readhex.h"
 #include "checksum.h"
+
+struct patch_t
+{
+	uint32_t address;
+	uint32_t check;
+	uint32_t assign;
+};
+
+#define MAX_PATCH_COUNT (20)
+struct patch_t patches[MAX_PATCH_COUNT];
+int patch_count;
+
+int patch_add(uint32_t address, uint32_t check, uint32_t assign)
+{
+	if (patch_count == MAX_PATCH_COUNT) {
+		return 1;
+	}
+
+	patches[patch_count].address = address;
+	patches[patch_count].check = check;
+	patches[patch_count].assign = assign;
+	patch_count++;
+
+	return 0;
+}
+
+uint32_t uint32_little(uint8_t* bytes)
+{
+	return    (bytes[3] << 24)
+		| (bytes[2] << 16)
+		| (bytes[1] << 8)
+		|  bytes[0];
+}
+
+void uint32_tolittle(uint8_t* bytes, uint32_t value)
+{
+	bytes[0] = value & 0xFF;
+	bytes[1] = (value >> 8) & 0xFF;
+	bytes[2] = (value >> 16) & 0xFF;
+	bytes[3] = (value >> 24) & 0xFF;
+}
+
+void patch_apply(uint8_t* buf, uint32_t size, uint32_t baseaddr)
+{
+	int i;
+	for (i = 0; i < patch_count; i++) {
+		uint32_t offset = patches[i].address - baseaddr;
+		if (patches[i].address < baseaddr) {
+			fprintf(stderr, "Cannot apply patch %d: address %08x exceeds base address %08x\n", i, patches[i].address, baseaddr);
+			continue;
+		}
+		if (patches[i].address + 3 >= baseaddr + size ) {
+			fprintf(stderr, "Cannot apply patch %d: address %08x exceeds program end %08x\n", i, patches[i].address, baseaddr + size - 1);
+			continue;
+		}
+
+		uint32_t check = uint32_little(&buf[offset]);
+		if (check != patches[i].check) {
+			fprintf(stderr, "Cannot apply patch %d: check word %08x does not match program %08x\n", i, patches[i].check, check);
+			continue;
+		}
+		
+		// patch
+		fprintf(stderr, "patch!\n");
+		uint32_tolittle(&buf[offset], patches[i].assign);
+	}
+}
 
 void writec(FILE* f, const char* varname, uint8_t* buf, uint32_t size, uint32_t baseaddr)
 {
@@ -62,7 +130,7 @@ void writeid(FILE* f, const char* varname, const char* dataname, uint8_t* buf, u
 
 void usage(const char* argv0)
 {
-	fprintf(stderr, "Usage: %s <.hex file> [-i id]\n", argv0);
+	fprintf(stderr, "Usage: %s <.hex file> [-i id] [-P addr:check:value]\n", argv0);
 	exit(1);
 }
 
@@ -72,6 +140,54 @@ void default_args()
 {
 	filename = NULL;
 	id = NULL;
+}
+
+void parse_patch(const char* patch)
+{
+	uint32_t address;
+	uint32_t check;
+	uint32_t assign;
+
+	const char* str = patch;
+	const char* p;
+	char* end;
+	p = strchr(str, ':');
+	if (p == NULL) {
+		fprintf(stderr, "patch: Invalid syntax: '%s'\n", patch);
+		exit(1);
+	}
+	address = strtol(str, &end, 16);
+	if (end != p) {
+		fprintf(stderr, "patch: Invalid syntax: '%s'\n", patch);
+		exit(1);
+	}
+
+	str = p+1;
+	
+	p = strchr(str, ':');
+	if (p == NULL) {
+		fprintf(stderr, "patch: Invalid syntax: '%s'\n", patch);
+		exit(1);
+	}
+	check = strtol(str, &end, 16);
+	if (end != p) {
+		fprintf(stderr, "patch: Invalid syntax: '%s'\n", patch);
+		exit(1);
+	}
+	
+	str = p+1;
+
+	assign = strtol(str, &end, 16);
+	if (*end != '\0') {
+		fprintf(stderr, "patch: Invalid syntax: '%s'\n", patch);
+		exit(1);
+	}
+
+	fprintf(stderr, "add!\n");
+	if (patch_add(address, check, assign)) {
+		fprintf(stderr, "too many patches: '%s'\n", patch);
+		exit(1);
+	}
 }
 
 void parse_args(int argc, char** argv)
@@ -96,6 +212,10 @@ void parse_args(int argc, char** argv)
 					usage(argv[0]);
 				}
 				id = argv[i+1];
+				i++;
+			}
+			else if (flag == 'P') {
+				parse_patch(argv[i+1]);
 				i++;
 			}
 			else {
@@ -130,6 +250,8 @@ int main(int argc, char** argv)
 	filename = argv[1];
 
 	uint8_t* buf = readhex(&size, baseaddr, filename);
+
+	patch_apply(buf, size, baseaddr);
 
 	writec(stdout, "hex_data", buf, size, baseaddr);
 
