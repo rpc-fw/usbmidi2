@@ -68,7 +68,6 @@ void patch_apply(uint8_t* buf, uint32_t size, uint32_t baseaddr)
 		}
 		
 		// patch
-		fprintf(stderr, "patch!\n");
 		uint32_tolittle(&buf[offset], patches[i].assign);
 	}
 }
@@ -183,7 +182,6 @@ void parse_patch(const char* patch)
 		exit(1);
 	}
 
-	fprintf(stderr, "add!\n");
 	if (patch_add(address, check, assign)) {
 		fprintf(stderr, "too many patches: '%s'\n", patch);
 		exit(1);
