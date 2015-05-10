@@ -25,7 +25,7 @@ typedef union _midicmd_t {
 	uint32_t word;
 } midicmd_t;
 
-void USBMIDI1_Init();
+void USBMIDI1_Init(byte regen);
 byte USBMIDI1_App_Task(byte *txBuf, size_t txBufSize);
 
 void USBMIDI1_Send(midicmd_t cmd);

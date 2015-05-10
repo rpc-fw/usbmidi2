@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-08, 19:07, # CodeGen: 0
+**     Date/Time   : 2015-05-10, 11:18, # CodeGen: 42
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -22,14 +22,20 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 0
-**             Output buffer size      : 0
+**             Input buffer size       : 256
+**             Output buffer size      : 256
 **
 **         Registers
 **             Input buffer            : UART0_D   [0x4006A007]
 **             Output buffer           : UART0_D   [0x4006A007]
 **
+**         Input interrupt
+**             Vector name             : INT_UART0
+**             Priority                : 2
 **
+**         Output interrupt
+**             Vector name             : INT_UART0
+**             Priority                : 2
 **
 **         Used pins:
 **         ----------------------------------------------------------
@@ -42,8 +48,14 @@
 **
 **
 **     Contents    :
+**         Enable          - byte COREUART_Enable(void);
+**         Disable         - byte COREUART_Disable(void);
 **         RecvChar        - byte COREUART_RecvChar(COREUART_TComData *Chr);
 **         SendChar        - byte COREUART_SendChar(COREUART_TComData Chr);
+**         RecvBlock       - byte COREUART_RecvBlock(COREUART_TComData *Ptr, word Size, word *Rcv);
+**         SendBlock       - byte COREUART_SendBlock(COREUART_TComData *Ptr, word Size, word *Snd);
+**         ClearRxBuf      - byte COREUART_ClearRxBuf(void);
+**         ClearTxBuf      - byte COREUART_ClearTxBuf(void);
 **         GetCharsInRxBuf - word COREUART_GetCharsInRxBuf(void);
 **         GetCharsInTxBuf - word COREUART_GetCharsInTxBuf(void);
 **
@@ -97,6 +109,7 @@
 /* MODULE COREUART. */
 
 #include "COREUART.h"
+#include "Events.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -113,23 +126,33 @@ extern "C" {
 #define NOISE_ERR        0x80U         /* Noise error flag bit      */
 #define IDLE_ERR         0x0100U       /* Idle character flag bit   */
 #define BREAK_ERR        0x0200U       /* Break detect              */
+#define COMMON_ERR       0x0800U       /* Common error of RX       */
 
 LDD_TDeviceData *ASerialLdd2_DeviceDataPtr; /* Device data pointer */
+static bool EnUser;                    /* Enable/Disable SCI */
 static word SerFlag;                   /* Flags for serial communication */
                                        /* Bits: 0 - OverRun error */
                                        /*       1 - Framing error */
                                        /*       2 - Parity error */
                                        /*       3 - Char in RX buffer */
                                        /*       4 - Full TX buffer */
-                                       /*       5 - Unused */
+                                       /*       5 - Running int from TX */
                                        /*       6 - Full RX buffer */
                                        /*       7 - Noise error */
                                        /*       8 - Idle character  */
                                        /*       9 - Break detected  */
                                        /*      10 - Unused */
                                        /*      11 - Unused */
+static word COREUART_InpLen;           /* Length of input buffer's content */
+static word InpIndexR;                 /* Index for reading from input buffer */
+static word InpIndexW;                 /* Index for writing to input buffer */
+static COREUART_TComData InpBuffer[COREUART_INP_BUF_SIZE]; /* Input buffer for SCI communication */
 static COREUART_TComData BufferRead;   /* Input char for SCI communication */
-static COREUART_TComData OutBuffer;    /* Output char for SCI communication */
+static word COREUART_OutLen;           /* Length of output bufer's content */
+static word OutIndexR;                 /* Index for reading from output buffer */
+static word OutIndexW;                 /* Index for writing to output buffer */
+static COREUART_TComData OutBuffer[COREUART_OUT_BUF_SIZE]; /* Output buffer for SCI communication */
+static bool OnFreeTxBufSemaphore;      /* Disable the false calling of the OnFreeTxBuf event */
 
 /*
 ** ===================================================================
@@ -144,7 +167,64 @@ static COREUART_TComData OutBuffer;    /* Output char for SCI communication */
 */
 static void HWEnDi(void)
 {
-  (void)ASerialLdd2_ReceiveBlock(ASerialLdd2_DeviceDataPtr, &BufferRead, 1U); /* Receive one data byte */
+  if (EnUser) {                        /* Enable device? */
+    (void)ASerialLdd2_Enable(ASerialLdd2_DeviceDataPtr); /* Enable device */
+    (void)ASerialLdd2_ReceiveBlock(ASerialLdd2_DeviceDataPtr, &BufferRead, 1U); /* Receive one data byte */
+    if ((COREUART_OutLen) != 0U) {     /* Is number of bytes in the transmit buffer greater then 0? */
+      SerFlag |= RUNINT_FROM_TX;       /* Set flag "running int from TX"? */
+      (void)ASerialLdd2_SendBlock(ASerialLdd2_DeviceDataPtr, (LDD_TData *)&OutBuffer[OutIndexR], 1U); /* Send one data byte */
+    }
+  } else {
+    SerFlag &= (byte)~(RUNINT_FROM_TX); /* Clear RUNINT_FROM_TX flag */
+    (void)ASerialLdd2_Disable(ASerialLdd2_DeviceDataPtr); /* Disable device */
+  }
+}
+
+/*
+** ===================================================================
+**     Method      :  COREUART_Enable (component AsynchroSerial)
+**     Description :
+**         Enables the component - it starts the send and receive
+**         functions. Events may be generated
+**         ("DisableEvent"/"EnableEvent").
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_Enable(void)
+{
+  if (!EnUser) {                       /* Is the device disabled by user? */
+    EnUser = TRUE;                     /* If yes then set the flag "device enabled" */
+    HWEnDi();                          /* Enable the device */
+  }
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  COREUART_Disable (component AsynchroSerial)
+**     Description :
+**         Disables the component - it stops the send and receive
+**         functions. No events will be generated.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_Disable(void)
+{
+  if (EnUser) {                        /* Is the device enabled by user? */
+    EnUser = FALSE;                    /* If yes then set the flag "device disabled" */
+    HWEnDi();                          /* Disable the device */
+  }
+  return ERR_OK;                       /* OK */
 }
 
 /*
@@ -182,21 +262,20 @@ static void HWEnDi(void)
 byte COREUART_RecvChar(COREUART_TComData *Chr)
 {
   byte Result = ERR_OK;                /* Return error code */
-  LDD_SERIAL_TError SerialErrorMask;   /* Serial error mask variable */
 
-  ASerialLdd2_Main(ASerialLdd2_DeviceDataPtr);
-  if (ASerialLdd2_GetError(ASerialLdd2_DeviceDataPtr, &SerialErrorMask) == ERR_OK) { /* Get error state */
-    if (SerialErrorMask != 0U) {
-      Result = ERR_COMMON;             /* If yes then set common error value */
-    } else {
-      if (ASerialLdd2_GetReceivedDataNum(ASerialLdd2_DeviceDataPtr) == 0U) { /* Is not received char? */
-        return ERR_RXEMPTY;            /* If yes then error is returned */
-      }
+  if (COREUART_InpLen > 0x00U) {       /* Is number of received chars greater than 0? */
+    EnterCritical();                   /* Disable global interrupts */
+    COREUART_InpLen--;                 /* Decrease number of received chars */
+    *Chr = InpBuffer[InpIndexR++];     /* Received char */
+    if (InpIndexR >= COREUART_INP_BUF_SIZE) { /* Is the index out of the receive buffer? */
+      InpIndexR = 0x00U;               /* Set index to the first item into the receive buffer */
     }
+    Result = (byte)((SerFlag & (OVERRUN_ERR|COMMON_ERR|FULL_RX))? ERR_COMMON : ERR_OK);
+    SerFlag &= (word)~(word)(OVERRUN_ERR|COMMON_ERR|FULL_RX|CHAR_IN_RX); /* Clear all errors in the status variable */
+    ExitCritical();                    /* Enable global interrupts */
+  } else {
+    return ERR_RXEMPTY;                /* Receiver is empty */
   }
-  *Chr = BufferRead;                   /* Read the char */
-  (void)ASerialLdd2_ReceiveBlock(ASerialLdd2_DeviceDataPtr, &BufferRead, 1U); /* Receive one data byte */
-  ASerialLdd2_Main(ASerialLdd2_DeviceDataPtr);
   return Result;                       /* Return error code */
 }
 
@@ -224,15 +303,183 @@ byte COREUART_RecvChar(COREUART_TComData *Chr)
 */
 byte COREUART_SendChar(COREUART_TComData Chr)
 {
-  COREUART_TComData TmpChr = OutBuffer; /* Save OutBuffer value */
-
-  ASerialLdd2_Main(ASerialLdd2_DeviceDataPtr);
-  OutBuffer = Chr;                     /* Save character */
-  if (ASerialLdd2_SendBlock(ASerialLdd2_DeviceDataPtr, (LDD_TData *)&OutBuffer, 1U) == ERR_BUSY) { /* Send one data byte */
-    OutBuffer = TmpChr;                /* If is device busy, restore OutBuffer value */
-    return ERR_TXFULL;
+  if (COREUART_OutLen == COREUART_OUT_BUF_SIZE) { /* Is number of chars in buffer is the same as a size of the transmit buffer */
+    return ERR_TXFULL;                 /* If yes then error */
   }
-  ASerialLdd2_Main(ASerialLdd2_DeviceDataPtr);
+  EnterCritical();                     /* Disable global interrupts */
+  COREUART_OutLen++;                   /* Increase number of bytes in the transmit buffer */
+  OutBuffer[OutIndexW++] = Chr;        /* Store char to buffer */
+  if (OutIndexW >= COREUART_OUT_BUF_SIZE) { /* Is the pointer out of the transmit buffer */
+    OutIndexW = 0x00U;                 /* Set index to first item in the transmit buffer */
+  }
+  if ((EnUser) && ((SerFlag & RUNINT_FROM_TX) == 0U)) { /* Is the device enabled by user? */
+    SerFlag |= RUNINT_FROM_TX;         /* Set flag "running int from TX"? */
+    (void)ASerialLdd2_SendBlock(ASerialLdd2_DeviceDataPtr, (LDD_TData *)&OutBuffer[OutIndexR], 1U); /* Send one data byte */
+  }
+  ExitCritical();                      /* Enable global interrupts */
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  COREUART_RecvBlock (component AsynchroSerial)
+**     Description :
+**         If any data is received, this method returns the block of
+**         the data and its length (and incidental error), otherwise it
+**         returns an error code (it does not wait for data).
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**         If less than requested number of characters is received only
+**         the available data is copied from the receive buffer to the
+**         user specified destination. The value ERR_EXEMPTY is
+**         returned and the value of variable pointed by the Rcv
+**         parameter is set to the number of received characters.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of received data
+**         Size            - Size of the block
+**       * Rcv             - Pointer to real number of the received data
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_RXEMPTY - The receive buffer didn't
+**                           contain the requested number of data. Only
+**                           available data has been returned.
+**                           ERR_COMMON - common error occurred (the
+**                           GetError method can be used for error
+**                           specification)
+** ===================================================================
+*/
+byte COREUART_RecvBlock(COREUART_TComData *Ptr, word Size, word *Rcv)
+{
+  register word count;                 /* Number of received chars */
+  register byte result = ERR_OK;       /* Last error */
+
+  for (count = 0x00U; count < Size; count++) {
+    switch (COREUART_RecvChar(Ptr++)) { /* Receive data and test the return value*/
+    case ERR_RXEMPTY:                  /* No data in the buffer */
+      if (result == ERR_OK) {          /* If no receiver error reported */
+        result = ERR_RXEMPTY;          /* Return info that requested number of data is not available */
+      }
+     *Rcv = count;                     /* Return number of received chars */
+      return result;
+    case ERR_COMMON:                   /* Receiver error reported */
+      result = ERR_COMMON;             /* Return info that an error was detected */
+      break;
+    default:
+      break;
+    }
+  }
+  *Rcv = count;                        /* Return number of received chars */
+  return result;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  COREUART_SendBlock (component AsynchroSerial)
+**     Description :
+**         Sends a block of characters to the channel.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the transmitter property is
+**         enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of data to send
+**         Size            - Size of the block
+**       * Snd             - Pointer to number of data that are sent
+**                           (moved to buffer)
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_TXFULL - It was not possible to send
+**                           requested number of bytes
+** ===================================================================
+*/
+byte COREUART_SendBlock(COREUART_TComData *Ptr, word Size, word *Snd)
+{
+  word count = 0x00U;                  /* Number of sent chars */
+  COREUART_TComData *TmpPtr = Ptr;     /* Temporary output buffer pointer */
+  bool tmpOnFreeTxBufSemaphore = OnFreeTxBufSemaphore; /* Local copy of OnFreeTxBufSemaphore state */
+
+  while ((count < Size) && (COREUART_OutLen < COREUART_OUT_BUF_SIZE)) { /* While there is some char desired to send left and output buffer is not full do */
+    EnterCritical();                   /* Enter the critical section */
+    OnFreeTxBufSemaphore = TRUE;       /* Set the OnFreeTxBufSemaphore to block OnFreeTxBuf calling */
+    COREUART_OutLen++;                 /* Increase number of bytes in the transmit buffer */
+    OutBuffer[OutIndexW++] = *TmpPtr++; /* Store char to buffer */
+    if (OutIndexW >= COREUART_OUT_BUF_SIZE) { /* Is the index out of the transmit buffer? */
+      OutIndexW = 0x00U;               /* Set index to the first item in the transmit buffer */
+    }
+    count++;                           /* Increase the count of sent data */
+    if ((count == Size) || (COREUART_OutLen == COREUART_OUT_BUF_SIZE)) { /* Is the last desired char put into buffer or the buffer is full? */
+      if (!tmpOnFreeTxBufSemaphore) {  /* Was the OnFreeTxBufSemaphore clear before enter the method? */
+        OnFreeTxBufSemaphore = FALSE;  /* If yes then clear the OnFreeTxBufSemaphore */
+      }
+    }
+    if ((EnUser) && ((SerFlag & RUNINT_FROM_TX) == 0U)) { /* Is the device enabled by user? */
+      SerFlag |= RUNINT_FROM_TX;       /* Set flag "running int from TX"? */
+      (void)ASerialLdd2_SendBlock(ASerialLdd2_DeviceDataPtr, (LDD_TData *)&OutBuffer[OutIndexR], 1U); /* Send one data byte */
+    }
+    ExitCritical();                    /* Exit the critical section */
+  }
+  *Snd = count;                        /* Return number of sent chars */
+  if (count != Size) {                 /* Is the number of sent chars less then desired number of chars */
+    return ERR_TXFULL;                 /* If yes then error */
+  }
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  COREUART_ClearRxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the receive buffer.
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_ClearRxBuf(void)
+{
+  EnterCritical();                     /* Disable global interrupts */
+  COREUART_InpLen = 0x00U;             /* Set number of chars in the transmit buffer to 0 */
+  InpIndexW = 0x00U;                   /* Set index on the first item in the transmit buffer */
+  InpIndexR = 0x00U;
+  ExitCritical();                      /* Enable global interrupts */
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  COREUART_ClearTxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the transmit buffer.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the receiver property is
+**         enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_ClearTxBuf(void)
+{
+  EnterCritical();                     /* Disable global interrupts */
+  COREUART_OutLen = 0x00U;             /* Set number of chars in the receive buffer to 0 */
+  OutIndexW = 0x00U;                   /* Set index on the first item in the receive buffer */
+  OutIndexR = 0x00U;
+  ExitCritical();                      /* Enable global interrupts */
   return ERR_OK;                       /* OK */
 }
 
@@ -250,8 +497,7 @@ byte COREUART_SendChar(COREUART_TComData Chr)
 */
 word COREUART_GetCharsInRxBuf(void)
 {
-  ASerialLdd2_Main(ASerialLdd2_DeviceDataPtr);
-  return (word)ASerialLdd2_GetReceivedDataNum(ASerialLdd2_DeviceDataPtr); /* Return number of chars in the receive buffer */
+  return COREUART_InpLen;              /* Return number of chars in receive buffer */
 }
 
 /*
@@ -269,8 +515,7 @@ word COREUART_GetCharsInRxBuf(void)
 */
 word COREUART_GetCharsInTxBuf(void)
 {
-  ASerialLdd2_Main(ASerialLdd2_DeviceDataPtr);
-  return ((word)(ASerialLdd2_GetSentDataNum(ASerialLdd2_DeviceDataPtr) != 0x00U) ? 0U:1U); /* Return number of chars in the transmit buffer */
+  return COREUART_OutLen;              /* Return number of chars in the transmitter buffer */
 }
 
 /*
@@ -287,8 +532,127 @@ word COREUART_GetCharsInTxBuf(void)
 void COREUART_Init(void)
 {
   SerFlag = 0x00U;                     /* Reset flags */
+  EnUser = FALSE;                      /* Disable device */
+  COREUART_InpLen = 0x00U;             /* No char in the receive buffer */
+  InpIndexR = 0x00U;                   /* Set index on the first item in the receive buffer */
+  InpIndexW = 0x00U;
+  COREUART_OutLen = 0x00U;             /* No char in the transmit buffer */
+  OutIndexR = 0x00U;                   /* Set index on the first item in the transmit buffer */
+  OutIndexW = 0x00U;
   ASerialLdd2_DeviceDataPtr = ASerialLdd2_Init(NULL); /* Calling init method of the inherited component */
   HWEnDi();                            /* Enable/disable device according to status flags */
+}
+
+#define ON_ERROR    0x01U
+#define ON_FULL_RX  0x02U
+#define ON_RX_CHAR  0x04U
+/*
+** ===================================================================
+**     Method      :  COREUART_ASerialLdd2_OnBlockReceived (component AsynchroSerial)
+**
+**     Description :
+**         This event is called when the requested number of data is 
+**         moved to the input buffer.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd2_OnBlockReceived(LDD_TUserData *UserDataPtr)
+{
+  register byte Flags = 0U;            /* Temporary variable for flags */
+
+  (void)UserDataPtr;                   /* Parameter is not used, suppress unused argument warning */
+  if (COREUART_InpLen < COREUART_INP_BUF_SIZE) { /* Is number of bytes in the receive buffer lower than size of buffer? */
+    COREUART_InpLen++;                 /* Increase number of chars in the receive buffer */
+    InpBuffer[InpIndexW++] = (COREUART_TComData)BufferRead; /* Save received char to the receive buffer */
+    if (InpIndexW >= COREUART_INP_BUF_SIZE) { /* Is the index out of the receive buffer? */
+      InpIndexW = 0x00U;               /* Set index on the first item into the receive buffer */
+    }
+    Flags |= ON_RX_CHAR;               /* If yes then set the OnRxChar flag */
+    if (COREUART_InpLen == COREUART_INP_BUF_SIZE) { /* Is number of bytes in the receive buffer equal to the size of buffer? */
+      Flags |= ON_FULL_RX;             /* Set flag "OnFullRxBuf" */
+    }
+  } else {
+    SerFlag |= FULL_RX;                /* Set flag "full RX buffer" */
+    Flags |= ON_ERROR;                 /* Set the OnError flag */
+  }
+  if ((Flags & ON_ERROR) != 0U) {      /* Is any error flag set? */
+    COREUART_OnError();                /* Invoke user event */
+  } else {
+    if ((Flags & ON_RX_CHAR) != 0U) {  /* Is OnRxChar flag set? */
+      COREUART_OnRxChar();             /* Invoke user event */
+    }
+    if ((Flags & ON_FULL_RX) != 0U) {  /* Is OnTxChar flag set? */
+      COREUART_OnFullRxBuf();          /* Invoke user event */
+    }
+  }
+  (void)ASerialLdd2_ReceiveBlock(ASerialLdd2_DeviceDataPtr, &BufferRead, 1U); /* Receive one data byte */
+}
+
+#define ON_FREE_TX  0x01U
+#define ON_TX_CHAR  0x02U
+/*
+** ===================================================================
+**     Method      :  COREUART_ASerialLdd2_OnBlockSent (component AsynchroSerial)
+**
+**     Description :
+**         This event is called after the last character from the output 
+**         buffer is moved to the transmitter.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd2_OnBlockSent(LDD_TUserData *UserDataPtr)
+{
+  word OnFlags = 0x00U;                /* Temporary variable for flags */
+
+  (void)UserDataPtr;                   /* Parameter is not used, suppress unused argument warning */
+  if ((SerFlag & RUNINT_FROM_TX) != 0U) { /* Is flag "running int from TX" set? */
+    OnFlags |= ON_TX_CHAR;             /* Set flag "OnTxChar" */
+  }
+  OutIndexR++;
+  if (OutIndexR >= COREUART_OUT_BUF_SIZE) { /* Is the index out of the transmit buffer? */
+    OutIndexR = 0x00U;                 /* Set index on the first item into the transmit buffer */
+  }
+  COREUART_OutLen--;                   /* Decrease number of chars in the transmit buffer */
+  if (COREUART_OutLen != 0U) {         /* Is number of bytes in the transmit buffer greater then 0? */
+    SerFlag |= RUNINT_FROM_TX;         /* Set flag "running int from TX"? */
+    (void)ASerialLdd2_SendBlock(ASerialLdd2_DeviceDataPtr, (LDD_TData *)&OutBuffer[OutIndexR], 1U); /* Send one data byte */
+  } else {
+    SerFlag &= (byte)~(RUNINT_FROM_TX); /* Clear "running int from TX" and "full TX buff" flags */
+    if (!(OnFreeTxBufSemaphore)) {     /* Is the OnFreeTXBuf flag blocked ?*/
+      OnFlags |= ON_FREE_TX;           /* If not, set the OnFreeTxBuf flag */
+    }
+  }
+  if ((OnFlags & ON_TX_CHAR) != 0x00U) { /* Is flag "OnTxChar" set? */
+    COREUART_OnTxChar();               /* If yes then invoke user event */
+  }
+  if ((OnFlags & ON_FREE_TX) != 0x00U) { /* Is flag "OnFreeTxBuf" set? */
+    COREUART_OnFreeTxBuf();            /* If yes then invoke user event */
+  }
+}
+
+/*
+** ===================================================================
+**     Method      :  COREUART_ASerialLdd2_OnError (component AsynchroSerial)
+**
+**     Description :
+**         This event is called when a channel error (not the error 
+**         returned by a given method) occurs.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd2_OnError(LDD_TUserData *UserDataPtr)
+{
+  LDD_SERIAL_TError SerialErrorMask;   /* Serial error mask variable */
+
+  (void)UserDataPtr;                   /* Parameter is not used, suppress unused argument warning */
+  (void)ASerialLdd2_GetError(ASerialLdd2_DeviceDataPtr, &SerialErrorMask); /* Get error state */
+  if (SerialErrorMask != 0U) {
+    SerFlag |= (((SerialErrorMask & LDD_SERIAL_PARITY_ERROR) != 0U ) ? PARITY_ERR : 0U);
+    SerFlag |= (((SerialErrorMask & LDD_SERIAL_NOISE_ERROR) != 0U ) ? NOISE_ERR : 0U);
+    SerFlag |= (((SerialErrorMask & LDD_SERIAL_RX_OVERRUN) != 0U ) ? OVERRUN_ERR : 0U);
+    SerFlag |= (((SerialErrorMask & LDD_SERIAL_FRAMING_ERROR) != 0U ) ? FRAMING_ERR : 0U);
+  }
+  COREUART_OnError();                  /* Invoke user event */
 }
 
 /*

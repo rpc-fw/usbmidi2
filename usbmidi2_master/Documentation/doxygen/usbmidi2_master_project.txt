@@ -22,12 +22,14 @@
 <br/>
 
 \page page_components Components 
-- \subpage PTB
 - \subpage PTC
 - \subpage ASerialLdd1
 - \subpage ASerialLdd2
 - \subpage PTE
 - \subpage USB0
+- \subpage BitIoLdd1
+- \subpage PTD
+- \subpage SlaveReset
 
 */
 

@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-08, 19:07, # CodeGen: 0
+**     Date/Time   : 2015-05-10, 11:18, # CodeGen: 42
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -22,14 +22,20 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 0
-**             Output buffer size      : 0
+**             Input buffer size       : 256
+**             Output buffer size      : 256
 **
 **         Registers
 **             Input buffer            : UART0_D   [0x4006A007]
 **             Output buffer           : UART0_D   [0x4006A007]
 **
+**         Input interrupt
+**             Vector name             : INT_UART0
+**             Priority                : 2
 **
+**         Output interrupt
+**             Vector name             : INT_UART0
+**             Priority                : 2
 **
 **         Used pins:
 **         ----------------------------------------------------------
@@ -42,8 +48,14 @@
 **
 **
 **     Contents    :
+**         Enable          - byte COREUART_Enable(void);
+**         Disable         - byte COREUART_Disable(void);
 **         RecvChar        - byte COREUART_RecvChar(COREUART_TComData *Chr);
 **         SendChar        - byte COREUART_SendChar(COREUART_TComData Chr);
+**         RecvBlock       - byte COREUART_RecvBlock(COREUART_TComData *Ptr, word Size, word *Rcv);
+**         SendBlock       - byte COREUART_SendBlock(COREUART_TComData *Ptr, word Size, word *Snd);
+**         ClearRxBuf      - byte COREUART_ClearRxBuf(void);
+**         ClearTxBuf      - byte COREUART_ClearTxBuf(void);
 **         GetCharsInRxBuf - word COREUART_GetCharsInRxBuf(void);
 **         GetCharsInTxBuf - word COREUART_GetCharsInTxBuf(void);
 **
@@ -131,6 +143,43 @@ extern "C" {
   typedef byte COREUART_TComData;      /* User type for communication. Size of this type depends on the communication data witdh */
 #endif
 
+#define COREUART_INP_BUF_SIZE  0x0100U /* Length of the RX buffer */
+
+#define COREUART_OUT_BUF_SIZE  0x0100U /* Length of the TX buffer */
+
+/*
+** ===================================================================
+**     Method      :  COREUART_Enable (component AsynchroSerial)
+**     Description :
+**         Enables the component - it starts the send and receive
+**         functions. Events may be generated
+**         ("DisableEvent"/"EnableEvent").
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_Enable(void);
+
+/*
+** ===================================================================
+**     Method      :  COREUART_Disable (component AsynchroSerial)
+**     Description :
+**         Disables the component - it stops the send and receive
+**         functions. No events will be generated.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_Disable(void);
+
 /*
 ** ===================================================================
 **     Method      :  COREUART_RecvChar (component AsynchroSerial)
@@ -191,6 +240,100 @@ byte COREUART_SendChar(COREUART_TComData Chr);
 
 /*
 ** ===================================================================
+**     Method      :  COREUART_RecvBlock (component AsynchroSerial)
+**     Description :
+**         If any data is received, this method returns the block of
+**         the data and its length (and incidental error), otherwise it
+**         returns an error code (it does not wait for data).
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**         If less than requested number of characters is received only
+**         the available data is copied from the receive buffer to the
+**         user specified destination. The value ERR_EXEMPTY is
+**         returned and the value of variable pointed by the Rcv
+**         parameter is set to the number of received characters.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of received data
+**         Size            - Size of the block
+**       * Rcv             - Pointer to real number of the received data
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_RXEMPTY - The receive buffer didn't
+**                           contain the requested number of data. Only
+**                           available data has been returned.
+**                           ERR_COMMON - common error occurred (the
+**                           GetError method can be used for error
+**                           specification)
+** ===================================================================
+*/
+byte COREUART_RecvBlock(COREUART_TComData *Ptr,word Size,word *Rcv);
+
+/*
+** ===================================================================
+**     Method      :  COREUART_SendBlock (component AsynchroSerial)
+**     Description :
+**         Sends a block of characters to the channel.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the transmitter property is
+**         enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of data to send
+**         Size            - Size of the block
+**       * Snd             - Pointer to number of data that are sent
+**                           (moved to buffer)
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_TXFULL - It was not possible to send
+**                           requested number of bytes
+** ===================================================================
+*/
+byte COREUART_SendBlock(COREUART_TComData *Ptr,word Size,word *Snd);
+
+/*
+** ===================================================================
+**     Method      :  COREUART_ClearRxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the receive buffer.
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_ClearRxBuf(void);
+
+/*
+** ===================================================================
+**     Method      :  COREUART_ClearTxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the transmit buffer.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the receiver property is
+**         enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_ClearTxBuf(void);
+
+/*
+** ===================================================================
 **     Method      :  COREUART_GetCharsInRxBuf (component AsynchroSerial)
 **     Description :
 **         Returns the number of characters in the input buffer. This
@@ -230,6 +373,42 @@ word COREUART_GetCharsInTxBuf(void);
 ** ===================================================================
 */
 void COREUART_Init(void);
+
+/*
+** ===================================================================
+**     Method      :  COREUART_ASerialLdd2_OnBlockReceived (component AsynchroSerial)
+**
+**     Description :
+**         This event is called when the requested number of data is 
+**         moved to the input buffer.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd2_OnBlockReceived(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  COREUART_ASerialLdd2_OnBlockSent (component AsynchroSerial)
+**
+**     Description :
+**         This event is called after the last character from the output 
+**         buffer is moved to the transmitter.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd2_OnBlockSent(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  COREUART_ASerialLdd2_OnError (component AsynchroSerial)
+**
+**     Description :
+**         This event is called when a channel error (not the error 
+**         returned by a given method) occurs.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void ASerialLdd2_OnError(LDD_TUserData *UserDataPtr);
 
 /*
 ** ===================================================================

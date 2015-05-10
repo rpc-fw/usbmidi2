@@ -34,7 +34,6 @@
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
-#include "PTB.h"
 #include "PTC.h"
 #include "MIDIUART1.h"
 #include "ASerialLdd1.h"
@@ -43,7 +42,14 @@
 #include "PTE.h"
 #include "BBA1.h"
 #include "USB0.h"
+#include "LED1.h"
+#include "LEDpin1.h"
+#include "BitIoLdd1.h"
 #include "WAIT1.h"
+#include "PTD.h"
+#include "SlaveReset.h"
+#include "KIN1.h"
+#include "UTIL1.h"
 #include "UsbMidiTx.h"
 #include "UsbMidiRx.h"
 
@@ -142,6 +148,82 @@ void MIDIUART1_OnFullRxBuf(void);
 ** ===================================================================
 */
 void MIDIUART1_OnFreeTxBuf(void);
+
+/*
+** ===================================================================
+**     Event       :  COREUART_OnError (module Events)
+**
+**     Component   :  COREUART [AsynchroSerial]
+**     Description :
+**         This event is called when a channel error (not the error
+**         returned by a given method) occurs. The errors can be read
+**         using <GetError> method.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void COREUART_OnError(void);
+
+/*
+** ===================================================================
+**     Event       :  COREUART_OnRxChar (module Events)
+**
+**     Component   :  COREUART [AsynchroSerial]
+**     Description :
+**         This event is called after a correct character is received.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled and either the <Receiver>
+**         property is enabled or the <SCI output mode> property (if
+**         supported) is set to Single-wire mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void COREUART_OnRxChar(void);
+
+/*
+** ===================================================================
+**     Event       :  COREUART_OnTxChar (module Events)
+**
+**     Component   :  COREUART [AsynchroSerial]
+**     Description :
+**         This event is called after a character is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void COREUART_OnTxChar(void);
+
+/*
+** ===================================================================
+**     Event       :  COREUART_OnFullRxBuf (module Events)
+**
+**     Component   :  COREUART [AsynchroSerial]
+**     Description :
+**         This event is called when the input buffer is full;
+**         i.e. after reception of the last character 
+**         that was successfully placed into input buffer.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void COREUART_OnFullRxBuf(void);
+
+/*
+** ===================================================================
+**     Event       :  COREUART_OnFreeTxBuf (module Events)
+**
+**     Component   :  COREUART [AsynchroSerial]
+**     Description :
+**         This event is called after the last character in output
+**         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void COREUART_OnFreeTxBuf(void);
 
 /* END Events */
 

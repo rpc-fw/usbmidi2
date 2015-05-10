@@ -5,7 +5,7 @@
 **     Processor   : MKL26Z128VFM4
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-04, 23:10, # CodeGen: 23
+**     Date/Time   : 2015-05-10, 11:18, # CodeGen: 42
 **     Abstract    :
 **
 **     Settings    :
@@ -54,7 +54,6 @@
 */         
 
   #include "Cpu.h"
-  #include "PTB.h"
   #include "PTC.h"
   #include "MIDIUART1.h"
   #include "ASerialLdd1.h"
@@ -62,10 +61,17 @@
   #include "ASerialLdd2.h"
   #include "PTE.h"
   #include "BBA1.h"
-  #include "WAIT1.h"
   #include "UsbMidiTx.h"
   #include "UsbMidiRx.h"
   #include "USB0.h"
+  #include "LED1.h"
+  #include "LEDpin1.h"
+  #include "BitIoLdd1.h"
+  #include "WAIT1.h"
+  #include "PTD.h"
+  #include "SlaveReset.h"
+  #include "KIN1.h"
+  #include "UTIL1.h"
   #include "Events.h"
 
 
@@ -113,7 +119,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x19  0x00000064   -   ivINT_I2C1                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1A  0x00000068   -   ivINT_SPI0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1B  0x0000006C   -   ivINT_SPI1                    unused by PE */
-    (tIsrFunc)&Cpu_Interrupt,          /* 0x1C  0x00000070   -   ivINT_UART0                   unused by PE */
+    (tIsrFunc)&ASerialLdd2_Interrupt,  /* 0x1C  0x00000070   2   ivINT_UART0                   used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1D  0x00000074   -   ivINT_UART1                   unused by PE */
     (tIsrFunc)&ASerialLdd1_Interrupt,  /* 0x1E  0x00000078   2   ivINT_UART2                   used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1F  0x0000007C   -   ivINT_ADC0                    unused by PE */

@@ -3,6 +3,7 @@
 	<name>usbmidi2_master</name>
 	<comment></comment>
 	<projects>
+		<project>midiflashlib</project>
 		<project>usbmidilib</project>
 	</projects>
 	<buildSpec>

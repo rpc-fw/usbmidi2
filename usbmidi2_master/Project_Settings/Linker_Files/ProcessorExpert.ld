@@ -10,7 +10,7 @@
 /*##                                   */
 /*##     Compiler  : GNU C Compiler    */
 /*##                                   */
-/*##     Date/Time : 2015-02-08, 22:19, # CodeGen: 10 */
+/*##     Date/Time : 2015-04-21, 21:23, # CodeGen: 33 */
 /*##                                   */
 /*##     Abstract  :                   */
 /*##                                   */
@@ -36,10 +36,11 @@ __heap_size = 0x00;                    /* required amount of heap  */
 __stack_size = 0x0400;                 /* required amount of stack */
 
 MEMORY {
-  m_interrupts (RX) : ORIGIN = 0x00000000, LENGTH = 0x000000C0
-  m_text      (RX) : ORIGIN = 0x00000410, LENGTH = 0x0001FBF0
+  m_interrupts (RX) : ORIGIN = 0x00004000, LENGTH = 0x000000C0
+  m_text      (RX) : ORIGIN = 0x00004410, LENGTH = 0x0001BBF0
   m_data      (RW) : ORIGIN = 0x1FFFF000, LENGTH = 0x00004000
-  m_cfmprotrom  (RX) : ORIGIN = 0x00000400, LENGTH = 0x00000010
+  m_buildid   (R) : ORIGIN = 0x00004400, LENGTH = 0x00000010
+/*  m_cfmprotrom  (RX) : ORIGIN = 0x00000400, LENGTH = 0x00000010 */
 }
 
 /* Define output sections */
@@ -54,12 +55,21 @@ SECTIONS
     . = ALIGN(4);
   } > m_interrupts
 
-  .cfmprotect :
+/*  .cfmprotect :
   {
     . = ALIGN(4);
-	KEEP(*(.cfmconfig))	/* Flash Configuration Field (FCF) */
+	KEEP(*(.cfmconfig))
 	. = ALIGN(4);
-  } > m_cfmprotrom
+  } > m_cfmprotrom */
+  /* Build id goes into INTERNAL_FLASH */
+  
+  .buildid :
+  {
+    __buildid = .;
+    . = ALIGN(4);
+    KEEP(*(.buildid)) /* Startup code */
+    . = ALIGN(4);
+  } > m_buildid
   
   /* The program code and other data goes into INTERNAL_FLASH */
   .text :

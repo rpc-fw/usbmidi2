@@ -447,6 +447,8 @@ uint_8 USB_DCI_Init (
     /* Asynchronous Resume Interrupt Enable */
     USB0_USBTRC0 |= 0x40;
 
+    SIM_SOPT1CFG |= SIM_SOPT1CFG_URWE_MASK;
+
     if(bVregEn)
     {
     	SIM_SOPT1 |= SIM_SOPT1_USBREGEN_MASK;	// enable usb voltage regulator
@@ -455,6 +457,8 @@ uint_8 USB_DCI_Init (
     {
     	SIM_SOPT1 &= ~SIM_SOPT1_USBREGEN_MASK;	// disable usb voltage regulator
     }
+
+    SIM_SOPT1CFG &= ~SIM_SOPT1CFG_URWE_MASK;
 
     /* Set the BDT Table address, Need to be on 512 byte boundary */
     /* D8 Bit is masked in BDT_PAGE_01 */

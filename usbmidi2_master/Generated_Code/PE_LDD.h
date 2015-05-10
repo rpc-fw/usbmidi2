@@ -5,7 +5,7 @@
 **     Processor   : MKL26Z128VFM4
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-12, 22:09, # CodeGen: 16
+**     Date/Time   : 2015-04-27, 15:28, # CodeGen: 35
 **     Abstract    :
 **
 **     Settings    :
@@ -60,7 +60,6 @@
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
-#include "PTB.h"
 #include "PTC.h"
 #include "MIDIUART1.h"
 #include "ASerialLdd1.h"
@@ -68,10 +67,17 @@
 #include "ASerialLdd2.h"
 #include "PTE.h"
 #include "BBA1.h"
-#include "WAIT1.h"
 #include "UsbMidiTx.h"
 #include "UsbMidiRx.h"
 #include "USB0.h"
+#include "LED1.h"
+#include "LEDpin1.h"
+#include "BitIoLdd1.h"
+#include "WAIT1.h"
+#include "PTD.h"
+#include "SlaveReset.h"
+#include "KIN1.h"
+#include "UTIL1.h"
 
 
 /*

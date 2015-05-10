@@ -4,24 +4,34 @@
 **     Project     : usbmidi2_master
 **     Processor   : MKL26Z128VFM4
 **     Component   : Wait
-**     Version     : Component 01.057, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.067, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-08, 22:11, # CodeGen: 9
+**     Date/Time   : 2015-03-28, 17:17, # CodeGen: 27
 **     Abstract    :
-**
+**          Implements busy waiting routines.
 **     Settings    :
-**
+**          Component name                                 : WAIT1
+**          Manual Clock Values                            : Enabled
+**            CPU_BUS_CLK_HZ                               : 24000000
+**            CPU_BUS_CLK_HZ_HIGH                          : 24000000
+**            CPU_BUS_CLK_HZ_LOW                           : 24000000
+**            CPU_BUS_CLK_HZ_SLOW                          : 24000000
+**          Delay100usFunction                             : Delay100US
+**          RTOS                                           : Disabled
+**          Watchdog                                       : Disabled
 **     Contents    :
-**         Wait10Cycles  - void WAIT1_Wait10Cycles(void);
-**         Wait100Cycles - void WAIT1_Wait100Cycles(void);
-**         WaitCycles    - void WAIT1_WaitCycles(word cycles);
-**         Waitms        - void WAIT1_Waitms(word ms);
-**         Waitus        - void WAIT1_Waitus(word us);
-**         Waitns        - void WAIT1_Waitns(word ns);
-**         WaitOSms      - void WAIT1_WaitOSms(void);
+**         Wait10Cycles   - void WAIT1_Wait10Cycles(void);
+**         Wait100Cycles  - void WAIT1_Wait100Cycles(void);
+**         WaitCycles     - void WAIT1_WaitCycles(uint16_t cycles);
+**         WaitLongCycles - void WAIT1_WaitLongCycles(uint32_t cycles);
+**         Waitms         - void WAIT1_Waitms(uint16_t ms);
+**         Waitus         - void WAIT1_Waitus(uint16_t us);
+**         Waitns         - void WAIT1_Waitns(uint16_t ns);
+**         WaitOSms       - void WAIT1_WaitOSms(void);
 **
-**     License   :  Open Source (LGPL)
-**     Copyright : (c) Copyright Erich Styger, 2012, all rights reserved.
+**     License   : Open Source (LGPL)
+**     Copyright : Erich Styger, 2013-2014, all rights reserved.
+**     Web       : www.mcuoneclipse.com
 **     This an open source software implementing waiting routines using Processor Expert.
 **     This is a free software and is opened for education,  research  and commercial developments under license policy of following terms:
 **     * This is a free software and there is NO WARRANTY.
@@ -32,7 +42,7 @@
 ** @file WAIT1.h
 ** @version 01.00
 ** @brief
-**
+**          Implements busy waiting routines.
 */         
 /*!
 **  @addtogroup WAIT1_module WAIT1 module documentation
@@ -53,7 +63,24 @@
 
 #include "Cpu.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
+#undef CPU_BUS_CLK_HZ                        /* if already defined in "Cpu.h" */
+#define CPU_BUS_CLK_HZ          24000000UL   /*!< CPU clock frequency (normal operation) */
+
+#undef CPU_BUS_CLK_HZ_HIGH                   /* if already defined in "Cpu.h" */
+#define CPU_BUS_CLK_HZ_HIGH     24000000UL   /*!< CPU clock frequency in high speed mode */
+
+#undef CPU_BUS_CLK_HZ_SLOW                   /* if already defined in "Cpu.h" */
+#define CPU_BUS_CLK_HZ_SLOW     24000000UL   /*!< CPU clock frequency in low speed mode */
+
+#undef CPU_BUS_CLK_HZ_LOW                    /* if already defined in "Cpu.h" */
+#define CPU_BUS_CLK_HZ_LOW      24000000UL   /*!< CPU clock frequency in slow speed mode */
+
+
+#define WAIT1_INSTR_CLOCK_HZ       CPU_CORE_CLK_HZ /* for Kinetis, use core clock as base for instruction execution */
 #define WAIT1_NofCyclesMs(ms, hz)  ((ms)*((hz)/1000)) /* calculates the needed cycles based on bus clock frequency */
 #define WAIT1_NofCyclesUs(us, hz)  ((us)*(((hz)/1000)/1000)) /* calculates the needed cycles based on bus clock frequency */
 #define WAIT1_NofCyclesNs(ns, hz)  (((ns)*(((hz)/1000)/1000))/1000) /* calculates the needed cycles based on bus clock frequency */
@@ -62,7 +89,7 @@
 #define WAIT1_WAIT_C(cycles) \
      ( (cycles)<=10 ? \
           WAIT1_Wait10Cycles() \
-        : WAIT1_WaitCycles((word)cycles) \
+        : WAIT1_WaitCycles((uint16_t)cycles) \
       )                                      /*!< wait for some cycles */
 
 
@@ -71,7 +98,7 @@ void WAIT1_Wait10Cycles(void);
 ** ===================================================================
 **     Method      :  WAIT1_Wait10Cycles (component Wait)
 **     Description :
-**         Wait for approximately 10 CPU cycles.
+**         Wait for 10 CPU cycles.
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================
@@ -88,12 +115,12 @@ void WAIT1_Wait100Cycles(void);
 ** ===================================================================
 */
 
-void WAIT1_WaitCycles(word cycles);
+void WAIT1_WaitCycles(uint16_t cycles);
 /*
 ** ===================================================================
 **     Method      :  WAIT1_WaitCycles (component Wait)
 **     Description :
-**         Wait for 100 CPU cycles.
+**         Wait for a specified number of CPU cycles (16bit data type).
 **     Parameters  :
 **         NAME            - DESCRIPTION
 **         cycles          - The number of cycles to wait.
@@ -101,7 +128,7 @@ void WAIT1_WaitCycles(word cycles);
 ** ===================================================================
 */
 
-void WAIT1_Waitms(word ms);
+void WAIT1_Waitms(uint16_t ms);
 /*
 ** ===================================================================
 **     Method      :  WAIT1_Waitms (component Wait)
@@ -117,11 +144,11 @@ void WAIT1_Waitms(word ms);
 
 /* we are having a static clock configuration: implement as macro/inlined version */
 #define WAIT1_Waitus(us)  \
-       (  ((WAIT1_NofCyclesUs((us),CPU_BUS_CLK_HZ)==0)||(us)==0) ? \
+       (  ((WAIT1_NofCyclesUs((us),WAIT1_INSTR_CLOCK_HZ)==0)||(us)==0) ? \
           (void)0 : \
-          ( ((us)/1000)==0 ? (void)0 : WAIT1_Waitms((word)((us)/1000))) \
-          , (WAIT1_NofCyclesUs(((us)%1000), CPU_BUS_CLK_HZ)==0) ? (void)0 : \
-            WAIT1_WAIT_C(WAIT1_NofCyclesUs(((us)%1000), CPU_BUS_CLK_HZ)) \
+          ( ((us)/1000)==0 ? (void)0 : WAIT1_Waitms((uint16_t)((us)/1000))) \
+          , (WAIT1_NofCyclesUs(((us)%1000), WAIT1_INSTR_CLOCK_HZ)==0) ? (void)0 : \
+            WAIT1_WAIT_C(WAIT1_NofCyclesUs(((us)%1000), WAIT1_INSTR_CLOCK_HZ)) \
        )
 /*
 ** ===================================================================
@@ -138,12 +165,12 @@ void WAIT1_Waitms(word ms);
 
 /* we are having a static clock configuration: implement as macro/inlined version */
 #define WAIT1_Waitns(ns)  \
-       (  ((WAIT1_NofCyclesNs((ns), CPU_BUS_CLK_HZ)==0)||(ns)==0) ? \
+       (  ((WAIT1_NofCyclesNs((ns), WAIT1_INSTR_CLOCK_HZ)==0)||(ns)==0) ? \
           (void)0 : \
           WAIT1_Waitus((ns)/1000) \
-          , (WAIT1_NofCyclesNs((ns)%1000, CPU_BUS_CLK_HZ)==0) ? \
+          , (WAIT1_NofCyclesNs((ns)%1000, WAIT1_INSTR_CLOCK_HZ)==0) ? \
               (void)0 : \
-              WAIT1_WAIT_C(WAIT1_NofCyclesNs(((ns)%1000), CPU_BUS_CLK_HZ)) \
+              WAIT1_WAIT_C(WAIT1_NofCyclesNs(((ns)%1000), WAIT1_INSTR_CLOCK_HZ)) \
        )
 /*
 ** ===================================================================
@@ -166,6 +193,23 @@ void WAIT1_Waitms(word ms);
 **         If an RTOS is enabled, this routine will use a non-blocking
 **         wait method. Otherwise it will do a busy/blocking wait.
 **     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+#ifdef __cplusplus
+}  /* extern "C" */
+#endif
+
+void WAIT1_WaitLongCycles(uint32_t cycles);
+/*
+** ===================================================================
+**     Method      :  WAIT1_WaitLongCycles (component Wait)
+**     Description :
+**         Wait for a specified number of CPU cycles (32bit data type).
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         cycles          - The number of cycles to wait.
 **     Returns     : Nothing
 ** ===================================================================
 */

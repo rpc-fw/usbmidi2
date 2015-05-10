@@ -30,7 +30,6 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
-#include "PTB.h"
 #include "PTC.h"
 #include "MIDIUART1.h"
 #include "ASerialLdd1.h"
@@ -39,7 +38,14 @@
 #include "PTE.h"
 #include "BBA1.h"
 #include "USB0.h"
+#include "LED1.h"
+#include "LEDpin1.h"
+#include "BitIoLdd1.h"
 #include "WAIT1.h"
+#include "PTD.h"
+#include "SlaveReset.h"
+#include "KIN1.h"
+#include "UTIL1.h"
 #include "UsbMidiTx.h"
 #include "UsbMidiRx.h"
 /* Including shared modules, which are used for whole project */
@@ -50,6 +56,21 @@
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "usb/USB1.h"
 #include "usb/USBMIDI1.h"
+
+void usb_run(void);
+
+struct buildid_t {
+	uint32_t id;
+	uint32_t payload_hash;
+	void* payload_start;
+	uint32_t payload_size;
+};
+
+__attribute__ ((section (".buildid")))
+const struct buildid_t __buildid = {
+		.id = 0x55aa5a5f,
+		.payload_hash = 0xdeadbeef,
+};
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
@@ -62,7 +83,7 @@ int main(void)
   /*** End of Processor Expert internal initialization.                    ***/
 
   /* Write your code here */
-  USBMIDI1_Init();
+  USBMIDI1_Init(1);
   USB1_usb_int_en();
   usb_run();
 

@@ -7,7 +7,7 @@
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL26P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-12, 22:09, # CodeGen: 16
+**     Date/Time   : 2015-04-30, 22:15, # CodeGen: 38
 **     Abstract    :
 **
 **     Settings    :
@@ -60,7 +60,6 @@
 /* MODULE Cpu. */
 
 /* {Bareboard RTOS Adapter} No RTOS includes */
-#include "PTB.h"
 #include "PTC.h"
 #include "MIDIUART1.h"
 #include "ASerialLdd1.h"
@@ -68,10 +67,17 @@
 #include "ASerialLdd2.h"
 #include "PTE.h"
 #include "BBA1.h"
-#include "WAIT1.h"
 #include "UsbMidiTx.h"
 #include "UsbMidiRx.h"
 #include "USB0.h"
+#include "LED1.h"
+#include "LEDpin1.h"
+#include "BitIoLdd1.h"
+#include "WAIT1.h"
+#include "PTD.h"
+#include "SlaveReset.h"
+#include "KIN1.h"
+#include "UTIL1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -272,20 +278,6 @@ void PE_low_level_init(void)
   /* SMC_PMPROT: ??=0,??=0,AVLP=0,??=0,ALLS=0,??=0,AVLLS=0,??=0 */
   SMC_PMPROT = 0x00U;                  /* Setup Power mode protection register */
   /* Common initialization of the CPU registers */
-  /* PORTB_PCR0: ISF=0,MUX=1 */
-  PORTB_PCR0 = (uint32_t)((PORTB_PCR0 & (uint32_t)~(uint32_t)(
-                PORT_PCR_ISF_MASK |
-                PORT_PCR_MUX(0x06)
-               )) | (uint32_t)(
-                PORT_PCR_MUX(0x01)
-               ));
-  /* PORTB_PCR1: ISF=0,MUX=1 */
-  PORTB_PCR1 = (uint32_t)((PORTB_PCR1 & (uint32_t)~(uint32_t)(
-                PORT_PCR_ISF_MASK |
-                PORT_PCR_MUX(0x06)
-               )) | (uint32_t)(
-                PORT_PCR_MUX(0x01)
-               ));
   /* PORTC_PCR5: ISF=0,MUX=1,PE=1,PS=1 */
   PORTC_PCR5 = (uint32_t)((PORTC_PCR5 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
@@ -331,6 +323,13 @@ void PE_low_level_init(void)
                ));
   /* NVIC_IPR6: PRI_24=0 */
   NVIC_IPR6 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_24(0xFF));
+  /* PORTD_PCR6: ISF=0,PE=1,PS=0 */
+  PORTD_PCR6 = (uint32_t)((PORTD_PCR6 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_PS_MASK
+               )) | (uint32_t)(
+                PORT_PCR_PE_MASK
+               ));
   /* PORTC_PCR3: ISF=0,MUX=5 */
   PORTC_PCR3 = (uint32_t)((PORTC_PCR3 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
@@ -346,10 +345,6 @@ void PE_low_level_init(void)
                 ));
   /* NVIC_IPR1: PRI_6=0 */
   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));
-  /* ### Init_GPIO "PTB" init code ... */
-  PTB_Init();
-
-
   /* ### Init_GPIO "PTC" init code ... */
   PTC_Init();
 
@@ -370,6 +365,22 @@ void PE_low_level_init(void)
   USB0_Init();
 
 
+  /* ### BitIO_LDD "BitIoLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd1_Init(NULL);
+  /* ### LED "LED1" init code ... */
+  LED1_Init(); /* initialize LED driver */
+  /* ### Init_GPIO "PTD" init code ... */
+  /* ### Call "PTD_Init();" init method in a user code, i.e. in the main code */
+
+  /* ### Note:   To enable automatic calling of the "PTD" init code here,
+                 the 'Call Init method' property must be set to 'yes'.
+   */
+
+
+  /* ### BitIO_LDD "SlaveReset" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)SlaveReset_Init(NULL);
+  /* ### KinetisTools "KIN1" init code ... */
+  /* Write code here ... */
   __EI();
 }
   /* Flash configuration field */
@@ -390,8 +401,8 @@ void PE_low_level_init(void)
     0xFFU,
    /* NV_BACKKEY4: KEY=0xFF */
     0xFFU,
-   /* NV_FPROT3: PROT=0xFF */
-    0xFFU,
+   /* NV_FPROT3: PROT=0xF0 */
+    0xF0U,
    /* NV_FPROT2: PROT=0xFF */
     0xFFU,
    /* NV_FPROT1: PROT=0xFF */

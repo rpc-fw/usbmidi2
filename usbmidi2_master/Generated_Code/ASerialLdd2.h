@@ -6,7 +6,7 @@
 **     Component   : Serial_LDD
 **     Version     : Component 01.188, Driver 01.12, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-02-08, 19:07, # CodeGen: 0
+**     Date/Time   : 2015-04-30, 23:09, # CodeGen: 39
 **     Abstract    :
 **         This component "Serial_LDD" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -17,7 +17,13 @@
 **     Settings    :
 **          Component name                                 : ASerialLdd2
 **          Device                                         : UART0
-**          Interrupt service/event                        : Disabled
+**          Interrupt service/event                        : Enabled
+**            Interrupt RxD                                : INT_UART0
+**            Interrupt RxD priority                       : medium priority
+**            Interrupt TxD                                : INT_UART0
+**            Interrupt TxD priority                       : medium priority
+**            Interrupt Error                              : INT_UART0
+**            Interrupt Error priority                     : medium priority
 **          Settings                                       : 
 **            Data width                                   : 8 bits
 **            Parity                                       : None
@@ -38,13 +44,13 @@
 **              TxD pin signal                             : 
 **            Flow control                                 : None
 **          Initialization                                 : 
-**            Enabled in init. code                        : yes
+**            Enabled in init. code                        : no
 **            Auto initialization                          : no
 **            Event mask                                   : 
-**              OnBlockSent                                : Disabled
-**              OnBlockReceived                            : Disabled
+**              OnBlockSent                                : Enabled
+**              OnBlockReceived                            : Enabled
 **              OnTxComplete                               : Disabled
-**              OnError                                    : Disabled
+**              OnError                                    : Enabled
 **              OnBreak                                    : Enabled
 **          CPU clock/configuration selection              : 
 **            Clock configuration 0                        : This component enabled
@@ -56,13 +62,12 @@
 **            Clock configuration 6                        : This component disabled
 **            Clock configuration 7                        : This component disabled
 **     Contents    :
-**         Init               - LDD_TDeviceData* ASerialLdd2_Init(LDD_TUserData *UserDataPtr);
-**         SendBlock          - LDD_TError ASerialLdd2_SendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData...
-**         ReceiveBlock       - LDD_TError ASerialLdd2_ReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData...
-**         GetError           - LDD_TError ASerialLdd2_GetError(LDD_TDeviceData *DeviceDataPtr,...
-**         GetSentDataNum     - uint16_t ASerialLdd2_GetSentDataNum(LDD_TDeviceData *DeviceDataPtr);
-**         GetReceivedDataNum - uint16_t ASerialLdd2_GetReceivedDataNum(LDD_TDeviceData *DeviceDataPtr);
-**         Main               - void ASerialLdd2_Main(LDD_TDeviceData *DeviceDataPtr);
+**         Init         - LDD_TDeviceData* ASerialLdd2_Init(LDD_TUserData *UserDataPtr);
+**         Enable       - LDD_TError ASerialLdd2_Enable(LDD_TDeviceData *DeviceDataPtr);
+**         Disable      - LDD_TError ASerialLdd2_Disable(LDD_TDeviceData *DeviceDataPtr);
+**         SendBlock    - LDD_TError ASerialLdd2_SendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData...
+**         ReceiveBlock - LDD_TError ASerialLdd2_ReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData...
+**         GetError     - LDD_TError ASerialLdd2_GetError(LDD_TDeviceData *DeviceDataPtr,...
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -129,15 +134,17 @@ extern "C" {
   
 /* Methods configuration constants - generated for all enabled component's methods */
 #define ASerialLdd2_Init_METHOD_ENABLED /*!< Init method of the component ASerialLdd2 is enabled (generated) */
+#define ASerialLdd2_Enable_METHOD_ENABLED /*!< Enable method of the component ASerialLdd2 is enabled (generated) */
+#define ASerialLdd2_Disable_METHOD_ENABLED /*!< Disable method of the component ASerialLdd2 is enabled (generated) */
 #define ASerialLdd2_SendBlock_METHOD_ENABLED /*!< SendBlock method of the component ASerialLdd2 is enabled (generated) */
 #define ASerialLdd2_ReceiveBlock_METHOD_ENABLED /*!< ReceiveBlock method of the component ASerialLdd2 is enabled (generated) */
 #define ASerialLdd2_GetError_METHOD_ENABLED /*!< GetError method of the component ASerialLdd2 is enabled (generated) */
-#define ASerialLdd2_GetSentDataNum_METHOD_ENABLED /*!< GetSentDataNum method of the component ASerialLdd2 is enabled (generated) */
-#define ASerialLdd2_GetReceivedDataNum_METHOD_ENABLED /*!< GetReceivedDataNum method of the component ASerialLdd2 is enabled (generated) */
-#define ASerialLdd2_Main_METHOD_ENABLED /*!< Main method of the component ASerialLdd2 is enabled (generated) */
 
 /* Events configuration constants - generated for all enabled component's events */
+#define ASerialLdd2_OnBlockReceived_EVENT_ENABLED /*!< OnBlockReceived event of the component ASerialLdd2 is enabled (generated) */
+#define ASerialLdd2_OnBlockSent_EVENT_ENABLED /*!< OnBlockSent event of the component ASerialLdd2 is enabled (generated) */
 #define ASerialLdd2_OnBreak_EVENT_ENABLED /*!< OnBreak event of the component ASerialLdd2 is enabled (generated) */
+#define ASerialLdd2_OnError_EVENT_ENABLED /*!< OnError event of the component ASerialLdd2 is enabled (generated) */
 
 #define ENABLED_TX_INT        0x01U    /*!< TX interrupt enabled      */
 #define BREAK_DETECTED        0x02U    /*!< Break detected            */
@@ -147,6 +154,7 @@ extern "C" {
 /*! Device data structure type */
 typedef struct {
   uint16_t SerFlag;                    /*!< Flags for serial communication */
+  bool EnUser;                         /*!< Enable/Disable device */
   LDD_SERIAL_TError ErrFlag;           /*!< Error flags mirror of SerFlag */
   uint16_t InpRecvDataNum;             /*!< The counter of received characters */
   uint8_t *InpDataPtr;                 /*!< The buffer pointer for received characters */
@@ -181,6 +189,44 @@ typedef ASerialLdd2_TDeviceData *ASerialLdd2_TDeviceDataPtr ; /*!< Pointer to th
 */
 /* ===================================================================*/
 LDD_TDeviceData* ASerialLdd2_Init(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  ASerialLdd2_Enable (component Serial_LDD)
+*/
+/*!
+**     @brief
+**         Enables the device, starts the transmitting and receiving.
+**     @param
+**         DeviceDataPtr   - Device data structure
+**                           pointer returned by [Init] method.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration.
+*/
+/* ===================================================================*/
+LDD_TError ASerialLdd2_Enable(LDD_TDeviceData *DeviceDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  ASerialLdd2_Disable (component Serial_LDD)
+*/
+/*!
+**     @brief
+**         Disables the device, stops the transmitting and receiving.
+**     @param
+**         DeviceDataPtr   - Device data structure
+**                           pointer returned by [Init] method.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration.
+*/
+/* ===================================================================*/
+LDD_TError ASerialLdd2_Disable(LDD_TDeviceData *DeviceDataPtr);
 
 /*
 ** ===================================================================
@@ -270,57 +316,16 @@ LDD_TError ASerialLdd2_SendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buff
 
 /*
 ** ===================================================================
-**     Method      :  ASerialLdd2_GetReceivedDataNum (component Serial_LDD)
-*/
-/*!
-**     @brief
-**         Returns the number of received characters in the receive
-**         buffer. 
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @return
-**                         - Number of received characters in the receive
-**                           buffer.
-*/
-/* ===================================================================*/
-uint16_t ASerialLdd2_GetReceivedDataNum(LDD_TDeviceData *DeviceDataPtr);
-
-/*
+**     Method      :  ASerialLdd2_Interrupt (component Serial_LDD)
+**
+**     Description :
+**         The ISR function handling the device receive/transmit 
+**         interrupt. Calls InterruptTX/InterruptRX methods.
+**         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
-**     Method      :  ASerialLdd2_GetSentDataNum (component Serial_LDD)
 */
-/*!
-**     @brief
-**         Returns the number of sent characters.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @return
-**                         - The number of sent characters.
-*/
-/* ===================================================================*/
-uint16_t ASerialLdd2_GetSentDataNum(LDD_TDeviceData *DeviceDataPtr);
-
-/*
-** ===================================================================
-**     Method      :  ASerialLdd2_Main (component Serial_LDD)
-*/
-/*!
-**     @brief
-**         This method is available only in the polling mode (Interrupt
-**         service/event = 'no'). If interrupt service is disabled this
-**         method replaces the interrupt handler. This method should be
-**         called if Receive/SendBlock was invoked before in order to
-**         run the reception/transmission. The end of the
-**         receiving/transmitting is indicated by OnBlockSent or
-**         OnBlockReceived event. 
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-*/
-/* ===================================================================*/
-void ASerialLdd2_Main(LDD_TDeviceData *DeviceDataPtr);
+/* {Bareboard RTOS Adapter} ISR function prototype */
+PE_ISR(ASerialLdd2_Interrupt);
 
 /*
 ** ===================================================================
