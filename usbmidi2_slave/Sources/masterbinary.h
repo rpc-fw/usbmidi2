@@ -1899,7 +1899,7 @@ const uint8_t hex_data[30328] = {
 
 
 const struct buildid_t __buildid = {
-/* .id = */		1437227615,
+/* .id = */		0x55AA5A5F,
 /* .payload_hash = */	61429,
 /* .payload_start = */	&hex_data[0],
 /* .payload_size = */	sizeof(hex_data)
