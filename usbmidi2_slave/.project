@@ -3,6 +3,7 @@
 	<name>usbmidi2_slave</name>
 	<comment></comment>
 	<projects>
+		<project>usbmidi2_master</project>
 		<project>usbmidilib</project>
 	</projects>
 	<buildSpec>

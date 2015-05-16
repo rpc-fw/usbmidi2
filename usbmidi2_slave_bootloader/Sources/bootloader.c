@@ -1,6 +1,6 @@
 #include <string.h>
 
-#include "PTD.h"
+#include "PTA.h"
 #include "COREUART.h"
 #include "GPIO_PDD.h"
 #include "IFsh1.h"
@@ -170,7 +170,7 @@ flashend:
 
 void bootloader_main()
 {
-	int bootmode = (GPIO_PDD_GetPortDataInput(PTD_BASE_PTR) & (1 << 6)) != 0;
+	int bootmode = (GPIO_PDD_GetPortDataInput(PTA_BASE_PTR) & (1 << 1)) != 0;
 
 	if (bootmode == 1) {
 		BootToApplication();

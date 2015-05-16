@@ -3,8 +3,8 @@
   <Header>
     <Name>usbmidi2_slave</Name>
     <SavedBy>ld0d</SavedBy>
-    <ModificationStamp>22</ModificationStamp>
-    <Date>2015-05-09</Date>
+    <ModificationStamp>23</ModificationStamp>
+    <Date>2015-05-16</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.1.RT6_b1444-1070</PEversion>
   </Header>
@@ -13223,7 +13223,7 @@
         <ItemSymbol>Inp</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO</Value>
+        <Value>TSI0_CH2/PTA1/UART0_RX/TPM2_CH0</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -13267,7 +13267,7 @@
         <ItemSymbol>Out</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI</Value>
+        <Value>TSI0_CH3/PTA2/UART0_TX/TPM2_CH1</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -14042,7 +14042,7 @@
               <ItemSymbol>Inp</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
-              <Value>ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO</Value>
+              <Value>TSI0_CH2/PTA1/UART0_RX/TPM2_CH0</Value>
               <SharedPrphMode>false</SharedPrphMode>
             </ItemState>
             <ItemState>
@@ -14063,7 +14063,7 @@
               <ItemSymbol>Out</ItemSymbol>
               <ReadOnly>false</ReadOnly>
               <UserReadOnly>false</UserReadOnly>
-              <Value>PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI</Value>
+              <Value>TSI0_CH3/PTA2/UART0_TX/TPM2_CH1</Value>
               <SharedPrphMode>false</SharedPrphMode>
             </ItemState>
             <ItemState>

@@ -59,8 +59,8 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/LED1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/LEDpin1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PE_LDD.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTA.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTC.c</PathName>
-      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTD.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTE.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/Vectors.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/WAIT1.c</PathName>
@@ -83,8 +83,8 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PE_Error.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PE_LDD.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PE_Types.h</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTA.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTC.h</PathName>
-      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTD.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTE.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/WAIT1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Sources/Events.h</PathName>

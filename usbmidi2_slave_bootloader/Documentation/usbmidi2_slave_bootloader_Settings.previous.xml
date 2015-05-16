@@ -423,10 +423,10 @@ PE_DEBUGHALT();
         <Width v="8 bits" />
         <Stop_bit v="1" />
         <boolgroup name="Receiver" v="Enabled">
-          <RxD v="ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO" />
+          <RxD v="TSI0_CH2/PTA1/UART0_RX/TPM2_CH0" />
         </boolgroup>
         <boolgroup name="Transmitter" v="Enabled">
-          <TxD v="PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI" />
+          <TxD v="TSI0_CH3/PTA2/UART0_TX/TPM2_CH1" />
         </boolgroup>
         <Baud_rate v="6000000 baud" />
         <Break_signal v="Disabled" />
@@ -473,10 +473,10 @@ PE_DEBUGHALT();
               <Receiver_input v="Not inverted" />
               <Break_generation_length v="10/11 bits" />
               <boolgroup name="Receiver" v="Enabled">
-                <RxD v="ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO" />
+                <RxD v="TSI0_CH2/PTA1/UART0_RX/TPM2_CH0" />
               </boolgroup>
               <boolgroup name="Transmitter" v="Enabled">
-                <TxD v="PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI" />
+                <TxD v="TSI0_CH3/PTA2/UART0_TX/TPM2_CH1" />
               </boolgroup>
               <enumgroup name="Flow control" v="None">
                 <EmptySection_DummyValue />
@@ -836,14 +836,16 @@ PE_DEBUGHALT();
             </list>
           </group>
           <boolgroup name="Use user memory areas" v="no" />
-          <enumgroup name="Interrupt service" v="Enabled">
+          <enumgroup name="Interrupt service" v="Disabled">
+            <enumgroup name="Write batch size" v="Minimal">
+              <EmptySection_DummyValue />
+            </enumgroup>
+            <enumgroup name="Erase batch size" v="Minimal">
+              <EmptySection_DummyValue />
+            </enumgroup>
             <enumgroup name="Read batch size" v="Unlimited">
               <EmptySection_DummyValue />
             </enumgroup>
-            <group name="Command complete interrupt">
-              <Interrupt v="INT_FTFA" />
-              <Interrupt_priority v="medium priority" />
-            </group>
           </enumgroup>
           <boolgroup name="Safe launch and wait" v="yes">
             <enumgroup name="Safe routine location" v="On stack">
@@ -892,7 +894,7 @@ PE_DEBUGHALT();
           <GetError v="generate code" />
           <StopOperation v="don&amp;apos;t generate code" />
           <SetSafeRoutineLocation v="don&amp;apos;t generate code" />
-          <Main v="don&amp;apos;t generate code" />
+          <Main v="generate code" />
           <SetOperationMode v="don&amp;apos;t generate code" />
           <GetDriverState v="generate code" />
         </Methods>
@@ -906,15 +908,10 @@ PE_DEBUGHALT();
           </event>
         </Events>
       </inhrbean>
-      <enumgroup name="Write method" v="Write">
-        <EmptySection_DummyValue />
+      <enumgroup name="Write method" v="Safe write (with save &amp;amp; erase)">
+        <Buffer_type v="Implemented by the component" />
       </enumgroup>
-      <boolgroup name="Interrupt service/event" v="Enabled">
-        <group name="Command complete interrupt">
-          <Interrupt v="INT_FTFA" />
-          <Interrupt_priority v="medium priority" />
-        </group>
-      </boolgroup>
+      <boolgroup name="Interrupt service/event" v="Disabled" />
       <Wait_in_RAM v="yes" />
       <boolgroup name="Virtual page" v="Disabled" />
       <group name="Initialization">
@@ -960,16 +957,64 @@ PE_DEBUGHALT();
     <Events>
       <Event_module_name v="Events" />
       <event name="OnWritePageEnd" v="don&amp;apos;t generate code" />
-      <event name="OnWriteEnd" v="generate code">
-        <Event_procedure_name v="IFsh1_OnWriteEnd" />
-        <Priority v="same as interrupt" />
-      </event>
+      <event name="OnWriteEnd" v="don&amp;apos;t generate code" />
       <event name="OnSaveBuffer" v="don&amp;apos;t generate code" />
       <event name="OnRestoreBuffer" v="don&amp;apos;t generate code" />
       <event name="OnEraseError" v="don&amp;apos;t generate code" />
       <event name="OnAccessError" v="don&amp;apos;t generate code" />
       <event name="OnReadCollisionError" v="don&amp;apos;t generate code" />
       <event name="OnProtectionViolation" v="don&amp;apos;t generate code" />
+    </Events>
+  </Bean>
+  <Bean name="PTA" type="Init_GPIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="PTA" />
+      <Device v="PTA" />
+      <group name="Settings">
+        <boolgroup name="Pin 0" v="Do not initialize" />
+        <boolgroup name="Pin 1" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="Fast" />
+          <Interrupt_DMA_request v="Disabled" />
+        </boolgroup>
+        <boolgroup name="Pin 2" v="Do not initialize" />
+        <boolgroup name="Pin 3" v="Do not initialize" />
+        <boolgroup name="Pin 4" v="Do not initialize" />
+        <boolgroup name="Pin 18" v="Do not initialize" />
+        <boolgroup name="Pin 19" v="Do not initialize" />
+        <boolgroup name="Pin 20" v="Do not initialize" />
+      </group>
+      <group name="Pin selection/routing">
+        <boolgroup name="Pin 0" v="Disabled" />
+        <boolgroup name="Pin 1" v="Disabled" />
+        <boolgroup name="Pin 2" v="Disabled" />
+        <boolgroup name="Pin 3" v="Disabled" />
+        <boolgroup name="Pin 4" v="Disabled" />
+        <boolgroup name="Pin 18" v="Disabled" />
+        <boolgroup name="Pin 19" v="Disabled" />
+        <boolgroup name="Pin 20" v="Disabled" />
+      </group>
+      <group name="Interrupts">
+        <boolgroup name="Port interrupt" v="Enabled">
+          <Interrupt v="INT_PORTA" />
+          <Interrupt_request v="Disabled" />
+          <Interrupt_priority v="0 (Highest)" />
+          <ISR_Name v="" />
+        </boolgroup>
+      </group>
+      <group name="Initialization">
+        <Call_Init_method v="yes" />
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
     </Events>
   </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>

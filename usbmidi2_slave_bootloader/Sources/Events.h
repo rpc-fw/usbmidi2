@@ -42,9 +42,9 @@
 #include "LED1.h"
 #include "LEDpin1.h"
 #include "BitIoLdd1.h"
-#include "PTD.h"
 #include "IFsh1.h"
 #include "IntFlashLdd1.h"
+#include "PTA.h"
 
 #ifdef __cplusplus
 extern "C" {

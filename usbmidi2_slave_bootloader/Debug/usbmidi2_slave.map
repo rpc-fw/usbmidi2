@@ -166,11 +166,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x40 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x20 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x47 ./Sources/main.o
- .debug_macro   0x0000000000000000       0x16 ./Sources/main.o
  .debug_macro   0x0000000000000000      0x39c ./Sources/main.o
  .debug_macro   0x0000000000000000      0x13d ./Sources/main.o
  .debug_macro   0x0000000000000000       0x95 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x2b ./Sources/main.o
+ .debug_macro   0x0000000000000000       0x16 ./Sources/main.o
  .group         0x0000000000000000        0x8 ./Project_Settings/Startup_Code/startup.o
  .group         0x0000000000000000        0x8 ./Project_Settings/Startup_Code/startup.o
  .group         0x0000000000000000        0x8 ./Project_Settings/Startup_Code/startup.o
@@ -305,11 +305,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x40 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x20 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x47 ./Generated_Code/COREUART.o
- .debug_macro   0x0000000000000000       0x16 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000      0x39c ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000      0x13d ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x95 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x2b ./Generated_Code/COREUART.o
+ .debug_macro   0x0000000000000000       0x16 ./Generated_Code/COREUART.o
  .group         0x0000000000000000        0x8 ./Generated_Code/Cpu.o
  .group         0x0000000000000000        0x8 ./Generated_Code/Cpu.o
  .group         0x0000000000000000        0x8 ./Generated_Code/Cpu.o
@@ -352,11 +352,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x40 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x20 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x47 ./Generated_Code/Cpu.o
- .debug_macro   0x0000000000000000       0x16 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000      0x39c ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000      0x13d ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x95 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x2b ./Generated_Code/Cpu.o
+ .debug_macro   0x0000000000000000       0x16 ./Generated_Code/Cpu.o
  .group         0x0000000000000000        0x8 ./Generated_Code/IFsh1.o
  .group         0x0000000000000000        0x8 ./Generated_Code/IFsh1.o
  .group         0x0000000000000000        0x8 ./Generated_Code/IFsh1.o
@@ -552,11 +552,30 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x40 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x20 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x47 ./Generated_Code/PE_LDD.o
- .debug_macro   0x0000000000000000       0x16 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000      0x39c ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000      0x13d ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x95 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x2b ./Generated_Code/PE_LDD.o
+ .debug_macro   0x0000000000000000       0x16 ./Generated_Code/PE_LDD.o
+ .group         0x0000000000000000        0x8 ./Generated_Code/PTA.o
+ .group         0x0000000000000000        0x8 ./Generated_Code/PTA.o
+ .group         0x0000000000000000        0x8 ./Generated_Code/PTA.o
+ .group         0x0000000000000000        0x8 ./Generated_Code/PTA.o
+ .group         0x0000000000000000        0x8 ./Generated_Code/PTA.o
+ .group         0x0000000000000000        0x8 ./Generated_Code/PTA.o
+ .group         0x0000000000000000        0x8 ./Generated_Code/PTA.o
+ .group         0x0000000000000000        0x8 ./Generated_Code/PTA.o
+ .text          0x0000000000000000        0x0 ./Generated_Code/PTA.o
+ .data          0x0000000000000000        0x0 ./Generated_Code/PTA.o
+ .bss           0x0000000000000000        0x0 ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000000000      0x81a ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000000000      0x214 ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000000000     0x1599 ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000000000      0x14e ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000000000       0x64 ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000000000     0x621c ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000000000       0xa0 ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000000000       0x10 ./Generated_Code/PTA.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTC.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTC.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTC.o
@@ -576,25 +595,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000     0x621c ./Generated_Code/PTC.o
  .debug_macro   0x0000000000000000       0xa0 ./Generated_Code/PTC.o
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/PTC.o
- .group         0x0000000000000000        0x8 ./Generated_Code/PTD.o
- .group         0x0000000000000000        0x8 ./Generated_Code/PTD.o
- .group         0x0000000000000000        0x8 ./Generated_Code/PTD.o
- .group         0x0000000000000000        0x8 ./Generated_Code/PTD.o
- .group         0x0000000000000000        0x8 ./Generated_Code/PTD.o
- .group         0x0000000000000000        0x8 ./Generated_Code/PTD.o
- .group         0x0000000000000000        0x8 ./Generated_Code/PTD.o
- .group         0x0000000000000000        0x8 ./Generated_Code/PTD.o
- .text          0x0000000000000000        0x0 ./Generated_Code/PTD.o
- .data          0x0000000000000000        0x0 ./Generated_Code/PTD.o
- .bss           0x0000000000000000        0x0 ./Generated_Code/PTD.o
- .debug_macro   0x0000000000000000      0x81a ./Generated_Code/PTD.o
- .debug_macro   0x0000000000000000      0x214 ./Generated_Code/PTD.o
- .debug_macro   0x0000000000000000     0x1599 ./Generated_Code/PTD.o
- .debug_macro   0x0000000000000000      0x14e ./Generated_Code/PTD.o
- .debug_macro   0x0000000000000000       0x64 ./Generated_Code/PTD.o
- .debug_macro   0x0000000000000000     0x621c ./Generated_Code/PTD.o
- .debug_macro   0x0000000000000000       0xa0 ./Generated_Code/PTD.o
- .debug_macro   0x0000000000000000       0x10 ./Generated_Code/PTD.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTE.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTE.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTE.o
@@ -654,11 +654,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x40 ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000       0x20 ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000       0x47 ./Generated_Code/Vectors.o
- .debug_macro   0x0000000000000000       0x16 ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000      0x39c ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000      0x13d ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000       0x95 ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000       0x2b ./Generated_Code/Vectors.o
+ .debug_macro   0x0000000000000000       0x16 ./Generated_Code/Vectors.o
  .group         0x0000000000000000        0x8 ./Generated_Code/WAIT1.o
  .group         0x0000000000000000        0x8 ./Generated_Code/WAIT1.o
  .group         0x0000000000000000        0x8 ./Generated_Code/WAIT1.o
@@ -910,8 +910,8 @@ LOAD ./Generated_Code/IntFlashLdd1.o
 LOAD ./Generated_Code/LED1.o
 LOAD ./Generated_Code/LEDpin1.o
 LOAD ./Generated_Code/PE_LDD.o
+LOAD ./Generated_Code/PTA.o
 LOAD ./Generated_Code/PTC.o
-LOAD ./Generated_Code/PTD.o
 LOAD ./Generated_Code/PTE.o
 LOAD ./Generated_Code/Vectors.o
 LOAD ./Generated_Code/WAIT1.o
@@ -945,7 +945,7 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
                 0x0000000000000400                _cfm
                 0x0000000000000410                . = ALIGN (0x4)
 
-.text           0x0000000000000410     0x2330
+.text           0x0000000000000410     0x231c
                 0x0000000000000410                . = ALIGN (0x4)
  *(.text)
  *(.text*)
@@ -1096,134 +1096,134 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
                 0x0000000000001994      0x17c ./Generated_Code/Cpu.o
                 0x0000000000001994                __init_hardware
  .text.PE_low_level_init
-                0x0000000000001b10      0x138 ./Generated_Code/Cpu.o
+                0x0000000000001b10      0x13c ./Generated_Code/Cpu.o
                 0x0000000000001b10                PE_low_level_init
  .text.IFsh1_SetFlash
-                0x0000000000001c48      0x1ec ./Generated_Code/IFsh1.o
-                0x0000000000001c48                IFsh1_SetFlash
+                0x0000000000001c4c      0x1ec ./Generated_Code/IFsh1.o
+                0x0000000000001c4c                IFsh1_SetFlash
  .text.IFsh1_Init
-                0x0000000000001e34       0x2c ./Generated_Code/IFsh1.o
-                0x0000000000001e34                IFsh1_Init
+                0x0000000000001e38       0x2c ./Generated_Code/IFsh1.o
+                0x0000000000001e38                IFsh1_Init
  .text.IFsh1_Busy
-                0x0000000000001e60       0x2c ./Generated_Code/IFsh1.o
-                0x0000000000001e60                IFsh1_Busy
+                0x0000000000001e64       0x2c ./Generated_Code/IFsh1.o
+                0x0000000000001e64                IFsh1_Busy
  .text.IFsh1_SetBlockFlash
-                0x0000000000001e8c       0x2c ./Generated_Code/IFsh1.o
-                0x0000000000001e8c                IFsh1_SetBlockFlash
+                0x0000000000001e90       0x2c ./Generated_Code/IFsh1.o
+                0x0000000000001e90                IFsh1_SetBlockFlash
  .text.IntFlashLdd1_OnOperationComplete
-                0x0000000000001eb8      0x194 ./Generated_Code/IFsh1.o
-                0x0000000000001eb8                IntFlashLdd1_OnOperationComplete
+                0x0000000000001ebc      0x194 ./Generated_Code/IFsh1.o
+                0x0000000000001ebc                IntFlashLdd1_OnOperationComplete
  .text.IntFlashLdd1_OnError
-                0x000000000000204c       0x58 ./Generated_Code/IFsh1.o
-                0x000000000000204c                IntFlashLdd1_OnError
+                0x0000000000002050       0x58 ./Generated_Code/IFsh1.o
+                0x0000000000002050                IntFlashLdd1_OnError
  .text.IntFlashLdd1_Init
-                0x00000000000020a4       0x5c ./Generated_Code/IntFlashLdd1.o
-                0x00000000000020a4                IntFlashLdd1_Init
+                0x00000000000020a8       0x5c ./Generated_Code/IntFlashLdd1.o
+                0x00000000000020a8                IntFlashLdd1_Init
  .text.IntFlashLdd1_Write
-                0x0000000000002100       0x78 ./Generated_Code/IntFlashLdd1.o
-                0x0000000000002100                IntFlashLdd1_Write
+                0x0000000000002104       0x78 ./Generated_Code/IntFlashLdd1.o
+                0x0000000000002104                IntFlashLdd1_Write
  .text.IntFlashLdd1_Erase
-                0x0000000000002178       0x8c ./Generated_Code/IntFlashLdd1.o
-                0x0000000000002178                IntFlashLdd1_Erase
+                0x000000000000217c       0x8c ./Generated_Code/IntFlashLdd1.o
+                0x000000000000217c                IntFlashLdd1_Erase
  .text.IntFlashLdd1_Main
-                0x0000000000002204      0x328 ./Generated_Code/IntFlashLdd1.o
-                0x0000000000002204                IntFlashLdd1_Main
+                0x0000000000002208      0x328 ./Generated_Code/IntFlashLdd1.o
+                0x0000000000002208                IntFlashLdd1_Main
  .text.IntFlashLdd1_GetError
-                0x000000000000252c       0x94 ./Generated_Code/IntFlashLdd1.o
-                0x000000000000252c                IntFlashLdd1_GetError
+                0x0000000000002530       0x94 ./Generated_Code/IntFlashLdd1.o
+                0x0000000000002530                IntFlashLdd1_GetError
  .text.RangeCheck
-                0x00000000000025c0       0x38 ./Generated_Code/IntFlashLdd1.o
+                0x00000000000025c4       0x38 ./Generated_Code/IntFlashLdd1.o
  .text.SafeRoutineCaller
-                0x00000000000025f8       0x84 ./Generated_Code/IntFlashLdd1.o
+                0x00000000000025fc       0x84 ./Generated_Code/IntFlashLdd1.o
+ .text.PTA_Init
+                0x0000000000002680       0x18 ./Generated_Code/PTA.o
+                0x0000000000002680                PTA_Init
  .text.PTC_Init
-                0x000000000000267c        0x8 ./Generated_Code/PTC.o
-                0x000000000000267c                PTC_Init
- .text.PTD_Init
-                0x0000000000002684       0x30 ./Generated_Code/PTD.o
-                0x0000000000002684                PTD_Init
+                0x0000000000002698        0x8 ./Generated_Code/PTC.o
+                0x0000000000002698                PTC_Init
  .text.PTE_Init
-                0x00000000000026b4       0x38 ./Generated_Code/PTE.o
-                0x00000000000026b4                PTE_Init
- .text.memcpy   0x00000000000026ec       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memcpy.o)
-                0x00000000000026ec                memcpy
- .text.memset   0x00000000000026fe       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memset.o)
-                0x00000000000026fe                memset
+                0x00000000000026a0       0x38 ./Generated_Code/PTE.o
+                0x00000000000026a0                PTE_Init
+ .text.memcpy   0x00000000000026d8       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memcpy.o)
+                0x00000000000026d8                memcpy
+ .text.memset   0x00000000000026ea       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memset.o)
+                0x00000000000026ea                memset
  *(.rodata)
  *(.rodata*)
  .rodata.SafeRoutine
-                0x0000000000002710       0x18 ./Generated_Code/IntFlashLdd1.o
+                0x00000000000026fc       0x18 ./Generated_Code/IntFlashLdd1.o
  *(.glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x0000000000000000        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000000002728        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+ .eh_frame      0x0000000000002714        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  *(.init)
- .init          0x0000000000002728        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
-                0x0000000000002728                _init
- .init          0x000000000000272c        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
+ .init          0x0000000000002714        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
+                0x0000000000002714                _init
+ .init          0x0000000000002718        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
  *(.fini)
- .fini          0x0000000000002734        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
-                0x0000000000002734                _fini
- .fini          0x0000000000002738        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
-                0x0000000000002740                . = ALIGN (0x4)
-                0x0000000000002740                _etext = .
+ .fini          0x0000000000002720        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
+                0x0000000000002720                _fini
+ .fini          0x0000000000002724        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
+                0x000000000000272c                . = ALIGN (0x4)
+                0x000000000000272c                _etext = .
 
-.vfp11_veneer   0x0000000000002740        0x0
+.vfp11_veneer   0x000000000000272c        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000002740        0x0
+.v4_bx          0x000000000000272c        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000002740        0x0
+.iplt           0x000000000000272c        0x0
  .iplt          0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
-.rel.dyn        0x0000000000002740        0x0
+.rel.dyn        0x000000000000272c        0x0
  .rel.iplt      0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0000000000002740        0x0
-                0x0000000000002740                __exidx_start = .
+.ARM            0x000000000000272c        0x0
+                0x000000000000272c                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000000002740                __exidx_end = .
+                0x000000000000272c                __exidx_end = .
 
-.ctors          0x0000000000002740        0x0
-                0x0000000000002740                __CTOR_LIST__ = .
+.ctors          0x000000000000272c        0x0
+                0x000000000000272c                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x0000000000002740                __CTOR_END__ = .
+                0x000000000000272c                __CTOR_END__ = .
 
-.dtors          0x0000000000002740        0x0
-                0x0000000000002740                __DTOR_LIST__ = .
+.dtors          0x000000000000272c        0x0
+                0x000000000000272c                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x0000000000002740                __DTOR_END__ = .
+                0x000000000000272c                __DTOR_END__ = .
 
-.preinit_array  0x0000000000002740        0x0
-                0x0000000000002740                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x000000000000272c        0x0
+                0x000000000000272c                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x0000000000002740                PROVIDE (__preinit_array_end, .)
+                0x000000000000272c                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0000000000002740        0x4
-                0x0000000000002740                PROVIDE (__init_array_start, .)
+.init_array     0x000000000000272c        0x4
+                0x000000000000272c                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000000002740        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
-                0x0000000000002744                PROVIDE (__init_array_end, .)
+ .init_array    0x000000000000272c        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x0000000000002730                PROVIDE (__init_array_end, .)
 
-.fini_array     0x0000000000002744        0x4
-                0x0000000000002744                PROVIDE (__fini_array_start, .)
+.fini_array     0x0000000000002730        0x4
+                0x0000000000002730                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000000002744        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
-                0x0000000000002748                PROVIDE (__fini_array_end, .)
-                0x0000000000002748                ___ROM_AT = .
+ .fini_array    0x0000000000002730        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x0000000000002734                PROVIDE (__fini_array_end, .)
+                0x0000000000002734                ___ROM_AT = .
 
 .mtb            0x000000001ffff000        0x0
                 0x000000001ffff000                . = ALIGN (0x8)
@@ -1232,7 +1232,7 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
                 0x000000001ffff000                . = ALIGN (0x8)
                 0x000000001ffff000                _mtb_end = .
 
-.data           0x000000001ffff000        0x4 load address 0x0000000000002748
+.data           0x000000001ffff000        0x4 load address 0x0000000000002734
                 0x000000001ffff000                . = ALIGN (0x4)
                 0x000000001ffff000                _sdata = .
  *(.data)
@@ -1244,17 +1244,17 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
                 0x000000001ffff004                _edata = .
                 0x0000000000000004                ___data_size = (_edata - _sdata)
 
-.jcr            0x000000001ffff004        0x0 load address 0x000000000000274c
+.jcr            0x000000001ffff004        0x0 load address 0x0000000000002738
  .jcr           0x000000001ffff004        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
 .tm_clone_table
-                0x000000001ffff004        0x0 load address 0x000000000000274c
+                0x000000001ffff004        0x0 load address 0x0000000000002738
  .tm_clone_table
                 0x000000001ffff004        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  .tm_clone_table
                 0x000000001ffff004        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtend.o
 
-.igot.plt       0x000000001ffff004        0x0 load address 0x000000000000274c
+.igot.plt       0x000000001ffff004        0x0 load address 0x0000000000002738
  .igot.plt      0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
                 0x000000001ffff004                . = ALIGN (0x4)
 
@@ -1344,11 +1344,11 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
  *fill*         0x0000000020001005        0x3 
                 0x0000000020001008                __END_BSS = .
                 0x0000000020001008                PROVIDE (__bss_end__, __END_BSS)
-                0x000000000000274c                _romp_at = (___ROM_AT + SIZEOF (.data))
+                0x0000000000002738                _romp_at = (___ROM_AT + SIZEOF (.data))
 
-.romp           0x0000000020001008       0x18 load address 0x000000000000274c
-                0x000000000000274c                __S_romp = _romp_at
-                0x0000000020001008        0x4 LONG 0x2748 ___ROM_AT
+.romp           0x0000000020001008       0x18 load address 0x0000000000002738
+                0x0000000000002738                __S_romp = _romp_at
+                0x0000000020001008        0x4 LONG 0x2734 ___ROM_AT
                 0x000000002000100c        0x4 LONG 0x1ffff000 _sdata
                 0x0000000020001010        0x4 LONG 0x4 ___data_size
                 0x0000000020001014        0x4 LONG 0x0
@@ -1356,7 +1356,7 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
                 0x000000002000101c        0x4 LONG 0x0
 
 ._user_heap_stack
-                0x0000000020001020      0x400 load address 0x0000000000002764
+                0x0000000020001020      0x400 load address 0x0000000000002750
                 0x0000000020001020                . = ALIGN (0x4)
                 0x0000000020001020                PROVIDE (end, .)
                 0x0000000020001020                PROVIDE (_end, .)
@@ -1398,9 +1398,9 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
  .ARM.attributes
                 0x0000000000000248       0x32 ./Generated_Code/PE_LDD.o
  .ARM.attributes
-                0x000000000000027a       0x32 ./Generated_Code/PTC.o
+                0x000000000000027a       0x32 ./Generated_Code/PTA.o
  .ARM.attributes
-                0x00000000000002ac       0x32 ./Generated_Code/PTD.o
+                0x00000000000002ac       0x32 ./Generated_Code/PTC.o
  .ARM.attributes
                 0x00000000000002de       0x32 ./Generated_Code/PTE.o
  .ARM.attributes
@@ -1429,8 +1429,8 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .comment       0x0000000000000000       0x2b ./Generated_Code/IFsh1.o
  .comment       0x0000000000000000       0x2b ./Generated_Code/IntFlashLdd1.o
  .comment       0x0000000000000000       0x2b ./Generated_Code/PE_LDD.o
+ .comment       0x0000000000000000       0x2b ./Generated_Code/PTA.o
  .comment       0x0000000000000000       0x2b ./Generated_Code/PTC.o
- .comment       0x0000000000000000       0x2b ./Generated_Code/PTD.o
  .comment       0x0000000000000000       0x2b ./Generated_Code/PTE.o
  .comment       0x0000000000000000       0x2b ./Generated_Code/Vectors.o
  .comment       0x000000000000002a       0x11 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memcpy.o)
@@ -1450,8 +1450,8 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_info    0x0000000000002349      0x54f ./Generated_Code/IFsh1.o
  .debug_info    0x0000000000002898      0xa19 ./Generated_Code/IntFlashLdd1.o
  .debug_info    0x00000000000032b1      0x23b ./Generated_Code/PE_LDD.o
- .debug_info    0x00000000000034ec       0x96 ./Generated_Code/PTC.o
- .debug_info    0x0000000000003582      0x114 ./Generated_Code/PTD.o
+ .debug_info    0x00000000000034ec      0x114 ./Generated_Code/PTA.o
+ .debug_info    0x0000000000003600       0x96 ./Generated_Code/PTC.o
  .debug_info    0x0000000000003696      0x114 ./Generated_Code/PTE.o
  .debug_info    0x00000000000037aa      0x103 ./Generated_Code/Vectors.o
 
@@ -1467,8 +1467,8 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_abbrev  0x00000000000009d8      0x1c4 ./Generated_Code/IFsh1.o
  .debug_abbrev  0x0000000000000b9c      0x255 ./Generated_Code/IntFlashLdd1.o
  .debug_abbrev  0x0000000000000df1      0x10d ./Generated_Code/PE_LDD.o
- .debug_abbrev  0x0000000000000efe       0x45 ./Generated_Code/PTC.o
- .debug_abbrev  0x0000000000000f43       0x8d ./Generated_Code/PTD.o
+ .debug_abbrev  0x0000000000000efe       0x8d ./Generated_Code/PTA.o
+ .debug_abbrev  0x0000000000000f8b       0x45 ./Generated_Code/PTC.o
  .debug_abbrev  0x0000000000000fd0       0x8d ./Generated_Code/PTE.o
  .debug_abbrev  0x000000000000105d       0xa4 ./Generated_Code/Vectors.o
 
@@ -1496,9 +1496,9 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000000360       0x30 ./Generated_Code/PE_LDD.o
  .debug_aranges
-                0x0000000000000390       0x20 ./Generated_Code/PTC.o
+                0x0000000000000390       0x20 ./Generated_Code/PTA.o
  .debug_aranges
-                0x00000000000003b0       0x20 ./Generated_Code/PTD.o
+                0x00000000000003b0       0x20 ./Generated_Code/PTC.o
  .debug_aranges
                 0x00000000000003d0       0x20 ./Generated_Code/PTE.o
  .debug_aranges
@@ -1516,8 +1516,8 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_ranges  0x0000000000000210       0x60 ./Generated_Code/IFsh1.o
  .debug_ranges  0x0000000000000270       0x50 ./Generated_Code/IntFlashLdd1.o
  .debug_ranges  0x00000000000002c0       0x20 ./Generated_Code/PE_LDD.o
- .debug_ranges  0x00000000000002e0       0x10 ./Generated_Code/PTC.o
- .debug_ranges  0x00000000000002f0       0x10 ./Generated_Code/PTD.o
+ .debug_ranges  0x00000000000002e0       0x10 ./Generated_Code/PTA.o
+ .debug_ranges  0x00000000000002f0       0x10 ./Generated_Code/PTC.o
  .debug_ranges  0x0000000000000300       0x10 ./Generated_Code/PTE.o
 
 .debug_macro    0x0000000000000000    0x12899
@@ -1539,11 +1539,11 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_macro   0x000000000000882f       0x40 ./Sources/Events.o
  .debug_macro   0x000000000000886f       0x20 ./Sources/Events.o
  .debug_macro   0x000000000000888f       0x47 ./Sources/Events.o
- .debug_macro   0x00000000000088d6       0x16 ./Sources/Events.o
- .debug_macro   0x00000000000088ec      0x39c ./Sources/Events.o
- .debug_macro   0x0000000000008c88      0x13d ./Sources/Events.o
- .debug_macro   0x0000000000008dc5       0x95 ./Sources/Events.o
- .debug_macro   0x0000000000008e5a       0x2b ./Sources/Events.o
+ .debug_macro   0x00000000000088d6      0x39c ./Sources/Events.o
+ .debug_macro   0x0000000000008c72      0x13d ./Sources/Events.o
+ .debug_macro   0x0000000000008daf       0x95 ./Sources/Events.o
+ .debug_macro   0x0000000000008e44       0x2b ./Sources/Events.o
+ .debug_macro   0x0000000000008e6f       0x16 ./Sources/Events.o
  .debug_macro   0x0000000000008e85      0x17c ./Sources/bootloader.o
  .debug_macro   0x0000000000009001       0x2e ./Sources/bootloader.o
  .debug_macro   0x000000000000902f       0x2e ./Sources/bootloader.o
@@ -1575,14 +1575,14 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_macro   0x000000000001203f      0x396 ./Generated_Code/IFsh1.o
  .debug_macro   0x00000000000123d5       0xce ./Generated_Code/IntFlashLdd1.o
  .debug_macro   0x00000000000124a3      0x122 ./Generated_Code/PE_LDD.o
- .debug_macro   0x00000000000125c5       0x70 ./Generated_Code/PTC.o
- .debug_macro   0x0000000000012635       0x70 ./Generated_Code/PTD.o
+ .debug_macro   0x00000000000125c5       0x70 ./Generated_Code/PTA.o
+ .debug_macro   0x0000000000012635       0x70 ./Generated_Code/PTC.o
  .debug_macro   0x00000000000126a5       0x70 ./Generated_Code/PTE.o
  .debug_macro   0x0000000000012715       0x10 ./Generated_Code/PTE.o
  .debug_macro   0x0000000000012725      0x15e ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000012883       0x16 ./Generated_Code/Vectors.o
 
-.debug_line     0x0000000000000000     0x305f
+.debug_line     0x0000000000000000     0x3060
  .debug_line    0x0000000000000000      0x323 ./Sources/Events.o
  .debug_line    0x0000000000000323      0x4b9 ./Sources/bootloader.o
  .debug_line    0x00000000000007dc      0x2d4 ./Sources/main.o
@@ -1590,14 +1590,14 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_line    0x0000000000000e9d      0x348 ./Generated_Code/ASerialLdd1.o
  .debug_line    0x00000000000011e5      0x242 ./Generated_Code/BitIoLdd1.o
  .debug_line    0x0000000000001427      0x5bf ./Generated_Code/COREUART.o
- .debug_line    0x00000000000019e6      0x459 ./Generated_Code/Cpu.o
- .debug_line    0x0000000000001e3f      0x356 ./Generated_Code/IFsh1.o
- .debug_line    0x0000000000002195      0x3bb ./Generated_Code/IntFlashLdd1.o
- .debug_line    0x0000000000002550      0x2c2 ./Generated_Code/PE_LDD.o
- .debug_line    0x0000000000002812      0x181 ./Generated_Code/PTC.o
- .debug_line    0x0000000000002993      0x184 ./Generated_Code/PTD.o
- .debug_line    0x0000000000002b17      0x184 ./Generated_Code/PTE.o
- .debug_line    0x0000000000002c9b      0x3c4 ./Generated_Code/Vectors.o
+ .debug_line    0x00000000000019e6      0x45c ./Generated_Code/Cpu.o
+ .debug_line    0x0000000000001e42      0x356 ./Generated_Code/IFsh1.o
+ .debug_line    0x0000000000002198      0x3bb ./Generated_Code/IntFlashLdd1.o
+ .debug_line    0x0000000000002553      0x2c2 ./Generated_Code/PE_LDD.o
+ .debug_line    0x0000000000002815      0x182 ./Generated_Code/PTA.o
+ .debug_line    0x0000000000002997      0x181 ./Generated_Code/PTC.o
+ .debug_line    0x0000000000002b18      0x184 ./Generated_Code/PTE.o
+ .debug_line    0x0000000000002c9c      0x3c4 ./Generated_Code/Vectors.o
 
 .debug_str      0x0000000000000000    0x3d5ba
  .debug_str     0x0000000000000000    0x30723 ./Sources/Events.o
@@ -1622,10 +1622,10 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
                                       0x30065 (size before relaxing)
  .debug_str     0x000000000003d3c4      0x177 ./Generated_Code/PE_LDD.o
                                       0x30c40 (size before relaxing)
- .debug_str     0x000000000003d53b       0x21 ./Generated_Code/PTC.o
-                                      0x2a087 (size before relaxing)
- .debug_str     0x000000000003d55c       0x21 ./Generated_Code/PTD.o
+ .debug_str     0x000000000003d53b       0x21 ./Generated_Code/PTA.o
                                       0x2a0c9 (size before relaxing)
+ .debug_str     0x000000000003d55c       0x21 ./Generated_Code/PTC.o
+                                      0x2a087 (size before relaxing)
  .debug_str     0x000000000003d57d       0x21 ./Generated_Code/PTE.o
                                       0x2a0c9 (size before relaxing)
  .debug_str     0x000000000003d59e       0x1c ./Generated_Code/Vectors.o
@@ -1643,6 +1643,6 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_frame   0x000000000000077c      0x164 ./Generated_Code/IFsh1.o
  .debug_frame   0x00000000000008e0      0x130 ./Generated_Code/IntFlashLdd1.o
  .debug_frame   0x0000000000000a10       0x6c ./Generated_Code/PE_LDD.o
- .debug_frame   0x0000000000000a7c       0x2c ./Generated_Code/PTC.o
- .debug_frame   0x0000000000000aa8       0x2c ./Generated_Code/PTD.o
+ .debug_frame   0x0000000000000a7c       0x2c ./Generated_Code/PTA.o
+ .debug_frame   0x0000000000000aa8       0x2c ./Generated_Code/PTC.o
  .debug_frame   0x0000000000000ad4       0x2c ./Generated_Code/PTE.o

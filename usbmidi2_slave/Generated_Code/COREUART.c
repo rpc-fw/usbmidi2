@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-03-07, 19:52, # CodeGen: 12
+**     Date/Time   : 2015-05-16, 19:19, # CodeGen: 25
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -41,8 +41,8 @@
 **         ----------------------------------------------------------
 **           Function | On package           |    Name
 **         ----------------------------------------------------------
-**            Input   |     102              |  ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO
-**            Output  |     103              |  PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI
+**            Input   |     36               |  TSI0_CH2/PTA1/UART0_RX/TPM2_CH0
+**            Output  |     37               |  TSI0_CH3/PTA2/UART0_TX/TPM2_CH1
 **         ----------------------------------------------------------
 **
 **

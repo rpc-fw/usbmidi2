@@ -622,10 +622,10 @@ PE_DEBUGHALT();
         <Width v="8 bits" />
         <Stop_bit v="1" />
         <boolgroup name="Receiver" v="Enabled">
-          <RxD v="ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO" />
+          <RxD v="TSI0_CH2/PTA1/UART0_RX/TPM2_CH0" />
         </boolgroup>
         <boolgroup name="Transmitter" v="Enabled">
-          <TxD v="PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI" />
+          <TxD v="TSI0_CH3/PTA2/UART0_TX/TPM2_CH1" />
         </boolgroup>
         <Baud_rate v="6000000 baud" />
         <Break_signal v="Disabled" />
@@ -672,10 +672,10 @@ PE_DEBUGHALT();
               <Receiver_input v="Not inverted" />
               <Break_generation_length v="10/11 bits" />
               <boolgroup name="Receiver" v="Enabled">
-                <RxD v="ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO" />
+                <RxD v="TSI0_CH2/PTA1/UART0_RX/TPM2_CH0" />
               </boolgroup>
               <boolgroup name="Transmitter" v="Enabled">
-                <TxD v="PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI" />
+                <TxD v="TSI0_CH3/PTA2/UART0_TX/TPM2_CH1" />
               </boolgroup>
               <enumgroup name="Flow control" v="None">
                 <EmptySection_DummyValue />

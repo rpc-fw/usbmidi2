@@ -325,51 +325,7 @@ PE_DEBUGHALT();
       <group name="Startup">
         <Add_startup_file v="yes" />
       </group>
-      <boolgroup name="Generate linker file" v="yes">
-        <Stack_size v="1024" />
-        <Heap_size v="0" />
-        <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
-        <Default_memory_for_interrupts v="INTERNAL FLASH" />
-        <Default_memory_for_code v="INTERNAL FLASH" />
-        <Default_memory_for_data v="INTERNAL RAM" />
-        <list name="ROM/RAM Areas" v="5">
-          <group name="MemoryArea0">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_interrupts" />
-              <Qualifier v="RX" />
-              <Address v="16384" />
-              <Size v="192" />
-            </boolgroup>
-          </group>
-          <group name="MemoryArea1">
-            <boolgroup name="ROM/RAM Area" v="Disabled" />
-          </group>
-          <group name="MemoryArea2">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_text" />
-              <Qualifier v="RX" />
-              <Address v="17424" />
-              <Size v="113648" />
-            </boolgroup>
-          </group>
-          <group name="MemoryArea3">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_data" />
-              <Qualifier v="RW" />
-              <Address v="536866816" />
-              <Size v="16384" />
-            </boolgroup>
-          </group>
-          <group name="MemoryArea4">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_buildid" />
-              <Qualifier v="R" />
-              <Address v="17408" />
-              <Size v="16" />
-            </boolgroup>
-          </group>
-        </list>
-      </boolgroup>
+      <boolgroup name="Generate linker file" v="no" />
     </CompilerProperties>
   </CPU_Bean>
   <Bean name="PTC" type="Init_GPIO">

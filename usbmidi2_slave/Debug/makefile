@@ -61,6 +61,7 @@ usbmidi2_slave.elf: $(OBJS) $(USER_OBJS)
 	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/ld0d/work/kds_workspace/usbmidi2_slave/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/home/ld0d/work/kds_workspace/usbmidi2_slave/Project_Settings/Linker_Files" -L"/home/ld0d/work/kds_workspace/usbmidilib/Debug" -Wl,-Map,"usbmidi2_slave.map" -nanolibc -o "usbmidi2_slave.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
+	$(MAKE) --no-print-directory post-build
 
 usbmidi2_slave.hex: usbmidi2_slave.elf
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
@@ -79,9 +80,13 @@ clean:
 	-$(RM) $(SECONDARY_SIZE)$(C++_DEPS)$(OBJS)$(C_DEPS)$(ASM_DEPS)$(CC_DEPS)$(SECONDARY_FLASH)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS)$(S_UPPER_DEPS) usbmidi2_slave.elf
 	-@echo ' '
 
+post-build:
+	-cd ../../ihextools;./make.sh
+	-@echo ' '
+
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
 
 .PHONY: all clean dependents
-.SECONDARY:
+.SECONDARY: post-build
 
 -include ../makefile.targets

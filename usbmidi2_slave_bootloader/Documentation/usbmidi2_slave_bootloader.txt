@@ -66,11 +66,6 @@ Module "LED1"      (component LED)
    - LED1_SetRatio16 -Method to specify the duty cycle. If using a PWM pin, this means the duty cycle is set. For On/off pins, 
                 values smaller 0x7FFF means off, while values greater means on.
 
-Module "PTD"       (component Init_GPIO_VAR0)
-   - PTD_Init -This method initializes registers of the GPIO module according to the Peripheral Initialization settings. Call 
-                this method in user code to initialize the module. By default, the method is called by PE automatically; see 
-                "Call Init method" property of the component for more details.
-
 Module "IFsh1"     (component IntFLASH)
    - IFsh1_DisableEvent -This method disables all the events except <OnSaveBuffer>, <OnRestoreBuffer> and <OnEraseError>. The 
                 method is available only if any event is enabled.
@@ -85,6 +80,11 @@ Module "IFsh1"     (component IntFLASH)
                 property and state of the flash. Please see more details on general info page of the help.
    - IFsh1_SetBlockFlash -Writes data to FLASH. The operation of this method depends on the "Write method" property and state 
                 of the flash. Please see more details on general info page of the help.
+
+Module "PTA"       (component Init_GPIO_VAR0)
+   - PTA_Init -This method initializes registers of the GPIO module according to the Peripheral Initialization settings. Call 
+                this method in user code to initialize the module. By default, the method is called by PE automatically; see 
+                "Call Init method" property of the component for more details.
 
 Module "Cpu"       (component MKL26Z128FM4)
 

@@ -69,7 +69,7 @@ struct buildid_t {
 __attribute__ ((section (".buildid")))
 const struct buildid_t __buildid = {
 		.id = 0x55aa5a5f,
-		.payload_hash = 0xdeadbeef,
+		.payload_hash = 1,
 };
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */

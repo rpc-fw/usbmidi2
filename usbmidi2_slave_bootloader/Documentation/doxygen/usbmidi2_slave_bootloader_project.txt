@@ -26,9 +26,9 @@
 - \subpage ASerialLdd1
 - \subpage PTE
 - \subpage BitIoLdd1
-- \subpage PTD
 - \subpage IntFlashLdd1
 - \subpage IntFlashLdd1
+- \subpage PTA
 
 */
 

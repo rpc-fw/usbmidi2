@@ -1,5 +1,5 @@
 Sources/bootloader.o: ../Sources/bootloader.c \
- /home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTD.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTA.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PE_Types.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PE_Error.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PE_Const.h \
@@ -15,7 +15,7 @@ Sources/bootloader.o: ../Sources/bootloader.c \
  /home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Static_Code/PDD/FTFA_PDD.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Static_Code/PDD/MCM_PDD.h
 
-/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTD.h:
+/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PTA.h:
 
 /home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Generated_Code/PE_Types.h:
 

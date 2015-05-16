@@ -38,9 +38,9 @@
 #include "LED1.h"
 #include "LEDpin1.h"
 #include "BitIoLdd1.h"
-#include "PTD.h"
 #include "IFsh1.h"
 #include "IntFlashLdd1.h"
+#include "PTA.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"

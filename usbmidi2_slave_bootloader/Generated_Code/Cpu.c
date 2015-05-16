@@ -7,7 +7,7 @@
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL26P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-04-19, 15:50, # CodeGen: 27
+**     Date/Time   : 2015-05-16, 17:57, # CodeGen: 35
 **     Abstract    :
 **
 **     Settings    :
@@ -68,9 +68,9 @@
 #include "LED1.h"
 #include "LEDpin1.h"
 #include "BitIoLdd1.h"
-#include "PTD.h"
 #include "IFsh1.h"
 #include "IntFlashLdd1.h"
+#include "PTA.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -136,9 +136,8 @@ void __init_hardware(void)
   /* System clock initialization */
   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescalers to safe value */
-  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTC=1,PORTA=1 */
+  /* SIM_SCGC5: PORTE=1,PORTC=1,PORTA=1 */
   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
-               SIM_SCGC5_PORTD_MASK |
                SIM_SCGC5_PORTC_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
@@ -262,8 +261,14 @@ void PE_low_level_init(void)
   /* SMC_PMPROT: ??=0,??=0,AVLP=0,??=0,ALLS=0,??=0,AVLLS=0,??=0 */
   SMC_PMPROT = 0x00U;                  /* Setup Power mode protection register */
   /* Common initialization of the CPU registers */
-  /* NVIC_IPR7: PRI_31=0 */
-  NVIC_IPR7 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_31(0xFF));
+  /* PORTA_ISFR: ISF=2 */
+  PORTA_ISFR = PORT_ISFR_ISF(0x02);
+  /* Common initialization of the CPU registers */
+  /* NVIC_IPR7: PRI_31=0,PRI_30=0 */
+  NVIC_IPR7 &= (uint32_t)~(uint32_t)(
+                NVIC_IP_PRI_31(0xFF) |
+                NVIC_IP_PRI_30(0xFF)
+               );
   /* PORTE_PCR30: ISF=0,MUX=1,SRE=1,PE=1,PS=1 */
   PORTE_PCR30 = (uint32_t)((PORTE_PCR30 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK |
@@ -274,9 +279,10 @@ void PE_low_level_init(void)
                  PORT_PCR_PE_MASK |
                  PORT_PCR_PS_MASK
                 ));
-  /* PORTD_PCR6: ISF=0,SRE=0,PE=1,PS=0 */
-  PORTD_PCR6 = (uint32_t)((PORTD_PCR6 & (uint32_t)~(uint32_t)(
+  /* PORTA_PCR1: ISF=0,IRQC=0,SRE=0,PE=1,PS=0 */
+  PORTA_PCR1 = (uint32_t)((PORTA_PCR1 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
+                PORT_PCR_IRQC(0x0F) |
                 PORT_PCR_SRE_MASK |
                 PORT_PCR_PS_MASK
                )) | (uint32_t)(
@@ -304,12 +310,12 @@ void PE_low_level_init(void)
   (void)BitIoLdd1_Init(NULL);
   /* ### LED "LED1" init code ... */
   LED1_Init(); /* initialize LED driver */
-  /* ### Init_GPIO "PTD" init code ... */
-  PTD_Init();
-
-
   /* ### IntFLASH "IFsh1" init code ... */
   IFsh1_Init();
+  /* ### Init_GPIO "PTA" init code ... */
+  PTA_Init();
+
+
   __EI();
 }
   /* Flash configuration field */

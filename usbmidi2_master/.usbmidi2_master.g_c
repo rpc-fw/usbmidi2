@@ -53,7 +53,7 @@
       <XtraAge12>1184213108</XtraAge12>
       <XtraAge13>1184594824</XtraAge13>
       <XtraAge14>1178555558</XtraAge14>
-      <XtraAge15>1185569350</XtraAge15>
+      <XtraAge15>1185586251</XtraAge15>
       <GenExtraFileType15>4</GenExtraFileType15>
       <GenExtraFileType14>5</GenExtraFileType14>
       <GenExtraFileType13>4</GenExtraFileType13>
@@ -352,7 +352,7 @@
     </GenFiles>
     <SignalListFile>Documentation\usbmidi2_master_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>43</ProjectModificationStamp>
+    <ProjectModificationStamp>44</ProjectModificationStamp>
   </Options>
   <CpuID_6>
     <Generated>true</Generated>
