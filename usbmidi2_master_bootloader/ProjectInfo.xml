@@ -24,15 +24,15 @@
 -->
 <export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ProjectInfoDescription.xsd">
   <PROCESSOR>
-    <DeviceID>MKL26Z128xxx4</DeviceID>
+    <DeviceID>MKL26Z64xxx4</DeviceID>
     <CoreNum>1</CoreNum>
     <Cores>
       <Core>
         <CoreSet>Cortex-M0+</CoreSet>
       </Core>
     </Cores>
-    <SRAMsize>16k</SRAMsize>
-    <FLASHsize>128k</FLASHsize>
+    <SRAMsize>8192</SRAMsize>
+    <FLASHsize>64k</FLASHsize>
   </PROCESSOR>
   <PATHS>
     <LinkerCommandFile>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Project_Settings/Linker_Files/ProcessorExpert.ld</LinkerCommandFile>
@@ -73,10 +73,8 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Project_Settings/Startup_Code/startup.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/Events.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/WarmReset.c</PathName>
-      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/checksum.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/main.c</PathName>
-      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/midiflash.c</PathName>
-      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/slavectrl.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/midiloader.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Generated_Code/ASerialLdd1.h</PathName>
@@ -103,10 +101,7 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Generated_Code/UTIL1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Generated_Code/WAIT1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/Events.h</PathName>
-      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/checksum.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/fsl_device_registers.h</PathName>
-      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/midiflash.h</PathName>
-      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Sources/slavectrl.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Static_Code/IO_Map/MKL26Z4.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Static_Code/PDD/ADC_PDD.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master_bootloader/Static_Code/PDD/CMP_PDD.h</PathName>

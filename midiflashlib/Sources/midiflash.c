@@ -1,40 +1,40 @@
 #include <string.h>
 
 #include "slavectrl.h"
+#include "checksum.h"
 
 void SoftwareReset(void);
 
 void FlashFailed(int warning);
 
-void flash_write_page(uint8_t* buffer, uint32_t address, uint32_t blocksize)
+static void flash_write_page(uint8_t* buffer, uint32_t address, uint32_t blocksize)
 {
-	volatile int res =  0;
-	if (res = WriteSlaveBlock(address, buffer, blocksize)) {
+	if (WriteSlaveBlock(address, buffer, blocksize)) {
 		FlashFailed(0);
 	}
 }
 
-uint32_t flash_slave_blocksize()
+static uint32_t flash_slave_blocksize()
 {
 	return GetSlaveBlockSize();
 }
 
-void flash_slave_reset_bootloader()
+static void flash_slave_reset_bootloader()
 {
 	SlaveToBootloader();
 }
 
-void flash_slave_reset_application()
+static void flash_slave_reset_application()
 {
 	SlaveToProgram();
 }
 
 int slave_initialized = 0;
-uint32_t slave_blocksize = 4096;
-uint32_t curblock_base = 0xFFFFFFFF;
-__attribute__((__aligned__(512))) uint8_t blockbuf[4096];
+static uint32_t slave_blocksize = 1024;
+static uint32_t curblock_base = 0xFFFFFFFF;
+__attribute__((__aligned__(512))) static uint8_t blockbuf[1024];
 
-void flash_finish_page()
+static void flash_finish_page()
 {
 	if (curblock_base != 0xFFFFFFFF) {
 		flash_write_page(blockbuf, curblock_base, slave_blocksize);
@@ -42,17 +42,12 @@ void flash_finish_page()
 	}
 }
 
-void flash_64_bytes(uint8_t* block, uint32_t address)
+static void flash_64_bytes(uint8_t* block, uint32_t address)
 {
 	if (!slave_initialized) {
 		flash_slave_reset_bootloader();
 		slave_initialized = 1;
 		slave_blocksize = flash_slave_blocksize();
-	}
-
-	if (address == 0x4ac0) {
-		static volatile int x = 0;
-		x++;
 	}
 
 	const uint32_t slave_blockmask = ~(slave_blocksize-1);
@@ -74,35 +69,15 @@ const static uint32_t addressstart = 66;
 const static uint32_t checksumstart = 68;
 const static uint32_t fullblocksize = 70;
 
-int flash_expect_blockid = 0;
+static int flash_expect_blockid = 0;
 
-int block_index = 0;
-uint8_t block[70];
+static int block_index = 0;
+static uint8_t block[70];
 
-uint16_t flash_fletcher_checksum(uint8_t* block, int count)
+static int flash_7_bytes(uint8_t* buffer)
 {
-	uint32_t checksum1 = 0;
-	uint32_t checksum2 = 0;
-
-	for (int i = 0; i < count; i++) {
-		checksum1 += block[i];
-		if (checksum1 >= 255) {
-			checksum1 -= 255;
-		}
-		checksum2 += checksum1;
-		if (checksum2 >= 255) {
-			checksum2 -= 255;
-		}
-	}
-
-	return ((uint8_t)checksum2 << 8) | (uint8_t)checksum1;
-}
-
-int flash_7_bytes(uint8_t* buffer)
-{
-	for (int i = 0; i < 7; i++) {
-		block[block_index + i] = buffer[i];
-	}
+	int i;
+	memcpy(&block[block_index + i], buffer, 7);
 
 	block_index += 7;
 
@@ -110,13 +85,13 @@ int flash_7_bytes(uint8_t* buffer)
 		block_index = 0;
 
 		// verify checksum
-		uint16_t checksum = flash_fletcher_checksum(block, fullblocksize);
+		uint16_t checksum = fletcher_checksum(block, fullblocksize);
 		if (checksum != 0) {
 			return 1;
 		}
 
 		// retrieve block id
-		uint32_t blockid = (block[blockidstart] + (block[blockidstart + 1] << 8));
+		uint32_t blockid = block[blockidstart] + (block[blockidstart + 1] << 8);
 		if (blockid != flash_expect_blockid) {
 			// didn't expect this block, fail
 			return 1;
@@ -134,10 +109,10 @@ int flash_7_bytes(uint8_t* buffer)
 	return 0;
 }
 
-int buf_7bit_index = 0;
-uint8_t buf_7bit[7];
+static int buf_7bit_index = 0;
+static uint8_t buf_7bit[7];
 
-int flash_data_7bit(uint8_t b)
+static int flash_data_7bit(uint8_t b)
 {
 	if (buf_7bit_index < 7) {
 		buf_7bit[buf_7bit_index] = b;
@@ -145,19 +120,17 @@ int flash_data_7bit(uint8_t b)
 		return 0;
 	}
 
-	if (buf_7bit_index == 7) {
-		for (int i = 0; i < 7; i++) {
-			buf_7bit[i] |= ((b >> i) & 0x01) << 7;
-		}
-		buf_7bit_index = 0;
-		return flash_7_bytes(buf_7bit);
-	}
+	// else (buf_7bit_index == 7)
 
-	// reached here -> fail
-	return 1;
+	for (int i = 0; i < 7; i++) {
+		buf_7bit[i] |= ((b >> i) & 0x01) << 7;
+	}
+	buf_7bit_index = 0;
+
+	return flash_7_bytes(buf_7bit);
 }
 
-void flash_reset()
+static void flash_reset()
 {
 	if (slave_initialized) {
 		flash_finish_page();
@@ -170,13 +143,13 @@ void flash_reset()
 	block_index = 0;
 }
 
-int sysex_ignore = 0;
+static int sysex_ignore = 0;
 int sysex_started = 0;
 int sysex_flashing = 0;
-int sysex_queue_used = 0;
-uint8_t sysex_queue[4];
+static int sysex_queue_used = 0;
+static uint8_t sysex_queue[4];
 
-void sysex_stop()
+static void sysex_stop_impl()
 {
 	sysex_started = 0;
 	sysex_queue_used = 0;
@@ -184,11 +157,11 @@ void sysex_stop()
 	sysex_ignore = 0;
 }
 
-void sysex_start()
+static void sysex_start_impl()
 {
-	if (sysex_started) {
-		sysex_stop();
-	}
+	//if (sysex_started) {
+	//	sysex_stop();
+	//}
 
 	sysex_started = 1;
 	sysex_queue_used = 0;
@@ -196,7 +169,17 @@ void sysex_start()
 	sysex_ignore = 0;
 }
 
-void sysex_start_request(uint8_t* requestheader)
+void sysex_stop()
+{
+	sysex_stop_impl();
+}
+
+void sysex_start()
+{
+	sysex_start_impl();
+}
+
+static void sysex_start_request(uint8_t* requestheader)
 {
 	if (requestheader[0] == 0xF0
 		&& requestheader[1] == 0x6F
@@ -220,27 +203,26 @@ void sysex_start_request(uint8_t* requestheader)
 	sysex_ignore = 1;
 }
 
-void sysex_queue_push(uint8_t b)
+int sysex_queue_push(uint8_t b)
 {
 	if (!sysex_started || sysex_ignore) {
-		return;
+		return 0;
 	}
 
 	if (sysex_flashing) {
 		if (b == 0xF7) {
 			// end
-			sysex_stop();
-			return;
+			return 1;
 		}
 
 		if (b < 0x80) {
 			if (flash_data_7bit(b)) {
 				// fail!
 				flash_reset();
-				sysex_stop();
+				return 1;
 			}
 		}
-		return;
+		return 0;
 	}
 
 	if (sysex_queue_used < 4) {
@@ -250,18 +232,20 @@ void sysex_queue_push(uint8_t b)
 			sysex_start_request(sysex_queue);
 		}
 	}
+
+	return 0;
 }
 
 int sysex_process_byte(uint8_t byte)
 {
 	if (byte == 0xF0) {
-		sysex_start();
+		sysex_start_impl();
 	}
 
-	sysex_queue_push(byte);
+	int need_stop = sysex_queue_push(byte);
 
-	if (byte == 0xF7) {
-		sysex_stop();
+	if (byte == 0xF7 || need_stop) {
+		sysex_stop_impl();
 	}
 
 	return sysex_flashing | slave_initialized;

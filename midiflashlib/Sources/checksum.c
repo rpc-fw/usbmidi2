@@ -17,13 +17,20 @@ uint16_t fletcher_checksum_running(uint16_t checksum, const uint8_t* block, int 
 		}
 	}
 
-	return ((uint8_t)checksum2 << 8) | (uint8_t)checksum1;
+	// optimization:
+	// don't truncate checksum1, checksum2, because it takes extra 4 bytes
+	return (checksum2 << 8) | checksum1;
 }
 
-uint16_t fletcher_checksum_uint32(uint16_t checksum, uint32_t value)
+uint16_t fletcher_checksum_uint32(uint16_t checksum, const uint32_t value)
 {
-	uint8_t byte;
+	const uint8_t* b = ((const uint8_t*)&value);
 
+	checksum = fletcher_checksum_running(checksum, b++, 1);
+	checksum = fletcher_checksum_running(checksum, b++, 1);
+	checksum = fletcher_checksum_running(checksum, b++, 1);
+	checksum = fletcher_checksum_running(checksum, b, 1);
+#if 0
 	byte = value & 0xFF;
 	checksum = fletcher_checksum_running(checksum, &byte, 1);
 	byte = (value >> 8) & 0xFF;
@@ -32,6 +39,7 @@ uint16_t fletcher_checksum_uint32(uint16_t checksum, uint32_t value)
 	checksum = fletcher_checksum_running(checksum, &byte, 1);
 	byte = (value >> 24) & 0xFF;
 	checksum = fletcher_checksum_running(checksum, &byte, 1);
+#endif
 
 	return checksum;
 }
@@ -47,8 +55,14 @@ const uint8_t* fletcher_checksum_checkbytes(uint16_t checksum)
 	
 	int f0 = checksum & 0xff;
 	int f1 = (checksum >> 8) & 0xff;
-	int c0 = 0xff - ((f0 + f1) % 0xff);
-	int c1 = 0xff - ((f0 + c0) % 0xff);
+
+	int f_sum = f0 + f1;
+	if (f_sum > 255) f_sum -= 255;
+	int c0 = 0xff - f_sum;
+
+	int c_sum = f0 + c0;
+	if (c_sum > 255) c_sum -= 255;
+	int c1 = 0xff - c_sum;
 
 	checkbytes[0] = c0;
 	checkbytes[1] = c1;

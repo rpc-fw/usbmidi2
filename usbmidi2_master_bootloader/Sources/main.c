@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : main.c
 **     Project     : kl26test
-**     Processor   : MKL26Z128VFM4
+**     Processor   : MKL26Z64VFM4
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
 **     Date/Time   : 2015-01-31, 10:37, # CodeGen: 0
@@ -58,11 +58,7 @@
 #include "midiflash.h"
 #include "slavectrl.h"
 
-uint32_t slaveblocksize = 0;
-void IdentifySlave()
-{
-	slaveblocksize = GetSlaveBlockSize();
-}
+void MidiLoader();
 
 struct buildid_t {
 	uint32_t id;
@@ -71,23 +67,18 @@ struct buildid_t {
 	uint32_t payload_size;
 };
 
-struct buildid_t GetSlaveBuildId()
+uint32_t slaveblocksize = 0;
+struct buildid_t slaveid;
+
+void IdentifySlave()
 {
-	struct buildid_t buildid = {0};
-
+	slaveblocksize = GetSlaveBlockSize();
 	byte req[] = { 0x1, 0x2 };
-	SlaveRequest(req, sizeof(req), &buildid, sizeof(buildid));
-
-	return buildid;
+	SlaveRequest(req, sizeof(req), &slaveid, sizeof(slaveid));
 }
 
 // Application info is stored at 0x4400
-struct buildid_t* master_buildid = (struct buildid_t*)0x4400;
-
-struct buildid_t BuildId()
-{
-	return *master_buildid;
-}
+volatile struct buildid_t* masterid = (struct buildid_t*)0x4400;
 
 __attribute__((__aligned__(IFsh1_AREA_SECTOR_SIZE)))
 byte flashblock[IFsh1_AREA_SECTOR_SIZE];
@@ -116,7 +107,10 @@ void FlashFailed(int warning)
 	}
 }
 
-int VerifySlaveProgram(struct buildid_t slavebuild)
+typedef void (*slave_16_func) (uint32_t index, uint32_t size);
+typedef void (*slave_block_func) (uint32_t address, uint32_t size);
+
+void ReadSlaveProgram(struct buildid_t slavebuild, slave_16_func slave_16, slave_block_func slave_block)
 {
 	uint16_t checksum = 0;
 
@@ -140,54 +134,50 @@ int VerifySlaveProgram(struct buildid_t slavebuild)
 			*(uint32_t*)&req[4] = (uint32_t)slavebuild.payload_start + blockindex + k;
 			SlaveRequest(&req, sizeof(req), &flashblock[k], singlesize);
 
-			checksum = fletcher_checksum_running(checksum, &flashblock[k], singlesize);
+			if (slave_16) {
+				slave_16(k, singlesize);
+			}
 		}
 
-		//checksum = fletcher_checksum_running(checksum, flashblock, readsize);
+		if (slave_block) {
+			slave_block(0x4000 + blockindex, IFsh1_AREA_SECTOR_SIZE);
+		}
 	}
+}
 
-	checksum = fletcher_checksum_uint32(checksum, slavebuild.payload_size);
+uint16_t verify_checksum;
+
+void verify_slave_16(uint32_t index, uint32_t size)
+{
+	verify_checksum = fletcher_checksum_running(verify_checksum, &flashblock[index], size);
+}
+
+int VerifySlaveProgram(struct buildid_t slavebuild)
+{
+	verify_checksum = 0;
+
+	ReadSlaveProgram(slavebuild, verify_slave_16, NULL);
+
+	verify_checksum = fletcher_checksum_uint32(verify_checksum, slavebuild.payload_size);
 
 	uint8_t checkbytes[2];
 	checkbytes[0] = slavebuild.payload_hash & 0xFF;
 	checkbytes[1] = (slavebuild.payload_hash >> 8) & 0xFF;
-	checksum = fletcher_checksum_running(checksum, checkbytes, 2);
+	verify_checksum = fletcher_checksum_running(verify_checksum, checkbytes, 2);
 
-	return (checksum == 0);
+	return (verify_checksum == 0);
+}
+
+void load_slave_block(uint32_t address, uint32_t size)
+{
+	if (IFsh1_SetBlockFlash(flashblock, address, size) != ERR_OK) {
+		FlashFailed(FAIL_HANG);
+	}
 }
 
 void LoadSlaveProgram(struct buildid_t slavebuild)
 {
-	for (uint32_t blockindex = 0; blockindex < slavebuild.payload_size; blockindex += sizeof(flashblock))
-	{
-		memset(flashblock, 0xFF, sizeof(flashblock));
-
-		int readsize = slavebuild.payload_size - blockindex;
-		if (readsize > sizeof(flashblock)) {
-			readsize = sizeof(flashblock);
-		}
-
-		for (uint32_t k = 0; k < readsize; k += 16) {
-			int singlesize = readsize - k;
-			if (singlesize > 16) {
-				singlesize = 16;
-			}
-
-			byte req[] = { 0x2, 0, 0, 0, 0, 0, 0, 0 };
-			req[1] = singlesize;
-			*(uint32_t*)&req[4] = (uint32_t)slavebuild.payload_start + blockindex + k;
-			SlaveRequest(&req, sizeof(req), &flashblock[k], singlesize);
-		}
-
-		/*if (IFsh1_EraseSector(0x4000 + blockindex) != ERR_OK) {
-			FlashFailed(FAIL_HANG);
-		}
-		while (IFsh1_Busy(0));*/
-		if (IFsh1_SetBlockFlash(flashblock, 0x4000 + blockindex, IFsh1_AREA_SECTOR_SIZE) != ERR_OK) {
-			FlashFailed(FAIL_HANG);
-		}
-		//while (IFsh1_Busy(0));
-	}
+	ReadSlaveProgram(slavebuild, NULL, load_slave_block);
 }
 
 #define APP_FLASH_VECTOR_START 0x4000
@@ -231,30 +221,24 @@ int main(void)
   IdentifySlave();
 
   // determine whether to load firmware from slave or not
-  {
-	  volatile struct buildid_t slaveid = GetSlaveBuildId();
-	  volatile struct buildid_t masterid = BuildId();
-
-	  if (slaveid.id != masterid.id || masterid.id == 0xFFFFFFFF) {
-		  if (slaveid.id == 0xFFFFFFFF || !VerifySlaveProgram(slaveid)) {
-			  // Slave program is invalid, don't reprogram master
-			  FlashFailed(FAIL_WARN);
-			  MidiLoader();
-			  for(;;) {} // just in case
-		  }
-
-		  LoadSlaveProgram(slaveid);
-
-		  masterid = BuildId();
-		  if (slaveid.id != masterid.id) {
-			  // Lock up, don't keep repeating flashing!
-			  FlashFailed(FAIL_WARN);
-			  MidiLoader();
-			  for(;;) {} // just in case
-		  }
-
-		  KIN1_SoftwareReset();
+  if (slaveid.id != masterid->id || masterid->id == 0xFFFFFFFF) {
+	  if (slaveid.id == 0xFFFFFFFF || !VerifySlaveProgram(slaveid)) {
+		  // Slave program is invalid, don't reprogram master
+		  FlashFailed(FAIL_WARN);
+		  MidiLoader();
+		  for(;;) {} // just in case
 	  }
+
+	  LoadSlaveProgram(slaveid);
+
+	  if (slaveid.id != masterid->id) {
+		  // Lock up, don't keep repeating flashing!
+		  FlashFailed(FAIL_WARN);
+		  MidiLoader();
+		  for(;;) {} // just in case
+	  }
+
+	  KIN1_SoftwareReset();
   }
 
   SlaveToProgram();

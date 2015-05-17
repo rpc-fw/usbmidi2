@@ -33,8 +33,10 @@ int IsSlaveReady()
 
 byte ReadCoreUartByte()
 {
+	LED1_Off();
 	byte databyte = 0;
 	while (COREUART_RecvChar(&databyte) == ERR_RXEMPTY);
+	LED1_On();
 	return databyte;
 }
 
@@ -43,16 +45,31 @@ void SlaveHello()
 	byte b = 0;
 	do {
 		COREUART_ClearRxBuf();
+
 		COREUART_SendChar(0x5A);
+
 		b = ReadCoreUartByte();
 	} while (b != 0x5A);
 }
 
+void SlaveReset()
+{
+	SlaveReset_ClrVal(SlaveReset_DeviceData);
+	WAIT1_Waitms(1);
+	SlaveReset_SetVal(SlaveReset_DeviceData);
+	LED1_Off();
+
+	slaveresetticks = 0;
+	while (!IsSlaveReady()) {
+		slaveresetticks++;
+	}
+}
+
 void SlaveToBootloader()
 {
-	LED1_Off();
-	COREUART_Disable();
+	LED1_On();
 	COREUART_ClearTxBuf();
+	COREUART_Disable();
 	UART0_C2_REG((volatile UART0_MemMapPtr)UART0_BASE_PTR) = 0;
 	//	  UART0_PDD_EnableTransmitter(UART0_BASE_PTR, PDD_DISABLE); /* Disable transmitter. */
 	//UART0_PDD_EnableReceiver(UART0_BASE_PTR, PDD_DISABLE); /* Disable receiver. */
@@ -73,15 +90,7 @@ void SlaveToBootloader()
 	));
 	PTD_Init();
 	SlaveResetMode(0);
-	SlaveReset_ClrVal(SlaveReset_DeviceData);
-	WAIT1_Waitms(1);
-	SlaveReset_SetVal(SlaveReset_DeviceData);
-	WAIT1_Waitms(1);
-	slaveresetticks = 0;
-	while (!IsSlaveReady()) {
-		slaveresetticks++;
-	}
-
+	SlaveReset();
 	COREUART_Enable();
 	SlaveHello();
 	LED1_On();
@@ -93,32 +102,21 @@ void SlaveToProgram()
 	COREUART_Init();
 	COREUART_Enable();
 
-	SlaveReset_ClrVal(SlaveReset_DeviceData);
-	WAIT1_Waitms(1);
-	SlaveReset_SetVal(SlaveReset_DeviceData);
-	LED1_Off();
-
-	slaveresetticks = 0;
-	while (!IsSlaveReady()) {
-		slaveresetticks++;
-	}
+	SlaveReset();
 }
 
 void SlaveRequest(void* req, size_t reqsize, void* res, size_t ressize)
 {
+	int i;
 	COREUART_ClearRxBuf();
 
-	word xferred = 0;
-	while (COREUART_SendBlock(req, reqsize, &xferred) == ERR_TXFULL) {
-		req += xferred;
-		reqsize -= xferred;
+	for (i = 0; i < reqsize; i++) {
+		while (COREUART_SendChar(((uint8_t*)req)[i]) != ERR_OK) {}
 	}
 
 	if (ressize > 0) {
-		xferred = 0;
-		while (COREUART_RecvBlock(res, ressize, &xferred) == ERR_RXEMPTY) {
-			res += xferred;
-			ressize -= xferred;
+		for (i = 0; i < ressize; i++) {
+			while (COREUART_RecvChar(&((uint8_t*)res)[i]) == ERR_RXEMPTY) {}
 		}
 	}
 }
@@ -140,9 +138,7 @@ int WriteSlaveBlock(uint32_t address, void* data, int datasize)
 	*(uint32_t*)&req[4] = address;
 	SlaveRequest(&req, sizeof(req), NULL, 0);
 
-	LED1_Off();
 	byte ack = ReadCoreUartByte();
-	LED1_On();
 	if (ack != 1) {
 		// parameter error
 		return ack;
@@ -151,11 +147,9 @@ int WriteSlaveBlock(uint32_t address, void* data, int datasize)
 	for (int dataindex = 0; dataindex < datasize; dataindex += 16) {
 		int singlesize = datasize - dataindex;
 		if (singlesize > 16) singlesize = 16;
-		SlaveRequest(&data[dataindex], singlesize, NULL, 0);
+		SlaveRequest(&((uint8_t*)data)[dataindex], singlesize, NULL, 0);
 
-		LED1_Off();
 		ack = ReadCoreUartByte();
-		LED1_On();
 		if (ack != 1) {
 			// transfer failed or parameter error
 			return ack;
@@ -164,9 +158,7 @@ int WriteSlaveBlock(uint32_t address, void* data, int datasize)
 
 	/* write started, wait for completion */
 
-	LED1_Off();
 	ack = ReadCoreUartByte();
-	LED1_On();
 	if (ack != 1) {
 		// write failed
 		return ack;

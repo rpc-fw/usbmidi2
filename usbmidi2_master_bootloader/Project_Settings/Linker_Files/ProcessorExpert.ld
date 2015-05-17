@@ -6,11 +6,11 @@
 /*##                                   */
 /*##     Project   : usbmidi2_master_bootloader */
 /*##                                   */
-/*##     Processor : MKL26Z128VFM4     */
+/*##     Processor : MKL26Z64VFM4      */
 /*##                                   */
 /*##     Compiler  : GNU C Compiler    */
 /*##                                   */
-/*##     Date/Time : 2015-04-18, 18:33, # CodeGen: 29 */
+/*##     Date/Time : 2015-05-17, 00:02, # CodeGen: 60 */
 /*##                                   */
 /*##     Abstract  :                   */
 /*##                                   */
@@ -28,17 +28,17 @@
 ENTRY(__thumb_startup)
 
 /* Highest address of the user mode stack */
-_estack = 0x20003000;    /* end of m_data */
+_estack = 0x20001800;    /* end of m_data */
 __SP_INIT = _estack;
 
 /* Generate a link error if heap and stack don't fit into RAM */
-__heap_size = 0x00;                    /* required amount of heap  */
-__stack_size = 0x0400;                 /* required amount of stack */
+__heap_size = 0x0100;                  /* required amount of heap  */
+__stack_size = 0x0100;                 /* required amount of stack */
 
 MEMORY {
   m_interrupts (RX) : ORIGIN = 0x00000000, LENGTH = 0x000000C0
-  m_text      (RX) : ORIGIN = 0x00000410, LENGTH = 0x0001FBF0
-  m_data      (RW) : ORIGIN = 0x1FFFF000, LENGTH = 0x00004000
+  m_text      (RX) : ORIGIN = 0x00000410, LENGTH = 0x00001BF0
+  m_data      (RW) : ORIGIN = 0x1FFFF800, LENGTH = 0x00002000
   m_cfmprotrom  (RX) : ORIGIN = 0x00000400, LENGTH = 0x00000010
 }
 

@@ -44,11 +44,12 @@ void FlashFailed(int warning)
 
 int sysex_process(const midicmd_t cmd)
 {
+	int need_stop = 0;
 	switch (cmd.header & 0x0F)
 	{
 	case 0x5:
 		sysex_queue_push(cmd.b1);
-		sysex_stop();
+		need_stop = 1;
 		break;
 	case 0xF:
 		if (cmd.b1 & 0x80) {
@@ -59,36 +60,39 @@ int sysex_process(const midicmd_t cmd)
 				break;
 			case 0xF7:
 				sysex_queue_push(cmd.b1);
-				sysex_stop();
+				need_stop = 1;
 				break;
 			default:
-				sysex_stop();
+				need_stop = 1;
+				break;
 			}
 		}
 		else if (sysex_started) {
-			sysex_queue_push(cmd.b1);
+			need_stop = sysex_queue_push(cmd.b1);
 		}
 		break;
 	case 0x6:
 		sysex_queue_push(cmd.b1);
 		sysex_queue_push(cmd.b2);
-		sysex_stop();
+		need_stop = 1;
 		break;
 	case 0x4:
 		if (cmd.b1 == 0xF0) {
 			sysex_start();
 		}
-		sysex_queue_push(cmd.b1);
-		sysex_queue_push(cmd.b2);
-		sysex_queue_push(cmd.b3);
+		need_stop |= sysex_queue_push(cmd.b1);
+		need_stop |= sysex_queue_push(cmd.b2);
+		need_stop |= sysex_queue_push(cmd.b3);
 		break;
 	case 0x7:
 		sysex_queue_push(cmd.b1);
 		sysex_queue_push(cmd.b2);
 		sysex_queue_push(cmd.b3);
-		sysex_stop();
+		need_stop = 1;
 		break;
 	}
+
+	if (need_stop) sysex_stop();
 
 	return sysex_flashing || slave_initialized;
 }
