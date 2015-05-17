@@ -24,15 +24,15 @@
 -->
 <export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ProjectInfoDescription.xsd">
   <PROCESSOR>
-    <DeviceID>MKL26Z128xxx4</DeviceID>
+    <DeviceID>MKL26Z64xxx4</DeviceID>
     <CoreNum>1</CoreNum>
     <Cores>
       <Core>
         <CoreSet>Cortex-M0+</CoreSet>
       </Core>
     </Cores>
-    <SRAMsize>16k</SRAMsize>
-    <FLASHsize>128k</FLASHsize>
+    <SRAMsize>8192</SRAMsize>
+    <FLASHsize>64k</FLASHsize>
   </PROCESSOR>
   <PATHS>
     <IncludePaths>

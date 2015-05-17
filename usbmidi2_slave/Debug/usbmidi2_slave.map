@@ -136,14 +136,14 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x64 ./Sources/main.o
  .debug_macro   0x0000000000000000     0x621c ./Sources/main.o
  .debug_macro   0x0000000000000000       0x9a ./Sources/main.o
- .debug_macro   0x0000000000000000       0x12 ./Sources/main.o
+ .debug_macro   0x0000000000000000       0x10 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x12 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x65 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x1f ./Sources/main.o
  .debug_macro   0x0000000000000000       0x10 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x10 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x3d ./Sources/main.o
- .debug_macro   0x0000000000000000       0x18 ./Sources/main.o
+ .debug_macro   0x0000000000000000       0x16 ./Sources/main.o
  .debug_macro   0x0000000000000000       0x94 ./Sources/main.o
  .debug_macro   0x0000000000000000      0x12b ./Sources/main.o
  .debug_macro   0x0000000000000000       0x40 ./Sources/main.o
@@ -374,12 +374,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x9a ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x5f ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x1f ./Generated_Code/COREUART.o
- .debug_macro   0x0000000000000000       0x12 ./Generated_Code/COREUART.o
+ .debug_macro   0x0000000000000000       0x10 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x12 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x3d ./Generated_Code/COREUART.o
- .debug_macro   0x0000000000000000       0x18 ./Generated_Code/COREUART.o
+ .debug_macro   0x0000000000000000       0x16 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x94 ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000      0x12b ./Generated_Code/COREUART.o
  .debug_macro   0x0000000000000000       0x40 ./Generated_Code/COREUART.o
@@ -416,14 +416,14 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x64 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000     0x621c ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0xa0 ./Generated_Code/Cpu.o
- .debug_macro   0x0000000000000000       0x12 ./Generated_Code/Cpu.o
+ .debug_macro   0x0000000000000000       0x10 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x12 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x65 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x1f ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x3d ./Generated_Code/Cpu.o
- .debug_macro   0x0000000000000000       0x18 ./Generated_Code/Cpu.o
+ .debug_macro   0x0000000000000000       0x16 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x94 ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000      0x12b ./Generated_Code/Cpu.o
  .debug_macro   0x0000000000000000       0x40 ./Generated_Code/Cpu.o
@@ -545,14 +545,14 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x64 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000     0x621c ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0xa0 ./Generated_Code/PE_LDD.o
- .debug_macro   0x0000000000000000       0x12 ./Generated_Code/PE_LDD.o
+ .debug_macro   0x0000000000000000       0x10 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x12 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x65 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x1f ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x3d ./Generated_Code/PE_LDD.o
- .debug_macro   0x0000000000000000       0x18 ./Generated_Code/PE_LDD.o
+ .debug_macro   0x0000000000000000       0x16 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x94 ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000      0x12b ./Generated_Code/PE_LDD.o
  .debug_macro   0x0000000000000000       0x40 ./Generated_Code/PE_LDD.o
@@ -576,7 +576,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x64 ./Generated_Code/PTC.o
  .debug_macro   0x0000000000000000     0x621c ./Generated_Code/PTC.o
  .debug_macro   0x0000000000000000       0xa0 ./Generated_Code/PTC.o
- .debug_macro   0x0000000000000000       0x12 ./Generated_Code/PTC.o
+ .debug_macro   0x0000000000000000       0x10 ./Generated_Code/PTC.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTE.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTE.o
  .group         0x0000000000000000        0x8 ./Generated_Code/PTE.o
@@ -682,7 +682,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000       0x10 ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000       0x3d ./Generated_Code/Vectors.o
- .debug_macro   0x0000000000000000       0x18 ./Generated_Code/Vectors.o
+ .debug_macro   0x0000000000000000       0x16 ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000       0x94 ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000      0x12b ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000000000       0x40 ./Generated_Code/Vectors.o
@@ -1229,10 +1229,10 @@ Discarded input sections
 Memory Configuration
 
 Name             Origin             Length             Attributes
-m_interrupts     0x0000000000004000 0x00000000000000c0 xr
-m_text           0x0000000000004410 0x000000000001bbf0 xr
-m_data           0x000000001ffff000 0x0000000000004000 rw
-m_buildid        0x0000000000004400 0x0000000000000010 r
+m_interrupts     0x0000000000002000 0x00000000000000c0 xr
+m_text           0x0000000000002410 0x000000000000dbf0 xr
+m_data           0x000000001ffff800 0x0000000000002000 rw
+m_buildid        0x0000000000002400 0x0000000000000010 r
 *default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
@@ -1269,693 +1269,694 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../..
 END GROUP
 LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtend.o
 LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
-                0x0000000020003000                _estack = 0x20003000
-                0x0000000020003000                __SP_INIT = _estack
-                0x0000000000000000                __heap_size = 0x0
-                0x0000000000000400                __stack_size = 0x400
+                0x0000000020001800                _estack = 0x20001800
+                0x0000000020001800                __SP_INIT = _estack
+                0x0000000000000100                __heap_size = 0x100
+                0x0000000000000100                __stack_size = 0x100
 
-.interrupts     0x0000000000004000       0xc0
-                0x0000000000004000                __vector_table = .
-                0x0000000000004000                . = ALIGN (0x4)
+.interrupts     0x0000000000002000       0xc0
+                0x0000000000002000                __vector_table = .
+                0x0000000000002000                . = ALIGN (0x4)
  *(.vectortable)
- .vectortable   0x0000000000004000       0xc0 ./Generated_Code/Vectors.o
-                0x0000000000004000                __vect_table
-                0x00000000000040c0                . = ALIGN (0x4)
+ .vectortable   0x0000000000002000       0xc0 ./Generated_Code/Vectors.o
+                0x0000000000002000                __vect_table
+                0x00000000000020c0                . = ALIGN (0x4)
 
-.buildid        0x0000000000004400       0x10
-                0x0000000000004400                __buildid = .
-                0x0000000000004400                . = ALIGN (0x4)
+.buildid        0x0000000000002400       0x10
+                0x0000000000002400                __buildid = .
+                0x0000000000002400                . = ALIGN (0x4)
  *(.buildid)
- .buildid       0x0000000000004400       0x10 ./Sources/main.o
-                0x0000000000004410                . = ALIGN (0x4)
+ .buildid       0x0000000000002400       0x10 ./Sources/main.o
+                0x0000000000002410                . = ALIGN (0x4)
 
-.text           0x0000000000004410     0x883c
-                0x0000000000004410                . = ALIGN (0x4)
+.text           0x0000000000002410     0x8838
+                0x0000000000002410                . = ALIGN (0x4)
  *(.text)
- .text          0x0000000000004410     0x54c4 ./Sources/main.o
-                0x0000000000004410                hex_data
- .text          0x00000000000098d4       0x9c /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/libgcc.a(_udivsi3.o)
-                0x00000000000098d4                __udivsi3
-                0x00000000000098d4                __aeabi_uidiv
-                0x000000000000995c                __aeabi_uidivmod
- .text          0x0000000000009970        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/libgcc.a(_dvmd_tls.o)
-                0x0000000000009970                __aeabi_ldiv0
-                0x0000000000009970                __aeabi_idiv0
+ .text          0x0000000000002410     0x54c0 ./Sources/main.o
+                0x0000000000002410                hex_data
+ .text          0x00000000000078d0       0x9c /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/libgcc.a(_udivsi3.o)
+                0x00000000000078d0                __udivsi3
+                0x00000000000078d0                __aeabi_uidiv
+                0x0000000000007958                __aeabi_uidivmod
+ .text          0x000000000000796c        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/libgcc.a(_dvmd_tls.o)
+                0x000000000000796c                __aeabi_ldiv0
+                0x000000000000796c                __aeabi_idiv0
  *(.text*)
  .text.deregister_tm_clones
-                0x0000000000009974       0x24 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x0000000000007970       0x24 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  .text.register_tm_clones
-                0x0000000000009998       0x28 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x0000000000007994       0x28 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  .text.__do_global_dtors_aux
-                0x00000000000099c0       0x30 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x00000000000079bc       0x30 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  .text.frame_dummy
-                0x00000000000099f0       0x3c /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x00000000000079ec       0x3c /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  .text.Cpu_OnNMIINT
-                0x0000000000009a2c        0x8 ./Sources/Events.o
-                0x0000000000009a2c                Cpu_OnNMIINT
+                0x0000000000007a28        0x8 ./Sources/Events.o
+                0x0000000000007a28                Cpu_OnNMIINT
  .text.COREUART_OnError
-                0x0000000000009a34        0x8 ./Sources/Events.o
-                0x0000000000009a34                COREUART_OnError
+                0x0000000000007a30        0x8 ./Sources/Events.o
+                0x0000000000007a30                COREUART_OnError
  .text.COREUART_OnRxChar
-                0x0000000000009a3c        0x8 ./Sources/Events.o
-                0x0000000000009a3c                COREUART_OnRxChar
+                0x0000000000007a38        0x8 ./Sources/Events.o
+                0x0000000000007a38                COREUART_OnRxChar
  .text.COREUART_OnTxChar
-                0x0000000000009a44        0x8 ./Sources/Events.o
-                0x0000000000009a44                COREUART_OnTxChar
+                0x0000000000007a40        0x8 ./Sources/Events.o
+                0x0000000000007a40                COREUART_OnTxChar
  .text.COREUART_OnFullRxBuf
-                0x0000000000009a4c        0x8 ./Sources/Events.o
-                0x0000000000009a4c                COREUART_OnFullRxBuf
+                0x0000000000007a48        0x8 ./Sources/Events.o
+                0x0000000000007a48                COREUART_OnFullRxBuf
  .text.COREUART_OnFreeTxBuf
-                0x0000000000009a54        0x8 ./Sources/Events.o
-                0x0000000000009a54                COREUART_OnFreeTxBuf
- .text.main     0x0000000000009a5c       0x24 ./Sources/main.o
-                0x0000000000009a5c                main
+                0x0000000000007a50        0x8 ./Sources/Events.o
+                0x0000000000007a50                COREUART_OnFreeTxBuf
+ .text.main     0x0000000000007a58       0x24 ./Sources/main.o
+                0x0000000000007a58                main
  .text.USB_Desc_Get_Descriptor
-                0x0000000000009a80      0x164 ./Sources/usb_descriptor.o
-                0x0000000000009a80                USB_Desc_Get_Descriptor
+                0x0000000000007a7c      0x164 ./Sources/usb_descriptor.o
+                0x0000000000007a7c                USB_Desc_Get_Descriptor
  .text.USB_Desc_Get_Interface
-                0x0000000000009be4       0x3c ./Sources/usb_descriptor.o
-                0x0000000000009be4                USB_Desc_Get_Interface
+                0x0000000000007be0       0x3c ./Sources/usb_descriptor.o
+                0x0000000000007be0                USB_Desc_Get_Interface
  .text.USB_Desc_Set_Interface
-                0x0000000000009c20       0x38 ./Sources/usb_descriptor.o
-                0x0000000000009c20                USB_Desc_Set_Interface
+                0x0000000000007c1c       0x38 ./Sources/usb_descriptor.o
+                0x0000000000007c1c                USB_Desc_Set_Interface
  .text.USB_Desc_Valid_Configation
-                0x0000000000009c58       0x58 ./Sources/usb_descriptor.o
-                0x0000000000009c58                USB_Desc_Valid_Configation
+                0x0000000000007c54       0x58 ./Sources/usb_descriptor.o
+                0x0000000000007c54                USB_Desc_Valid_Configation
  .text.USB_Desc_Remote_Wakeup
-                0x0000000000009cb0       0x18 ./Sources/usb_descriptor.o
-                0x0000000000009cb0                USB_Desc_Remote_Wakeup
+                0x0000000000007cac       0x18 ./Sources/usb_descriptor.o
+                0x0000000000007cac                USB_Desc_Remote_Wakeup
  .text.USB_Desc_Get_Endpoints
-                0x0000000000009cc8       0x1c ./Sources/usb_descriptor.o
-                0x0000000000009cc8                USB_Desc_Get_Endpoints
+                0x0000000000007cc4       0x1c ./Sources/usb_descriptor.o
+                0x0000000000007cc4                USB_Desc_Get_Endpoints
  .text.intercore_receive
-                0x0000000000009ce4       0x70 ./Sources/usbmain.o
-                0x0000000000009ce4                intercore_receive
+                0x0000000000007ce0       0x70 ./Sources/usbmain.o
+                0x0000000000007ce0                intercore_receive
  .text.intercore_transmit
-                0x0000000000009d54       0x38 ./Sources/usbmain.o
-                0x0000000000009d54                intercore_transmit
+                0x0000000000007d50       0x38 ./Sources/usbmain.o
+                0x0000000000007d50                intercore_transmit
  .text.usbmidi_transmit
-                0x0000000000009d8c       0x40 ./Sources/usbmain.o
-                0x0000000000009d8c                usbmidi_transmit
- .text.usb_run  0x0000000000009dcc       0x98 ./Sources/usbmain.o
-                0x0000000000009dcc                usb_run
+                0x0000000000007d88       0x40 ./Sources/usbmain.o
+                0x0000000000007d88                usbmidi_transmit
+ .text.usb_run  0x0000000000007dc8       0x98 ./Sources/usbmain.o
+                0x0000000000007dc8                usb_run
  .text.__flush_cache
-                0x0000000000009e64       0x10 ./Project_Settings/Startup_Code/startup.o
-                0x0000000000009e64                __flush_cache
+                0x0000000000007e60       0x10 ./Project_Settings/Startup_Code/startup.o
+                0x0000000000007e60                __flush_cache
  .text.__copy_rom_section
-                0x0000000000009e74       0xd8 ./Project_Settings/Startup_Code/startup.o
-                0x0000000000009e74                __copy_rom_section
+                0x0000000000007e70       0xd8 ./Project_Settings/Startup_Code/startup.o
+                0x0000000000007e70                __copy_rom_section
  .text.__copy_rom_sections_to_ram
-                0x0000000000009f4c       0xc0 ./Project_Settings/Startup_Code/startup.o
-                0x0000000000009f4c                __copy_rom_sections_to_ram
+                0x0000000000007f48       0xc0 ./Project_Settings/Startup_Code/startup.o
+                0x0000000000007f48                __copy_rom_sections_to_ram
  .text.zero_fill_bss
-                0x000000000000a00c       0xac ./Project_Settings/Startup_Code/startup.o
+                0x0000000000008008       0xac ./Project_Settings/Startup_Code/startup.o
  .text.__init_registers
-                0x000000000000a0b8        0x8 ./Project_Settings/Startup_Code/startup.o
-                0x000000000000a0b8                __init_registers
+                0x00000000000080b4        0x8 ./Project_Settings/Startup_Code/startup.o
+                0x00000000000080b4                __init_registers
  .text.__init_user
-                0x000000000000a0c0        0x8 ./Project_Settings/Startup_Code/startup.o
-                0x000000000000a0c0                __init_user
+                0x00000000000080bc        0x8 ./Project_Settings/Startup_Code/startup.o
+                0x00000000000080bc                __init_user
  .text.__thumb_startup
-                0x000000000000a0c8       0x48 ./Project_Settings/Startup_Code/startup.o
-                0x000000000000a0c8                __thumb_startup
+                0x00000000000080c4       0x48 ./Project_Settings/Startup_Code/startup.o
+                0x00000000000080c4                __thumb_startup
  .text.ASerialLdd1_Init
-                0x000000000000a110      0x1bc ./Generated_Code/ASerialLdd1.o
-                0x000000000000a110                ASerialLdd1_Init
+                0x000000000000810c      0x1bc ./Generated_Code/ASerialLdd1.o
+                0x000000000000810c                ASerialLdd1_Init
  .text.ASerialLdd1_ReceiveBlock
-                0x000000000000a2cc       0x98 ./Generated_Code/ASerialLdd1.o
-                0x000000000000a2cc                ASerialLdd1_ReceiveBlock
+                0x00000000000082c8       0x98 ./Generated_Code/ASerialLdd1.o
+                0x00000000000082c8                ASerialLdd1_ReceiveBlock
  .text.ASerialLdd1_SendBlock
-                0x000000000000a364       0xc4 ./Generated_Code/ASerialLdd1.o
-                0x000000000000a364                ASerialLdd1_SendBlock
+                0x0000000000008360       0xc4 ./Generated_Code/ASerialLdd1.o
+                0x0000000000008360                ASerialLdd1_SendBlock
  .text.InterruptRx
-                0x000000000000a428       0x58 ./Generated_Code/ASerialLdd1.o
+                0x0000000000008424       0x58 ./Generated_Code/ASerialLdd1.o
  .text.InterruptTx
-                0x000000000000a480       0x80 ./Generated_Code/ASerialLdd1.o
+                0x000000000000847c       0x80 ./Generated_Code/ASerialLdd1.o
  .text.ASerialLdd1_Interrupt
-                0x000000000000a500       0xec ./Generated_Code/ASerialLdd1.o
-                0x000000000000a500                ASerialLdd1_Interrupt
+                0x00000000000084fc       0xec ./Generated_Code/ASerialLdd1.o
+                0x00000000000084fc                ASerialLdd1_Interrupt
  .text.ASerialLdd1_GetError
-                0x000000000000a5ec       0x74 ./Generated_Code/ASerialLdd1.o
-                0x000000000000a5ec                ASerialLdd1_GetError
+                0x00000000000085e8       0x74 ./Generated_Code/ASerialLdd1.o
+                0x00000000000085e8                ASerialLdd1_GetError
  .text.BitIoLdd1_Init
-                0x000000000000a660       0x60 ./Generated_Code/BitIoLdd1.o
-                0x000000000000a660                BitIoLdd1_Init
+                0x000000000000865c       0x60 ./Generated_Code/BitIoLdd1.o
+                0x000000000000865c                BitIoLdd1_Init
  .text.BitIoLdd1_ClrVal
-                0x000000000000a6c0       0x18 ./Generated_Code/BitIoLdd1.o
-                0x000000000000a6c0                BitIoLdd1_ClrVal
+                0x00000000000086bc       0x18 ./Generated_Code/BitIoLdd1.o
+                0x00000000000086bc                BitIoLdd1_ClrVal
  .text.BitIoLdd1_SetVal
-                0x000000000000a6d8       0x18 ./Generated_Code/BitIoLdd1.o
-                0x000000000000a6d8                BitIoLdd1_SetVal
- .text.HWEnDi   0x000000000000a6f0       0x20 ./Generated_Code/COREUART.o
+                0x00000000000086d4       0x18 ./Generated_Code/BitIoLdd1.o
+                0x00000000000086d4                BitIoLdd1_SetVal
+ .text.HWEnDi   0x00000000000086ec       0x20 ./Generated_Code/COREUART.o
  .text.COREUART_RecvChar
-                0x000000000000a710       0xe8 ./Generated_Code/COREUART.o
-                0x000000000000a710                COREUART_RecvChar
+                0x000000000000870c       0xe8 ./Generated_Code/COREUART.o
+                0x000000000000870c                COREUART_RecvChar
  .text.COREUART_SendChar
-                0x000000000000a7f8       0xec ./Generated_Code/COREUART.o
-                0x000000000000a7f8                COREUART_SendChar
+                0x00000000000087f4       0xec ./Generated_Code/COREUART.o
+                0x00000000000087f4                COREUART_SendChar
  .text.COREUART_GetCharsInRxBuf
-                0x000000000000a8e4       0x14 ./Generated_Code/COREUART.o
-                0x000000000000a8e4                COREUART_GetCharsInRxBuf
+                0x00000000000088e0       0x14 ./Generated_Code/COREUART.o
+                0x00000000000088e0                COREUART_GetCharsInRxBuf
  .text.COREUART_Init
-                0x000000000000a8f8       0x64 ./Generated_Code/COREUART.o
-                0x000000000000a8f8                COREUART_Init
+                0x00000000000088f4       0x64 ./Generated_Code/COREUART.o
+                0x00000000000088f4                COREUART_Init
  .text.ASerialLdd1_OnBlockReceived
-                0x000000000000a95c       0xc4 ./Generated_Code/COREUART.o
-                0x000000000000a95c                ASerialLdd1_OnBlockReceived
+                0x0000000000008958       0xc4 ./Generated_Code/COREUART.o
+                0x0000000000008958                ASerialLdd1_OnBlockReceived
  .text.ASerialLdd1_OnBlockSent
-                0x000000000000aa20       0xe8 ./Generated_Code/COREUART.o
-                0x000000000000aa20                ASerialLdd1_OnBlockSent
+                0x0000000000008a1c       0xe8 ./Generated_Code/COREUART.o
+                0x0000000000008a1c                ASerialLdd1_OnBlockSent
  .text.ASerialLdd1_OnError
-                0x000000000000ab08       0x94 ./Generated_Code/COREUART.o
-                0x000000000000ab08                ASerialLdd1_OnError
+                0x0000000000008b04       0x94 ./Generated_Code/COREUART.o
+                0x0000000000008b04                ASerialLdd1_OnError
  .text.ASerialLdd1_OnBreak
-                0x000000000000ab9c       0x20 ./Generated_Code/COREUART.o
-                0x000000000000ab9c                ASerialLdd1_OnBreak
+                0x0000000000008b98       0x20 ./Generated_Code/COREUART.o
+                0x0000000000008b98                ASerialLdd1_OnBreak
  .text.Cpu_INT_NMIInterrupt
-                0x000000000000abbc        0xc ./Generated_Code/Cpu.o
-                0x000000000000abbc                Cpu_INT_NMIInterrupt
+                0x0000000000008bb8        0xc ./Generated_Code/Cpu.o
+                0x0000000000008bb8                Cpu_INT_NMIInterrupt
  .text.Cpu_Interrupt
-                0x000000000000abc8        0xc ./Generated_Code/Cpu.o
-                0x000000000000abc8                Cpu_Interrupt
+                0x0000000000008bc4        0xc ./Generated_Code/Cpu.o
+                0x0000000000008bc4                Cpu_Interrupt
  .text.__init_hardware
-                0x000000000000abd4      0x17c ./Generated_Code/Cpu.o
-                0x000000000000abd4                __init_hardware
+                0x0000000000008bd0      0x17c ./Generated_Code/Cpu.o
+                0x0000000000008bd0                __init_hardware
  .text.PE_low_level_init
-                0x000000000000ad50      0x13c ./Generated_Code/Cpu.o
-                0x000000000000ad50                PE_low_level_init
+                0x0000000000008d4c      0x13c ./Generated_Code/Cpu.o
+                0x0000000000008d4c                PE_low_level_init
  .text.PTC_Init
-                0x000000000000ae8c        0x8 ./Generated_Code/PTC.o
-                0x000000000000ae8c                PTC_Init
+                0x0000000000008e88        0x8 ./Generated_Code/PTC.o
+                0x0000000000008e88                PTC_Init
  .text.PTE_Init
-                0x000000000000ae94       0x1c ./Generated_Code/PTE.o
-                0x000000000000ae94                PTE_Init
+                0x0000000000008e90       0x1c ./Generated_Code/PTE.o
+                0x0000000000008e90                PTE_Init
  .text.USB0_Init
-                0x000000000000aeb0      0x17c ./Generated_Code/USB0.o
-                0x000000000000aeb0                USB0_Init
+                0x0000000000008eac      0x17c ./Generated_Code/USB0.o
+                0x0000000000008eac                USB0_Init
  .text.UsbMidiRx_Put
-                0x000000000000b02c       0xc0 ./Generated_Code/UsbMidiRx.o
-                0x000000000000b02c                UsbMidiRx_Put
+                0x0000000000009028       0xc0 ./Generated_Code/UsbMidiRx.o
+                0x0000000000009028                UsbMidiRx_Put
  .text.UsbMidiRx_Get
-                0x000000000000b0ec       0xbc ./Generated_Code/UsbMidiRx.o
-                0x000000000000b0ec                UsbMidiRx_Get
+                0x00000000000090e8       0xbc ./Generated_Code/UsbMidiRx.o
+                0x00000000000090e8                UsbMidiRx_Get
  .text.UsbMidiRx_NofElements
-                0x000000000000b1a8       0x14 ./Generated_Code/UsbMidiRx.o
-                0x000000000000b1a8                UsbMidiRx_NofElements
+                0x00000000000091a4       0x14 ./Generated_Code/UsbMidiRx.o
+                0x00000000000091a4                UsbMidiRx_NofElements
  .text.UsbMidiRx_NofFreeElements
-                0x000000000000b1bc       0x18 ./Generated_Code/UsbMidiRx.o
-                0x000000000000b1bc                UsbMidiRx_NofFreeElements
+                0x00000000000091b8       0x18 ./Generated_Code/UsbMidiRx.o
+                0x00000000000091b8                UsbMidiRx_NofFreeElements
  .text.UsbMidiRx_Init
-                0x000000000000b1d4       0x28 ./Generated_Code/UsbMidiRx.o
-                0x000000000000b1d4                UsbMidiRx_Init
+                0x00000000000091d0       0x28 ./Generated_Code/UsbMidiRx.o
+                0x00000000000091d0                UsbMidiRx_Init
  .text.UsbMidiTx_Put
-                0x000000000000b1fc       0xc0 ./Generated_Code/UsbMidiTx.o
-                0x000000000000b1fc                UsbMidiTx_Put
+                0x00000000000091f8       0xc0 ./Generated_Code/UsbMidiTx.o
+                0x00000000000091f8                UsbMidiTx_Put
  .text.UsbMidiTx_Get
-                0x000000000000b2bc       0xbc ./Generated_Code/UsbMidiTx.o
-                0x000000000000b2bc                UsbMidiTx_Get
+                0x00000000000092b8       0xbc ./Generated_Code/UsbMidiTx.o
+                0x00000000000092b8                UsbMidiTx_Get
  .text.UsbMidiTx_NofElements
-                0x000000000000b378       0x14 ./Generated_Code/UsbMidiTx.o
-                0x000000000000b378                UsbMidiTx_NofElements
+                0x0000000000009374       0x14 ./Generated_Code/UsbMidiTx.o
+                0x0000000000009374                UsbMidiTx_NofElements
  .text.UsbMidiTx_NofFreeElements
-                0x000000000000b38c       0x18 ./Generated_Code/UsbMidiTx.o
-                0x000000000000b38c                UsbMidiTx_NofFreeElements
+                0x0000000000009388       0x18 ./Generated_Code/UsbMidiTx.o
+                0x0000000000009388                UsbMidiTx_NofFreeElements
  .text.UsbMidiTx_Init
-                0x000000000000b3a4       0x28 ./Generated_Code/UsbMidiTx.o
-                0x000000000000b3a4                UsbMidiTx_Init
+                0x00000000000093a0       0x28 ./Generated_Code/UsbMidiTx.o
+                0x00000000000093a0                UsbMidiTx_Init
  .text.USB1_usb_int_en
-                0x000000000000b3cc       0x14 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
-                0x000000000000b3cc                USB1_usb_int_en
+                0x00000000000093c8       0x14 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
+                0x00000000000093c8                USB1_usb_int_en
  .text.USBMIDI1_App_Callback
-                0x000000000000b3e0       0xb8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
-                0x000000000000b3e0                USBMIDI1_App_Callback
+                0x00000000000093dc       0xb8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+                0x00000000000093dc                USBMIDI1_App_Callback
  .text.USBMIDI1_App_Task
-                0x000000000000b498       0x94 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
-                0x000000000000b498                USBMIDI1_App_Task
+                0x0000000000009494       0x94 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+                0x0000000000009494                USBMIDI1_App_Task
  .text.USBMIDI1_Init
-                0x000000000000b52c       0x1c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
-                0x000000000000b52c                USBMIDI1_Init
+                0x0000000000009528       0x1c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+                0x0000000000009528                USBMIDI1_Init
  .text.USB_Error_Service
-                0x000000000000b548       0x18 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b548                USB_Error_Service
+                0x0000000000009544       0x18 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x0000000000009544                USB_Error_Service
  .text.USB_Suspend_Service
-                0x000000000000b560       0x1c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b560                USB_Suspend_Service
+                0x000000000000955c       0x1c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x000000000000955c                USB_Suspend_Service
  .text.USB_Resume_Service
-                0x000000000000b57c       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b57c                USB_Resume_Service
+                0x0000000000009578       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x0000000000009578                USB_Resume_Service
  .text.USB_Sof_Service
-                0x000000000000b5a4       0x20 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b5a4                USB_Sof_Service
+                0x00000000000095a0       0x20 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x00000000000095a0                USB_Sof_Service
  .text.USB_Reset_Service
-                0x000000000000b5c4       0x6c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b5c4                USB_Reset_Service
+                0x00000000000095c0       0x6c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x00000000000095c0                USB_Reset_Service
  .text.USB_Stall_Service
-                0x000000000000b630       0x18 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b630                USB_Stall_Service
+                0x000000000000962c       0x18 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x000000000000962c                USB_Stall_Service
  .text.USB_Class_Init
-                0x000000000000b648       0x9c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b648                USB_Class_Init
+                0x0000000000009644       0x9c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x0000000000009644                USB_Class_Init
  .text.USB_Class_Send_Data
-                0x000000000000b6e4       0x70 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b6e4                USB_Class_Send_Data
+                0x00000000000096e0       0x70 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x00000000000096e0                USB_Class_Send_Data
  .text.USB_Class_Periodic_Task
-                0x000000000000b754        0x2 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                0x000000000000b754                USB_Class_Periodic_Task
- *fill*         0x000000000000b756        0x2 
+                0x0000000000009750        0x2 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x0000000000009750                USB_Class_Periodic_Task
+ *fill*         0x0000000000009752        0x2 
  .text.USB_DCI_Validate_Param.constprop.0
-                0x000000000000b758       0x3c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009754       0x3c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
  .text.USB_DCI_Init
-                0x000000000000b794      0x10c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000b794                USB_DCI_Init
+                0x0000000000009790      0x10c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009790                USB_DCI_Init
  .text.USB_DCI_Init_EndPoint
-                0x000000000000b8a0      0x170 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000b8a0                USB_DCI_Init_EndPoint
+                0x000000000000989c      0x170 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x000000000000989c                USB_DCI_Init_EndPoint
  .text._usb_device_cancel_transfer
-                0x000000000000ba10       0x54 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000ba10                _usb_device_cancel_transfer
+                0x0000000000009a0c       0x54 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009a0c                _usb_device_cancel_transfer
  .text.USB_DCI_Deinit_EndPoint
-                0x000000000000ba64       0x6c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000ba64                USB_DCI_Deinit_EndPoint
+                0x0000000000009a60       0x6c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009a60                USB_DCI_Deinit_EndPoint
  .text._usb_device_stall_endpoint
-                0x000000000000bad0       0x48 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000bad0                _usb_device_stall_endpoint
+                0x0000000000009acc       0x48 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009acc                _usb_device_stall_endpoint
  .text._usb_device_recv_data
-                0x000000000000bb18      0x100 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000bb18                _usb_device_recv_data
+                0x0000000000009b14      0x100 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009b14                _usb_device_recv_data
  .text._usb_device_unstall_endpoint
-                0x000000000000bc18       0x78 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000bc18                _usb_device_unstall_endpoint
+                0x0000000000009c14       0x78 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009c14                _usb_device_unstall_endpoint
  .text._usb_device_send_data
-                0x000000000000bc90       0xa8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000bc90                _usb_device_send_data
+                0x0000000000009c8c       0xa8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009c8c                _usb_device_send_data
  .text._usb_device_set_address
-                0x000000000000bd38       0x1c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000bd38                _usb_device_set_address
+                0x0000000000009d34       0x1c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009d34                _usb_device_set_address
  .text._usb_device_assert_resume
-                0x000000000000bd54       0x64 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000bd54                _usb_device_assert_resume
- .text.USB_ISR  0x000000000000bdb8      0x4e8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000000000bdb8                USB_ISR
+                0x0000000000009d50       0x64 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009d50                _usb_device_assert_resume
+ .text.USB_ISR  0x0000000000009db4      0x4e8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000000009db4                USB_ISR
  .text.USB_Device_Init_Params
-                0x000000000000c2a0       0x38 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a29c       0x38 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
  .text.USB_NULL_CALLBACK
-                0x000000000000c2d8        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                0x000000000000c2d8                USB_NULL_CALLBACK
+                0x000000000000a2d4        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a2d4                USB_NULL_CALLBACK
  .text._usb_device_init
-                0x000000000000c2dc       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                0x000000000000c2dc                _usb_device_init
+                0x000000000000a2d8       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a2d8                _usb_device_init
  .text._usb_device_init_endpoint
-                0x000000000000c304       0x4c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                0x000000000000c304                _usb_device_init_endpoint
+                0x000000000000a300       0x4c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a300                _usb_device_init_endpoint
  .text._usb_device_deinit_endpoint
-                0x000000000000c350       0x38 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                0x000000000000c350                _usb_device_deinit_endpoint
+                0x000000000000a34c       0x38 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a34c                _usb_device_deinit_endpoint
  .text._usb_device_get_status
-                0x000000000000c388       0x34 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                0x000000000000c388                _usb_device_get_status
+                0x000000000000a384       0x34 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a384                _usb_device_get_status
  .text._usb_device_set_status
-                0x000000000000c3bc       0x70 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                0x000000000000c3bc                _usb_device_set_status
+                0x000000000000a3b8       0x70 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a3b8                _usb_device_set_status
  .text._usb_device_register_service
-                0x000000000000c42c        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                0x000000000000c42c                _usb_device_register_service
+                0x000000000000a428        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a428                _usb_device_register_service
  .text.USB_Device_Call_Service
-                0x000000000000c430       0x24 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                0x000000000000c430                USB_Device_Call_Service
+                0x000000000000a42c       0x24 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000a42c                USB_Device_Call_Service
  .text.USB_Strd_Req_Sync_Frame
-                0x000000000000c454       0x30 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a450       0x30 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Strd_Req_Get_Config
-                0x000000000000c484       0x30 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a480       0x30 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Strd_Req_Set_Config
-                0x000000000000c4b4       0x64 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a4b0       0x64 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Strd_Req_Set_Address
-                0x000000000000c518       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a514       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Strd_Req_Feature
-                0x000000000000c540       0xcc /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a53c       0xcc /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Strd_Req_Get_Descriptor
-                0x000000000000c60c       0x34 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a608       0x34 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Strd_Req_Get_Status
-                0x000000000000c640       0xd4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a63c       0xd4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Strd_Req_Set_Interface
-                0x000000000000c714       0x22 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
- *fill*         0x000000000000c736        0x2 
+                0x000000000000a710       0x22 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+ *fill*         0x000000000000a732        0x2 
  .text.USB_Strd_Req_Get_Interface
-                0x000000000000c738       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a734       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Control_Service_Handler.constprop.2
-                0x000000000000c760       0x50 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a75c       0x50 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .text.USB_Control_Service
-                0x000000000000c7b0      0x158 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
-                0x000000000000c7b0                USB_Control_Service
+                0x000000000000a7ac      0x158 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a7ac                USB_Control_Service
  .text.USB_Framework_Init
-                0x000000000000c908       0x20 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
-                0x000000000000c908                USB_Framework_Init
+                0x000000000000a904       0x20 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000a904                USB_Framework_Init
  .text.USB_Class_MIDI_Service_Bulk_In
-                0x000000000000c928       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
-                0x000000000000c928                USB_Class_MIDI_Service_Bulk_In
+                0x000000000000a924       0x28 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+                0x000000000000a924                USB_Class_MIDI_Service_Bulk_In
  .text.USB_Class_MIDI_Service_Bulk_Out
-                0x000000000000c950       0x48 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
-                0x000000000000c950                USB_Class_MIDI_Service_Bulk_Out
+                0x000000000000a94c       0x48 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+                0x000000000000a94c                USB_Class_MIDI_Service_Bulk_Out
  .text.USB_MIDI_Other_Requests
-                0x000000000000c998        0x6 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
- *fill*         0x000000000000c99e        0x2 
+                0x000000000000a994        0x6 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+ *fill*         0x000000000000a99a        0x2 
  .text.USB_Class_MIDI_Event
-                0x000000000000c9a0       0xb8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
-                0x000000000000c9a0                USB_Class_MIDI_Event
+                0x000000000000a99c       0xb8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+                0x000000000000a99c                USB_Class_MIDI_Event
  .text.USB_Class_MIDI_Init
-                0x000000000000ca58       0x4c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
-                0x000000000000ca58                USB_Class_MIDI_Init
+                0x000000000000aa54       0x4c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+                0x000000000000aa54                USB_Class_MIDI_Init
  .text.USB_Class_MIDI_Send_Data
-                0x000000000000caa4        0x8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
-                0x000000000000caa4                USB_Class_MIDI_Send_Data
+                0x000000000000aaa0        0x8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+                0x000000000000aaa0                USB_Class_MIDI_Send_Data
  .text.Watchdog_Reset
-                0x000000000000caac       0x10 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(wdt_kinetis.o)
-                0x000000000000caac                Watchdog_Reset
- .text.memcpy   0x000000000000cabc       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memcpy.o)
-                0x000000000000cabc                memcpy
- .text.memset   0x000000000000cace       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memset.o)
-                0x000000000000cace                memset
+                0x000000000000aaa8       0x10 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(wdt_kinetis.o)
+                0x000000000000aaa8                Watchdog_Reset
+ .text.memcpy   0x000000000000aab8       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memcpy.o)
+                0x000000000000aab8                memcpy
+ .text.memset   0x000000000000aaca       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memset.o)
+                0x000000000000aaca                memset
  *(.rodata)
- .rodata        0x000000000000cae0        0x8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ .rodata        0x000000000000aadc        0x8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
  *(.rodata*)
  .rodata.usb_desc_ep
-                0x000000000000cae8       0x10 ./Sources/usb_descriptor.o
-                0x000000000000cae8                usb_desc_ep
+                0x000000000000aae4       0x10 ./Sources/usb_descriptor.o
+                0x000000000000aae4                usb_desc_ep
  .rodata.g_std_desc_size
-                0x000000000000caf8       0x10 ./Sources/usb_descriptor.o
-                0x000000000000caf8                g_std_desc_size
+                0x000000000000aaf4       0x10 ./Sources/usb_descriptor.o
+                0x000000000000aaf4                g_std_desc_size
  .rodata.g_std_descriptors
-                0x000000000000cb08       0x20 ./Sources/usb_descriptor.o
-                0x000000000000cb08                g_std_descriptors
+                0x000000000000ab04       0x20 ./Sources/usb_descriptor.o
+                0x000000000000ab04                g_std_descriptors
  .rodata.g_string_desc_size
-                0x000000000000cb28        0xc ./Sources/usb_descriptor.o
-                0x000000000000cb28                g_string_desc_size
+                0x000000000000ab24        0xc ./Sources/usb_descriptor.o
+                0x000000000000ab24                g_string_desc_size
  .rodata.g_string_descriptors
-                0x000000000000cb34       0x24 ./Sources/usb_descriptor.o
-                0x000000000000cb34                g_string_descriptors
+                0x000000000000ab30       0x24 ./Sources/usb_descriptor.o
+                0x000000000000ab30                g_string_descriptors
  .rodata.g_languages
-                0x000000000000cb58       0x1c ./Sources/usb_descriptor.o
-                0x000000000000cb58                g_languages
+                0x000000000000ab54       0x1c ./Sources/usb_descriptor.o
+                0x000000000000ab54                g_languages
  .rodata.g_valid_config_values
-                0x000000000000cb74        0x4 ./Sources/usb_descriptor.o
-                0x000000000000cb74                g_valid_config_values
+                0x000000000000ab70        0x4 ./Sources/usb_descriptor.o
+                0x000000000000ab70                g_valid_config_values
  .rodata.g_usb_CB
-                0x000000000000cb78       0x60 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x000000000000ab74       0x60 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
  .rodata.g_standard_request
-                0x000000000000cbd8       0x34 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
-                0x000000000000cbd8                g_standard_request
+                0x000000000000abd4       0x34 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000abd4                g_standard_request
  .rodata.g_validate_request
-                0x000000000000cc0c       0x27 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
-                0x000000000000cc0c                g_validate_request
+                0x000000000000ac08       0x27 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000000000ac08                g_validate_request
  *(.glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x0000000000000000        0x0 linker stubs
  *(.eh_frame)
- *fill*         0x000000000000cc33        0x1 
- .eh_frame      0x000000000000cc34        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+ *fill*         0x000000000000ac2f        0x1 
+ .eh_frame      0x000000000000ac30        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  *(.init)
- .init          0x000000000000cc34        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
-                0x000000000000cc34                _init
- .init          0x000000000000cc38        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
+ .init          0x000000000000ac30        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
+                0x000000000000ac30                _init
+ .init          0x000000000000ac34        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
  *(.fini)
- .fini          0x000000000000cc40        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
-                0x000000000000cc40                _fini
- .fini          0x000000000000cc44        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
-                0x000000000000cc4c                . = ALIGN (0x4)
-                0x000000000000cc4c                _etext = .
+ .fini          0x000000000000ac3c        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
+                0x000000000000ac3c                _fini
+ .fini          0x000000000000ac40        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
+                0x000000000000ac48                . = ALIGN (0x4)
+                0x000000000000ac48                _etext = .
 
-.vfp11_veneer   0x000000000000cc4c        0x0
+.vfp11_veneer   0x000000000000ac48        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x000000000000cc4c        0x0
+.v4_bx          0x000000000000ac48        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x000000000000cc4c        0x0
+.iplt           0x000000000000ac48        0x0
  .iplt          0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
-.rel.dyn        0x000000000000cc4c        0x0
+.rel.dyn        0x000000000000ac48        0x0
  .rel.iplt      0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x000000000000cc4c        0x0
-                0x000000000000cc4c                __exidx_start = .
+.ARM            0x000000000000ac48        0x0
+                0x000000000000ac48                __exidx_start = .
  *(.ARM.exidx*)
-                0x000000000000cc4c                __exidx_end = .
+                0x000000000000ac48                __exidx_end = .
 
-.ctors          0x000000000000cc4c        0x0
-                0x000000000000cc4c                __CTOR_LIST__ = .
+.ctors          0x000000000000ac48        0x0
+                0x000000000000ac48                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x000000000000cc4c                __CTOR_END__ = .
+                0x000000000000ac48                __CTOR_END__ = .
 
-.dtors          0x000000000000cc4c        0x0
-                0x000000000000cc4c                __DTOR_LIST__ = .
+.dtors          0x000000000000ac48        0x0
+                0x000000000000ac48                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x000000000000cc4c                __DTOR_END__ = .
+                0x000000000000ac48                __DTOR_END__ = .
 
-.preinit_array  0x000000000000cc4c        0x0
-                0x000000000000cc4c                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x000000000000ac48        0x0
+                0x000000000000ac48                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x000000000000cc4c                PROVIDE (__preinit_array_end, .)
+                0x000000000000ac48                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x000000000000cc4c        0x4
-                0x000000000000cc4c                PROVIDE (__init_array_start, .)
+.init_array     0x000000000000ac48        0x4
+                0x000000000000ac48                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x000000000000cc4c        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
-                0x000000000000cc50                PROVIDE (__init_array_end, .)
+ .init_array    0x000000000000ac48        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x000000000000ac4c                PROVIDE (__init_array_end, .)
 
-.fini_array     0x000000000000cc50        0x4
-                0x000000000000cc50                PROVIDE (__fini_array_start, .)
+.fini_array     0x000000000000ac4c        0x4
+                0x000000000000ac4c                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x000000000000cc50        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
-                0x000000000000cc54                PROVIDE (__fini_array_end, .)
-                0x000000000000cc54                ___ROM_AT = .
+ .fini_array    0x000000000000ac4c        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x000000000000ac50                PROVIDE (__fini_array_end, .)
+                0x000000000000ac50                ___ROM_AT = .
 
-.mtb            0x000000001ffff000        0x0
-                0x000000001ffff000                . = ALIGN (0x8)
-                0x000000001ffff000                _mtb_start = .
+.mtb            0x000000001ffff800        0x0
+                0x000000001ffff800                . = ALIGN (0x8)
+                0x000000001ffff800                _mtb_start = .
  *(.mtb_buf)
-                0x000000001ffff000                . = ALIGN (0x8)
-                0x000000001ffff000                _mtb_end = .
+                0x000000001ffff800                . = ALIGN (0x8)
+                0x000000001ffff800                _mtb_end = .
 
-.data           0x000000001ffff000      0x144 load address 0x000000000000cc54
-                0x000000001ffff000                . = ALIGN (0x4)
-                0x000000001ffff000                _sdata = .
+.data           0x000000001ffff800      0x144 load address 0x000000000000ac50
+                0x000000001ffff800                . = ALIGN (0x4)
+                0x000000001ffff800                _sdata = .
  *(.data)
  *(.data*)
  .data.g_device_descriptor
-                0x000000001ffff000       0x14 ./Sources/usb_descriptor.o
-                0x000000001ffff000                g_device_descriptor
+                0x000000001ffff800       0x14 ./Sources/usb_descriptor.o
+                0x000000001ffff800                g_device_descriptor
  .data.g_config_descriptor
-                0x000000001ffff014       0x74 ./Sources/usb_descriptor.o
-                0x000000001ffff014                g_config_descriptor
+                0x000000001ffff814       0x74 ./Sources/usb_descriptor.o
+                0x000000001ffff814                g_config_descriptor
  .data.USB_STR_0
-                0x000000001ffff088        0x4 ./Sources/usb_descriptor.o
-                0x000000001ffff088                USB_STR_0
+                0x000000001ffff888        0x4 ./Sources/usb_descriptor.o
+                0x000000001ffff888                USB_STR_0
  .data.USB_STR_1
-                0x000000001ffff08c       0x18 ./Sources/usb_descriptor.o
-                0x000000001ffff08c                USB_STR_1
+                0x000000001ffff88c       0x18 ./Sources/usb_descriptor.o
+                0x000000001ffff88c                USB_STR_1
  .data.USB_STR_2
-                0x000000001ffff0a4       0x20 ./Sources/usb_descriptor.o
-                0x000000001ffff0a4                USB_STR_2
+                0x000000001ffff8a4       0x20 ./Sources/usb_descriptor.o
+                0x000000001ffff8a4                USB_STR_2
  .data.USB_STR_3
-                0x000000001ffff0c4        0x4 ./Sources/usb_descriptor.o
-                0x000000001ffff0c4                USB_STR_3
+                0x000000001ffff8c4        0x4 ./Sources/usb_descriptor.o
+                0x000000001ffff8c4                USB_STR_3
  .data.USB_STR_4
-                0x000000001ffff0c8       0x10 ./Sources/usb_descriptor.o
-                0x000000001ffff0c8                USB_STR_4
+                0x000000001ffff8c8       0x10 ./Sources/usb_descriptor.o
+                0x000000001ffff8c8                USB_STR_4
  .data.USB_STR_5
-                0x000000001ffff0d8       0x1c ./Sources/usb_descriptor.o
-                0x000000001ffff0d8                USB_STR_5
+                0x000000001ffff8d8       0x1c ./Sources/usb_descriptor.o
+                0x000000001ffff8d8                USB_STR_5
  .data.USB_STR_6
-                0x000000001ffff0f4       0x10 ./Sources/usb_descriptor.o
-                0x000000001ffff0f4                USB_STR_6
+                0x000000001ffff8f4       0x10 ./Sources/usb_descriptor.o
+                0x000000001ffff8f4                USB_STR_6
  .data.USB_STR_7
-                0x000000001ffff104       0x18 ./Sources/usb_descriptor.o
-                0x000000001ffff104                USB_STR_7
+                0x000000001ffff904       0x18 ./Sources/usb_descriptor.o
+                0x000000001ffff904                USB_STR_7
  .data.USB_STR_n
-                0x000000001ffff11c       0x24 ./Sources/usb_descriptor.o
-                0x000000001ffff11c                USB_STR_n
+                0x000000001ffff91c       0x24 ./Sources/usb_descriptor.o
+                0x000000001ffff91c                USB_STR_n
  .data.g_trf_direction
-                0x000000001ffff140        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000001ffff144                . = ALIGN (0x4)
- *fill*         0x000000001ffff141        0x3 
-                0x000000001ffff144                _edata = .
+                0x000000001ffff940        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x000000001ffff944                . = ALIGN (0x4)
+ *fill*         0x000000001ffff941        0x3 
+                0x000000001ffff944                _edata = .
                 0x0000000000000144                ___data_size = (_edata - _sdata)
 
-.jcr            0x000000001ffff144        0x0 load address 0x000000000000cd98
- .jcr           0x000000001ffff144        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+.jcr            0x000000001ffff944        0x0 load address 0x000000000000ad94
+ .jcr           0x000000001ffff944        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
 .tm_clone_table
-                0x000000001ffff144        0x0 load address 0x000000000000cd98
+                0x000000001ffff944        0x0 load address 0x000000000000ad94
  .tm_clone_table
-                0x000000001ffff144        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x000000001ffff944        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  .tm_clone_table
-                0x000000001ffff144        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtend.o
+                0x000000001ffff944        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtend.o
 
-.igot.plt       0x000000001ffff144        0x0 load address 0x000000000000cd98
+.igot.plt       0x000000001ffff944        0x0 load address 0x000000000000ad94
  .igot.plt      0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
-                0x000000001ffff144                . = ALIGN (0x4)
+                0x000000001ffff944                . = ALIGN (0x4)
 
-.bss            0x000000001ffff200      0xe00 load address 0x000000000000d000
-                0x000000001ffff200                __START_BSS = .
-                0x000000001ffff200                PROVIDE (__bss_start__, __START_BSS)
+.bss            0x000000001ffffa00      0xe00 load address 0x000000000000b000
+                0x000000001ffffa00                __START_BSS = .
+                0x000000001ffffa00                PROVIDE (__bss_start__, __START_BSS)
  *(.bss)
  *(.bss*)
  .bss.completed.6137
-                0x000000001ffff200        0x1 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
- *fill*         0x000000001ffff201        0x3 
+                0x000000001ffffa00        0x1 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+ *fill*         0x000000001ffffa01        0x3 
  .bss.object.6142
-                0x000000001ffff204       0x18 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x000000001ffffa04       0x18 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  .bss.g_alternate_interface
-                0x000000001ffff21c        0x4 ./Sources/usb_descriptor.o
- *fill*         0x000000001ffff220      0x1e0 
+                0x000000001ffffa1c        0x4 ./Sources/usb_descriptor.o
+ *fill*         0x000000001ffffa20      0x1e0 
  .bss.midi_buffer
-                0x000000001ffff400      0x200 ./Sources/usbmain.o
- .bss.argv      0x000000001ffff600       0x28 ./Project_Settings/Startup_Code/startup.o
+                0x000000001ffffc00      0x200 ./Sources/usbmain.o
+ .bss.argv      0x000000001ffffe00       0x28 ./Project_Settings/Startup_Code/startup.o
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x000000001ffff628       0x20 ./Generated_Code/ASerialLdd1.o
+                0x000000001ffffe28       0x20 ./Generated_Code/ASerialLdd1.o
  .bss.INT_UART0__DEFAULT_RTOS_ISRPARAM
-                0x000000001ffff648        0x4 ./Generated_Code/ASerialLdd1.o
+                0x000000001ffffe48        0x4 ./Generated_Code/ASerialLdd1.o
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x000000001ffff64c        0x4 ./Generated_Code/BitIoLdd1.o
- .bss.SerFlag   0x000000001ffff650        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffe4c        0x4 ./Generated_Code/BitIoLdd1.o
+ .bss.SerFlag   0x000000001ffffe50        0x2 ./Generated_Code/COREUART.o
  .bss.COREUART_InpLen
-                0x000000001ffff652        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffe52        0x2 ./Generated_Code/COREUART.o
  .bss.InpIndexR
-                0x000000001ffff654        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffe54        0x2 ./Generated_Code/COREUART.o
  .bss.InpIndexW
-                0x000000001ffff656        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffe56        0x2 ./Generated_Code/COREUART.o
  .bss.InpBuffer
-                0x000000001ffff658      0x100 ./Generated_Code/COREUART.o
+                0x000000001ffffe58      0x100 ./Generated_Code/COREUART.o
  .bss.BufferRead
-                0x000000001ffff758        0x1 ./Generated_Code/COREUART.o
- *fill*         0x000000001ffff759        0x1 
+                0x000000001fffff58        0x1 ./Generated_Code/COREUART.o
+ *fill*         0x000000001fffff59        0x1 
  .bss.COREUART_OutLen
-                0x000000001ffff75a        0x2 ./Generated_Code/COREUART.o
+                0x000000001fffff5a        0x2 ./Generated_Code/COREUART.o
  .bss.OutIndexR
-                0x000000001ffff75c        0x2 ./Generated_Code/COREUART.o
+                0x000000001fffff5c        0x2 ./Generated_Code/COREUART.o
  .bss.OutIndexW
-                0x000000001ffff75e        0x2 ./Generated_Code/COREUART.o
+                0x000000001fffff5e        0x2 ./Generated_Code/COREUART.o
  .bss.OutBuffer
-                0x000000001ffff760      0x100 ./Generated_Code/COREUART.o
+                0x000000001fffff60      0x100 ./Generated_Code/COREUART.o
  .bss.OnFreeTxBufSemaphore
-                0x000000001ffff860        0x1 ./Generated_Code/COREUART.o
- .bss.SR_lock   0x000000001ffff861        0x1 ./Generated_Code/Cpu.o
-                0x000000001ffff861                SR_lock
- *fill*         0x000000001ffff862        0x2 
+                0x0000000020000060        0x1 ./Generated_Code/COREUART.o
+ .bss.SR_lock   0x0000000020000061        0x1 ./Generated_Code/Cpu.o
+                0x0000000020000061                SR_lock
+ *fill*         0x0000000020000062        0x2 
  .bss.PE_LDD_DeviceDataList
-                0x000000001ffff864        0x8 ./Generated_Code/PE_LDD.o
-                0x000000001ffff864                PE_LDD_DeviceDataList
+                0x0000000020000064        0x8 ./Generated_Code/PE_LDD.o
+                0x0000000020000064                PE_LDD_DeviceDataList
  .bss.UsbMidiRx_buffer
-                0x000000001ffff86c       0x40 ./Generated_Code/UsbMidiRx.o
+                0x000000002000006c       0x40 ./Generated_Code/UsbMidiRx.o
  .bss.UsbMidiRx_inIdx
-                0x000000001ffff8ac        0x1 ./Generated_Code/UsbMidiRx.o
+                0x00000000200000ac        0x1 ./Generated_Code/UsbMidiRx.o
  .bss.UsbMidiRx_outIdx
-                0x000000001ffff8ad        0x1 ./Generated_Code/UsbMidiRx.o
+                0x00000000200000ad        0x1 ./Generated_Code/UsbMidiRx.o
  .bss.UsbMidiRx_inSize
-                0x000000001ffff8ae        0x1 ./Generated_Code/UsbMidiRx.o
- *fill*         0x000000001ffff8af        0x1 
+                0x00000000200000ae        0x1 ./Generated_Code/UsbMidiRx.o
+ *fill*         0x00000000200000af        0x1 
  .bss.UsbMidiTx_buffer
-                0x000000001ffff8b0       0x40 ./Generated_Code/UsbMidiTx.o
+                0x00000000200000b0       0x40 ./Generated_Code/UsbMidiTx.o
  .bss.UsbMidiTx_inIdx
-                0x000000001ffff8f0        0x1 ./Generated_Code/UsbMidiTx.o
+                0x00000000200000f0        0x1 ./Generated_Code/UsbMidiTx.o
  .bss.UsbMidiTx_outIdx
-                0x000000001ffff8f1        0x1 ./Generated_Code/UsbMidiTx.o
+                0x00000000200000f1        0x1 ./Generated_Code/UsbMidiTx.o
  .bss.UsbMidiTx_inSize
-                0x000000001ffff8f2        0x1 ./Generated_Code/UsbMidiTx.o
- *fill*         0x000000001ffff8f3        0x1 
+                0x00000000200000f2        0x1 ./Generated_Code/UsbMidiTx.o
+ *fill*         0x00000000200000f3        0x1 
  .bss.recvactive
-                0x000000001ffff8f4        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+                0x00000000200000f4        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
  .bss.transactionOngoing
-                0x000000001ffff8f8        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+                0x00000000200000f8        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
  .bss.start_app
-                0x000000001ffff8f9        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+                0x00000000200000f9        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
  .bss.start_transactions
-                0x000000001ffff8fa        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
- *fill*         0x000000001ffff8fb        0x1 
+                0x00000000200000fa        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+ *fill*         0x00000000200000fb        0x1 
  .bss.g_class_callback
-                0x000000001ffff8fc        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                0x00000000200000fc        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
  .bss.g_device_state_before_suspend
-                0x000000001ffff900        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
- *fill*         0x000000001ffff901        0x3 
+                0x0000000020000100        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+ *fill*         0x0000000020000101        0x3 
  .bss.g_bdt_address
-                0x000000001ffff904        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000020000104        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
  .bss.g_dci_controller_Id
-                0x000000001ffff908        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
- *fill*         0x000000001ffff909        0x3 
- .bss.g_bdtmap  0x000000001ffff90c        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000001ffff90c                g_bdtmap
+                0x0000000020000108        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ *fill*         0x0000000020000109        0x3 
+ .bss.g_bdtmap  0x000000002000010c        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x000000002000010c                g_bdtmap
  .bss.g_bdt_elem
-                0x000000001ffff910      0x240 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000020000110      0x240 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
  .bss.g_EPn_max
-                0x000000001ffffb50        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x0000000020000350        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
  .bss.g_usb_ep_status
-                0x000000001ffffb51        0x7 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
- .bss.g_EPn     0x000000001ffffb58        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x0000000020000351        0x7 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+ .bss.g_EPn     0x0000000020000358        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
  .bss.g_usb_component_status
-                0x000000001ffffb59        0x7 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                0x0000000020000359        0x7 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
  .bss.g_assigned_address
-                0x000000001ffffb60        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
- *fill*         0x000000001ffffb61        0x1 
+                0x0000000020000360        0x1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+ *fill*         0x0000000020000361        0x1 
  .bss.g_std_framework_data
-                0x000000001ffffb62        0x2 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x0000000020000362        0x2 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .bss.g_setup_pkt
-                0x000000001ffffb64        0x8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x0000000020000364        0x8 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .bss.ext_req_to_host
-                0x000000001ffffb6c       0x10 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000002000036c       0x10 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .bss.g_other_req_callback
-                0x000000001ffffb7c        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x000000002000037c        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .bss.g_framework_callback
-                0x000000001ffffb80        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                0x0000000020000380        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
  .bss.g_midi_class_callback
-                0x000000001ffffb84        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+                0x0000000020000384        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
  .bss.g_vendor_req_callback
-                0x000000001ffffb88        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+                0x0000000020000388        0x4 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
  *(COMMON)
- COMMON         0x000000001ffffb8c        0x4 ./Generated_Code/COREUART.o
-                0x000000001ffffb8c                ASerialLdd1_DeviceDataPtr
- COMMON         0x000000001ffffb90        0x1 ./Generated_Code/Cpu.o
-                0x000000001ffffb90                SR_reg
- *fill*         0x000000001ffffb91       0x6f 
- COMMON         0x000000001ffffc00      0x400 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                0x000000001ffffc00                g_Mem
-                0x0000000020000000                . = ALIGN (0x4)
-                0x0000000020000000                __END_BSS = .
-                0x0000000020000000                PROVIDE (__bss_end__, __END_BSS)
-                0x000000000000cd98                _romp_at = (___ROM_AT + SIZEOF (.data))
+ COMMON         0x000000002000038c        0x4 ./Generated_Code/COREUART.o
+                0x000000002000038c                ASerialLdd1_DeviceDataPtr
+ COMMON         0x0000000020000390        0x1 ./Generated_Code/Cpu.o
+                0x0000000020000390                SR_reg
+ *fill*         0x0000000020000391       0x6f 
+ COMMON         0x0000000020000400      0x400 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                0x0000000020000400                g_Mem
+                0x0000000020000800                . = ALIGN (0x4)
+                0x0000000020000800                __END_BSS = .
+                0x0000000020000800                PROVIDE (__bss_end__, __END_BSS)
+                0x000000000000ad94                _romp_at = (___ROM_AT + SIZEOF (.data))
 
-.romp           0x0000000020000000       0x18 load address 0x000000000000cd98
-                0x000000000000cd98                __S_romp = _romp_at
-                0x0000000020000000        0x4 LONG 0xcc54 ___ROM_AT
-                0x0000000020000004        0x4 LONG 0x1ffff000 _sdata
-                0x0000000020000008        0x4 LONG 0x144 ___data_size
-                0x000000002000000c        0x4 LONG 0x0
-                0x0000000020000010        0x4 LONG 0x0
-                0x0000000020000014        0x4 LONG 0x0
+.romp           0x0000000020000800       0x18 load address 0x000000000000ad94
+                0x000000000000ad94                __S_romp = _romp_at
+                0x0000000020000800        0x4 LONG 0xac50 ___ROM_AT
+                0x0000000020000804        0x4 LONG 0x1ffff800 _sdata
+                0x0000000020000808        0x4 LONG 0x144 ___data_size
+                0x000000002000080c        0x4 LONG 0x0
+                0x0000000020000810        0x4 LONG 0x0
+                0x0000000020000814        0x4 LONG 0x0
 
 ._user_heap_stack
-                0x0000000020000018      0x400 load address 0x000000000000cdb0
-                0x0000000020000018                . = ALIGN (0x4)
-                0x0000000020000018                PROVIDE (end, .)
-                0x0000000020000018                PROVIDE (_end, .)
-                0x0000000020000018                __heap_addr = .
-                0x0000000020000018                __HeapBase = .
-                0x0000000020000018                . = (. + __heap_size)
-                0x0000000020000018                __HeapLimit = .
-                0x0000000020000418                . = (. + __stack_size)
- *fill*         0x0000000020000018      0x400 
-                0x0000000020000418                . = ALIGN (0x4)
+                0x0000000020000818      0x200 load address 0x000000000000adac
+                0x0000000020000818                . = ALIGN (0x4)
+                0x0000000020000818                PROVIDE (end, .)
+                0x0000000020000818                PROVIDE (_end, .)
+                0x0000000020000818                __heap_addr = .
+                0x0000000020000818                __HeapBase = .
+                0x0000000020000918                . = (. + __heap_size)
+ *fill*         0x0000000020000818      0x100 
+                0x0000000020000918                __HeapLimit = .
+                0x0000000020000a18                . = (. + __stack_size)
+ *fill*         0x0000000020000918      0x100 
+                0x0000000020000a18                . = ALIGN (0x4)
 
 .ARM.attributes
                 0x0000000000000000       0x2f
@@ -2185,7 +2186,7 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_ranges  0x0000000000000610       0x38 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
  .debug_ranges  0x0000000000000648       0x10 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(wdt_kinetis.o)
 
-.debug_macro    0x0000000000000000    0x15ae5
+.debug_macro    0x0000000000000000    0x15add
  .debug_macro   0x0000000000000000      0x12a ./Sources/Events.o
  .debug_macro   0x000000000000012a      0x81a ./Sources/Events.o
  .debug_macro   0x0000000000000944      0x214 ./Sources/Events.o
@@ -2194,95 +2195,95 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_macro   0x0000000000002238       0x64 ./Sources/Events.o
  .debug_macro   0x000000000000229c     0x621c ./Sources/Events.o
  .debug_macro   0x00000000000084b8       0x9a ./Sources/Events.o
- .debug_macro   0x0000000000008552       0x12 ./Sources/Events.o
- .debug_macro   0x0000000000008564       0x12 ./Sources/Events.o
- .debug_macro   0x0000000000008576       0x65 ./Sources/Events.o
- .debug_macro   0x00000000000085db       0x1f ./Sources/Events.o
- .debug_macro   0x00000000000085fa       0x10 ./Sources/Events.o
- .debug_macro   0x000000000000860a       0x10 ./Sources/Events.o
- .debug_macro   0x000000000000861a       0x3d ./Sources/Events.o
- .debug_macro   0x0000000000008657       0x18 ./Sources/Events.o
- .debug_macro   0x000000000000866f       0x94 ./Sources/Events.o
- .debug_macro   0x0000000000008703      0x12b ./Sources/Events.o
- .debug_macro   0x000000000000882e       0x40 ./Sources/Events.o
- .debug_macro   0x000000000000886e       0x20 ./Sources/Events.o
- .debug_macro   0x000000000000888e       0x47 ./Sources/Events.o
- .debug_macro   0x00000000000088d5      0x15a ./Sources/main.o
- .debug_macro   0x0000000000008a2f      0x166 ./Sources/main.o
- .debug_macro   0x0000000000008b95       0x52 ./Sources/main.o
- .debug_macro   0x0000000000008be7      0x110 ./Sources/usb_descriptor.o
- .debug_macro   0x0000000000008cf7       0x10 ./Sources/usb_descriptor.o
- .debug_macro   0x0000000000008d07       0x5e ./Sources/usb_descriptor.o
- .debug_macro   0x0000000000008d65       0x10 ./Sources/usb_descriptor.o
- .debug_macro   0x0000000000008d75       0x34 ./Sources/usb_descriptor.o
- .debug_macro   0x0000000000008da9      0x38c ./Sources/usb_descriptor.o
- .debug_macro   0x0000000000009135       0x82 ./Sources/usb_descriptor.o
- .debug_macro   0x00000000000091b7      0x27f ./Sources/usb_descriptor.o
- .debug_macro   0x0000000000009436      0x310 ./Sources/usb_descriptor.o
- .debug_macro   0x0000000000009746       0xf4 ./Sources/usb_descriptor.o
- .debug_macro   0x000000000000983a      0x135 ./Sources/usbmain.o
- .debug_macro   0x000000000000996f       0xa0 ./Sources/usbmain.o
- .debug_macro   0x0000000000009a0f       0x1c ./Sources/usbmain.o
- .debug_macro   0x0000000000009a2b       0x3a ./Sources/usbmain.o
- .debug_macro   0x0000000000009a65      0x119 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009b7e       0x2e ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009bac       0x2e ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009bda       0x95 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009c6f       0x3a ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009ca9       0x52 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009cfb       0x19 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009d14      0x16d ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009e81       0x89 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009f0a       0x10 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009f1a       0x89 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009fa3       0x1c ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009fbf       0x10 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x0000000000009fcf     0x6210 ./Project_Settings/Startup_Code/startup.o
- .debug_macro   0x00000000000101df       0xa7 ./Generated_Code/ASerialLdd1.o
- .debug_macro   0x0000000000010286       0x5f ./Generated_Code/ASerialLdd1.o
- .debug_macro   0x00000000000102e5       0x25 ./Generated_Code/ASerialLdd1.o
- .debug_macro   0x000000000001030a      0x31c ./Generated_Code/ASerialLdd1.o
- .debug_macro   0x0000000000010626      0x84c ./Generated_Code/ASerialLdd1.o
- .debug_macro   0x0000000000010e72       0x88 ./Generated_Code/BitIoLdd1.o
- .debug_macro   0x0000000000010efa      0x1a9 ./Generated_Code/COREUART.o
- .debug_macro   0x00000000000110a3      0x140 ./Generated_Code/Cpu.o
- .debug_macro   0x00000000000111e3      0x104 ./Generated_Code/PE_LDD.o
- .debug_macro   0x00000000000112e7       0x70 ./Generated_Code/PTC.o
- .debug_macro   0x0000000000011357       0x70 ./Generated_Code/PTE.o
- .debug_macro   0x00000000000113c7       0x12 ./Generated_Code/PTE.o
- .debug_macro   0x00000000000113d9       0x79 ./Generated_Code/USB0.o
- .debug_macro   0x0000000000011452       0x71 ./Generated_Code/UsbMidiRx.o
- .debug_macro   0x00000000000114c3       0x71 ./Generated_Code/UsbMidiTx.o
- .debug_macro   0x0000000000011534      0x140 ./Generated_Code/Vectors.o
- .debug_macro   0x0000000000011674       0x18 ./Generated_Code/Vectors.o
- .debug_macro   0x000000000001168c       0xc5 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
- .debug_macro   0x0000000000011751      0x826 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
- .debug_macro   0x0000000000011f77     0x15a0 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
- .debug_macro   0x0000000000013517       0xa0 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
- .debug_macro   0x00000000000135b7      0x16d /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
- .debug_macro   0x0000000000013724      0x133 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
- .debug_macro   0x0000000000013857       0x10 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
- .debug_macro   0x0000000000013867       0x64 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
- .debug_macro   0x00000000000138cb       0xe9 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
- .debug_macro   0x00000000000139b4       0x6a /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
- .debug_macro   0x0000000000013a1e     0x158e /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
- .debug_macro   0x0000000000014fac       0x9a /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
- .debug_macro   0x0000000000015046       0x9a /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
- .debug_macro   0x00000000000150e0      0x19b /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
- .debug_macro   0x000000000001527b       0x22 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
- .debug_macro   0x000000000001529d       0xf6 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
- .debug_macro   0x0000000000015393       0x62 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
- .debug_macro   0x00000000000153f5      0x164 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
- .debug_macro   0x0000000000015559       0x3a /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
- .debug_macro   0x0000000000015593       0x88 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
- .debug_macro   0x000000000001561b       0xc5 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
- .debug_macro   0x00000000000156e0       0x68 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
- .debug_macro   0x0000000000015748      0x18e /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
- .debug_macro   0x00000000000158d6       0x43 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
- .debug_macro   0x0000000000015919       0x35 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
- .debug_macro   0x000000000001594e       0x1c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
- .debug_macro   0x000000000001596a       0xe9 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
- .debug_macro   0x0000000000015a53       0x92 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(wdt_kinetis.o)
+ .debug_macro   0x0000000000008552       0x10 ./Sources/Events.o
+ .debug_macro   0x0000000000008562       0x12 ./Sources/Events.o
+ .debug_macro   0x0000000000008574       0x65 ./Sources/Events.o
+ .debug_macro   0x00000000000085d9       0x1f ./Sources/Events.o
+ .debug_macro   0x00000000000085f8       0x10 ./Sources/Events.o
+ .debug_macro   0x0000000000008608       0x10 ./Sources/Events.o
+ .debug_macro   0x0000000000008618       0x3d ./Sources/Events.o
+ .debug_macro   0x0000000000008655       0x16 ./Sources/Events.o
+ .debug_macro   0x000000000000866b       0x94 ./Sources/Events.o
+ .debug_macro   0x00000000000086ff      0x12b ./Sources/Events.o
+ .debug_macro   0x000000000000882a       0x40 ./Sources/Events.o
+ .debug_macro   0x000000000000886a       0x20 ./Sources/Events.o
+ .debug_macro   0x000000000000888a       0x47 ./Sources/Events.o
+ .debug_macro   0x00000000000088d1      0x15a ./Sources/main.o
+ .debug_macro   0x0000000000008a2b      0x166 ./Sources/main.o
+ .debug_macro   0x0000000000008b91       0x52 ./Sources/main.o
+ .debug_macro   0x0000000000008be3      0x110 ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000008cf3       0x10 ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000008d03       0x5e ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000008d61       0x10 ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000008d71       0x34 ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000008da5      0x38c ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000009131       0x82 ./Sources/usb_descriptor.o
+ .debug_macro   0x00000000000091b3      0x27f ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000009432      0x310 ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000009742       0xf4 ./Sources/usb_descriptor.o
+ .debug_macro   0x0000000000009836      0x135 ./Sources/usbmain.o
+ .debug_macro   0x000000000000996b       0xa0 ./Sources/usbmain.o
+ .debug_macro   0x0000000000009a0b       0x1c ./Sources/usbmain.o
+ .debug_macro   0x0000000000009a27       0x3a ./Sources/usbmain.o
+ .debug_macro   0x0000000000009a61      0x119 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009b7a       0x2e ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009ba8       0x2e ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009bd6       0x95 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009c6b       0x3a ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009ca5       0x52 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009cf7       0x19 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009d10      0x16d ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009e7d       0x89 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009f06       0x10 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009f16       0x89 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009f9f       0x1c ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009fbb       0x10 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x0000000000009fcb     0x6210 ./Project_Settings/Startup_Code/startup.o
+ .debug_macro   0x00000000000101db       0xa7 ./Generated_Code/ASerialLdd1.o
+ .debug_macro   0x0000000000010282       0x5f ./Generated_Code/ASerialLdd1.o
+ .debug_macro   0x00000000000102e1       0x25 ./Generated_Code/ASerialLdd1.o
+ .debug_macro   0x0000000000010306      0x31c ./Generated_Code/ASerialLdd1.o
+ .debug_macro   0x0000000000010622      0x84c ./Generated_Code/ASerialLdd1.o
+ .debug_macro   0x0000000000010e6e       0x88 ./Generated_Code/BitIoLdd1.o
+ .debug_macro   0x0000000000010ef6      0x1a9 ./Generated_Code/COREUART.o
+ .debug_macro   0x000000000001109f      0x140 ./Generated_Code/Cpu.o
+ .debug_macro   0x00000000000111df      0x104 ./Generated_Code/PE_LDD.o
+ .debug_macro   0x00000000000112e3       0x70 ./Generated_Code/PTC.o
+ .debug_macro   0x0000000000011353       0x70 ./Generated_Code/PTE.o
+ .debug_macro   0x00000000000113c3       0x10 ./Generated_Code/PTE.o
+ .debug_macro   0x00000000000113d3       0x79 ./Generated_Code/USB0.o
+ .debug_macro   0x000000000001144c       0x71 ./Generated_Code/UsbMidiRx.o
+ .debug_macro   0x00000000000114bd       0x71 ./Generated_Code/UsbMidiTx.o
+ .debug_macro   0x000000000001152e      0x140 ./Generated_Code/Vectors.o
+ .debug_macro   0x000000000001166e       0x16 ./Generated_Code/Vectors.o
+ .debug_macro   0x0000000000011684       0xc5 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
+ .debug_macro   0x0000000000011749      0x826 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
+ .debug_macro   0x0000000000011f6f     0x15a0 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
+ .debug_macro   0x000000000001350f       0xa0 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
+ .debug_macro   0x00000000000135af      0x16d /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
+ .debug_macro   0x000000000001371c      0x133 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+ .debug_macro   0x000000000001384f       0x10 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+ .debug_macro   0x000000000001385f       0x64 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+ .debug_macro   0x00000000000138c3       0xe9 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+ .debug_macro   0x00000000000139ac       0x6a /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+ .debug_macro   0x0000000000013a16     0x158e /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+ .debug_macro   0x0000000000014fa4       0x9a /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+ .debug_macro   0x000000000001503e       0x9a /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+ .debug_macro   0x00000000000150d8      0x19b /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ .debug_macro   0x0000000000015273       0x22 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ .debug_macro   0x0000000000015295       0xf6 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ .debug_macro   0x000000000001538b       0x62 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ .debug_macro   0x00000000000153ed      0x164 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ .debug_macro   0x0000000000015551       0x3a /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ .debug_macro   0x000000000001558b       0x88 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+ .debug_macro   0x0000000000015613       0xc5 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+ .debug_macro   0x00000000000156d8       0x68 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+ .debug_macro   0x0000000000015740      0x18e /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+ .debug_macro   0x00000000000158ce       0x43 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+ .debug_macro   0x0000000000015911       0x35 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+ .debug_macro   0x0000000000015946       0x1c /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+ .debug_macro   0x0000000000015962       0xe9 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+ .debug_macro   0x0000000000015a4b       0x92 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(wdt_kinetis.o)
 
 .debug_line     0x0000000000000000     0x4d21
  .debug_line    0x0000000000000000      0x2e9 ./Sources/Events.o
@@ -2310,7 +2311,7 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_line    0x0000000000004846      0x2f1 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
  .debug_line    0x0000000000004b37      0x1ea /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(wdt_kinetis.o)
 
-.debug_str      0x0000000000000000    0x3caa9
+.debug_str      0x0000000000000000    0x3ca50
  .debug_str     0x0000000000000000    0x2b47d ./Sources/Events.o
                                       0x2b859 (size before relaxing)
  .debug_str     0x000000000002b47d      0x48d ./Sources/main.o
@@ -2343,22 +2344,22 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
                                       0x2a10a (size before relaxing)
  .debug_str     0x000000000003b054       0x1c ./Generated_Code/Vectors.o
                                       0x2b837 (size before relaxing)
- .debug_str     0x000000000003b070      0x269 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
-                                      0x2a7ec (size before relaxing)
- .debug_str     0x000000000003b2d9      0x1e6 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
-                                      0x2d4bc (size before relaxing)
- .debug_str     0x000000000003b4bf      0x575 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
-                                      0x2d556 (size before relaxing)
- .debug_str     0x000000000003ba34      0xc56 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
-                                      0x2e233 (size before relaxing)
- .debug_str     0x000000000003c68a       0xff /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
-                                      0x2c3ad (size before relaxing)
- .debug_str     0x000000000003c789      0x249 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
-                                      0x2f03d (size before relaxing)
- .debug_str     0x000000000003c9d2       0xba /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
-                                      0x2d57b (size before relaxing)
- .debug_str     0x000000000003ca8c       0x1d /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(wdt_kinetis.o)
-                                      0x2a5f8 (size before relaxing)
+ .debug_str     0x000000000003b070      0x210 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USB1.o)
+                                      0x2a7ef (size before relaxing)
+ .debug_str     0x000000000003b280      0x1e6 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(USBMIDI1.o)
+                                      0x2d4bf (size before relaxing)
+ .debug_str     0x000000000003b466      0x575 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_class.o)
+                                      0x2d559 (size before relaxing)
+ .debug_str     0x000000000003b9db      0xc56 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_dci_kinetis.o)
+                                      0x2e236 (size before relaxing)
+ .debug_str     0x000000000003c631       0xff /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_driver.o)
+                                      0x2c3b0 (size before relaxing)
+ .debug_str     0x000000000003c730      0x249 /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_framework.o)
+                                      0x2f040 (size before relaxing)
+ .debug_str     0x000000000003c979       0xba /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(usb_midi.o)
+                                      0x2d57e (size before relaxing)
+ .debug_str     0x000000000003ca33       0x1d /home/ld0d/work/kds_workspace/usbmidilib/Debug/libusbmidilib.a(wdt_kinetis.o)
+                                      0x2a5fb (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x1260
  .debug_frame   0x0000000000000000       0xb8 ./Sources/Events.o

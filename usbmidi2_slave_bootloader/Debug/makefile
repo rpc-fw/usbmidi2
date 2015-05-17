@@ -58,7 +58,7 @@ all: usbmidi2_slave.elf secondary-outputs
 usbmidi2_slave.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Project_Settings/Linker_Files" -L"/home/ld0d/work/kds_workspace/usbmidilib/Debug" -Wl,-Map,"usbmidi2_slave.map" -nanolibc -o "usbmidi2_slave.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/home/ld0d/work/kds_workspace/usbmidi2_slave_bootloader/Project_Settings/Linker_Files" -L"/home/ld0d/work/kds_workspace/usbmidilib/Debug" -Wl,-Map,"usbmidi2_slave.map" -nanolibc -o "usbmidi2_slave.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

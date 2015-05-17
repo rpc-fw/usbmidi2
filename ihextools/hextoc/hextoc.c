@@ -239,7 +239,7 @@ void validate_args(int argc, char** argv)
 int main(int argc, char** argv)
 {
 	uint32_t size = 0;
-	uint32_t baseaddr = 0x4000;
+	uint32_t baseaddr = 0x2000;
 
 	default_args();
 	parse_args(argc, argv);

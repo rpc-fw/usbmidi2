@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 09:19, # CodeGen: 70
+**     Date/Time   : 2015-05-17, 22:11, # CodeGen: 76
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -379,12 +379,8 @@ void COREUART_Init(void)
 {
   SerFlag = 0x00U;                     /* Reset flags */
   EnUser = FALSE;                      /* Disable device */
-  COREUART_InpLen = 0x00U;             /* No char in the receive buffer */
-  InpIndexR = 0x00U;                   /* Set index on the first item in the receive buffer */
-  InpIndexW = 0x00U;
-  COREUART_OutLen = 0x00U;             /* No char in the transmit buffer */
-  OutIndexR = 0x00U;                   /* Set index on the first item in the transmit buffer */
-  OutIndexW = 0x00U;
+  COREUART_ClearRxBuf();
+  COREUART_ClearTxBuf();
   ASerialLdd2_DeviceDataPtr = ASerialLdd2_Init(NULL); /* Calling init method of the inherited component */
   HWEnDi();                            /* Enable/disable device according to status flags */
 }

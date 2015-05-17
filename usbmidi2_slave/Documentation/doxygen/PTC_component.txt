@@ -29,7 +29,6 @@ registers of the peripheral(s) configured by the component.
 **          Component name                                 : PTC
 **          Device                                         : PTC
 **          Settings                                       : 
-**            Pin 0                                        : Do not initialize
 **            Pin 1                                        : Do not initialize
 **            Pin 2                                        : Do not initialize
 **            Pin 3                                        : Do not initialize
@@ -37,21 +36,7 @@ registers of the peripheral(s) configured by the component.
 **            Pin 5                                        : Do not initialize
 **            Pin 6                                        : Do not initialize
 **            Pin 7                                        : Do not initialize
-**            Pin 8                                        : Do not initialize
-**            Pin 9                                        : Do not initialize
-**            Pin 10                                       : Do not initialize
-**            Pin 11                                       : Do not initialize
-**            Pin 12                                       : Do not initialize
-**            Pin 13                                       : Do not initialize
-**            Pin 16                                       : Do not initialize
-**            Pin 17                                       : Do not initialize
-**            Pin 18                                       : Do not initialize
-**            Pin 20                                       : Do not initialize
-**            Pin 21                                       : Do not initialize
-**            Pin 22                                       : Do not initialize
-**            Pin 23                                       : Do not initialize
 **          Pin selection/routing                          : 
-**            Pin 0                                        : Disabled
 **            Pin 1                                        : Disabled
 **            Pin 2                                        : Disabled
 **            Pin 3                                        : Disabled
@@ -59,19 +44,6 @@ registers of the peripheral(s) configured by the component.
 **            Pin 5                                        : Disabled
 **            Pin 6                                        : Disabled
 **            Pin 7                                        : Disabled
-**            Pin 8                                        : Disabled
-**            Pin 9                                        : Disabled
-**            Pin 10                                       : Disabled
-**            Pin 11                                       : Disabled
-**            Pin 12                                       : Disabled
-**            Pin 13                                       : Disabled
-**            Pin 16                                       : Disabled
-**            Pin 17                                       : Disabled
-**            Pin 18                                       : Disabled
-**            Pin 20                                       : Disabled
-**            Pin 21                                       : Disabled
-**            Pin 22                                       : Disabled
-**            Pin 23                                       : Disabled
 **          Interrupts                                     : 
 **            Port interrupt                               : Enabled
 **              Interrupt                                  : INT_PORTC_PORTD

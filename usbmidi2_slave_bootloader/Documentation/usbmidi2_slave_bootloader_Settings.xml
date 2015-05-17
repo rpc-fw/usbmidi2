@@ -184,8 +184,6 @@
             <Bandgap_buffer_in_VLPx v="Disabled" />
             <group name="LVD interrupt">
               <Interrupt v="INT_LVD_LVW" />
-              <Interrupt_request v="Disabled" />
-              <Interrupt_priority v="0 (Highest)" />
               <LVD_interrupt v="Disabled" />
               <LVW_interrupt v="Disabled" />
             </group>
@@ -296,30 +294,9 @@
     <Compiler v="GNU C Compiler" />
     <CompilerProperties>
       <Compiler v="GNU C Compiler" />
-      <enumgroup name="Unhandled vectors" v="One handler for all">
-        <Unhandled_int_code>
-          <StrgList><![CDATA[/* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
-PE_DEBUGHALT();
-]]></StrgList>
-        </Unhandled_int_code>
-      </enumgroup>
-      <group name="User initialization">
-        <User_data_declarations>
-          <StrgList></StrgList>
-        </User_data_declarations>
-        <User_code_before_PE_initialization>
-          <StrgList></StrgList>
-        </User_code_before_PE_initialization>
-        <User_code_after_PE_initialization>
-          <StrgList></StrgList>
-        </User_code_after_PE_initialization>
-      </group>
       <boolgroup name="Generate debugger files" v="yes">
         <Generate_mem_file v="yes" />
       </boolgroup>
-      <group name="Startup">
-        <Add_startup_file v="yes" />
-      </group>
       <boolgroup name="Generate linker file" v="yes">
         <Stack_size v="1024" />
         <Heap_size v="0" />
@@ -484,12 +461,12 @@ PE_DEBUGHALT();
             <group name="Protection regions">
               <group name="P-Flash protection settings">
                 <Protection_region_size v="2048" />
-                <P_Flash_protection v="4294967280" />
+                <P_Flash_protection v="4294967295" />
                 <group name="Protection regions">
-                  <Protection_region_0 v="Protected" />
-                  <Protection_region_1 v="Protected" />
-                  <Protection_region_2 v="Protected" />
-                  <Protection_region_3 v="Protected" />
+                  <Protection_region_0 v="Unprotected" />
+                  <Protection_region_1 v="Unprotected" />
+                  <Protection_region_2 v="Unprotected" />
+                  <Protection_region_3 v="Unprotected" />
                   <Protection_region_4 v="Unprotected" />
                   <Protection_region_5 v="Unprotected" />
                   <Protection_region_6 v="Unprotected" />
@@ -699,7 +676,7 @@ PE_DEBUGHALT();
               <Name v="m_text" />
               <Qualifier v="RX" />
               <Address v="1040" />
-              <Size v="64496" />
+              <Size v="7152" />
             </boolgroup>
           </group>
           <group name="MemoryArea3">

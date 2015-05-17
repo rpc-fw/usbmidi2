@@ -474,12 +474,12 @@
             <group name="Protection regions">
               <group name="P-Flash protection settings">
                 <Protection_region_size v="2048" />
-                <P_Flash_protection v="4294967280" />
+                <P_Flash_protection v="4294967295" />
                 <group name="Protection regions">
-                  <Protection_region_0 v="Protected" />
-                  <Protection_region_1 v="Protected" />
-                  <Protection_region_2 v="Protected" />
-                  <Protection_region_3 v="Protected" />
+                  <Protection_region_0 v="Unprotected" />
+                  <Protection_region_1 v="Unprotected" />
+                  <Protection_region_2 v="Unprotected" />
+                  <Protection_region_3 v="Unprotected" />
                   <Protection_region_4 v="Unprotected" />
                   <Protection_region_5 v="Unprotected" />
                   <Protection_region_6 v="Unprotected" />

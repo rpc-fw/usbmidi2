@@ -3,7 +3,7 @@
   <Header>
     <Name>usbmidi2_master_bootloader</Name>
     <SavedBy>ld0d</SavedBy>
-    <ModificationStamp>71</ModificationStamp>
+    <ModificationStamp>72</ModificationStamp>
     <Date>2015-05-17</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.1.RT6_b1444-1070</PEversion>
@@ -5489,7 +5489,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>4294967280</Value>
+        <Value>4294967295</Value>
         <Base>HEX</Base>
       </ItemState>
       <ItemState>
@@ -5504,8 +5504,8 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <TypeSpecNameState>typeKinetisFTFL_FlashConfigProgramFlashProtectionRegion</TypeSpecNameState>
-        <Index>0</Index>
-        <EnumSymbVal>protected</EnumSymbVal>
+        <Index>1</Index>
+        <EnumSymbVal>unprotected</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTFL_FlashConfigProgramFlashProtectionRegion1</ItemSymbol>
@@ -5513,8 +5513,8 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <TypeSpecNameState>typeKinetisFTFL_FlashConfigProgramFlashProtectionRegion</TypeSpecNameState>
-        <Index>0</Index>
-        <EnumSymbVal>protected</EnumSymbVal>
+        <Index>1</Index>
+        <EnumSymbVal>unprotected</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTFL_FlashConfigProgramFlashProtectionRegion2</ItemSymbol>
@@ -5522,8 +5522,8 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <TypeSpecNameState>typeKinetisFTFL_FlashConfigProgramFlashProtectionRegion</TypeSpecNameState>
-        <Index>0</Index>
-        <EnumSymbVal>protected</EnumSymbVal>
+        <Index>1</Index>
+        <EnumSymbVal>unprotected</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTFL_FlashConfigProgramFlashProtectionRegion3</ItemSymbol>
@@ -5531,8 +5531,8 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <TypeSpecNameState>typeKinetisFTFL_FlashConfigProgramFlashProtectionRegion</TypeSpecNameState>
-        <Index>0</Index>
-        <EnumSymbVal>protected</EnumSymbVal>
+        <Index>1</Index>
+        <EnumSymbVal>unprotected</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTFL_FlashConfigProgramFlashProtectionRegion4</ItemSymbol>

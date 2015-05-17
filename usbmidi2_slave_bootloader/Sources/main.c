@@ -50,6 +50,16 @@
 
 void bootloader_main();
 
+void WarmReset(unsigned long userSP, unsigned long userStartup)
+{
+	// set up stack pointer
+	__asm("msr msp, r0");
+	__asm("msr psp, r0");
+
+	// Jump to PC (r1)
+	__asm("mov pc, r1");
+}
+
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */

@@ -12,10 +12,10 @@
   <tr><td>0x43FFFFFF<br>0x41000000</td><td class="memtypeRAM">RESERVED</td>
   <tr><td>0x400FEFFF<br>0x40080000</td><td class="memtypeRAM">RESERVED</td>
   <tr><td>0x3FFFFFFF<br>0x20003000</td><td class="memtypeRAM">RESERVED</td>
-  <tr><td>0x20002FFF<br>0x20000000</td><td class="memtypeRAM">RAM</td>
-  <tr><td>0x1FFFFFFF<br>0x1FFFF000</td><td class="memtypeRAM">RAM</td>
+  <tr><td>0x200017FF<br>0x20000000</td><td class="memtypeRAM">RAM</td>
+  <tr><td>0x1FFFFFFF<br>0x1FFFF800</td><td class="memtypeRAM">RAM</td>
   <tr><td>0x1BFFFFFF<br>0x08000000</td><td class="memtypeRAM">RESERVED</td>
-  <tr><td>0x0001FFFF<br>0x00000410</td><td class="memtypeFLASH">FLASH</td>
+  <tr><td>0x0000FFFF<br>0x00000410</td><td class="memtypeFLASH">FLASH</td>
   <tr><td>0x0000040F<br>0x00000400</td><td class="memtypeRAM">FLASH_CONFIG</td>
   <tr><td>0x000003FF<br>0x00000000</td><td class="memtypeFLASH">FLASH</td>
 </table>

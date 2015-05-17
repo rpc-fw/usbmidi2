@@ -797,8 +797,8 @@ PE_DEBUGHALT();
         <Interrupt_TxD_priority v="maximal priority" />
         <Interrupt_Error v="INT_UART2" />
         <Interrupt_Error_priority v="medium priority" />
-        <Input_buffer_size v="64" />
-        <Output_buffer_size v="64" />
+        <Input_buffer_size v="128" />
+        <Output_buffer_size v="128" />
         <group name="Handshake">
           <boolgroup name="CTS" v="Disabled" />
           <boolgroup name="RTS" v="Disabled" />

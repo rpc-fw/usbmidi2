@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : Events.h
 **     Project     : kl26test
-**     Processor   : MKL26Z128VFM4
+**     Processor   : MKL26Z64VFM4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler

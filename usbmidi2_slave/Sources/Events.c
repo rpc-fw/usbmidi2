@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : Events.c
 **     Project     : usbmidi2_slave
-**     Processor   : MKL26Z128VMC4
+**     Processor   : MKL26Z64VFM4
 **     Component   : Events
 **     Version     : Driver 01.00
 **     Compiler    : GNU C Compiler

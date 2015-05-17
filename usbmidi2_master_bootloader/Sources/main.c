@@ -58,6 +58,8 @@
 #include "midiflash.h"
 #include "slavectrl.h"
 
+#define APP_FLASH_VECTOR_START 0x2000
+
 void MidiLoader();
 
 struct buildid_t {
@@ -70,15 +72,15 @@ struct buildid_t {
 uint32_t slaveblocksize = 0;
 struct buildid_t slaveid;
 
+byte slaveidreq[] = { 0x1, 0x2 };
 void IdentifySlave()
 {
 	slaveblocksize = GetSlaveBlockSize();
-	byte req[] = { 0x1, 0x2 };
-	SlaveRequest(req, sizeof(req), &slaveid, sizeof(slaveid));
+	SlaveRequest(slaveidreq, sizeof(slaveidreq), &slaveid, sizeof(slaveid));
 }
 
-// Application info is stored at 0x4400
-volatile struct buildid_t* masterid = (struct buildid_t*)0x4400;
+// Application info is stored after the interrupt vectors
+volatile struct buildid_t* masterid = (struct buildid_t*)(APP_FLASH_VECTOR_START + 0x400);
 
 __attribute__((__aligned__(IFsh1_AREA_SECTOR_SIZE)))
 byte flashblock[IFsh1_AREA_SECTOR_SIZE];
@@ -140,7 +142,7 @@ void ReadSlaveProgram(struct buildid_t slavebuild, slave_16_func slave_16, slave
 		}
 
 		if (slave_block) {
-			slave_block(0x4000 + blockindex, IFsh1_AREA_SECTOR_SIZE);
+			slave_block(APP_FLASH_VECTOR_START + blockindex, IFsh1_AREA_SECTOR_SIZE);
 		}
 	}
 }
@@ -180,7 +182,7 @@ void LoadSlaveProgram(struct buildid_t slavebuild)
 	ReadSlaveProgram(slavebuild, NULL, load_slave_block);
 }
 
-#define APP_FLASH_VECTOR_START 0x4000
+#define APP_FLASH_VECTOR_START 0x2000
 
 void WarmReset(unsigned long userSP, unsigned long userStartup);
 

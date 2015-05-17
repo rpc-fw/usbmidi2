@@ -1,6 +1,24 @@
-diff -Naur Generated_Orig/Cpu.c Generated_Code/Cpu.c
---- Generated_Orig/Cpu.c	2015-05-17 11:55:39.625973833 +0200
-+++ Generated_Code/Cpu.c	2015-05-17 11:56:39.088906599 +0200
+diff -Naur Generated_Code.Orig/COREUART.c Generated_Code/COREUART.c
+--- Generated_Code.Orig/COREUART.c	2015-05-17 22:11:12.399205287 +0200
++++ Generated_Code/COREUART.c	2015-05-17 22:14:08.316086197 +0200
+@@ -379,12 +379,8 @@
+ {
+   SerFlag = 0x00U;                     /* Reset flags */
+   EnUser = FALSE;                      /* Disable device */
+-  COREUART_InpLen = 0x00U;             /* No char in the receive buffer */
+-  InpIndexR = 0x00U;                   /* Set index on the first item in the receive buffer */
+-  InpIndexW = 0x00U;
+-  COREUART_OutLen = 0x00U;             /* No char in the transmit buffer */
+-  OutIndexR = 0x00U;                   /* Set index on the first item in the transmit buffer */
+-  OutIndexW = 0x00U;
++  COREUART_ClearRxBuf();
++  COREUART_ClearTxBuf();
+   ASerialLdd2_DeviceDataPtr = ASerialLdd2_Init(NULL); /* Calling init method of the inherited component */
+   HWEnDi();                            /* Enable/disable device according to status flags */
+ }
+diff -Naur Generated_Code.Orig/Cpu.c Generated_Code/Cpu.c
+--- Generated_Code.Orig/Cpu.c	2015-05-17 22:11:12.455204294 +0200
++++ Generated_Code/Cpu.c	2015-05-17 22:13:28.744787899 +0200
 @@ -92,7 +92,37 @@
  volatile uint8_t SR_reg;               /* Current value of the FAULTMASK register */
  volatile uint8_t SR_lock = 0x00U;      /* Lock */
@@ -39,32 +57,9 @@ diff -Naur Generated_Orig/Cpu.c Generated_Code/Cpu.c
  /*
  ** ===================================================================
  **     Method      :  Cpu_INT_NMIInterrupt (component MKL26Z128FM4)
-diff -Naur Generated_Orig/IFsh1.c Generated_Code/IFsh1.c
---- Generated_Orig/IFsh1.c	2015-05-17 11:55:39.625973833 +0200
-+++ Generated_Code/IFsh1.c	2015-05-17 11:56:54.800624657 +0200
-@@ -152,13 +152,13 @@
-   if (IFsh1_CmdPending) {
-     return ERR_BUSY;
-   }
--  Result = ERR_OK;                     /* Suppose area is erased */
--  for (x=0U; x<Count; x++) {           /* Check if written area is erased */
--    if (((uint8_t*)Dst)[x] != 0xFFU) { /* Byte erased? */
-+  //Result = ERR_OK;                     /* Suppose area is erased */
-+  //for (x=0U; x<Count; x++) {           /* Check if written area is erased */
-+  //  if (((uint8_t*)Dst)[x] != 0xFFU) { /* Byte erased? */
-       Result = ERR_FAILED;             /* No, Erase is required */
--     break;
--    }
--  }
-+  //   break;
-+  //  }
-+  //}
-   if (Result == ERR_FAILED) {
-     SectorAddress = Dst & ~(LDD_FLASH_TAddress)IntFlashLdd1_ERASABLE_UNIT_MASK;
-     SectorOffset = Dst & IntFlashLdd1_ERASABLE_UNIT_MASK;
-diff -Naur Generated_Orig/IntFlashLdd1.c Generated_Code/IntFlashLdd1.c
---- Generated_Orig/IntFlashLdd1.c	2015-05-17 11:55:39.625973833 +0200
-+++ Generated_Code/IntFlashLdd1.c	2015-05-17 11:57:03.404470274 +0200
+diff -Naur Generated_Code.Orig/IntFlashLdd1.c Generated_Code/IntFlashLdd1.c
+--- Generated_Code.Orig/IntFlashLdd1.c	2015-05-17 22:11:12.423204862 +0200
++++ Generated_Code/IntFlashLdd1.c	2015-05-17 22:13:28.756787684 +0200
 @@ -440,7 +440,7 @@
          PE_NOP();
          PE_NOP();
@@ -74,9 +69,9 @@ diff -Naur Generated_Orig/IntFlashLdd1.c Generated_Code/IntFlashLdd1.c
        return;                          /* End */
      }
      if (DeviceDataPrv->DataCounter == 0U) { /* If all the data has been successfully proceeded, finish the operation */
-diff -Naur Generated_Orig/PE_Types.h Generated_Code/PE_Types.h
---- Generated_Orig/PE_Types.h	2015-05-17 11:55:39.625973833 +0200
-+++ Generated_Code/PE_Types.h	2015-05-17 11:56:37.076942704 +0200
+diff -Naur Generated_Code.Orig/PE_Types.h Generated_Code/PE_Types.h
+--- Generated_Code.Orig/PE_Types.h	2015-05-17 22:11:12.451204365 +0200
++++ Generated_Code/PE_Types.h	2015-05-17 22:13:28.756787684 +0200
 @@ -127,36 +127,11 @@
  
  

@@ -101,7 +101,7 @@ void writesyx(FILE* f, const uint8_t* buf, uint32_t size, uint32_t baseaddr)
 int main(int argc, char** argv)
 {
 	uint32_t size = 0;
-	uint32_t baseaddr = 0x4000;
+	uint32_t baseaddr = 0x2000;
 	const char* filename;
 	char outfilename[PATH_MAX];
 

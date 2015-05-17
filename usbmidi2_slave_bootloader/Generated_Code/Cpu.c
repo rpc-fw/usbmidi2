@@ -7,7 +7,7 @@
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL26P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 13:26, # CodeGen: 37
+**     Date/Time   : 2015-05-17, 23:03, # CodeGen: 41
 **     Abstract    :
 **
 **     Settings    :
@@ -336,8 +336,8 @@ void PE_low_level_init(void)
     0xFFU,
    /* NV_BACKKEY4: KEY=0xFF */
     0xFFU,
-   /* NV_FPROT3: PROT=0xF0 */
-    0xF0U,
+   /* NV_FPROT3: PROT=0xFF */
+    0xFFU,
    /* NV_FPROT2: PROT=0xFF */
     0xFFU,
    /* NV_FPROT1: PROT=0xFF */

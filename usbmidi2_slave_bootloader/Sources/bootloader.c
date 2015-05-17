@@ -5,19 +5,11 @@
 #include "GPIO_PDD.h"
 #include "IFsh1.h"
 
-#define APP_FLASH_VECTOR_START 0x4000
+#define APP_FLASH_VECTOR_START 0x2000
 
 byte flash_block[IFsh1_AREA_SECTOR_SIZE];
 
-void WarmReset(unsigned long userSP, unsigned long userStartup)
-{
-	// set up stack pointer
-	__asm("msr msp, r0");
-	__asm("msr psp, r0");
-
-	// Jump to PC (r1)
-	__asm("mov pc, r1");
-}
+void WarmReset(unsigned long userSP, unsigned long userStartup);
 
 void BootToApplication()
 {

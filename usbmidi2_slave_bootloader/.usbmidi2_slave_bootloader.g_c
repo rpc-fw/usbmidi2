@@ -331,7 +331,7 @@
     </GenFiles>
     <SignalListFile>Documentation\usbmidi2_slave_bootloader_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>36</ProjectModificationStamp>
+    <ProjectModificationStamp>39</ProjectModificationStamp>
   </Options>
   <CpuID_36>
     <Generated>false</Generated>
@@ -340,7 +340,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186032370</HeaderAge>
-    <CodeAge>1186032462</CodeAge>
+    <CodeAge>1186052211</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -420,7 +420,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186032370</HeaderAge>
-    <CodeAge>1186032462</CodeAge>
+    <CodeAge>1186052211</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
