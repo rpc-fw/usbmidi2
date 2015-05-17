@@ -8,7 +8,7 @@
     <DestDocumentationDirectory>Documentation\</DestDocumentationDirectory>
     <DestCompiledFilesSubDirectory />
     <DestTemporaryDirectory />
-    <GenCpuDerivative>MKL26Z128VFM4</GenCpuDerivative>
+    <GenCpuDerivative>MKL26Z64VFM4</GenCpuDerivative>
     <GenFiles>
       <LinkerFileGenerated>false</LinkerFileGenerated>
       <MakefileGenerated>false</MakefileGenerated>
@@ -18,16 +18,16 @@
         <Line>PE_Const</Line>
         <Line>IO_Map</Line>
       </GenSharedModules>
-      <ShrdHeaderAge0>1184071020</ShrdHeaderAge0>
+      <ShrdHeaderAge0>1186032370</ShrdHeaderAge0>
       <ShrdCodeAge0>-1</ShrdCodeAge0>
       <ShrdAsemblAge0>-1</ShrdAsemblAge0>
-      <ShrdHeaderAge1>1184071020</ShrdHeaderAge1>
+      <ShrdHeaderAge1>1186032370</ShrdHeaderAge1>
       <ShrdCodeAge1>-1</ShrdCodeAge1>
       <ShrdAsemblAge1>-1</ShrdAsemblAge1>
-      <ShrdHeaderAge2>1184071020</ShrdHeaderAge2>
+      <ShrdHeaderAge2>1186032370</ShrdHeaderAge2>
       <ShrdCodeAge2>-1</ShrdCodeAge2>
       <ShrdAsemblAge2>-1</ShrdAsemblAge2>
-      <ShrdHeaderAge3>1184071020</ShrdHeaderAge3>
+      <ShrdHeaderAge3>1186032370</ShrdHeaderAge3>
       <ShrdCodeAge3>-1</ShrdCodeAge3>
       <ShrdAsemblAge3>-1</ShrdAsemblAge3>
       <GenExtraFiles lines_count="15">
@@ -49,10 +49,10 @@
       </GenExtraFiles>
       <GenExtraFileSrcDir13>lib\Kinetis\startup\</GenExtraFileSrcDir13>
       <GenExtraFileSrcDir9>lib\doxygen\</GenExtraFileSrcDir9>
-      <XtraAge10>1184071020</XtraAge10>
-      <XtraAge11>1185976129</XtraAge11>
+      <XtraAge10>1186032370</XtraAge10>
+      <XtraAge11>1186032370</XtraAge11>
       <XtraAge13>1179163138</XtraAge13>
-      <XtraAge14>1185976129</XtraAge14>
+      <XtraAge14>1186032370</XtraAge14>
       <GenExtraFileType14>4</GenExtraFileType14>
       <GenExtraFileType13>5</GenExtraFileType13>
       <GenExtraFileType12>4</GenExtraFileType12>
@@ -331,16 +331,16 @@
     </GenFiles>
     <SignalListFile>Documentation\usbmidi2_slave_bootloader_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>33</ProjectModificationStamp>
+    <ProjectModificationStamp>36</ProjectModificationStamp>
   </Options>
   <CpuID_36>
-    <Generated>true</Generated>
+    <Generated>false</Generated>
     <GenCompName>Cpu</GenCompName>
     <GenComponentVersion>01.006</GenComponentVersion>
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1184071020</HeaderAge>
-    <CodeAge>1185976129</CodeAge>
+    <HeaderAge>1186032370</HeaderAge>
+    <CodeAge>1186032462</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -413,14 +413,94 @@
     <ExtraFile9>Static_Code/IO_Map/MKL26Z4.h</ExtraFile9>
     <ExtraFile10>Generated_Code\Vectors.c</ExtraFile10>
   </CpuID_36>
+  <CpuID_42>
+    <Generated>true</Generated>
+    <GenCompName>Cpu</GenCompName>
+    <GenComponentVersion>01.006</GenComponentVersion>
+    <GenDriverVersion>01.04</GenDriverVersion>
+    <GenEventModule>Events</GenEventModule>
+    <HeaderAge>1186032370</HeaderAge>
+    <CodeAge>1186032462</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <SetClockConfiguration>false</SetClockConfiguration>
+    <GetClockConfiguration>false</GetClockConfiguration>
+    <SetOperationMode>false</SetOperationMode>
+    <EnableInt>false</EnableInt>
+    <DisableInt>false</DisableInt>
+    <GetLLSWakeUpFlags>false</GetLLSWakeUpFlags>
+    <OpenBackDoor>false</OpenBackDoor>
+    <MCGAutoTrim>false</MCGAutoTrim>
+    <VLPModeEnable>false</VLPModeEnable>
+    <VLPModeDisable>false</VLPModeDisable>
+    <SystemReset>false</SystemReset>
+    <GenNumEvents>10</GenNumEvents>
+    <OnReset_Selected>1</OnReset_Selected>
+    <OnReset_Name>Cpu_OnReset</OnReset_Name>
+    <OnReset_Priority>interrupts disabled</OnReset_Priority>
+    <OnNMIINT_Selected>2</OnNMIINT_Selected>
+    <OnNMIINT_Name>Cpu_OnNMIINT</OnNMIINT_Name>
+    <OnNMIINT_Priority>interrupts disabled</OnNMIINT_Priority>
+    <OnHardFault_Selected>0</OnHardFault_Selected>
+    <OnHardFault_Name>Cpu_OnHardFault</OnHardFault_Name>
+    <OnHardFault_Priority>interrupts disabled</OnHardFault_Priority>
+    <OnBusFault_Selected>0</OnBusFault_Selected>
+    <OnBusFault_Name>Cpu_OnBusFault</OnBusFault_Name>
+    <OnBusFault_Priority>interrupts disabled</OnBusFault_Priority>
+    <OnUsageFault_Selected>0</OnUsageFault_Selected>
+    <OnUsageFault_Name>Cpu_OnUsageFault</OnUsageFault_Name>
+    <OnUsageFault_Priority>interrupts disabled</OnUsageFault_Priority>
+    <OnSupervisorCall_Selected>0</OnSupervisorCall_Selected>
+    <OnSupervisorCall_Name>Cpu_OnSupervisorCall</OnSupervisorCall_Name>
+    <OnSupervisorCall_Priority>interrupts disabled</OnSupervisorCall_Priority>
+    <OnPendableService_Selected>0</OnPendableService_Selected>
+    <OnPendableService_Name>Cpu_OnPendableService</OnPendableService_Name>
+    <OnPendableService_Priority>interrupts disabled</OnPendableService_Priority>
+    <OnLossOfLockINT_Selected>0</OnLossOfLockINT_Selected>
+    <OnLossOfLockINT_Name>Cpu_OnLossOfLockINT</OnLossOfLockINT_Name>
+    <OnLossOfLockINT_Priority>interrupts disabled</OnLossOfLockINT_Priority>
+    <OnLowVoltageINT_Selected>0</OnLowVoltageINT_Selected>
+    <OnLowVoltageINT_Name>Cpu_OnLowVoltageINT</OnLowVoltageINT_Name>
+    <OnLowVoltageINT_Priority>interrupts disabled</OnLowVoltageINT_Priority>
+    <OnLLSWakeUpINT_Selected>0</OnLLSWakeUpINT_Selected>
+    <OnLLSWakeUpINT_Name>Cpu_OnLLSWakeUpINT</OnLLSWakeUpINT_Name>
+    <OnLLSWakeUpINT_Priority>interrupts disabled</OnLLSWakeUpINT_Priority>
+    <ISR_PMCISRnameLVD />
+    <ISR_ISRnameNMI />
+    <ISR_ISRDefaultName>isr_default</ISR_ISRDefaultName>
+    <ISR_ISRnameINITPC>_startup</ISR_ISRnameINITPC>
+    <ISR_ISRnameHardfault />
+    <ISR_ISRnameMPU />
+    <ISR_ISRnameBusFault />
+    <ISR_ISRnameUsageFault />
+    <ISR_ISRnameSVCall />
+    <ISR_ISRnamePendSV />
+    <ISR_ISRnameLossOfLock />
+    <ISR_LLWUISRHandleCommon />
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenExtraFilesCount>11</GenExtraFilesCount>
+    <ExtraFile0>Documentation\doxygen\usbmidi2_slave_bootloader_project.txt</ExtraFile0>
+    <ExtraFile1>Documentation\doxygen\RoutingReport_component.txt</ExtraFile1>
+    <ExtraFile2>Documentation\doxygen\pex.doxyfile</ExtraFile2>
+    <ExtraFile3>Documentation\doxygen\pex.css</ExtraFile3>
+    <ExtraFile4>Generated_Code\PE_LDD.c</ExtraFile4>
+    <ExtraFile5>Generated_Code\PE_LDD.h</ExtraFile5>
+    <ExtraFile6>Project_Settings\Linker_Files\ProcessorExpert.ld</ExtraFile6>
+    <ExtraFile7>Project_Settings\Startup_Code\startup.c</ExtraFile7>
+    <ExtraFile8>Static_Code/PDD/PDD_Types.h</ExtraFile8>
+    <ExtraFile9>Static_Code/IO_Map/MKL26Z4.h</ExtraFile9>
+    <ExtraFile10>Generated_Code\Vectors.c</ExtraFile10>
+  </CpuID_42>
   <ComponentID_6>
     <Generated>true</Generated>
     <GenCompName>PTC</GenCompName>
     <GenComponentVersion>01.006</GenComponentVersion>
     <GenDriverVersion>01.06</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1184071020</HeaderAge>
-    <CodeAge>1184071020</CodeAge>
+    <HeaderAge>1186032370</HeaderAge>
+    <CodeAge>1186032370</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>1</GenNumMethods>
     <Init>true</Init>
@@ -453,8 +533,8 @@
     <GenComponentVersion>02.611</GenComponentVersion>
     <GenDriverVersion>01.01</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1185976004</HeaderAge>
-    <CodeAge>1185976004</CodeAge>
+    <HeaderAge>1186032497</HeaderAge>
+    <CodeAge>1186032497</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>24</GenNumMethods>
     <Enable>true</Enable>
@@ -726,8 +806,8 @@
       <GenComponentVersion>01.188</GenComponentVersion>
       <GenDriverVersion>01.12</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1185976004</HeaderAge>
-      <CodeAge>1185976004</CodeAge>
+      <HeaderAge>1186032370</HeaderAge>
+      <CodeAge>1186032370</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>36</GenNumMethods>
       <Init>true</Init>
@@ -912,8 +992,8 @@
     <GenComponentVersion>01.067</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1184071020</HeaderAge>
-    <CodeAge>1184071020</CodeAge>
+    <HeaderAge>1186032370</HeaderAge>
+    <CodeAge>1186032370</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>8</GenNumMethods>
     <Wait10Cycles>true</Wait10Cycles>
@@ -1049,8 +1129,8 @@
     <GenComponentVersion>01.006</GenComponentVersion>
     <GenDriverVersion>01.06</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1184071020</HeaderAge>
-    <CodeAge>1184071020</CodeAge>
+    <HeaderAge>1186032370</HeaderAge>
+    <CodeAge>1186032370</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>1</GenNumMethods>
     <Init>true</Init>
@@ -1083,8 +1163,8 @@
     <GenComponentVersion>01.063</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1184071020</HeaderAge>
-    <CodeAge>1184071020</CodeAge>
+    <HeaderAge>1186032370</HeaderAge>
+    <CodeAge>1186032370</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>9</GenNumMethods>
     <Init>true</Init>
@@ -1220,8 +1300,8 @@
       <GenComponentVersion>02.086</GenComponentVersion>
       <GenDriverVersion>01.00</GenDriverVersion>
       <GenEventModule />
-      <HeaderAge>1184071020</HeaderAge>
-      <CodeAge>1184071020</CodeAge>
+      <HeaderAge>1186032370</HeaderAge>
+      <CodeAge>1186032370</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>11</GenNumMethods>
       <GetDir>false</GetDir>
@@ -1303,8 +1383,8 @@
         <GenComponentVersion>01.033</GenComponentVersion>
         <GenDriverVersion>01.03</GenDriverVersion>
         <GenEventModule />
-        <HeaderAge>1184071020</HeaderAge>
-        <CodeAge>1184071020</CodeAge>
+        <HeaderAge>1186032370</HeaderAge>
+        <CodeAge>1186032370</CodeAge>
         <AsemblAge>-1</AsemblAge>
         <GenNumMethods>13</GenNumMethods>
         <Init>true</Init>
@@ -1406,8 +1486,8 @@
     <GenComponentVersion>02.409</GenComponentVersion>
     <GenDriverVersion>01.02</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1185518230</HeaderAge>
-    <CodeAge>1185518230</CodeAge>
+    <HeaderAge>1186032370</HeaderAge>
+    <CodeAge>1186032370</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>27</GenNumMethods>
     <DisableEvent>true</DisableEvent>
@@ -1620,8 +1700,8 @@
       <GenComponentVersion>01.106</GenComponentVersion>
       <GenDriverVersion>01.15</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1185518230</HeaderAge>
-      <CodeAge>1185518230</CodeAge>
+      <HeaderAge>1186032370</HeaderAge>
+      <CodeAge>1186032370</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>20</GenNumMethods>
       <Init>true</Init>
@@ -1786,8 +1866,8 @@
     <GenComponentVersion>01.006</GenComponentVersion>
     <GenDriverVersion>01.06</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1185976086</HeaderAge>
-    <CodeAge>1185976086</CodeAge>
+    <HeaderAge>1186032370</HeaderAge>
+    <CodeAge>1186032370</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>1</GenNumMethods>
     <Init>true</Init>

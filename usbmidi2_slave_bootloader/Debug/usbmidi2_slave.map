@@ -36,7 +36,7 @@ Archive member included because of file (symbol)
 Allocating common symbols
 Common symbol       size              file
 
-flash_block         0x1000            ./Sources/bootloader.o
+flash_block         0x400             ./Sources/bootloader.o
 ASerialLdd1_DeviceDataPtr
                     0x4               ./Generated_Code/COREUART.o
 errno               0x4               /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-reent.o)
@@ -887,8 +887,8 @@ Memory Configuration
 
 Name             Origin             Length             Attributes
 m_interrupts     0x0000000000000000 0x00000000000000c0 xr
-m_text           0x0000000000000410 0x0000000000003bf0 xr
-m_data           0x000000001ffff000 0x0000000000004000 rw
+m_text           0x0000000000000410 0x000000000000fbf0 xr
+m_data           0x000000001ffff800 0x0000000000002000 rw
 m_cfmprotrom     0x0000000000000400 0x0000000000000010 xr
 *default*        0x0000000000000000 0xffffffffffffffff
 
@@ -925,10 +925,10 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../..
 END GROUP
 LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtend.o
 LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
-                0x0000000020003000                _estack = 0x20003000
-                0x0000000020003000                __SP_INIT = _estack
-                0x0000000000000000                __heap_size = 0x0
-                0x0000000000000400                __stack_size = 0x400
+                0x0000000020001800                _estack = 0x20001800
+                0x0000000020001800                __SP_INIT = _estack
+                0x0000000000000100                __heap_size = 0x100
+                0x0000000000000100                __stack_size = 0x100
 
 .interrupts     0x0000000000000000       0xc0
                 0x0000000000000000                __vector_table = .
@@ -945,7 +945,7 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
                 0x0000000000000400                _cfm
                 0x0000000000000410                . = ALIGN (0x4)
 
-.text           0x0000000000000410     0x231c
+.text           0x0000000000000410     0x22e4
                 0x0000000000000410                . = ALIGN (0x4)
  *(.text)
  *(.text*)
@@ -997,376 +997,377 @@ LOAD /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.
                 0x0000000000000688       0x38 ./Sources/bootloader.o
                 0x0000000000000688                HandleFlashRead
  .text.HandleFlashWrite
-                0x00000000000006c0      0x17c ./Sources/bootloader.o
+                0x00000000000006c0      0x150 ./Sources/bootloader.o
                 0x00000000000006c0                HandleFlashWrite
  .text.bootloader_main
-                0x000000000000083c       0x78 ./Sources/bootloader.o
-                0x000000000000083c                bootloader_main
- .text.main     0x00000000000008b4       0x10 ./Sources/main.o
-                0x00000000000008b4                main
+                0x0000000000000810       0x78 ./Sources/bootloader.o
+                0x0000000000000810                bootloader_main
+ .text.main     0x0000000000000888       0x10 ./Sources/main.o
+                0x0000000000000888                main
  .text.__flush_cache
-                0x00000000000008c4       0x10 ./Project_Settings/Startup_Code/startup.o
-                0x00000000000008c4                __flush_cache
+                0x0000000000000898       0x10 ./Project_Settings/Startup_Code/startup.o
+                0x0000000000000898                __flush_cache
  .text.__copy_rom_section
-                0x00000000000008d4       0xd8 ./Project_Settings/Startup_Code/startup.o
-                0x00000000000008d4                __copy_rom_section
+                0x00000000000008a8       0xd8 ./Project_Settings/Startup_Code/startup.o
+                0x00000000000008a8                __copy_rom_section
  .text.__copy_rom_sections_to_ram
-                0x00000000000009ac       0xc0 ./Project_Settings/Startup_Code/startup.o
-                0x00000000000009ac                __copy_rom_sections_to_ram
+                0x0000000000000980       0xc0 ./Project_Settings/Startup_Code/startup.o
+                0x0000000000000980                __copy_rom_sections_to_ram
  .text.zero_fill_bss
-                0x0000000000000a6c       0xac ./Project_Settings/Startup_Code/startup.o
+                0x0000000000000a40       0xac ./Project_Settings/Startup_Code/startup.o
  .text.__init_registers
-                0x0000000000000b18        0x8 ./Project_Settings/Startup_Code/startup.o
-                0x0000000000000b18                __init_registers
+                0x0000000000000aec        0x8 ./Project_Settings/Startup_Code/startup.o
+                0x0000000000000aec                __init_registers
  .text.__init_user
-                0x0000000000000b20        0x8 ./Project_Settings/Startup_Code/startup.o
-                0x0000000000000b20                __init_user
+                0x0000000000000af4        0x8 ./Project_Settings/Startup_Code/startup.o
+                0x0000000000000af4                __init_user
  .text.__thumb_startup
-                0x0000000000000b28       0x48 ./Project_Settings/Startup_Code/startup.o
-                0x0000000000000b28                __thumb_startup
+                0x0000000000000afc       0x48 ./Project_Settings/Startup_Code/startup.o
+                0x0000000000000afc                __thumb_startup
  .text.ASerialLdd1_Init
-                0x0000000000000b70      0x1b8 ./Generated_Code/ASerialLdd1.o
-                0x0000000000000b70                ASerialLdd1_Init
+                0x0000000000000b44      0x1b8 ./Generated_Code/ASerialLdd1.o
+                0x0000000000000b44                ASerialLdd1_Init
  .text.ASerialLdd1_Enable
-                0x0000000000000d28       0x70 ./Generated_Code/ASerialLdd1.o
-                0x0000000000000d28                ASerialLdd1_Enable
+                0x0000000000000cfc       0x70 ./Generated_Code/ASerialLdd1.o
+                0x0000000000000cfc                ASerialLdd1_Enable
  .text.ASerialLdd1_Disable
-                0x0000000000000d98       0x68 ./Generated_Code/ASerialLdd1.o
-                0x0000000000000d98                ASerialLdd1_Disable
+                0x0000000000000d6c       0x68 ./Generated_Code/ASerialLdd1.o
+                0x0000000000000d6c                ASerialLdd1_Disable
  .text.ASerialLdd1_ReceiveBlock
-                0x0000000000000e00       0xa4 ./Generated_Code/ASerialLdd1.o
-                0x0000000000000e00                ASerialLdd1_ReceiveBlock
+                0x0000000000000dd4       0xa4 ./Generated_Code/ASerialLdd1.o
+                0x0000000000000dd4                ASerialLdd1_ReceiveBlock
  .text.ASerialLdd1_SendBlock
-                0x0000000000000ea4       0xd0 ./Generated_Code/ASerialLdd1.o
-                0x0000000000000ea4                ASerialLdd1_SendBlock
+                0x0000000000000e78       0xd0 ./Generated_Code/ASerialLdd1.o
+                0x0000000000000e78                ASerialLdd1_SendBlock
  .text.InterruptRx
-                0x0000000000000f74       0x58 ./Generated_Code/ASerialLdd1.o
+                0x0000000000000f48       0x58 ./Generated_Code/ASerialLdd1.o
  .text.InterruptTx
-                0x0000000000000fcc       0x80 ./Generated_Code/ASerialLdd1.o
+                0x0000000000000fa0       0x80 ./Generated_Code/ASerialLdd1.o
  .text.ASerialLdd1_Interrupt
-                0x000000000000104c       0xec ./Generated_Code/ASerialLdd1.o
-                0x000000000000104c                ASerialLdd1_Interrupt
+                0x0000000000001020       0xec ./Generated_Code/ASerialLdd1.o
+                0x0000000000001020                ASerialLdd1_Interrupt
  .text.ASerialLdd1_GetError
-                0x0000000000001138       0x80 ./Generated_Code/ASerialLdd1.o
-                0x0000000000001138                ASerialLdd1_GetError
+                0x000000000000110c       0x80 ./Generated_Code/ASerialLdd1.o
+                0x000000000000110c                ASerialLdd1_GetError
  .text.BitIoLdd1_Init
-                0x00000000000011b8       0x60 ./Generated_Code/BitIoLdd1.o
-                0x00000000000011b8                BitIoLdd1_Init
+                0x000000000000118c       0x60 ./Generated_Code/BitIoLdd1.o
+                0x000000000000118c                BitIoLdd1_Init
  .text.BitIoLdd1_ClrVal
-                0x0000000000001218       0x18 ./Generated_Code/BitIoLdd1.o
-                0x0000000000001218                BitIoLdd1_ClrVal
- .text.HWEnDi   0x0000000000001230       0x90 ./Generated_Code/COREUART.o
+                0x00000000000011ec       0x18 ./Generated_Code/BitIoLdd1.o
+                0x00000000000011ec                BitIoLdd1_ClrVal
+ .text.HWEnDi   0x0000000000001204       0x90 ./Generated_Code/COREUART.o
  .text.COREUART_Enable
-                0x00000000000012c0       0x24 ./Generated_Code/COREUART.o
-                0x00000000000012c0                COREUART_Enable
+                0x0000000000001294       0x24 ./Generated_Code/COREUART.o
+                0x0000000000001294                COREUART_Enable
  .text.COREUART_RecvChar
-                0x00000000000012e4       0xe8 ./Generated_Code/COREUART.o
-                0x00000000000012e4                COREUART_RecvChar
+                0x00000000000012b8       0xe8 ./Generated_Code/COREUART.o
+                0x00000000000012b8                COREUART_RecvChar
  .text.COREUART_SendChar
-                0x00000000000013cc       0xf8 ./Generated_Code/COREUART.o
-                0x00000000000013cc                COREUART_SendChar
+                0x00000000000013a0       0xf4 ./Generated_Code/COREUART.o
+                0x00000000000013a0                COREUART_SendChar
  .text.COREUART_RecvBlock
-                0x00000000000014c4       0x64 ./Generated_Code/COREUART.o
-                0x00000000000014c4                COREUART_RecvBlock
+                0x0000000000001494       0x64 ./Generated_Code/COREUART.o
+                0x0000000000001494                COREUART_RecvBlock
  .text.COREUART_SendBlock
-                0x0000000000001528      0x188 ./Generated_Code/COREUART.o
-                0x0000000000001528                COREUART_SendBlock
+                0x00000000000014f8      0x184 ./Generated_Code/COREUART.o
+                0x00000000000014f8                COREUART_SendBlock
  .text.COREUART_Init
-                0x00000000000016b0       0x6c ./Generated_Code/COREUART.o
-                0x00000000000016b0                COREUART_Init
+                0x000000000000167c       0x6c ./Generated_Code/COREUART.o
+                0x000000000000167c                COREUART_Init
  .text.ASerialLdd1_OnBlockReceived
-                0x000000000000171c       0xc4 ./Generated_Code/COREUART.o
-                0x000000000000171c                ASerialLdd1_OnBlockReceived
+                0x00000000000016e8       0xc0 ./Generated_Code/COREUART.o
+                0x00000000000016e8                ASerialLdd1_OnBlockReceived
  .text.ASerialLdd1_OnBlockSent
-                0x00000000000017e0       0xe8 ./Generated_Code/COREUART.o
-                0x00000000000017e0                ASerialLdd1_OnBlockSent
+                0x00000000000017a8       0xe8 ./Generated_Code/COREUART.o
+                0x00000000000017a8                ASerialLdd1_OnBlockSent
  .text.ASerialLdd1_OnError
-                0x00000000000018c8       0x94 ./Generated_Code/COREUART.o
-                0x00000000000018c8                ASerialLdd1_OnError
+                0x0000000000001890       0x94 ./Generated_Code/COREUART.o
+                0x0000000000001890                ASerialLdd1_OnError
  .text.ASerialLdd1_OnBreak
-                0x000000000000195c       0x20 ./Generated_Code/COREUART.o
-                0x000000000000195c                ASerialLdd1_OnBreak
+                0x0000000000001924       0x20 ./Generated_Code/COREUART.o
+                0x0000000000001924                ASerialLdd1_OnBreak
  .text.Cpu_INT_NMIInterrupt
-                0x000000000000197c        0xc ./Generated_Code/Cpu.o
-                0x000000000000197c                Cpu_INT_NMIInterrupt
+                0x0000000000001944        0xc ./Generated_Code/Cpu.o
+                0x0000000000001944                Cpu_INT_NMIInterrupt
  .text.Cpu_Interrupt
-                0x0000000000001988        0xc ./Generated_Code/Cpu.o
-                0x0000000000001988                Cpu_Interrupt
+                0x0000000000001950        0xc ./Generated_Code/Cpu.o
+                0x0000000000001950                Cpu_Interrupt
  .text.__init_hardware
-                0x0000000000001994      0x17c ./Generated_Code/Cpu.o
-                0x0000000000001994                __init_hardware
+                0x000000000000195c      0x17c ./Generated_Code/Cpu.o
+                0x000000000000195c                __init_hardware
  .text.PE_low_level_init
-                0x0000000000001b10      0x13c ./Generated_Code/Cpu.o
-                0x0000000000001b10                PE_low_level_init
+                0x0000000000001ad8      0x13c ./Generated_Code/Cpu.o
+                0x0000000000001ad8                PE_low_level_init
  .text.IFsh1_SetFlash
-                0x0000000000001c4c      0x1ec ./Generated_Code/IFsh1.o
-                0x0000000000001c4c                IFsh1_SetFlash
+                0x0000000000001c14      0x1ec ./Generated_Code/IFsh1.o
+                0x0000000000001c14                IFsh1_SetFlash
  .text.IFsh1_Init
-                0x0000000000001e38       0x2c ./Generated_Code/IFsh1.o
-                0x0000000000001e38                IFsh1_Init
+                0x0000000000001e00       0x2c ./Generated_Code/IFsh1.o
+                0x0000000000001e00                IFsh1_Init
  .text.IFsh1_Busy
-                0x0000000000001e64       0x2c ./Generated_Code/IFsh1.o
-                0x0000000000001e64                IFsh1_Busy
+                0x0000000000001e2c       0x2c ./Generated_Code/IFsh1.o
+                0x0000000000001e2c                IFsh1_Busy
  .text.IFsh1_SetBlockFlash
-                0x0000000000001e90       0x2c ./Generated_Code/IFsh1.o
-                0x0000000000001e90                IFsh1_SetBlockFlash
+                0x0000000000001e58       0x2c ./Generated_Code/IFsh1.o
+                0x0000000000001e58                IFsh1_SetBlockFlash
  .text.IntFlashLdd1_OnOperationComplete
-                0x0000000000001ebc      0x194 ./Generated_Code/IFsh1.o
-                0x0000000000001ebc                IntFlashLdd1_OnOperationComplete
+                0x0000000000001e84      0x194 ./Generated_Code/IFsh1.o
+                0x0000000000001e84                IntFlashLdd1_OnOperationComplete
  .text.IntFlashLdd1_OnError
-                0x0000000000002050       0x58 ./Generated_Code/IFsh1.o
-                0x0000000000002050                IntFlashLdd1_OnError
+                0x0000000000002018       0x58 ./Generated_Code/IFsh1.o
+                0x0000000000002018                IntFlashLdd1_OnError
  .text.IntFlashLdd1_Init
-                0x00000000000020a8       0x5c ./Generated_Code/IntFlashLdd1.o
-                0x00000000000020a8                IntFlashLdd1_Init
+                0x0000000000002070       0x5c ./Generated_Code/IntFlashLdd1.o
+                0x0000000000002070                IntFlashLdd1_Init
  .text.IntFlashLdd1_Write
-                0x0000000000002104       0x78 ./Generated_Code/IntFlashLdd1.o
-                0x0000000000002104                IntFlashLdd1_Write
+                0x00000000000020cc       0x78 ./Generated_Code/IntFlashLdd1.o
+                0x00000000000020cc                IntFlashLdd1_Write
  .text.IntFlashLdd1_Erase
-                0x000000000000217c       0x8c ./Generated_Code/IntFlashLdd1.o
-                0x000000000000217c                IntFlashLdd1_Erase
+                0x0000000000002144       0x8c ./Generated_Code/IntFlashLdd1.o
+                0x0000000000002144                IntFlashLdd1_Erase
  .text.IntFlashLdd1_Main
-                0x0000000000002208      0x328 ./Generated_Code/IntFlashLdd1.o
-                0x0000000000002208                IntFlashLdd1_Main
+                0x00000000000021d0      0x328 ./Generated_Code/IntFlashLdd1.o
+                0x00000000000021d0                IntFlashLdd1_Main
  .text.IntFlashLdd1_GetError
-                0x0000000000002530       0x94 ./Generated_Code/IntFlashLdd1.o
-                0x0000000000002530                IntFlashLdd1_GetError
+                0x00000000000024f8       0x94 ./Generated_Code/IntFlashLdd1.o
+                0x00000000000024f8                IntFlashLdd1_GetError
  .text.RangeCheck
-                0x00000000000025c4       0x38 ./Generated_Code/IntFlashLdd1.o
+                0x000000000000258c       0x38 ./Generated_Code/IntFlashLdd1.o
  .text.SafeRoutineCaller
-                0x00000000000025fc       0x84 ./Generated_Code/IntFlashLdd1.o
+                0x00000000000025c4       0x84 ./Generated_Code/IntFlashLdd1.o
  .text.PTA_Init
-                0x0000000000002680       0x18 ./Generated_Code/PTA.o
-                0x0000000000002680                PTA_Init
+                0x0000000000002648       0x18 ./Generated_Code/PTA.o
+                0x0000000000002648                PTA_Init
  .text.PTC_Init
-                0x0000000000002698        0x8 ./Generated_Code/PTC.o
-                0x0000000000002698                PTC_Init
+                0x0000000000002660        0x8 ./Generated_Code/PTC.o
+                0x0000000000002660                PTC_Init
  .text.PTE_Init
-                0x00000000000026a0       0x38 ./Generated_Code/PTE.o
-                0x00000000000026a0                PTE_Init
- .text.memcpy   0x00000000000026d8       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memcpy.o)
-                0x00000000000026d8                memcpy
- .text.memset   0x00000000000026ea       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memset.o)
-                0x00000000000026ea                memset
+                0x0000000000002668       0x38 ./Generated_Code/PTE.o
+                0x0000000000002668                PTE_Init
+ .text.memcpy   0x00000000000026a0       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memcpy.o)
+                0x00000000000026a0                memcpy
+ .text.memset   0x00000000000026b2       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memset.o)
+                0x00000000000026b2                memset
  *(.rodata)
  *(.rodata*)
  .rodata.SafeRoutine
-                0x00000000000026fc       0x18 ./Generated_Code/IntFlashLdd1.o
+                0x00000000000026c4       0x18 ./Generated_Code/IntFlashLdd1.o
  *(.glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x0000000000000000        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000000002714        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+ .eh_frame      0x00000000000026dc        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  *(.init)
- .init          0x0000000000002714        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
-                0x0000000000002714                _init
- .init          0x0000000000002718        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
+ .init          0x00000000000026dc        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
+                0x00000000000026dc                _init
+ .init          0x00000000000026e0        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
  *(.fini)
- .fini          0x0000000000002720        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
-                0x0000000000002720                _fini
- .fini          0x0000000000002724        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
-                0x000000000000272c                . = ALIGN (0x4)
-                0x000000000000272c                _etext = .
+ .fini          0x00000000000026e8        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crti.o
+                0x00000000000026e8                _fini
+ .fini          0x00000000000026ec        0x8 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtn.o
+                0x00000000000026f4                . = ALIGN (0x4)
+                0x00000000000026f4                _etext = .
 
-.vfp11_veneer   0x000000000000272c        0x0
+.vfp11_veneer   0x00000000000026f4        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x000000000000272c        0x0
+.v4_bx          0x00000000000026f4        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x000000000000272c        0x0
+.iplt           0x00000000000026f4        0x0
  .iplt          0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
-.rel.dyn        0x000000000000272c        0x0
+.rel.dyn        0x00000000000026f4        0x0
  .rel.iplt      0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x000000000000272c        0x0
-                0x000000000000272c                __exidx_start = .
+.ARM            0x00000000000026f4        0x0
+                0x00000000000026f4                __exidx_start = .
  *(.ARM.exidx*)
-                0x000000000000272c                __exidx_end = .
+                0x00000000000026f4                __exidx_end = .
 
-.ctors          0x000000000000272c        0x0
-                0x000000000000272c                __CTOR_LIST__ = .
+.ctors          0x00000000000026f4        0x0
+                0x00000000000026f4                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x000000000000272c                __CTOR_END__ = .
+                0x00000000000026f4                __CTOR_END__ = .
 
-.dtors          0x000000000000272c        0x0
-                0x000000000000272c                __DTOR_LIST__ = .
+.dtors          0x00000000000026f4        0x0
+                0x00000000000026f4                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x000000000000272c                __DTOR_END__ = .
+                0x00000000000026f4                __DTOR_END__ = .
 
-.preinit_array  0x000000000000272c        0x0
-                0x000000000000272c                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x00000000000026f4        0x0
+                0x00000000000026f4                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x000000000000272c                PROVIDE (__preinit_array_end, .)
+                0x00000000000026f4                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x000000000000272c        0x4
-                0x000000000000272c                PROVIDE (__init_array_start, .)
+.init_array     0x00000000000026f4        0x4
+                0x00000000000026f4                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x000000000000272c        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
-                0x0000000000002730                PROVIDE (__init_array_end, .)
+ .init_array    0x00000000000026f4        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x00000000000026f8                PROVIDE (__init_array_end, .)
 
-.fini_array     0x0000000000002730        0x4
-                0x0000000000002730                PROVIDE (__fini_array_start, .)
+.fini_array     0x00000000000026f8        0x4
+                0x00000000000026f8                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000000002730        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
-                0x0000000000002734                PROVIDE (__fini_array_end, .)
-                0x0000000000002734                ___ROM_AT = .
+ .fini_array    0x00000000000026f8        0x4 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x00000000000026fc                PROVIDE (__fini_array_end, .)
+                0x00000000000026fc                ___ROM_AT = .
 
-.mtb            0x000000001ffff000        0x0
-                0x000000001ffff000                . = ALIGN (0x8)
-                0x000000001ffff000                _mtb_start = .
+.mtb            0x000000001ffff800        0x0
+                0x000000001ffff800                . = ALIGN (0x8)
+                0x000000001ffff800                _mtb_start = .
  *(.mtb_buf)
-                0x000000001ffff000                . = ALIGN (0x8)
-                0x000000001ffff000                _mtb_end = .
+                0x000000001ffff800                . = ALIGN (0x8)
+                0x000000001ffff800                _mtb_end = .
 
-.data           0x000000001ffff000        0x4 load address 0x0000000000002734
-                0x000000001ffff000                . = ALIGN (0x4)
-                0x000000001ffff000                _sdata = .
+.data           0x000000001ffff800        0x4 load address 0x00000000000026fc
+                0x000000001ffff800                . = ALIGN (0x4)
+                0x000000001ffff800                _sdata = .
  *(.data)
  *(.data*)
  .data.slave_buildid
-                0x000000001ffff000        0x4 ./Sources/bootloader.o
-                0x000000001ffff000                slave_buildid
-                0x000000001ffff004                . = ALIGN (0x4)
-                0x000000001ffff004                _edata = .
+                0x000000001ffff800        0x4 ./Sources/bootloader.o
+                0x000000001ffff800                slave_buildid
+                0x000000001ffff804                . = ALIGN (0x4)
+                0x000000001ffff804                _edata = .
                 0x0000000000000004                ___data_size = (_edata - _sdata)
 
-.jcr            0x000000001ffff004        0x0 load address 0x0000000000002738
- .jcr           0x000000001ffff004        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+.jcr            0x000000001ffff804        0x0 load address 0x0000000000002700
+ .jcr           0x000000001ffff804        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
 
 .tm_clone_table
-                0x000000001ffff004        0x0 load address 0x0000000000002738
+                0x000000001ffff804        0x0 load address 0x0000000000002700
  .tm_clone_table
-                0x000000001ffff004        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+                0x000000001ffff804        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
  .tm_clone_table
-                0x000000001ffff004        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtend.o
+                0x000000001ffff804        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtend.o
 
-.igot.plt       0x000000001ffff004        0x0 load address 0x0000000000002738
+.igot.plt       0x000000001ffff804        0x0 load address 0x0000000000002700
  .igot.plt      0x0000000000000000        0x0 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
-                0x000000001ffff004                . = ALIGN (0x4)
+                0x000000001ffff804                . = ALIGN (0x4)
 
-.bss            0x000000001ffff400     0x1c08 load address 0x0000000000002c00
-                0x000000001ffff400                __START_BSS = .
-                0x000000001ffff400                PROVIDE (__bss_start__, __START_BSS)
+.bss            0x000000001ffffc00     0x1008 load address 0x0000000000002c00
+                0x000000001ffffc00                __START_BSS = .
+                0x000000001ffffc00                PROVIDE (__bss_start__, __START_BSS)
  *(.bss)
  *(.bss*)
  .bss.completed.6137
-                0x000000001ffff400        0x1 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
- *fill*         0x000000001ffff401        0x3 
+                0x000000001ffffc00        0x1 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+ *fill*         0x000000001ffffc01        0x3 
  .bss.object.6142
-                0x000000001ffff404       0x18 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
- .bss.argv      0x000000001ffff41c       0x28 ./Project_Settings/Startup_Code/startup.o
+                0x000000001ffffc04       0x18 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtbegin.o
+ .bss.argv      0x000000001ffffc1c       0x28 ./Project_Settings/Startup_Code/startup.o
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x000000001ffff444       0x20 ./Generated_Code/ASerialLdd1.o
+                0x000000001ffffc44       0x20 ./Generated_Code/ASerialLdd1.o
  .bss.INT_UART0__DEFAULT_RTOS_ISRPARAM
-                0x000000001ffff464        0x4 ./Generated_Code/ASerialLdd1.o
+                0x000000001ffffc64        0x4 ./Generated_Code/ASerialLdd1.o
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x000000001ffff468        0x4 ./Generated_Code/BitIoLdd1.o
- .bss.EnUser    0x000000001ffff46c        0x1 ./Generated_Code/COREUART.o
- *fill*         0x000000001ffff46d        0x1 
- .bss.SerFlag   0x000000001ffff46e        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffc68        0x4 ./Generated_Code/BitIoLdd1.o
+ .bss.EnUser    0x000000001ffffc6c        0x1 ./Generated_Code/COREUART.o
+ *fill*         0x000000001ffffc6d        0x1 
+ .bss.SerFlag   0x000000001ffffc6e        0x2 ./Generated_Code/COREUART.o
  .bss.COREUART_InpLen
-                0x000000001ffff470        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffc70        0x2 ./Generated_Code/COREUART.o
  .bss.InpIndexR
-                0x000000001ffff472        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffc72        0x2 ./Generated_Code/COREUART.o
  .bss.InpIndexW
-                0x000000001ffff474        0x2 ./Generated_Code/COREUART.o
- *fill*         0x000000001ffff476        0x2 
+                0x000000001ffffc74        0x2 ./Generated_Code/COREUART.o
+ *fill*         0x000000001ffffc76        0x2 
  .bss.InpBuffer
-                0x000000001ffff478      0x100 ./Generated_Code/COREUART.o
+                0x000000001ffffc78       0x80 ./Generated_Code/COREUART.o
  .bss.BufferRead
-                0x000000001ffff578        0x1 ./Generated_Code/COREUART.o
- *fill*         0x000000001ffff579        0x1 
+                0x000000001ffffcf8        0x1 ./Generated_Code/COREUART.o
+ *fill*         0x000000001ffffcf9        0x1 
  .bss.COREUART_OutLen
-                0x000000001ffff57a        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffcfa        0x2 ./Generated_Code/COREUART.o
  .bss.OutIndexR
-                0x000000001ffff57c        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffcfc        0x2 ./Generated_Code/COREUART.o
  .bss.OutIndexW
-                0x000000001ffff57e        0x2 ./Generated_Code/COREUART.o
+                0x000000001ffffcfe        0x2 ./Generated_Code/COREUART.o
  .bss.OutBuffer
-                0x000000001ffff580      0x100 ./Generated_Code/COREUART.o
+                0x000000001ffffd00       0x80 ./Generated_Code/COREUART.o
  .bss.OnFreeTxBufSemaphore
-                0x000000001ffff680        0x1 ./Generated_Code/COREUART.o
- .bss.SR_lock   0x000000001ffff681        0x1 ./Generated_Code/Cpu.o
-                0x000000001ffff681                SR_lock
- *fill*         0x000000001ffff682        0x2 
+                0x000000001ffffd80        0x1 ./Generated_Code/COREUART.o
+ .bss.SR_lock   0x000000001ffffd81        0x1 ./Generated_Code/Cpu.o
+                0x000000001ffffd81                SR_lock
+ *fill*         0x000000001ffffd82        0x2 
  .bss.IFsh1_CurrentCommand
-                0x000000001ffff684        0x4 ./Generated_Code/IFsh1.o
+                0x000000001ffffd84        0x4 ./Generated_Code/IFsh1.o
  .bss.IFsh1_CmdResult
-                0x000000001ffff688        0x1 ./Generated_Code/IFsh1.o
+                0x000000001ffffd88        0x1 ./Generated_Code/IFsh1.o
  .bss.IFsh1_CmdPending
-                0x000000001ffff689        0x1 ./Generated_Code/IFsh1.o
+                0x000000001ffffd89        0x1 ./Generated_Code/IFsh1.o
  .bss.IFsh1_EnEvent
-                0x000000001ffff68a        0x1 ./Generated_Code/IFsh1.o
- *fill*         0x000000001ffff68b        0x1 
+                0x000000001ffffd8a        0x1 ./Generated_Code/IFsh1.o
+ *fill*         0x000000001ffffd8b        0x1 
  .bss.IntFlashLdd1_DevDataPtr
-                0x000000001ffff68c        0x4 ./Generated_Code/IFsh1.o
+                0x000000001ffffd8c        0x4 ./Generated_Code/IFsh1.o
  .bss.IFsh1_CurrentDataAddress
-                0x000000001ffff690        0x4 ./Generated_Code/IFsh1.o
+                0x000000001ffffd90        0x4 ./Generated_Code/IFsh1.o
  .bss.IFsh1_CurrentDataSize
-                0x000000001ffff694        0x4 ./Generated_Code/IFsh1.o
+                0x000000001ffffd94        0x4 ./Generated_Code/IFsh1.o
  .bss.IFsh1_FlashAddress
-                0x000000001ffff698        0x4 ./Generated_Code/IFsh1.o
+                0x000000001ffffd98        0x4 ./Generated_Code/IFsh1.o
  .bss.IFsh1_NextSrcDataAddress
-                0x000000001ffff69c        0x4 ./Generated_Code/IFsh1.o
+                0x000000001ffffd9c        0x4 ./Generated_Code/IFsh1.o
  .bss.IFsh1_RemainingDataSize
-                0x000000001ffff6a0        0x4 ./Generated_Code/IFsh1.o
+                0x000000001ffffda0        0x4 ./Generated_Code/IFsh1.o
  .bss.tmpSector
-                0x000000001ffff6a4      0x400 ./Generated_Code/IFsh1.o
+                0x000000001ffffda4      0x400 ./Generated_Code/IFsh1.o
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x000000001ffffaa4       0x18 ./Generated_Code/IntFlashLdd1.o
+                0x00000000200001a4       0x18 ./Generated_Code/IntFlashLdd1.o
  .bss.PE_LDD_DeviceDataList
-                0x000000001ffffabc        0xc ./Generated_Code/PE_LDD.o
-                0x000000001ffffabc                PE_LDD_DeviceDataList
+                0x00000000200001bc        0xc ./Generated_Code/PE_LDD.o
+                0x00000000200001bc                PE_LDD_DeviceDataList
  *(COMMON)
- *fill*         0x000000001ffffac8      0x138 
- COMMON         0x000000001ffffc00     0x1400 ./Sources/bootloader.o
-                0x000000001ffffc00                flash_block
-                0x0000000020000c00                flashblock
- COMMON         0x0000000020001000        0x4 ./Generated_Code/COREUART.o
-                0x0000000020001000                ASerialLdd1_DeviceDataPtr
- COMMON         0x0000000020001004        0x1 ./Generated_Code/Cpu.o
-                0x0000000020001004                SR_reg
-                0x0000000020001008                . = ALIGN (0x4)
- *fill*         0x0000000020001005        0x3 
-                0x0000000020001008                __END_BSS = .
-                0x0000000020001008                PROVIDE (__bss_end__, __END_BSS)
-                0x0000000000002738                _romp_at = (___ROM_AT + SIZEOF (.data))
+ *fill*         0x00000000200001c8      0x238 
+ COMMON         0x0000000020000400      0x800 ./Sources/bootloader.o
+                0x0000000020000400                flash_block
+                0x0000000020000800                flashblock
+ COMMON         0x0000000020000c00        0x4 ./Generated_Code/COREUART.o
+                0x0000000020000c00                ASerialLdd1_DeviceDataPtr
+ COMMON         0x0000000020000c04        0x1 ./Generated_Code/Cpu.o
+                0x0000000020000c04                SR_reg
+                0x0000000020000c08                . = ALIGN (0x4)
+ *fill*         0x0000000020000c05        0x3 
+                0x0000000020000c08                __END_BSS = .
+                0x0000000020000c08                PROVIDE (__bss_end__, __END_BSS)
+                0x0000000000002700                _romp_at = (___ROM_AT + SIZEOF (.data))
 
-.romp           0x0000000020001008       0x18 load address 0x0000000000002738
-                0x0000000000002738                __S_romp = _romp_at
-                0x0000000020001008        0x4 LONG 0x2734 ___ROM_AT
-                0x000000002000100c        0x4 LONG 0x1ffff000 _sdata
-                0x0000000020001010        0x4 LONG 0x4 ___data_size
-                0x0000000020001014        0x4 LONG 0x0
-                0x0000000020001018        0x4 LONG 0x0
-                0x000000002000101c        0x4 LONG 0x0
+.romp           0x0000000020000c08       0x18 load address 0x0000000000002700
+                0x0000000000002700                __S_romp = _romp_at
+                0x0000000020000c08        0x4 LONG 0x26fc ___ROM_AT
+                0x0000000020000c0c        0x4 LONG 0x1ffff800 _sdata
+                0x0000000020000c10        0x4 LONG 0x4 ___data_size
+                0x0000000020000c14        0x4 LONG 0x0
+                0x0000000020000c18        0x4 LONG 0x0
+                0x0000000020000c1c        0x4 LONG 0x0
 
 ._user_heap_stack
-                0x0000000020001020      0x400 load address 0x0000000000002750
-                0x0000000020001020                . = ALIGN (0x4)
-                0x0000000020001020                PROVIDE (end, .)
-                0x0000000020001020                PROVIDE (_end, .)
-                0x0000000020001020                __heap_addr = .
-                0x0000000020001020                __HeapBase = .
-                0x0000000020001020                . = (. + __heap_size)
-                0x0000000020001020                __HeapLimit = .
-                0x0000000020001420                . = (. + __stack_size)
- *fill*         0x0000000020001020      0x400 
-                0x0000000020001420                . = ALIGN (0x4)
+                0x0000000020000c20      0x200 load address 0x0000000000002718
+                0x0000000020000c20                . = ALIGN (0x4)
+                0x0000000020000c20                PROVIDE (end, .)
+                0x0000000020000c20                PROVIDE (_end, .)
+                0x0000000020000c20                __heap_addr = .
+                0x0000000020000c20                __HeapBase = .
+                0x0000000020000d20                . = (. + __heap_size)
+ *fill*         0x0000000020000c20      0x100 
+                0x0000000020000d20                __HeapLimit = .
+                0x0000000020000e20                . = (. + __stack_size)
+ *fill*         0x0000000020000d20      0x100 
+                0x0000000020000e20                . = ALIGN (0x4)
 
 .ARM.attributes
                 0x0000000000000000       0x2f
@@ -1438,22 +1439,22 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .comment       0x0000000000000000       0x12 /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib/libg_s.a(lib_a-memset.o)
  .comment       0x0000000000000000       0x2b /home/ld0d/opt/KDS_2.0.0/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/crtend.o
 
-.debug_info     0x0000000000000000     0x38ad
+.debug_info     0x0000000000000000     0x387c
  .debug_info    0x0000000000000000       0xeb ./Sources/Events.o
- .debug_info    0x00000000000000eb      0x577 ./Sources/bootloader.o
- .debug_info    0x0000000000000662       0x9a ./Sources/main.o
- .debug_info    0x00000000000006fc      0x308 ./Project_Settings/Startup_Code/startup.o
- .debug_info    0x0000000000000a04      0x885 ./Generated_Code/ASerialLdd1.o
- .debug_info    0x0000000000001289      0x35c ./Generated_Code/BitIoLdd1.o
- .debug_info    0x00000000000015e5      0x51b ./Generated_Code/COREUART.o
- .debug_info    0x0000000000001b00      0x849 ./Generated_Code/Cpu.o
- .debug_info    0x0000000000002349      0x54f ./Generated_Code/IFsh1.o
- .debug_info    0x0000000000002898      0xa19 ./Generated_Code/IntFlashLdd1.o
- .debug_info    0x00000000000032b1      0x23b ./Generated_Code/PE_LDD.o
- .debug_info    0x00000000000034ec      0x114 ./Generated_Code/PTA.o
- .debug_info    0x0000000000003600       0x96 ./Generated_Code/PTC.o
- .debug_info    0x0000000000003696      0x114 ./Generated_Code/PTE.o
- .debug_info    0x00000000000037aa      0x103 ./Generated_Code/Vectors.o
+ .debug_info    0x00000000000000eb      0x546 ./Sources/bootloader.o
+ .debug_info    0x0000000000000631       0x9a ./Sources/main.o
+ .debug_info    0x00000000000006cb      0x308 ./Project_Settings/Startup_Code/startup.o
+ .debug_info    0x00000000000009d3      0x885 ./Generated_Code/ASerialLdd1.o
+ .debug_info    0x0000000000001258      0x35c ./Generated_Code/BitIoLdd1.o
+ .debug_info    0x00000000000015b4      0x51b ./Generated_Code/COREUART.o
+ .debug_info    0x0000000000001acf      0x849 ./Generated_Code/Cpu.o
+ .debug_info    0x0000000000002318      0x54f ./Generated_Code/IFsh1.o
+ .debug_info    0x0000000000002867      0xa19 ./Generated_Code/IntFlashLdd1.o
+ .debug_info    0x0000000000003280      0x23b ./Generated_Code/PE_LDD.o
+ .debug_info    0x00000000000034bb      0x114 ./Generated_Code/PTA.o
+ .debug_info    0x00000000000035cf       0x96 ./Generated_Code/PTC.o
+ .debug_info    0x0000000000003665      0x114 ./Generated_Code/PTE.o
+ .debug_info    0x0000000000003779      0x103 ./Generated_Code/Vectors.o
 
 .debug_abbrev   0x0000000000000000     0x1101
  .debug_abbrev  0x0000000000000000       0x45 ./Sources/Events.o
@@ -1582,54 +1583,54 @@ OUTPUT(usbmidi2_slave.elf elf32-littlearm)
  .debug_macro   0x0000000000012725      0x15e ./Generated_Code/Vectors.o
  .debug_macro   0x0000000000012883       0x16 ./Generated_Code/Vectors.o
 
-.debug_line     0x0000000000000000     0x3060
+.debug_line     0x0000000000000000     0x305d
  .debug_line    0x0000000000000000      0x323 ./Sources/Events.o
- .debug_line    0x0000000000000323      0x4b9 ./Sources/bootloader.o
- .debug_line    0x00000000000007dc      0x2d4 ./Sources/main.o
- .debug_line    0x0000000000000ab0      0x3ed ./Project_Settings/Startup_Code/startup.o
- .debug_line    0x0000000000000e9d      0x348 ./Generated_Code/ASerialLdd1.o
- .debug_line    0x00000000000011e5      0x242 ./Generated_Code/BitIoLdd1.o
- .debug_line    0x0000000000001427      0x5bf ./Generated_Code/COREUART.o
- .debug_line    0x00000000000019e6      0x45c ./Generated_Code/Cpu.o
- .debug_line    0x0000000000001e42      0x356 ./Generated_Code/IFsh1.o
- .debug_line    0x0000000000002198      0x3bb ./Generated_Code/IntFlashLdd1.o
- .debug_line    0x0000000000002553      0x2c2 ./Generated_Code/PE_LDD.o
- .debug_line    0x0000000000002815      0x182 ./Generated_Code/PTA.o
- .debug_line    0x0000000000002997      0x181 ./Generated_Code/PTC.o
- .debug_line    0x0000000000002b18      0x184 ./Generated_Code/PTE.o
- .debug_line    0x0000000000002c9c      0x3c4 ./Generated_Code/Vectors.o
+ .debug_line    0x0000000000000323      0x4b6 ./Sources/bootloader.o
+ .debug_line    0x00000000000007d9      0x2d4 ./Sources/main.o
+ .debug_line    0x0000000000000aad      0x3ed ./Project_Settings/Startup_Code/startup.o
+ .debug_line    0x0000000000000e9a      0x348 ./Generated_Code/ASerialLdd1.o
+ .debug_line    0x00000000000011e2      0x242 ./Generated_Code/BitIoLdd1.o
+ .debug_line    0x0000000000001424      0x5bf ./Generated_Code/COREUART.o
+ .debug_line    0x00000000000019e3      0x45c ./Generated_Code/Cpu.o
+ .debug_line    0x0000000000001e3f      0x356 ./Generated_Code/IFsh1.o
+ .debug_line    0x0000000000002195      0x3bb ./Generated_Code/IntFlashLdd1.o
+ .debug_line    0x0000000000002550      0x2c2 ./Generated_Code/PE_LDD.o
+ .debug_line    0x0000000000002812      0x182 ./Generated_Code/PTA.o
+ .debug_line    0x0000000000002994      0x181 ./Generated_Code/PTC.o
+ .debug_line    0x0000000000002b15      0x184 ./Generated_Code/PTE.o
+ .debug_line    0x0000000000002c99      0x3c4 ./Generated_Code/Vectors.o
 
-.debug_str      0x0000000000000000    0x3d5ba
- .debug_str     0x0000000000000000    0x30723 ./Sources/Events.o
-                                      0x30aff (size before relaxing)
- .debug_str     0x0000000000030723     0x1c5b ./Sources/bootloader.o
-                                      0x31f16 (size before relaxing)
- .debug_str     0x000000000003237e       0x12 ./Sources/main.o
-                                      0x30a96 (size before relaxing)
- .debug_str     0x0000000000032390      0x2cb ./Project_Settings/Startup_Code/startup.o
+.debug_str      0x0000000000000000    0x3d5b6
+ .debug_str     0x0000000000000000    0x3071f ./Sources/Events.o
+                                      0x30afb (size before relaxing)
+ .debug_str     0x000000000003071f     0x1c5b ./Sources/bootloader.o
+                                      0x31f12 (size before relaxing)
+ .debug_str     0x000000000003237a       0x12 ./Sources/main.o
+                                      0x30a92 (size before relaxing)
+ .debug_str     0x000000000003238c      0x2cb ./Project_Settings/Startup_Code/startup.o
                                       0x24f77 (size before relaxing)
- .debug_str     0x000000000003265b     0x9e29 ./Generated_Code/ASerialLdd1.o
-                                      0x3466e (size before relaxing)
- .debug_str     0x000000000003c484       0xc6 ./Generated_Code/BitIoLdd1.o
+ .debug_str     0x0000000000032657     0x9e29 ./Generated_Code/ASerialLdd1.o
+                                      0x3466a (size before relaxing)
+ .debug_str     0x000000000003c480       0xc6 ./Generated_Code/BitIoLdd1.o
                                       0x2b0c9 (size before relaxing)
- .debug_str     0x000000000003c54a      0x313 ./Generated_Code/COREUART.o
-                                      0x30e60 (size before relaxing)
- .debug_str     0x000000000003c85d      0x150 ./Generated_Code/Cpu.o
-                                      0x30db2 (size before relaxing)
- .debug_str     0x000000000003c9ad      0x597 ./Generated_Code/IFsh1.o
+ .debug_str     0x000000000003c546      0x313 ./Generated_Code/COREUART.o
+                                      0x30e5c (size before relaxing)
+ .debug_str     0x000000000003c859      0x150 ./Generated_Code/Cpu.o
+                                      0x30dae (size before relaxing)
+ .debug_str     0x000000000003c9a9      0x597 ./Generated_Code/IFsh1.o
                                       0x2fdf9 (size before relaxing)
- .debug_str     0x000000000003cf44      0x480 ./Generated_Code/IntFlashLdd1.o
+ .debug_str     0x000000000003cf40      0x480 ./Generated_Code/IntFlashLdd1.o
                                       0x30065 (size before relaxing)
- .debug_str     0x000000000003d3c4      0x177 ./Generated_Code/PE_LDD.o
-                                      0x30c40 (size before relaxing)
- .debug_str     0x000000000003d53b       0x21 ./Generated_Code/PTA.o
+ .debug_str     0x000000000003d3c0      0x177 ./Generated_Code/PE_LDD.o
+                                      0x30c3c (size before relaxing)
+ .debug_str     0x000000000003d537       0x21 ./Generated_Code/PTA.o
                                       0x2a0c9 (size before relaxing)
- .debug_str     0x000000000003d55c       0x21 ./Generated_Code/PTC.o
+ .debug_str     0x000000000003d558       0x21 ./Generated_Code/PTC.o
                                       0x2a087 (size before relaxing)
- .debug_str     0x000000000003d57d       0x21 ./Generated_Code/PTE.o
+ .debug_str     0x000000000003d579       0x21 ./Generated_Code/PTE.o
                                       0x2a0c9 (size before relaxing)
- .debug_str     0x000000000003d59e       0x1c ./Generated_Code/Vectors.o
-                                      0x30add (size before relaxing)
+ .debug_str     0x000000000003d59a       0x1c ./Generated_Code/Vectors.o
+                                      0x30ad9 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0xb00
  .debug_frame   0x0000000000000000       0xb8 ./Sources/Events.o

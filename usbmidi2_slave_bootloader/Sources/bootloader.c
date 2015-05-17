@@ -7,7 +7,7 @@
 
 #define APP_FLASH_VECTOR_START 0x4000
 
-byte flash_block[4096];
+byte flash_block[IFsh1_AREA_SECTOR_SIZE];
 
 void WarmReset(unsigned long userSP, unsigned long userStartup)
 {
@@ -75,8 +75,8 @@ struct buildid_t {
 	uint32_t payload_size;
 };
 
-// Application info is stored at 0x4400
-struct buildid_t* slave_buildid = (struct buildid_t*)0x4400;
+// Application info is stored after interrupt table
+struct buildid_t* slave_buildid = (struct buildid_t*)(APP_FLASH_VECTOR_START + 0x400);
 
 void HandleStateRead()
 {
@@ -142,7 +142,7 @@ void HandleFlashWrite()
 		}
 	}
 
-	if (address < 0x4000 || address + writesize < 0x4000) {
+	if (address < APP_FLASH_VECTOR_START || address + writesize < APP_FLASH_VECTOR_START) {
 		ack = 2; // address error
 	}
 
@@ -153,11 +153,6 @@ void HandleFlashWrite()
 	}
 
 	ack = 1; // ok
-
-	if (address == 0x4400) {
-		volatile int xx = 1;
-		xx++;
-	}
 
 	if (IFsh1_SetBlockFlash(flashblock, address, IFsh1_AREA_SECTOR_SIZE) != ERR_OK) {
 		ack = 3; // write failed

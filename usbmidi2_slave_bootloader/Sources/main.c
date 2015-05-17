@@ -1,7 +1,7 @@
 /* ###################################################################
 **     Filename    : main.c
 **     Project     : usbmidi2_slave_bootloader
-**     Processor   : MKL26Z128VFM4
+**     Processor   : MKL26Z64VFM4
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
 **     Date/Time   : 2015-02-08, 19:16, # CodeGen: 0
