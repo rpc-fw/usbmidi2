@@ -58,7 +58,7 @@ uint_8 USB_DESC_CONST g_device_descriptor[DEVICE_DESCRIPTOR_SIZE] =
    0x00,0x0a,                            /*  BCD Device version             */
    0x01,                                 /*  Manufacturer string index      */
    0x02,                                 /*  Product string index           */
-   0x03,                                 /*  Serial number string index     */
+   0x0,                                  /*  Serial number string index     */
    0x01                                  /*  Number of configurations       */
 };
 
