@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 13:50, # CodeGen: 26
+**     Date/Time   : 2015-06-25, 21:39, # CodeGen: 31
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -31,11 +31,11 @@
 **
 **         Input interrupt
 **             Vector name             : INT_UART0
-**             Priority                : 2
+**             Priority                : 0
 **
 **         Output interrupt
 **             Vector name             : INT_UART0
-**             Priority                : 2
+**             Priority                : 0
 **
 **         Used pins:
 **         ----------------------------------------------------------

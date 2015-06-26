@@ -53,7 +53,7 @@
       <XtraAge12>1186034729</XtraAge12>
       <XtraAge13>1186034729</XtraAge13>
       <XtraAge14>1178555558</XtraAge14>
-      <XtraAge15>1186034729</XtraAge15>
+      <XtraAge15>1188670672</XtraAge15>
       <GenExtraFileType15>4</GenExtraFileType15>
       <GenExtraFileType14>5</GenExtraFileType14>
       <GenExtraFileType13>4</GenExtraFileType13>
@@ -352,7 +352,7 @@
     </GenFiles>
     <SignalListFile>Documentation\usbmidi2_master_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>46</ProjectModificationStamp>
+    <ProjectModificationStamp>48</ProjectModificationStamp>
   </Options>
   <CpuID_6>
     <Generated>false</Generated>
@@ -361,7 +361,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186034729</HeaderAge>
-    <CodeAge>1186034729</CodeAge>
+    <CodeAge>1188670672</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -440,7 +440,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186034729</HeaderAge>
-    <CodeAge>1186034729</CodeAge>
+    <CodeAge>1188670672</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -969,8 +969,8 @@
     <GenComponentVersion>02.611</GenComponentVersion>
     <GenDriverVersion>01.01</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1186034729</HeaderAge>
-    <CodeAge>1186034729</CodeAge>
+    <HeaderAge>1188670650</HeaderAge>
+    <CodeAge>1188670650</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>24</GenNumMethods>
     <Enable>true</Enable>
@@ -1256,8 +1256,8 @@
       <GenComponentVersion>01.188</GenComponentVersion>
       <GenDriverVersion>01.12</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1186034729</HeaderAge>
-      <CodeAge>1186034729</CodeAge>
+      <HeaderAge>1188670650</HeaderAge>
+      <CodeAge>1188670650</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>36</GenNumMethods>
       <Init>true</Init>
@@ -1374,63 +1374,63 @@
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
         <LineBeg>135</LineBeg>
-        <LineEnd>227</LineEnd>
+        <LineEnd>223</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos8>Enable</MethodPos8>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>228</LineBeg>
-        <LineEnd>257</LineEnd>
+        <LineBeg>224</LineBeg>
+        <LineEnd>253</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos9>Disable</MethodPos9>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>258</LineBeg>
-        <LineEnd>287</LineEnd>
+        <LineBeg>254</LineBeg>
+        <LineEnd>283</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos10>ReceiveBlock</MethodPos10>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>288</LineBeg>
-        <LineEnd>353</LineEnd>
+        <LineBeg>284</LineBeg>
+        <LineEnd>349</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos11>SendBlock</MethodPos11>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>354</LineBeg>
-        <LineEnd>417</LineEnd>
+        <LineBeg>350</LineBeg>
+        <LineEnd>413</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos12>InterruptRx</MethodPos12>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>418</LineBeg>
-        <LineEnd>442</LineEnd>
+        <LineBeg>414</LineBeg>
+        <LineEnd>438</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos13>InterruptTx</MethodPos13>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>443</LineBeg>
-        <LineEnd>468</LineEnd>
+        <LineBeg>439</LineBeg>
+        <LineEnd>464</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos14>Interrupt</MethodPos14>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>469</LineBeg>
-        <LineEnd>525</LineEnd>
+        <LineBeg>465</LineBeg>
+        <LineEnd>521</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos15>GetError</MethodPos15>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>526</LineBeg>
-        <LineEnd>570</LineEnd>
+        <LineBeg>522</LineBeg>
+        <LineEnd>566</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\ASerialLdd2_component.txt</ExtraFile0>
@@ -1689,8 +1689,8 @@
     <GenComponentVersion>01.004</GenComponentVersion>
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1186034729</HeaderAge>
-    <CodeAge>1186034729</CodeAge>
+    <HeaderAge>1188670672</HeaderAge>
+    <CodeAge>1188670672</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>1</GenNumMethods>
     <Init>true</Init>

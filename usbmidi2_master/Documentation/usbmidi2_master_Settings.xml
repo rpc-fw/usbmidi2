@@ -941,7 +941,7 @@ PE_DEBUGHALT();
       <Channel v="UART0" />
       <boolgroup name="Interrupt service/event" v="Enabled">
         <Interrupt_RxD v="INT_UART0" />
-        <Interrupt_RxD_priority v="medium priority" />
+        <Interrupt_RxD_priority v="maximal priority" />
         <Interrupt_TxD v="INT_UART0" />
         <Interrupt_TxD_priority v="medium priority" />
         <Interrupt_Error v="INT_UART0" />
@@ -989,7 +989,7 @@ PE_DEBUGHALT();
             <Device v="UART0" />
             <boolgroup name="Interrupt service/event" v="Enabled">
               <Interrupt_RxD v="INT_UART0" />
-              <Interrupt_RxD_priority v="medium priority" />
+              <Interrupt_RxD_priority v="maximal priority" />
               <Interrupt_TxD v="INT_UART0" />
               <Interrupt_TxD_priority v="medium priority" />
               <Interrupt_Error v="INT_UART0" />
@@ -1402,7 +1402,7 @@ PE_DEBUGHALT();
         <group name="USB">
           <Interrupt v="INT_USB0" />
           <Interrupt_request v="Disabled" />
-          <Interrupt_priority v="0 (Highest)" />
+          <Interrupt_priority v="1" />
           <ISR_Name v="USB_ISR" />
           <Stall v="Enabled" />
           <Attach v="Enabled" />

@@ -6,7 +6,7 @@
 **     Component   : Serial_LDD
 **     Version     : Component 01.188, Driver 01.12, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 14:33, # CodeGen: 45
+**     Date/Time   : 2015-06-25, 21:37, # CodeGen: 49
 **     Abstract    :
 **         This component "Serial_LDD" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -19,7 +19,7 @@
 **          Device                                         : UART0
 **          Interrupt service/event                        : Enabled
 **            Interrupt RxD                                : INT_UART0
-**            Interrupt RxD priority                       : medium priority
+**            Interrupt RxD priority                       : maximal priority
 **            Interrupt TxD                                : INT_UART0
 **            Interrupt TxD priority                       : medium priority
 **            Interrupt Error                              : INT_UART0

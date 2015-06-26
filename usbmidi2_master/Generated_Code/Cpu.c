@@ -7,7 +7,7 @@
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL26P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 14:33, # CodeGen: 45
+**     Date/Time   : 2015-06-25, 21:38, # CodeGen: 50
 **     Abstract    :
 **
 **     Settings    :
@@ -321,8 +321,12 @@ void PE_low_level_init(void)
                 PORT_PCR_PE_MASK |
                 PORT_PCR_PS_MASK
                ));
-  /* NVIC_IPR6: PRI_24=0 */
-  NVIC_IPR6 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_24(0xFF));
+  /* NVIC_IPR6: PRI_24=0x40 */
+  NVIC_IPR6 = (uint32_t)((NVIC_IPR6 & (uint32_t)~(uint32_t)(
+               NVIC_IP_PRI_24(0xBF)
+              )) | (uint32_t)(
+               NVIC_IP_PRI_24(0x40)
+              ));
   /* PORTD_PCR6: ISF=0,PE=1,PS=0 */
   PORTD_PCR6 = (uint32_t)((PORTD_PCR6 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |

@@ -6,7 +6,7 @@
 **     Component   : Init_USB_OTG
 **     Version     : Component 01.004, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 13:50, # CodeGen: 26
+**     Date/Time   : 2015-06-25, 21:39, # CodeGen: 31
 **     Abstract    :
 **          This file implements the USB_OTG (USB0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -142,7 +142,7 @@
 **            USB                                          : 
 **              Interrupt                                  : INT_USB0
 **              Interrupt request                          : Disabled
-**              Interrupt priority                         : 0 (Highest)
+**              Interrupt priority                         : 1
 **              ISR Name                                   : USB_ISR
 **              Stall                                      : Enabled
 **              Attach                                     : Enabled

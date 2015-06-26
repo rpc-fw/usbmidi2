@@ -129,23 +129,53 @@ int usbmidi_msglen(const midicmd_t cmd)
 	return 0;
 }
 
+int intercore_waiting_ack = 0;
+int intercore_sent_counter = 0;
+int intercore_recv_counter = 0;
+
+void intercore_received_4()
+{
+	intercore_recv_counter += 4;
+	if (intercore_recv_counter >= 16) {
+		COREUART_SendChar(0xf4);
+	}
+}
+
+void intercore_sent_4()
+{
+	intercore_sent_counter += 4;
+	if (intercore_sent_counter >= 16) {
+		intercore_waiting_ack = 1;
+	}
+}
+
+byte intercore_msgbuf[4];
+int intercore_msgbuf_counter = 0;
+
 int intercore_receive(midicmd_t* cmd)
 {
-	while (COREUART_GetCharsInRxBuf() >= 4)
+	while (COREUART_GetCharsInRxBuf() >= 1)
 	{
-		if (COREUART_RecvChar(&cmd->header) != ERR_OK) {
+		byte b;
+		if (COREUART_RecvChar(&b) != ERR_OK) {
 			return 0;
 		}
-		if (COREUART_RecvChar(&cmd->b1) != ERR_OK) {
-			return 0;
+
+		if (b == 0xf4) {
+			// ack
+			intercore_sent_counter = 0;
+			intercore_waiting_ack = 0;
 		}
-		if (COREUART_RecvChar(&cmd->b2) != ERR_OK) {
-			return 0;
+		else {
+			intercore_msgbuf[intercore_msgbuf_counter++] = b;
 		}
-		if (COREUART_RecvChar(&cmd->b3) != ERR_OK) {
-			return 0;
+
+		if (intercore_msgbuf_counter >= 4) {
+			*cmd = *((midicmd_t*)intercore_msgbuf);
+			intercore_msgbuf_counter = 0;
+			intercore_received_4();
+			return 1;
 		}
-		return 1;
 	}
 
 	return 0;
@@ -153,6 +183,10 @@ int intercore_receive(midicmd_t* cmd)
 
 int intercore_can_transmit(int numbytes)
 {
+	if (intercore_waiting_ack) {
+		return 0;
+	}
+
 	return (COREUART_OUT_BUF_SIZE - COREUART_GetCharsInTxBuf()) >= numbytes;
 }
 
@@ -162,6 +196,8 @@ void intercore_transmit(const midicmd_t cmd)
 	COREUART_SendChar(cmd.b1);
 	COREUART_SendChar(cmd.b2);
 	COREUART_SendChar(cmd.b3);
+
+	intercore_sent_4();
 #if 0
 	switch (usbmidi_msglen(cmd)) {
 	case 1:
@@ -510,7 +546,9 @@ void usb_run(void)
 					usbmidi_transmit(cmd);
 					break;
 				case 0x10:
-					midiout_transmit(cmd);
+					if (midiout_can_transmit(4)) {
+						midiout_transmit(cmd);
+					}
 					break;
 				}
 			}
@@ -521,7 +559,9 @@ void usb_run(void)
 			cmd.header &= 0x0F;
 			cmd.header |= (0x1 << 4);
 			usbmidi_transmit(cmd);
-			intercore_transmit(cmd);
+			if (intercore_can_transmit(4)) {
+				intercore_transmit(cmd);
+			}
 		}
     }
 }
