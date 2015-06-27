@@ -69,17 +69,28 @@ int intercore_receive(midicmd_t* cmd)
 			return 0;
 		}
 
-		if (b == 0xf4) {
+		if (b == 0xf5) {
+			// sync
+			intercore_msgbuf_counter = 0;
+			intercore_recv_counter = 0;
+			return 0;
+		}
+		else if (b == 0xf4) {
 			// ack
 			intercore_sent_counter = 0;
 			intercore_waiting_ack = 0;
+			return 0;
 		}
 		else {
 			intercore_msgbuf[intercore_msgbuf_counter++] = b;
 		}
 
 		if (intercore_msgbuf_counter >= 4) {
-			*cmd = *((midicmd_t*)intercore_msgbuf);
+			cmd->header = intercore_msgbuf[0];
+			cmd->b1 = intercore_msgbuf[1];
+			cmd->b2 = intercore_msgbuf[2];
+			cmd->b3 = intercore_msgbuf[3];
+
 			intercore_msgbuf_counter = 0;
 			intercore_received_4();
 			return 1;
@@ -226,6 +237,11 @@ void midiin_pack_cmd(midicmd_t* cmd)
 
 int midiin_process(midicmd_t* cmd, byte b)
 {
+	if (b == 0xf4 || b == 0xf5) {
+		// ignore internal sync bytes
+		return 0;
+	}
+
 	if (b >= 0xF8) {
 		// single byte system realtime messages
 		cmd->header = 0xF;
@@ -335,15 +351,44 @@ void usbmidi_transmit(const midicmd_t cmd)
 	}
 }
 
+void sync_cores()
+{
+	byte b;
+
+	// send sync
+	COREUART_SendChar(0xf5);
+
+	while(1) {
+		if (COREUART_GetCharsInRxBuf() == 0 && COREUART_GetCharsInTxBuf() == 0) {
+			// queues are empty, send a new sync
+			COREUART_SendChar(0xf5);
+		}
+		if (COREUART_GetCharsInRxBuf() > 0) {
+			byte b;
+			if (COREUART_RecvChar(&b) == ERR_OK) {
+				if (b == 0xf5) {
+					// got sync, done
+					return;
+				}
+			}
+		}
+	}
+}
+
 void usb_run(void) {
     int i;
 	midicmd_t cmd;
 	int have_peek_byte = 0;
 	byte peek_byte = 0;
 
+	sync_cores();
+
     for(;;) {
     	if (USBMIDI1_App_Task(midi_buffer, sizeof(midi_buffer)) == ERR_BUSOFF) {
     		LED1_Off();
+    		have_peek_byte = 0;
+    		UsbMidiRx_Init();
+    		UsbMidiTx_Init();
     		//WAIT1_Waitms(100);
     	}
     	else {
