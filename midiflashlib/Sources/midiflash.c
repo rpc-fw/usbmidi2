@@ -143,8 +143,7 @@ static void flash_reset()
 	block_index = 0;
 }
 
-static int sysex_ignore = 0;
-int sysex_started = 0;
+int sysex_started = 0; // 2 if ignore
 int sysex_flashing = 0;
 static int sysex_queue_used = 0;
 static uint8_t sysex_queue[4];
@@ -154,7 +153,6 @@ static void sysex_stop_impl()
 	sysex_started = 0;
 	sysex_queue_used = 0;
 	sysex_flashing = 0;
-	sysex_ignore = 0;
 }
 
 static void sysex_start_impl()
@@ -166,7 +164,6 @@ static void sysex_start_impl()
 	sysex_started = 1;
 	sysex_queue_used = 0;
 	sysex_flashing = 0;
-	sysex_ignore = 0;
 }
 
 void sysex_stop()
@@ -200,12 +197,12 @@ static void sysex_start_request(uint8_t* requestheader)
 		return;
 	}
 
-	sysex_ignore = 1;
+	sysex_started = 2;
 }
 
 int sysex_queue_push(uint8_t b)
 {
-	if (!sysex_started || sysex_ignore) {
+	if (sysex_started != 1) {
 		return 0;
 	}
 

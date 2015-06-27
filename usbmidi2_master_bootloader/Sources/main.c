@@ -53,6 +53,7 @@
 #include "PE_Const.h"
 #include "IO_Map.h"
 /* User includes (#include below this line is not maintained by Processor Expert) */
+#include "UART0_PDD.h"
 #include "checksum.h"
 
 #include "midiflash.h"
@@ -196,6 +197,9 @@ void BootToApplication()
 
 	/* If reset vector is valid, jump to it */
 	if (app_reset != 0xFFFFFFFF) {
+
+		// Avoid crashing in interrupts after program start
+		EnterCritical();
 
 		/* Set interrupt vector table to application */
 		SCB_VTOR = APP_FLASH_VECTOR_START;

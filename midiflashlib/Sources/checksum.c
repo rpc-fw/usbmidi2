@@ -26,10 +26,12 @@ uint16_t fletcher_checksum_uint32(uint16_t checksum, const uint32_t value)
 {
 	const uint8_t* b = ((const uint8_t*)&value);
 
-	checksum = fletcher_checksum_running(checksum, b++, 1);
-	checksum = fletcher_checksum_running(checksum, b++, 1);
-	checksum = fletcher_checksum_running(checksum, b++, 1);
-	checksum = fletcher_checksum_running(checksum, b, 1);
+	for (int i = 0; i < 4; i++) {
+		checksum = fletcher_checksum_running(checksum, b++, 1);
+		/*checksum = fletcher_checksum_running(checksum, b++, 1);
+		checksum = fletcher_checksum_running(checksum, b++, 1);
+		checksum = fletcher_checksum_running(checksum, b, 1);*/
+	}
 #if 0
 	byte = value & 0xFF;
 	checksum = fletcher_checksum_running(checksum, &byte, 1);
