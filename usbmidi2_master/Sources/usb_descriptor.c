@@ -43,7 +43,7 @@ uint_8 USB_DESC_CONST g_device_descriptor[DEVICE_DESCRIPTOR_SIZE] =
 {
    DEVICE_DESCRIPTOR_SIZE,               /*  Device Descriptor Size         */
    USB_DEVICE_DESCRIPTOR,                /*  Device Type of descriptor      */
-   0x00, 0x02,                           /*  BCD USB version                */
+   0x10, 0x01,                           /*  BCD USB version                */
    0x00,                                 /*  Device class            		*/
    0x00,                                 /*  Device							*/
    0x00,                                 /*  Device Protocol                */
@@ -55,7 +55,7 @@ uint_8 USB_DESC_CONST g_device_descriptor[DEVICE_DESCRIPTOR_SIZE] =
    (VID&0xFF),((VID>>8)&0xFF),     /*  Vendor ID from properties      */
    (PID&0xFF),((PID>>8)&0xFF),     /*  Product ID from properties     */
 #endif
-   0x00,0x0a,                            /*  BCD Device version             */
+   0x01,0x00,                            /*  BCD Device version             */
    0x01,                                 /*  Manufacturer string index      */
    0x02,                                 /*  Product string index           */
    0x0,                                  /*  Serial number string index     */
@@ -67,13 +67,13 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
     CONFIG_ONLY_DESC_SIZE,  /*  Configuration Descriptor Size */
     USB_CONFIG_DESCRIPTOR,  /* "Configuration" type of descriptor */
     CONFIG_DESC_SIZE, 0x00, /*  Total length of the Configuration descriptor */
-    (uint_8)(/*1+DATA_CLASS_SUPPORT*/+1),/*NumInterfaces*/
+    (uint_8)2,              /*NumInterfaces*/
     0x01,                      /*  Configuration Value */
     0x00,                      /*  Configuration Description String Index*/
     BUS_POWERED,			   /*  Bus powered */
     0x32,                    /*  Current draw from bus -- 100mA*/
 
-#if 0
+#if 1
         /* AUDIOCONTROL INTERFACE DESCRIPTOR */
         IFACE_ONLY_DESC_SIZE,
         USB_IFACE_DESCRIPTOR,
@@ -98,7 +98,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         /* MIDISTREAMING INTERFACE DESCRIPTOR */
         IFACE_ONLY_DESC_SIZE,
         USB_IFACE_DESCRIPTOR,
-        (uint_8)(0x00/*+1*/), /* bInterfaceNumber */
+        (uint_8)(0x01), /* bInterfaceNumber */
         0x00, /* bAlternateSetting */
         0x02, /* 2 endpoints */
         AUDIO_CLASS,
@@ -119,7 +119,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         MIDI_IN_JACK,  /* descriptor type*/
         EMBEDDED,	/* jack type */
         0x01, /* jack ID */
-        0x04, /* unused */
+        0x06, /* unused */
 
         /* MIDI adapter MIDI IN Jack Descriptor (External) */
         0x06,             /* size of Functional Desc in bytes */
@@ -127,7 +127,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         MIDI_IN_JACK,  /* descriptor type*/
         EXTERNAL,	/* jack type */
         0x02, /* jack ID */
-        0x04, /* unused */
+        0x06, /* unused */
 
         /* MIDI adapter MIDI IN Jack Descriptor (Embedded) */
         0x06,             /* size of Functional Desc in bytes */
@@ -135,7 +135,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         MIDI_IN_JACK,  /* descriptor type*/
         EMBEDDED,	/* jack type */
         0x03, /* jack ID */
-        0x05, /* unused */
+        0x07, /* unused */
 
         /* MIDI adapter MIDI IN Jack Descriptor (External) */
         0x06,             /* size of Functional Desc in bytes */
@@ -143,7 +143,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         MIDI_IN_JACK,  /* descriptor type*/
         EXTERNAL,	/* jack type */
         0x04, /* jack ID */
-        0x05, /* unused */
+        0x07, /* unused */
 
         /* MIDI adapter MIDI OUT Jack Descriptor (Embedded) */
         0x09,             /* size of Functional Desc in bytes */
@@ -152,9 +152,9 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         EMBEDDED,	/* jack type */
         0x05, /* jack ID */
         0x01, /* number of input pins */
-        0x02, /* BaSourceID(1) */
+        0x01, /* BaSourceID(1) */
         0x01, /* BaSourcePin(1) */
-        0x06, /* unused */
+        0x04, /* unused */
 
         /* MIDI adapter MIDI OUT Jack Descriptor (External) */
         0x09,             /* size of Functional Desc in bytes */
@@ -165,7 +165,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         0x01, /* number of input pins */
         0x01, /* BaSourceID(1) */
         0x01, /* BaSourcePin(1) */
-        0x06, /* unused */
+        0x04, /* unused */
 
         /* MIDI adapter MIDI OUT Jack Descriptor (Embedded) */
         0x09,             /* size of Functional Desc in bytes */
@@ -174,9 +174,9 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         EMBEDDED,	/* jack type */
         0x07, /* jack ID */
         0x01, /* number of input pins */
-        0x02, /* BaSourceID(1) */
-        0x02, /* BaSourcePin(1) */
-        0x07, /* unused */
+        0x03, /* BaSourceID(1) */
+        0x01, /* BaSourcePin(1) */
+        0x05, /* unused */
 
         /* MIDI adapter MIDI OUT Jack Descriptor (External) */
         0x09,             /* size of Functional Desc in bytes */
@@ -185,9 +185,9 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
         EXTERNAL,	/* jack type */
         0x08, /* jack ID */
         0x01, /* number of input pins */
-        0x01, /* BaSourceID(1) */
-        0x02, /* BaSourcePin(1) */
-        0x07, /* unused */
+        0x03, /* BaSourceID(1) */
+        0x01, /* BaSourcePin(1) */
+        0x05, /* unused */
 
         /* MIDI Adapter Standard Bulk OUT Endpoint Descriptor */
         0x09,
