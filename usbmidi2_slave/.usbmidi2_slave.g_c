@@ -30,12 +30,15 @@
       <ShrdHeaderAge3>1186033225</ShrdHeaderAge3>
       <ShrdCodeAge3>-1</ShrdCodeAge3>
       <ShrdAsemblAge3>-1</ShrdAsemblAge3>
-      <GenExtraFiles lines_count="13">
+      <GenExtraFiles lines_count="16">
         <Line>Documentation\doxygen\PTC_component.txt</Line>
         <Line>Documentation\doxygen\USB0_component.txt</Line>
         <Line>Documentation\doxygen\ASerialLdd1_component.txt</Line>
         <Line>Documentation\doxygen\PTE_component.txt</Line>
         <Line>Documentation\doxygen\BitIoLdd1_component.txt</Line>
+        <Line>Documentation\doxygen\PTA_component.txt</Line>
+        <Line>Documentation\doxygen\PTB_component.txt</Line>
+        <Line>Documentation\doxygen\PTD_component.txt</Line>
         <Line>Documentation\doxygen\usbmidi2_slave_project.txt</Line>
         <Line>Documentation\doxygen\RoutingReport_component.txt</Line>
         <Line>Documentation\doxygen\pex.doxyfile</Line>
@@ -45,17 +48,20 @@
         <Line>Project_Settings\Startup_Code\startup.c</Line>
         <Line>Generated_Code\Vectors.c</Line>
       </GenExtraFiles>
-      <GenExtraFileSrcDir11>lib\Kinetis\startup\</GenExtraFileSrcDir11>
-      <GenExtraFileSrcDir8>lib\doxygen\</GenExtraFileSrcDir8>
-      <XtraAge9>1186033225</XtraAge9>
-      <XtraAge10>1186033225</XtraAge10>
-      <XtraAge11>1179163138</XtraAge11>
-      <XtraAge12>1188670701</XtraAge12>
+      <GenExtraFileSrcDir14>lib\Kinetis\startup\</GenExtraFileSrcDir14>
+      <GenExtraFileSrcDir11>lib\doxygen\</GenExtraFileSrcDir11>
+      <XtraAge12>1186033225</XtraAge12>
+      <XtraAge13>1188858388</XtraAge13>
+      <XtraAge14>1179163138</XtraAge14>
+      <XtraAge15>1188858388</XtraAge15>
+      <GenExtraFileType15>4</GenExtraFileType15>
+      <GenExtraFileType14>5</GenExtraFileType14>
+      <GenExtraFileType13>4</GenExtraFileType13>
       <GenExtraFileType12>4</GenExtraFileType12>
       <GenExtraFileType11>5</GenExtraFileType11>
       <GenExtraFileType10>4</GenExtraFileType10>
       <GenExtraFileType9>4</GenExtraFileType9>
-      <GenExtraFileType8>5</GenExtraFileType8>
+      <GenExtraFileType8>4</GenExtraFileType8>
       <GenExtraFileType7>4</GenExtraFileType7>
       <GenExtraFileType6>4</GenExtraFileType6>
       <GenExtraFileType5>4</GenExtraFileType5>
@@ -291,7 +297,7 @@
         <Line>COREUART_OnFreeTxBuf</Line>
         <Line>Cpu_OnNMIINT</Line>
       </GenMethodsInEvents>
-      <GenAllModules lines_count="17">
+      <GenAllModules lines_count="20">
         <Line>ASerialLdd1</Line>
         <Line>BitIoLdd1</Line>
         <Line>COREUART</Line>
@@ -303,7 +309,10 @@
         <Line>PE_Const</Line>
         <Line>PE_Error</Line>
         <Line>PE_Types</Line>
+        <Line>PTA</Line>
+        <Line>PTB</Line>
         <Line>PTC</Line>
+        <Line>PTD</Line>
         <Line>PTE</Line>
         <Line>USB0</Line>
         <Line>UsbMidiRx</Line>
@@ -311,7 +320,7 @@
         <Line>WAIT1</Line>
       </GenAllModules>
       <GenExternModules lines_count="0" />
-      <GenBeanModules lines_count="11">
+      <GenBeanModules lines_count="14">
         <Line>PTC</Line>
         <Line>USB0</Line>
         <Line>COREUART</Line>
@@ -323,11 +332,14 @@
         <Line>LED1</Line>
         <Line>LEDpin1</Line>
         <Line>BitIoLdd1</Line>
+        <Line>PTA</Line>
+        <Line>PTB</Line>
+        <Line>PTD</Line>
       </GenBeanModules>
     </GenFiles>
     <SignalListFile>Documentation\usbmidi2_slave_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>29</ProjectModificationStamp>
+    <ProjectModificationStamp>31</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>false</Generated>
@@ -336,7 +348,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186033225</HeaderAge>
-    <CodeAge>1188670701</CodeAge>
+    <CodeAge>1188858388</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -415,7 +427,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186033225</HeaderAge>
-    <CodeAge>1188670701</CodeAge>
+    <CodeAge>1188858388</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -493,8 +505,8 @@
     <GenComponentVersion>01.006</GenComponentVersion>
     <GenDriverVersion>01.06</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1186033225</HeaderAge>
-    <CodeAge>1186033225</CodeAge>
+    <HeaderAge>1188858388</HeaderAge>
+    <CodeAge>1188858388</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>1</GenNumMethods>
     <Init>true</Init>
@@ -508,15 +520,15 @@
       <MethodPos0>Init</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>106</LineBeg>
-      <LineEnd>120</LineEnd>
+      <LineBeg>138</LineBeg>
+      <LineEnd>152</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos1>Init</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>98</LineBeg>
-      <LineEnd>113</LineEnd>
+      <LineBeg>130</LineBeg>
+      <LineEnd>147</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>1</GenExtraFilesCount>
     <ExtraFile0>Documentation\doxygen\PTC_component.txt</ExtraFile0>
@@ -1311,8 +1323,8 @@
     <GenComponentVersion>01.006</GenComponentVersion>
     <GenDriverVersion>01.06</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1186033225</HeaderAge>
-    <CodeAge>1186033225</CodeAge>
+    <HeaderAge>1188858388</HeaderAge>
+    <CodeAge>1188858388</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>1</GenNumMethods>
     <Init>true</Init>
@@ -1326,15 +1338,15 @@
       <MethodPos0>Init</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>97</LineBeg>
-      <LineEnd>111</LineEnd>
+      <LineBeg>104</LineBeg>
+      <LineEnd>118</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos1>Init</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>89</LineBeg>
-      <LineEnd>106</LineEnd>
+      <LineBeg>96</LineBeg>
+      <LineEnd>113</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>1</GenExtraFilesCount>
     <ExtraFile0>Documentation\doxygen\PTE_component.txt</ExtraFile0>
@@ -1662,6 +1674,108 @@
       </InhrCompID_23>
     </InhrCompID_22>
   </ComponentID_21>
+  <ComponentID_41>
+    <Generated>true</Generated>
+    <GenCompName>PTA</GenCompName>
+    <GenComponentVersion>01.006</GenComponentVersion>
+    <GenDriverVersion>01.06</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1188858388</HeaderAge>
+    <CodeAge>1188858388</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>1</GenNumMethods>
+    <Init>true</Init>
+    <GenNumEvents>0</GenNumEvents>
+    <ISR_ISRHandlePort />
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>2</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>Init</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>116</LineBeg>
+      <LineEnd>130</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>Init</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>108</LineBeg>
+      <LineEnd>125</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>1</GenExtraFilesCount>
+    <ExtraFile0>Documentation\doxygen\PTA_component.txt</ExtraFile0>
+  </ComponentID_41>
+  <ComponentID_42>
+    <Generated>true</Generated>
+    <GenCompName>PTB</GenCompName>
+    <GenComponentVersion>01.006</GenComponentVersion>
+    <GenDriverVersion>01.06</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1188858388</HeaderAge>
+    <CodeAge>1188858388</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>1</GenNumMethods>
+    <Init>true</Init>
+    <GenNumEvents>0</GenNumEvents>
+    <ISR_ISRHandlePort />
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>2</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>Init</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>106</LineBeg>
+      <LineEnd>120</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>Init</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>98</LineBeg>
+      <LineEnd>115</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>1</GenExtraFilesCount>
+    <ExtraFile0>Documentation\doxygen\PTB_component.txt</ExtraFile0>
+  </ComponentID_42>
+  <ComponentID_43>
+    <Generated>true</Generated>
+    <GenCompName>PTD</GenCompName>
+    <GenComponentVersion>01.006</GenComponentVersion>
+    <GenDriverVersion>01.06</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1188858388</HeaderAge>
+    <CodeAge>1188858388</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>1</GenNumMethods>
+    <Init>true</Init>
+    <GenNumEvents>0</GenNumEvents>
+    <ISR_ISRHandlePort />
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>2</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>Init</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>134</LineBeg>
+      <LineEnd>148</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>Init</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>126</LineBeg>
+      <LineEnd>143</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>1</GenExtraFilesCount>
+    <ExtraFile0>Documentation\doxygen\PTD_component.txt</ExtraFile0>
+  </ComponentID_43>
   <UsedSrcFiles>
     <SrcFile0>Drivers\Common\CheckRegBits8_Rst.prg=-1</SrcFile0>
     <SrcFile1>Drivers\Kinetis\Init_FTFL_FlashConfig_KINETIS.prg=-1</SrcFile1>
@@ -1690,8 +1804,8 @@
     <SrcFile24>Drivers\Common\PE_LDD_Types.prg=-1</SrcFile24>
     <SrcFile25>Drivers\Common\GenReg8BitsInitInfo.prg=-1</SrcFile25>
     <SrcFile26>Drivers\Common\WaitWaitLongCycles.Inc=1182380143</SrcFile26>
-    <SrcFile27>Drivers\VAR\InitIntPriority.prg=-1</SrcFile27>
-    <SrcFile28>Drivers\Common\SetReg8_Rst.prg=-1</SrcFile28>
+    <SrcFile27>Drivers\Common\SetReg8_Rst.prg=-1</SrcFile27>
+    <SrcFile28>Drivers\VAR\InitIntPriority.prg=-1</SrcFile28>
     <SrcFile29>Drivers\Kinetis\Kinetis_Constants.prg=-1</SrcFile29>
     <SrcFile30>Drivers\Kinetis\IsSupported_SAI_PDD.prg=-1</SrcFile30>
     <SrcFile31>Drivers\Kinetis\IsSupported_RTC_PDD.prg=-1</SrcFile31>
@@ -1847,8 +1961,8 @@
     <SrcFile181>Drivers\Kinetis\IsSupported_SPI_PDD.prg=-1</SrcFile181>
     <SrcFile182>Drivers\Kinetis\IsSupported_SDHC_PDD.prg=-1</SrcFile182>
     <SrcFile183>Drivers\Kinetis\InitIntPriority.prg=-1</SrcFile183>
-    <SrcFile184>Drivers\Kinetis\InitIntRequest.prg=-1</SrcFile184>
-    <SrcFile185>Drivers\Common\GeneralDamage.inc=-1</SrcFile185>
+    <SrcFile184>Drivers\Common\GeneralDamage.inc=-1</SrcFile184>
+    <SrcFile185>Drivers\Kinetis\InitIntRequest.prg=-1</SrcFile185>
     <SrcFile186>Drivers\Common\EBGNSupport\StringLib.prg=-1</SrcFile186>
     <SrcFile187>Drivers\VAR\Init_GPIO_VAR0_Incl.drv=-1</SrcFile187>
     <SrcFile188>Drivers\Kinetis\IsSupported_WDOG_PDD.prg=-1</SrcFile188>

@@ -32,6 +32,7 @@
 - \subpage SlaveReset
 - \subpage TU1
 - \subpage TimerIntLdd1
+- \subpage PTA
 
 */
 

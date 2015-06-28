@@ -10,6 +10,7 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c ../Generated_Code/PTC.h \
  ../Generated_Code/BitIoLdd1.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/GPIO_PDD.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/PDD_Types.h \
+ ../Generated_Code/PTA.h ../Generated_Code/PTB.h ../Generated_Code/PTD.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Sources/Events.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PE_Types.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PE_Error.h \
@@ -25,7 +26,10 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c ../Generated_Code/PTC.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTE.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/LED1.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/LEDpin1.h \
- /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/BitIoLdd1.h
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/BitIoLdd1.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTA.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTB.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTD.h
 
 ../Generated_Code/PTC.h:
 
@@ -65,6 +69,12 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c ../Generated_Code/PTC.h \
 
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/PDD_Types.h:
 
+../Generated_Code/PTA.h:
+
+../Generated_Code/PTB.h:
+
+../Generated_Code/PTD.h:
+
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Sources/Events.h:
 
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PE_Types.h:
@@ -96,3 +106,9 @@ Generated_Code/Cpu.o: ../Generated_Code/Cpu.c ../Generated_Code/PTC.h \
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/LEDpin1.h:
 
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/BitIoLdd1.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTA.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTB.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTD.h:

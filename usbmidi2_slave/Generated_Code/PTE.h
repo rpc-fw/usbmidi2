@@ -6,7 +6,7 @@
 **     Component   : Init_GPIO
 **     Version     : Component 01.006, Driver 01.06, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 13:50, # CodeGen: 26
+**     Date/Time   : 2015-06-28, 17:16, # CodeGen: 33
 **     Abstract    :
 **          This file implements the GPIO (PTE) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -15,15 +15,22 @@
 **          Component name                                 : PTE
 **          Device                                         : PTE
 **          Settings                                       : 
-**            Pin 0                                        : Do not initialize
+**            Pin 0                                        : Initialize
+**              Pin direction                              : Input
+**              Output value                               : No initialization
+**              Pull resistor                              : Enabled
+**              Pull selection                             : Pull Down
+**              Slew rate                                  : No initialization
 **            Pin 30                                       : Initialize
 **              Pin direction                              : Input
 **              Output value                               : No initialization
-**              Pull resistor                              : No initialization
-**              Pull selection                             : No initialization
+**              Pull resistor                              : Enabled
+**              Pull selection                             : Pull Down
 **              Slew rate                                  : Slow
 **          Pin selection/routing                          : 
-**            Pin 0                                        : Disabled
+**            Pin 0                                        : Enabled
+**              Pin                                        : PTE0/SPI1_MISO/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA
+**              Pin signal                                 : 
 **            Pin 30                                       : Enabled
 **              Pin                                        : DAC0_OUT/ADC0_SE23/CMP0_IN4/PTE30/TPM0_CH3/TPM_CLKIN1
 **              Pin signal                                 : 

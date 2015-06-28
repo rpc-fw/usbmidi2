@@ -5,7 +5,7 @@
 **     Processor   : MKL26Z64VFM4
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-28, 14:10, # CodeGen: 52
+**     Date/Time   : 2015-06-28, 17:06, # CodeGen: 53
 **     Abstract    :
 **
 **     Settings    :
@@ -83,6 +83,7 @@
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
+#include "PTA.h"
 
 
 /*

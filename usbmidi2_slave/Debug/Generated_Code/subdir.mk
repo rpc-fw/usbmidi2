@@ -11,7 +11,10 @@ C_SRCS += \
 ../Generated_Code/LED1.c \
 ../Generated_Code/LEDpin1.c \
 ../Generated_Code/PE_LDD.c \
+../Generated_Code/PTA.c \
+../Generated_Code/PTB.c \
 ../Generated_Code/PTC.c \
+../Generated_Code/PTD.c \
 ../Generated_Code/PTE.c \
 ../Generated_Code/USB0.c \
 ../Generated_Code/UsbMidiRx.c \
@@ -27,7 +30,10 @@ OBJS += \
 ./Generated_Code/LED1.o \
 ./Generated_Code/LEDpin1.o \
 ./Generated_Code/PE_LDD.o \
+./Generated_Code/PTA.o \
+./Generated_Code/PTB.o \
 ./Generated_Code/PTC.o \
+./Generated_Code/PTD.o \
 ./Generated_Code/PTE.o \
 ./Generated_Code/USB0.o \
 ./Generated_Code/UsbMidiRx.o \
@@ -43,7 +49,10 @@ C_DEPS += \
 ./Generated_Code/LED1.d \
 ./Generated_Code/LEDpin1.d \
 ./Generated_Code/PE_LDD.d \
+./Generated_Code/PTA.d \
+./Generated_Code/PTB.d \
 ./Generated_Code/PTC.d \
+./Generated_Code/PTD.d \
 ./Generated_Code/PTE.d \
 ./Generated_Code/USB0.d \
 ./Generated_Code/UsbMidiRx.d \

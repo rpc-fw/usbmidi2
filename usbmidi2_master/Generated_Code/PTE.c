@@ -6,7 +6,7 @@
 **     Component   : Init_GPIO
 **     Version     : Component 01.006, Driver 01.06, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 14:33, # CodeGen: 45
+**     Date/Time   : 2015-06-28, 17:17, # CodeGen: 54
 **     Abstract    :
 **          This file implements the GPIO (PTE) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -21,12 +21,19 @@
 **              Pull resistor                              : Enabled
 **              Pull selection                             : Pull Up
 **              Slew rate                                  : No initialization
-**            Pin 30                                       : Do not initialize
+**            Pin 30                                       : Initialize
+**              Pin direction                              : Input
+**              Output value                               : No initialization
+**              Pull resistor                              : Enabled
+**              Pull selection                             : Pull Down
+**              Slew rate                                  : No initialization
 **          Pin selection/routing                          : 
 **            Pin 0                                        : Enabled
 **              Pin                                        : PTE0/SPI1_MISO/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA
 **              Pin signal                                 : 
-**            Pin 30                                       : Disabled
+**            Pin 30                                       : Enabled
+**              Pin                                        : DAC0_OUT/ADC0_SE23/CMP0_IN4/PTE30/TPM0_CH3/TPM_CLKIN1
+**              Pin signal                                 : 
 **          Initialization                                 : 
 **            Call Init method                             : yes
 **     Contents    :
@@ -102,8 +109,8 @@
 */
 void PTE_Init(void)
 {
-  /* GPIOE_PDDR: PDD&=~1 */
-  GPIOE_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x01));
+  /* GPIOE_PDDR: PDD&=~0x40000001 */
+  GPIOE_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x40000001));
 }
 
 

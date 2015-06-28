@@ -45,6 +45,9 @@
 #include "LED1.h"
 #include "LEDpin1.h"
 #include "BitIoLdd1.h"
+#include "PTA.h"
+#include "PTB.h"
+#include "PTD.h"
 
 #ifdef __cplusplus
 extern "C" {

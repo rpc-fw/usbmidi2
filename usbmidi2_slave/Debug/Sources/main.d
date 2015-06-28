@@ -27,6 +27,9 @@ Sources/main.o: ../Sources/main.c \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/PDD_Types.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/LEDpin1.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/BitIoLdd1.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTA.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTB.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTD.h \
  /home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/USB1.h \
  /home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/USBMIDI1.h \
  ../Sources/masterbinary.h
@@ -86,6 +89,12 @@ Sources/main.o: ../Sources/main.c \
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/LEDpin1.h:
 
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/BitIoLdd1.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTA.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTB.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTD.h:
 
 /home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/USB1.h:
 

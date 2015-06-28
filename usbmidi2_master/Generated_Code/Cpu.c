@@ -7,7 +7,7 @@
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL26P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-28, 14:10, # CodeGen: 52
+**     Date/Time   : 2015-06-28, 17:17, # CodeGen: 54
 **     Abstract    :
 **
 **     Settings    :
@@ -83,6 +83,7 @@
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
+#include "PTA.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -285,6 +286,13 @@ void PE_low_level_init(void)
   /* SMC_PMPROT: ??=0,??=0,AVLP=0,??=0,ALLS=0,??=0,AVLLS=0,??=0 */
   SMC_PMPROT = 0x00U;                  /* Setup Power mode protection register */
   /* Common initialization of the CPU registers */
+  /* PORTC_PCR2: ISF=0,PE=1,PS=0 */
+  PORTC_PCR2 = (uint32_t)((PORTC_PCR2 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_PS_MASK
+               )) | (uint32_t)(
+                PORT_PCR_PE_MASK
+               ));
   /* PORTC_PCR5: ISF=0,MUX=1,PE=1,PS=1 */
   PORTC_PCR5 = (uint32_t)((PORTC_PCR5 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
@@ -303,6 +311,15 @@ void PE_low_level_init(void)
                 PORT_PCR_PE_MASK |
                 PORT_PCR_PS_MASK
                ));
+  /* PORTC_PCR7: ISF=0,MUX=1,PE=1,PS=0 */
+  PORTC_PCR7 = (uint32_t)((PORTC_PCR7 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x06) |
+                PORT_PCR_PS_MASK
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x01) |
+                PORT_PCR_PE_MASK
+               ));
   /* PORTC_PCR1: ISF=0,MUX=1 */
   PORTC_PCR1 = (uint32_t)((PORTC_PCR1 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
@@ -317,8 +334,11 @@ void PE_low_level_init(void)
                )) | (uint32_t)(
                 PORT_PCR_MUX(0x01)
                ));
-  /* NVIC_IPR7: PRI_31=0 */
-  NVIC_IPR7 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_31(0xFF));
+  /* NVIC_IPR7: PRI_31=0,PRI_30=0 */
+  NVIC_IPR7 &= (uint32_t)~(uint32_t)(
+                NVIC_IP_PRI_31(0xFF) |
+                NVIC_IP_PRI_30(0xFF)
+               );
   /* PORTE_PCR0: ISF=0,MUX=1,PE=1,PS=1 */
   PORTE_PCR0 = (uint32_t)((PORTE_PCR0 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
@@ -328,6 +348,15 @@ void PE_low_level_init(void)
                 PORT_PCR_PE_MASK |
                 PORT_PCR_PS_MASK
                ));
+  /* PORTE_PCR30: ISF=0,MUX=1,PE=1,PS=0 */
+  PORTE_PCR30 = (uint32_t)((PORTE_PCR30 & (uint32_t)~(uint32_t)(
+                 PORT_PCR_ISF_MASK |
+                 PORT_PCR_MUX(0x06) |
+                 PORT_PCR_PS_MASK
+                )) | (uint32_t)(
+                 PORT_PCR_MUX(0x01) |
+                 PORT_PCR_PE_MASK
+                ));
   /* NVIC_IPR6: PRI_24=0x40 */
   NVIC_IPR6 = (uint32_t)((NVIC_IPR6 & (uint32_t)~(uint32_t)(
                NVIC_IP_PRI_24(0xBF)
@@ -339,6 +368,24 @@ void PE_low_level_init(void)
                 PORT_PCR_ISF_MASK |
                 PORT_PCR_PS_MASK
                )) | (uint32_t)(
+                PORT_PCR_PE_MASK
+               ));
+  /* PORTA_PCR1: ISF=0,MUX=1,PE=1,PS=0 */
+  PORTA_PCR1 = (uint32_t)((PORTA_PCR1 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x06) |
+                PORT_PCR_PS_MASK
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x01) |
+                PORT_PCR_PE_MASK
+               ));
+  /* PORTA_PCR2: ISF=0,MUX=1,PE=1,PS=0 */
+  PORTA_PCR2 = (uint32_t)((PORTA_PCR2 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x06) |
+                PORT_PCR_PS_MASK
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x01) |
                 PORT_PCR_PE_MASK
                ));
   /* PORTC_PCR3: ISF=0,MUX=5 */
@@ -398,6 +445,10 @@ void PE_low_level_init(void)
   /* ### TimerInt_LDD "TimerIntLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)TimerIntLdd1_Init(NULL);
   /* ### TimerInt "TI1" init code ... */
+  /* ### Init_GPIO "PTA" init code ... */
+  PTA_Init();
+
+
   __EI();
 }
   /* Flash configuration field */

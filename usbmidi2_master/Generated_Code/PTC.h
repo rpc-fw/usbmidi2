@@ -6,7 +6,7 @@
 **     Component   : Init_GPIO
 **     Version     : Component 01.006, Driver 01.06, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 14:33, # CodeGen: 45
+**     Date/Time   : 2015-06-28, 17:17, # CodeGen: 54
 **     Abstract    :
 **          This file implements the GPIO (PTC) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -22,7 +22,13 @@
 **              Pull selection                             : No initialization
 **              Slew rate                                  : No initialization
 **              Interrupt/DMA request                      : No initialization
-**            Pin 2                                        : Do not initialize
+**            Pin 2                                        : Initialize
+**              Pin direction                              : Input
+**              Output value                               : No initialization
+**              Pull resistor                              : Enabled
+**              Pull selection                             : Pull Down
+**              Slew rate                                  : No initialization
+**              Interrupt/DMA request                      : No initialization
 **            Pin 3                                        : Do not initialize
 **            Pin 4                                        : Initialize
 **              Pin direction                              : Output
@@ -45,7 +51,13 @@
 **              Pull selection                             : Pull Up
 **              Slew rate                                  : No initialization
 **              Interrupt/DMA request                      : No initialization
-**            Pin 7                                        : Do not initialize
+**            Pin 7                                        : Initialize
+**              Pin direction                              : Input
+**              Output value                               : No initialization
+**              Pull resistor                              : Enabled
+**              Pull selection                             : Pull Down
+**              Slew rate                                  : No initialization
+**              Interrupt/DMA request                      : No initialization
 **          Pin selection/routing                          : 
 **            Pin 1                                        : Enabled
 **              Pin                                        : ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/RTC_CLKIN/I2C1_SCL/TPM0_CH0/I2S0_TXD0
@@ -61,7 +73,9 @@
 **            Pin 6                                        : Enabled
 **              Pin                                        : CMP0_IN0/PTC6/LLWU_P10/SPI0_MOSI/EXTRG_IN/I2S0_RX_BCLK/SPI0_MISO/I2S0_MCLK
 **              Pin signal                                 : 
-**            Pin 7                                        : Disabled
+**            Pin 7                                        : Enabled
+**              Pin                                        : CMP0_IN1/PTC7/SPI0_MISO/audioUSB_SOF_OUT/I2S0_RX_FS/SPI0_MOSI
+**              Pin signal                                 : 
 **          Interrupts                                     : 
 **            Port interrupt                               : Enabled
 **              Interrupt                                  : INT_PORTC_PORTD

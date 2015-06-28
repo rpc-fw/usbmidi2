@@ -232,6 +232,11 @@ Module "TU1"       (component TimerUnit_LDD)
                 <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
                 second call of Init the <Deinit> must be called first.
 
+Module "PTA"       (component Init_GPIO_VAR0)
+   - PTA_Init -This method initializes registers of the GPIO module according to the Peripheral Initialization settings. Call 
+                this method in user code to initialize the module. By default, the method is called by PE automatically; see 
+                "Call Init method" property of the component for more details.
+
 Module "Cpu"       (component MKL26Z128FM4)
 
 ===================================================================================

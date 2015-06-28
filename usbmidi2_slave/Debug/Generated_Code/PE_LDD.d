@@ -10,7 +10,8 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  ../Generated_Code/LED1.h ../Generated_Code/LEDpin1.h \
  ../Generated_Code/BitIoLdd1.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/GPIO_PDD.h \
- /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/PDD_Types.h
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/PDD_Types.h \
+ ../Generated_Code/PTA.h ../Generated_Code/PTB.h ../Generated_Code/PTD.h
 
 ../Generated_Code/PE_LDD.h:
 
@@ -51,3 +52,9 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/GPIO_PDD.h:
 
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/PDD_Types.h:
+
+../Generated_Code/PTA.h:
+
+../Generated_Code/PTB.h:
+
+../Generated_Code/PTD.h:

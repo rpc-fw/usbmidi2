@@ -55,6 +55,7 @@
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
+#include "PTA.h"
 #include "UsbMidiTx.h"
 #include "UsbMidiRx.h"
 

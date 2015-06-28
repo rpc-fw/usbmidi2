@@ -635,19 +635,55 @@ PE_DEBUGHALT();
         <boolgroup name="Pin 1" v="Do not initialize" />
         <boolgroup name="Pin 2" v="Do not initialize" />
         <boolgroup name="Pin 3" v="Do not initialize" />
-        <boolgroup name="Pin 4" v="Do not initialize" />
-        <boolgroup name="Pin 5" v="Do not initialize" />
-        <boolgroup name="Pin 6" v="Do not initialize" />
-        <boolgroup name="Pin 7" v="Do not initialize" />
+        <boolgroup name="Pin 4" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
+        <boolgroup name="Pin 5" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
+        <boolgroup name="Pin 6" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
+        <boolgroup name="Pin 7" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
       </group>
       <group name="Pin selection/routing">
         <boolgroup name="Pin 1" v="Disabled" />
         <boolgroup name="Pin 2" v="Disabled" />
         <boolgroup name="Pin 3" v="Disabled" />
-        <boolgroup name="Pin 4" v="Disabled" />
-        <boolgroup name="Pin 5" v="Disabled" />
-        <boolgroup name="Pin 6" v="Disabled" />
-        <boolgroup name="Pin 7" v="Disabled" />
+        <boolgroup name="Pin 4" v="Enabled">
+          <Pin v="PTC4/LLWU_P8/SPI0_PCS0/UART1_TX/TPM0_CH3/I2S0_MCLK" />
+        </boolgroup>
+        <boolgroup name="Pin 5" v="Enabled">
+          <Pin v="PTC5/LLWU_P9/SPI0_SCK/LPTMR0_ALT2/I2S0_RXD0/CMP0_OUT" />
+        </boolgroup>
+        <boolgroup name="Pin 6" v="Enabled">
+          <Pin v="CMP0_IN0/PTC6/LLWU_P10/SPI0_MOSI/EXTRG_IN/I2S0_RX_BCLK/SPI0_MISO/I2S0_MCLK" />
+        </boolgroup>
+        <boolgroup name="Pin 7" v="Enabled">
+          <Pin v="CMP0_IN1/PTC7/SPI0_MISO/audioUSB_SOF_OUT/I2S0_RX_FS/SPI0_MOSI" />
+        </boolgroup>
       </group>
       <group name="Interrupts">
         <boolgroup name="Port interrupt" v="Enabled">
@@ -1156,17 +1192,25 @@ PE_DEBUGHALT();
       <Component_name v="PTE" />
       <Device v="PTE" />
       <group name="Settings">
-        <boolgroup name="Pin 0" v="Do not initialize" />
+        <boolgroup name="Pin 0" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+        </boolgroup>
         <boolgroup name="Pin 30" v="Initialize">
           <Pin_direction v="Input" />
           <Output_value v="No initialization" />
-          <Pull_resistor v="No initialization" />
-          <Pull_selection v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
           <Slew_rate v="Slow" />
         </boolgroup>
       </group>
       <group name="Pin selection/routing">
-        <boolgroup name="Pin 0" v="Disabled" />
+        <boolgroup name="Pin 0" v="Enabled">
+          <Pin v="PTE0/SPI1_MISO/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA" />
+        </boolgroup>
         <boolgroup name="Pin 30" v="Enabled">
           <Pin v="DAC0_OUT/ADC0_SE23/CMP0_IN4/PTE30/TPM0_CH3/TPM_CLKIN1" />
         </boolgroup>
@@ -1269,6 +1313,175 @@ PE_DEBUGHALT();
       <Put v="generate code" />
       <SetRatio16 v="generate code" />
       <ParseCommand v="don&amp;apos;t generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="PTA" type="Init_GPIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="PTA" />
+      <Device v="PTA" />
+      <group name="Settings">
+        <boolgroup name="Pin 0" v="Do not initialize" />
+        <boolgroup name="Pin 1" v="Do not initialize" />
+        <boolgroup name="Pin 2" v="Do not initialize" />
+        <boolgroup name="Pin 3" v="Do not initialize" />
+        <boolgroup name="Pin 4" v="Do not initialize" />
+        <boolgroup name="Pin 18" v="Do not initialize" />
+        <boolgroup name="Pin 19" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
+        <boolgroup name="Pin 20" v="Do not initialize" />
+      </group>
+      <group name="Pin selection/routing">
+        <boolgroup name="Pin 0" v="Disabled" />
+        <boolgroup name="Pin 1" v="Disabled" />
+        <boolgroup name="Pin 2" v="Disabled" />
+        <boolgroup name="Pin 3" v="Disabled" />
+        <boolgroup name="Pin 4" v="Disabled" />
+        <boolgroup name="Pin 18" v="Disabled" />
+        <boolgroup name="Pin 19" v="Enabled">
+          <Pin v="XTAL0/PTA19/UART1_TX/TPM_CLKIN1/LPTMR0_ALT1" />
+        </boolgroup>
+        <boolgroup name="Pin 20" v="Disabled" />
+      </group>
+      <group name="Interrupts">
+        <boolgroup name="Port interrupt" v="Enabled">
+          <Interrupt v="INT_PORTA" />
+          <Interrupt_request v="Disabled" />
+          <Interrupt_priority v="0 (Highest)" />
+          <ISR_Name v="" />
+        </boolgroup>
+      </group>
+      <group name="Initialization">
+        <Call_Init_method v="yes" />
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="PTB" type="Init_GPIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="PTB" />
+      <Device v="PTB" />
+      <group name="Settings">
+        <boolgroup name="Pin 0" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Drive_strength v="No initialization" />
+        </boolgroup>
+        <boolgroup name="Pin 1" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Drive_strength v="No initialization" />
+        </boolgroup>
+      </group>
+      <group name="Pin selection/routing">
+        <boolgroup name="Pin 0" v="Enabled">
+          <Pin v="ADC0_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/TPM1_CH0" />
+        </boolgroup>
+        <boolgroup name="Pin 1" v="Enabled">
+          <Pin v="ADC0_SE9/TSI0_CH6/PTB1/I2C0_SDA/TPM1_CH1" />
+        </boolgroup>
+      </group>
+      <group name="Initialization">
+        <Call_Init_method v="yes" />
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="PTD" type="Init_GPIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="PTD" />
+      <Device v="PTD" />
+      <group name="Settings">
+        <boolgroup name="Pin 4" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
+        <boolgroup name="Pin 5" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
+        <boolgroup name="Pin 6" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Drive_strength v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
+        <boolgroup name="Pin 7" v="Initialize">
+          <Pin_direction v="Input" />
+          <Output_value v="No initialization" />
+          <Pull_resistor v="Enabled" />
+          <Pull_selection v="Pull Down" />
+          <Slew_rate v="No initialization" />
+          <Drive_strength v="No initialization" />
+          <Interrupt_DMA_request v="No initialization" />
+        </boolgroup>
+      </group>
+      <group name="Pin selection/routing">
+        <boolgroup name="Pin 4" v="Enabled">
+          <Pin v="PTD4/LLWU_P14/SPI1_PCS0/UART2_RX/TPM0_CH4" />
+        </boolgroup>
+        <boolgroup name="Pin 5" v="Enabled">
+          <Pin v="ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5" />
+        </boolgroup>
+        <boolgroup name="Pin 6" v="Enabled">
+          <Pin v="ADC0_SE7b/PTD6/LLWU_P15/SPI1_MOSI/UART0_RX/SPI1_MISO" />
+        </boolgroup>
+        <boolgroup name="Pin 7" v="Enabled">
+          <Pin v="PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI" />
+        </boolgroup>
+      </group>
+      <group name="Interrupts">
+        <boolgroup name="Port interrupt" v="Enabled">
+          <Interrupt v="INT_PORTC_PORTD" />
+          <Interrupt_request v="Disabled" />
+          <Interrupt_priority v="0 (Highest)" />
+          <ISR_Name v="" />
+        </boolgroup>
+      </group>
+      <group name="Initialization">
+        <Call_Init_method v="yes" />
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
     </Methods>
     <Events>
       <EmptySection_DummyValue />

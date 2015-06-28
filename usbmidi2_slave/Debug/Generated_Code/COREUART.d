@@ -28,7 +28,10 @@ Generated_Code/COREUART.o: ../Generated_Code/COREUART.c \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/GPIO_PDD.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Static_Code/PDD/PDD_Types.h \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/LEDpin1.h \
- /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/BitIoLdd1.h
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/BitIoLdd1.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTA.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTB.h \
+ /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTD.h
 
 ../Generated_Code/COREUART.h:
 
@@ -95,3 +98,9 @@ Generated_Code/COREUART.o: ../Generated_Code/COREUART.c \
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/LEDpin1.h:
 
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/BitIoLdd1.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTA.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTB.h:
+
+/home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTD.h:

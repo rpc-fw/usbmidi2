@@ -27,6 +27,9 @@
 - \subpage ASerialLdd1
 - \subpage PTE
 - \subpage BitIoLdd1
+- \subpage PTA
+- \subpage PTB
+- \subpage PTD
 
 */
 
