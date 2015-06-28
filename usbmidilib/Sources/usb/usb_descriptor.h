@@ -145,6 +145,7 @@
 #define DEVICE_DESCRIPTOR_SIZE            (18)
 #define CONFIG_ONLY_DESC_SIZE             (9)
 #define CONFIG_DESC_SIZE                  (CONFIG_ONLY_DESC_SIZE + \
+										   IFACE_ONLY_DESC_SIZE + 9 + \
 										   IFACE_ONLY_DESC_SIZE + \
 										   7+6+6+6+6+9+9+9+9 + \
 										   9+6+9+6)
