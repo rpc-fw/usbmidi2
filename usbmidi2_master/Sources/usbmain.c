@@ -529,24 +529,21 @@ void sync_cores()
 {
 	byte b;
 
-	// send sync
-	COREUART_SendChar(0xf5);
-
+	// wait for slave to send sync
 	while(1) {
-		if (COREUART_GetCharsInRxBuf() == 0 && COREUART_GetCharsInTxBuf() == 0) {
-			// queues are empty, send a new sync
-			COREUART_SendChar(0xf5);
-		}
 		if (COREUART_GetCharsInRxBuf() > 0) {
 			byte b;
 			if (COREUART_RecvChar(&b) == ERR_OK) {
 				if (b == 0xf5) {
 					// got sync, done
-					return;
+					break;
 				}
 			}
 		}
 	}
+
+	// send sync
+	COREUART_SendChar(0xf5);
 }
 
 void usb_run(void)
