@@ -368,6 +368,7 @@ void sync_cores()
 			if (COREUART_RecvChar(&b) == ERR_OK) {
 				if (b == 0xf5) {
 					// got sync, done
+					COREUART_SendChar(0xf4);
 					return;
 				}
 			}

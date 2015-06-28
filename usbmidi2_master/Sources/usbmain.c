@@ -530,6 +530,9 @@ void sync_cores()
 	byte b;
 
 	// wait for slave to send sync
+	COREUART_ClearRxBuf();
+	COREUART_ClearTxBuf();
+
 	while(1) {
 		if (COREUART_GetCharsInRxBuf() > 0) {
 			byte b;
@@ -544,6 +547,22 @@ void sync_cores()
 
 	// send sync
 	COREUART_SendChar(0xf5);
+
+	while(1) {
+		if (COREUART_GetCharsInRxBuf() == 0 && COREUART_GetCharsInTxBuf() == 0) {
+			// queues are empty, send a new sync
+			COREUART_SendChar(0xf5);
+		}
+		if (COREUART_GetCharsInRxBuf() > 0) {
+			byte b;
+			if (COREUART_RecvChar(&b) == ERR_OK) {
+				if (b == 0xf4) {
+					// ready, done
+					return;
+				}
+			}
+		}
+	}
 }
 
 void usb_run(void)

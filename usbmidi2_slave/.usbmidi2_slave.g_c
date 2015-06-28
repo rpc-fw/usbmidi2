@@ -339,7 +339,7 @@
     </GenFiles>
     <SignalListFile>Documentation\usbmidi2_slave_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>31</ProjectModificationStamp>
+    <ProjectModificationStamp>32</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>false</Generated>
