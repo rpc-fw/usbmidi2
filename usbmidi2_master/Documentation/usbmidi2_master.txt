@@ -207,6 +207,31 @@ Module "UTIL1"     (component Utility)
    - UTIL1_strCutTail -Removes a tailing substring from a string. The string passed will be modified (the tail is cut by 
                 writing a zero byte to the string!)
 
+Module "TMOUT1"    (component Timeout)
+   - TMOUT1_GetCounter -Initializes a new timeout counter and returns the handle to it. At the end, use LeaveCounter() to free 
+                up the resource.
+   - TMOUT1_LeaveCounter -To be called to return the counter. Note that a counter always should be returned so it can be reused.
+   - TMOUT1_Value -Return the current value of the counter (in ticks)
+   - TMOUT1_SetCounter -Sets the counter to a new value and returns the value just prior to the call.
+   - TMOUT1_CounterExpired -Returns true if the timeout counter has been expired
+   - TMOUT1_AddTick -Method to be called from a periodic timer or interrupt. It will decrement all current counters by one down 
+                to zero.
+   - TMOUT1_Init -Initialization of the driver
+
+Module "CS1"       (component CriticalSection)
+   - CS1_CriticalVariable -Defines a variable if necessary. This is a macro.
+   - CS1_EnterCritical -Enters a critical section
+   - CS1_ExitCritical -Exits a critical section
+
+Module "TI1"       (component TimerInt)
+
+Module "TU1"       (component TimerUnit_LDD)
+   - TU1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
+                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
+                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
+                second call of Init the <Deinit> must be called first.
+
 Module "Cpu"       (component MKL26Z128FM4)
 
 ===================================================================================

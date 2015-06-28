@@ -5,7 +5,7 @@
 **     Processor   : MKL26Z64VFM4
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 14:33, # CodeGen: 45
+**     Date/Time   : 2015-06-28, 14:10, # CodeGen: 52
 **     Abstract    :
 **
 **     Settings    :
@@ -78,6 +78,11 @@
 #include "SlaveReset.h"
 #include "KIN1.h"
 #include "UTIL1.h"
+#include "TMOUT1.h"
+#include "CS1.h"
+#include "TI1.h"
+#include "TimerIntLdd1.h"
+#include "TU1.h"
 
 
 /*

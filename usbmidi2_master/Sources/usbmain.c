@@ -9,6 +9,7 @@
 #include "PTD.h"
 #include "SlaveReset.h"
 #include "KIN1.h"
+#include "TMOUT1.h"
 
 #include "midiflash.h"
 
@@ -452,6 +453,40 @@ int midiout_can_transmit(int numbytes)
 	return (MIDIUART1_OUT_BUF_SIZE - MIDIUART1_GetCharsInTxBuf()) >= numbytes;
 }
 
+TMOUT1_CounterHandle midiout_counterhandle;
+int midiout_laststatus = 0;
+
+void midiout_resetstatus()
+{
+	midiout_laststatus = 0;
+}
+
+int midiout_checkstatus(byte status)
+{
+	// allow non-status bytes
+	if ((status & 0x80) == 0) {
+		return 1;
+	}
+
+	// allow all real-time status bytes
+	if ((status & 0xF0) == 0xF0) {
+		if (status <= 0xF7) {
+			midiout_resetstatus();
+		}
+		return 1;
+	}
+
+	// filter rest of status bytes if status did not change
+	if (status == midiout_laststatus && !TMOUT1_CounterExpired(midiout_counterhandle)) {
+		return 0;
+	}
+
+	midiout_laststatus = status;
+	TMOUT1_SetCounter(midiout_counterhandle, 10); // 10 ticks, 10ms each = 100ms
+
+	return 1;
+}
+
 void midiout_transmit(const midicmd_t cmd)
 {
 	switch (usbmidi_msglen(cmd)) {
@@ -461,12 +496,16 @@ void midiout_transmit(const midicmd_t cmd)
 		break;
 	case 2:
 		// 2 bytes
-		MIDIUART1_SendChar(cmd.b1);
+		if (midiout_checkstatus(cmd.b1)) {
+			MIDIUART1_SendChar(cmd.b1);
+		}
 		MIDIUART1_SendChar(cmd.b2);
 		break;
 	case 3:
 		// 3 bytes
-		MIDIUART1_SendChar(cmd.b1);
+		if (midiout_checkstatus(cmd.b1)) {
+			MIDIUART1_SendChar(cmd.b1);
+		}
 		MIDIUART1_SendChar(cmd.b2);
 		MIDIUART1_SendChar(cmd.b3);
 		break;
@@ -516,6 +555,8 @@ void usb_run(void)
 	midicmd_t cmd;
 	int have_peek_byte = 0;
 	byte peek_byte = 0;
+
+	midiout_counterhandle = TMOUT1_GetCounter(1);
 
 	COREUART_Init();
 	COREUART_Enable();

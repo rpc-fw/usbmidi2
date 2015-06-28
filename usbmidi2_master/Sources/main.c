@@ -46,6 +46,11 @@
 #include "SlaveReset.h"
 #include "KIN1.h"
 #include "UTIL1.h"
+#include "TMOUT1.h"
+#include "CS1.h"
+#include "TI1.h"
+#include "TimerIntLdd1.h"
+#include "TU1.h"
 #include "UsbMidiTx.h"
 #include "UsbMidiRx.h"
 /* Including shared modules, which are used for whole project */

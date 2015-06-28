@@ -1402,7 +1402,7 @@ PE_DEBUGHALT();
         <group name="USB">
           <Interrupt v="INT_USB0" />
           <Interrupt_request v="Disabled" />
-          <Interrupt_priority v="0 (Highest)" />
+          <Interrupt_priority v="1" />
           <ISR_Name v="USB_ISR" />
           <Stall v="Enabled" />
           <Attach v="Enabled" />

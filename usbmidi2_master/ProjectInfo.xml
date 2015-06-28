@@ -54,6 +54,7 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/BBA1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/BitIoLdd1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/COREUART.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/CS1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/Cpu.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/KIN1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/LED1.c</PathName>
@@ -64,6 +65,10 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/PTD.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/PTE.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/SlaveReset.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/TI1.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/TMOUT1.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/TU1.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/TimerIntLdd1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/USB0.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/UTIL1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/UsbMidiRx.c</PathName>
@@ -82,6 +87,7 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/BBA1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/BitIoLdd1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/COREUART.h</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/CS1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/Cpu.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/IO_Map.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/KIN1.h</PathName>
@@ -96,6 +102,10 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/PTD.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/PTE.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/SlaveReset.h</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/TI1.h</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/TMOUT1.h</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/TU1.h</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/TimerIntLdd1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/USB0.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/UTIL1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/UsbMidiRx.h</PathName>

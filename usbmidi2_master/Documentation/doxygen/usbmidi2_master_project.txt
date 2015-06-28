@@ -30,6 +30,8 @@
 - \subpage BitIoLdd1
 - \subpage PTD
 - \subpage SlaveReset
+- \subpage TU1
+- \subpage TimerIntLdd1
 
 */
 
