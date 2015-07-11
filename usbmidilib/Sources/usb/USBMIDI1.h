@@ -11,19 +11,9 @@
 #include <stddef.h> /* for size_t */
 
 #include "Cpu.h"
+#include "../midicmd.h"
 
 #define USBMIDI1_DATA_BUFF_SIZE    64
-
-typedef union _midicmd_t {
-	struct {
-		byte header;
-		byte b1;
-		byte b2;
-		byte b3;
-	};
-
-	uint32_t word;
-} midicmd_t;
 
 void USBMIDI1_Init(byte regen);
 byte USBMIDI1_App_Task(byte *txBuf, size_t txBufSize);

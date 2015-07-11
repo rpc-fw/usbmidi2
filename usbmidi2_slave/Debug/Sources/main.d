@@ -32,6 +32,7 @@ Sources/main.o: ../Sources/main.c \
  /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/PTD.h \
  /home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/USB1.h \
  /home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/USBMIDI1.h \
+ /home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/../midicmd.h \
  ../Sources/masterbinary.h
 
 /home/ld0d/work/kds_workspace/usbmidi2_slave/Generated_Code/Cpu.h:
@@ -99,5 +100,7 @@ Sources/main.o: ../Sources/main.c \
 /home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/USB1.h:
 
 /home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/USBMIDI1.h:
+
+/home/ld0d/work/kds_workspace/usbmidilib/Sources/usb/../midicmd.h:
 
 ../Sources/masterbinary.h:

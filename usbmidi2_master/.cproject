@@ -55,7 +55,6 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Static_Code/PDD&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/midiflashlib/Sources}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usbmidilib/Sources}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usbmidilib/Sources/usb}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Sources/lib/utilities/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Sources/lib/osa/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Sources/lib/usb/adapter/sources/sdk}&quot;"/>

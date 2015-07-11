@@ -3,11 +3,11 @@
 /******************************************************************************
  * Includes
  *****************************************************************************/
-#include "derivative.h"
-#include "types.h"
-#include "usb_class.h"
-#include "usb_descriptor.h"
-#include "usb_midi.h"
+#include "usb/derivative.h"
+#include "usb/types.h"
+#include "usb/usb_class.h"
+#include "usb/usb_descriptor.h"
+#include "usb/usb_midi.h"
 
 #if (defined __MCF52xxx_H__)||(defined __MK_xxx_H__)
 /* Put CFV2 descriptors in RAM */
