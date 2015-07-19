@@ -6,7 +6,7 @@
 **     Component   : IntFLASH
 **     Version     : Component 02.409, Driver 01.02, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 14:24, # CodeGen: 74
+**     Date/Time   : 2015-06-27, 15:43, # CodeGen: 77
 **     Abstract    :
 **         This component "IntFLASH" implements an access to internal FLASH.
 **         The component support reading/writing data into FLASH, erasing of
@@ -152,13 +152,13 @@ byte IFsh1_SetFlash(IFsh1_TDataAddress Src, IFsh1_TAddress Dst, word Count)
   if (IFsh1_CmdPending) {
     return ERR_BUSY;
   }
-  //Result = ERR_OK;                     /* Suppose area is erased */
-  //for (x=0U; x<Count; x++) {           /* Check if written area is erased */
-  //  if (((uint8_t*)Dst)[x] != 0xFFU) { /* Byte erased? */
+  Result = ERR_OK;                     /* Suppose area is erased */
+  for (x=0U; x<Count; x++) {           /* Check if written area is erased */
+    if (((uint8_t*)Dst)[x] != 0xFFU) { /* Byte erased? */
       Result = ERR_FAILED;             /* No, Erase is required */
-  //   break;
-  //  }
-  //}
+     break;
+    }
+  }
   if (Result == ERR_FAILED) {
     SectorAddress = Dst & ~(LDD_FLASH_TAddress)IntFlashLdd1_ERASABLE_UNIT_MASK;
     SectorOffset = Dst & IntFlashLdd1_ERASABLE_UNIT_MASK;

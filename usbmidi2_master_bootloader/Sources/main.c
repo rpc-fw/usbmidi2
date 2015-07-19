@@ -119,7 +119,7 @@ void ReadSlaveProgram(struct buildid_t slavebuild, slave_16_func slave_16, slave
 
 	for (uint32_t blockindex = 0; blockindex < slavebuild.payload_size; blockindex += sizeof(flashblock))
 	{
-		memset(flashblock, 0xFF, sizeof(flashblock));
+		//memset(flashblock, 0xFF, sizeof(flashblock));
 
 		int readsize = slavebuild.payload_size - blockindex;
 		if (readsize > sizeof(flashblock)) {

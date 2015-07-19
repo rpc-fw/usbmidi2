@@ -18,7 +18,7 @@
         <Line>PE_Const</Line>
         <Line>IO_Map</Line>
       </GenSharedModules>
-      <ShrdHeaderAge0>1186050406</ShrdHeaderAge0>
+      <ShrdHeaderAge0>1189841537</ShrdHeaderAge0>
       <ShrdCodeAge0>-1</ShrdCodeAge0>
       <ShrdAsemblAge0>-1</ShrdAsemblAge0>
       <ShrdHeaderAge1>1186005091</ShrdHeaderAge1>
@@ -342,7 +342,7 @@
     </GenFiles>
     <SignalListFile>Documentation\usbmidi2_master_bootloader_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>72</ProjectModificationStamp>
+    <ProjectModificationStamp>74</ProjectModificationStamp>
   </Options>
   <CpuID_6>
     <Generated>false</Generated>
@@ -351,7 +351,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186005091</HeaderAge>
-    <CodeAge>1186050406</CodeAge>
+    <CodeAge>1189841537</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -431,7 +431,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186005091</HeaderAge>
-    <CodeAge>1186050406</CodeAge>
+    <CodeAge>1189841537</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -920,7 +920,7 @@
     <GenDriverVersion>01.01</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186024060</HeaderAge>
-    <CodeAge>1186050406</CodeAge>
+    <CodeAge>1189841537</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>24</GenNumMethods>
     <Enable>true</Enable>
@@ -1150,8 +1150,8 @@
       <GenComponentVersion>01.188</GenComponentVersion>
       <GenDriverVersion>01.12</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1186005091</HeaderAge>
-      <CodeAge>1186022266</CodeAge>
+      <HeaderAge>1189841537</HeaderAge>
+      <CodeAge>1189841537</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>36</GenNumMethods>
       <Init>true</Init>
@@ -1871,7 +1871,7 @@
     <GenDriverVersion>01.02</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1186005091</HeaderAge>
-    <CodeAge>1186034995</CodeAge>
+    <CodeAge>1188789626</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>27</GenNumMethods>
     <DisableEvent>true</DisableEvent>
@@ -2029,7 +2029,7 @@
       <GenDriverVersion>01.15</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
       <HeaderAge>1186005091</HeaderAge>
-      <CodeAge>1186050406</CodeAge>
+      <CodeAge>1189841537</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>20</GenNumMethods>
       <Init>true</Init>

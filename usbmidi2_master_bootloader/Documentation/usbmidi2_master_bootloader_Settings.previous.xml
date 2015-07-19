@@ -474,12 +474,12 @@
             <group name="Protection regions">
               <group name="P-Flash protection settings">
                 <Protection_region_size v="2048" />
-                <P_Flash_protection v="4294967280" />
+                <P_Flash_protection v="4294967295" />
                 <group name="Protection regions">
-                  <Protection_region_0 v="Protected" />
-                  <Protection_region_1 v="Protected" />
-                  <Protection_region_2 v="Protected" />
-                  <Protection_region_3 v="Protected" />
+                  <Protection_region_0 v="Unprotected" />
+                  <Protection_region_1 v="Unprotected" />
+                  <Protection_region_2 v="Unprotected" />
+                  <Protection_region_3 v="Unprotected" />
                   <Protection_region_4 v="Unprotected" />
                   <Protection_region_5 v="Unprotected" />
                   <Protection_region_6 v="Unprotected" />
@@ -1020,7 +1020,7 @@ PE_DEBUGHALT();
         <boolgroup name="Transmitter" v="Enabled">
           <TxD v="PTD7/SPI1_MISO/UART0_TX/SPI1_MOSI" />
         </boolgroup>
-        <Baud_rate v="6000000 baud" />
+        <Baud_rate v="4000000 baud" />
         <Break_signal v="Disabled" />
         <Wakeup_condition v="Idle line wakeup" />
         <Transmitter_output v="Not inverted" />
@@ -1057,7 +1057,7 @@ PE_DEBUGHALT();
               <Parity v="None" />
               <Stop_bits v="1" />
               <Loop_mode v="Normal" />
-              <Baud_rate v="6000000 baud" />
+              <Baud_rate v="4000000 baud" />
               <Wakeup_condition v="Idle line wakeup" />
               <Stop_in_wait_mode v="no" />
               <Idle_line_mode v="Starts after start bit" />
