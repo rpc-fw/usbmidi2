@@ -6,7 +6,7 @@
 **     Component   : RingBufferUInt8
 **     Version     : Component 01.003, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 13:50, # CodeGen: 26
+**     Date/Time   : 2015-07-11, 16:31, # CodeGen: 37
 **     Abstract    :
 **
 **     Settings    :
@@ -52,7 +52,7 @@
 #include "Cpu.h"
 
 
-#define UsbMidiTx_BUF_SIZE   64  /* number of elements in the buffer */
+#define UsbMidiTx_BUF_SIZE   128  /* number of elements in the buffer */
 
 
 byte UsbMidiTx_Put(byte elem);

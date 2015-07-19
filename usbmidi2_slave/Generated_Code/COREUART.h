@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-25, 21:39, # CodeGen: 31
+**     Date/Time   : 2015-07-12, 09:57, # CodeGen: 47
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -48,6 +48,7 @@
 **
 **
 **     Contents    :
+**         Enable          - byte COREUART_Enable(void);
 **         RecvChar        - byte COREUART_RecvChar(COREUART_TComData *Chr);
 **         SendChar        - byte COREUART_SendChar(COREUART_TComData Chr);
 **         RecvBlock       - byte COREUART_RecvBlock(COREUART_TComData *Ptr, word Size, word *Rcv);
@@ -144,6 +145,23 @@ extern "C" {
 #define COREUART_INP_BUF_SIZE  0x0100U /* Length of the RX buffer */
 
 #define COREUART_OUT_BUF_SIZE  0x0100U /* Length of the TX buffer */
+
+/*
+** ===================================================================
+**     Method      :  COREUART_Enable (component AsynchroSerial)
+**     Description :
+**         Enables the component - it starts the send and receive
+**         functions. Events may be generated
+**         ("DisableEvent"/"EnableEvent").
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_Enable(void);
 
 /*
 ** ===================================================================

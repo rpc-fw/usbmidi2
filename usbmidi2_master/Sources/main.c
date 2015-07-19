@@ -52,6 +52,8 @@
 #include "TimerIntLdd1.h"
 #include "TU1.h"
 #include "PTA.h"
+#include "DMAT1.h"
+#include "DMA1.h"
 #include "UsbMidiTx.h"
 #include "UsbMidiRx.h"
 /* Including shared modules, which are used for whole project */

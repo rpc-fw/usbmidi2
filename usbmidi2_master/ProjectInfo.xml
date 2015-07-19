@@ -56,6 +56,8 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/COREUART.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/CS1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/Cpu.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/DMA1.c</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/DMAT1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/KIN1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/LED1.c</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/LEDpin1.c</PathName>
@@ -90,6 +92,8 @@
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/COREUART.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/CS1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/Cpu.h</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/DMA1.h</PathName>
+      <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/DMAT1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/IO_Map.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/KIN1.h</PathName>
       <PathName>/home/ld0d/work/kds_workspace/usbmidi2_master/Generated_Code/LED1.h</PathName>

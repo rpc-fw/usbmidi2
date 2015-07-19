@@ -420,7 +420,7 @@ registers of the peripheral(s) configured by the component.
 **            Interrupt RxD                                : INT_UART2
 **            Interrupt RxD priority                       : medium priority
 **            Interrupt TxD                                : INT_UART2
-**            Interrupt TxD priority                       : maximal priority
+**            Interrupt TxD priority                       : medium priority
 **            Interrupt Error                              : INT_UART2
 **            Interrupt Error priority                     : medium priority
 **          Settings                                       : 

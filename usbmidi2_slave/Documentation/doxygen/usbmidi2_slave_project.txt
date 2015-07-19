@@ -30,6 +30,10 @@
 - \subpage PTA
 - \subpage PTB
 - \subpage PTD
+- \subpage TU1
+- \subpage TimerIntLdd1
+- \subpage DMA1
+- \subpage DMAT1
 
 */
 

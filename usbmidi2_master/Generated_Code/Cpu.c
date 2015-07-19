@@ -7,7 +7,7 @@
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL26P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-28, 17:17, # CodeGen: 54
+**     Date/Time   : 2015-07-12, 00:24, # CodeGen: 68
 **     Abstract    :
 **
 **     Settings    :
@@ -84,6 +84,8 @@
 #include "TimerIntLdd1.h"
 #include "TU1.h"
 #include "PTA.h"
+#include "DMAT1.h"
+#include "DMA1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -449,6 +451,10 @@ void PE_low_level_init(void)
   PTA_Init();
 
 
+  /* ### DMA_LDD "DMA1" component auto initialization. Auto initialization feature can be disabled by component's property "Auto initialization". */
+  (void)DMA1_Init(NULL);
+  /* ### DMATransfer_LDD "DMAT1" component auto initialization. Auto initialization feature can be disabled by component's property "Auto initialization". */
+  (void)DMAT1_Init(NULL);
   __EI();
 }
   /* Flash configuration field */

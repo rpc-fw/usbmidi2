@@ -5,7 +5,7 @@
 **     Processor   : MKL26Z64VFM4
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-28, 18:48, # CodeGen: 55
+**     Date/Time   : 2015-07-19, 19:14, # CodeGen: 75
 **     Abstract    :
 **
 **     Settings    :
@@ -78,6 +78,8 @@
   #include "TimerIntLdd1.h"
   #include "TU1.h"
   #include "PTA.h"
+  #include "DMAT1.h"
+  #include "DMA1.h"
   #include "Events.h"
 
 
@@ -115,7 +117,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x0F  0x0000003C   -   ivINT_SysTick                 unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x10  0x00000040   -   ivINT_DMA0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x11  0x00000044   -   ivINT_DMA1                    unused by PE */
-    (tIsrFunc)&Cpu_Interrupt,          /* 0x12  0x00000048   -   ivINT_DMA2                    unused by PE */
+    (tIsrFunc)&DMA1_Channel2Interrupt, /* 0x12  0x00000048   2   ivINT_DMA2                    used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x13  0x0000004C   -   ivINT_DMA3                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x14  0x00000050   -   ivINT_Reserved20              unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x15  0x00000054   -   ivINT_FTFA                    unused by PE */
@@ -141,7 +143,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x29  0x000000A4   -   ivINT_DAC0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x2A  0x000000A8   -   ivINT_TSI0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x2B  0x000000AC   -   ivINT_MCG                     unused by PE */
-    (tIsrFunc)&TU1_Interrupt,          /* 0x2C  0x000000B0   1   ivINT_LPTimer                 used by PE */
+    (tIsrFunc)&TU1_Interrupt,          /* 0x2C  0x000000B0   2   ivINT_LPTimer                 used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x2D  0x000000B4   -   ivINT_Reserved45              unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x2E  0x000000B8   -   ivINT_PORTA                   unused by PE */
     (tIsrFunc)&Cpu_Interrupt           /* 0x2F  0x000000BC   -   ivINT_PORTC_PORTD             unused by PE */

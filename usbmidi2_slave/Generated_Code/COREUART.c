@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-25, 21:39, # CodeGen: 31
+**     Date/Time   : 2015-07-12, 09:57, # CodeGen: 47
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -48,6 +48,7 @@
 **
 **
 **     Contents    :
+**         Enable          - byte COREUART_Enable(void);
 **         RecvChar        - byte COREUART_RecvChar(COREUART_TComData *Chr);
 **         SendChar        - byte COREUART_SendChar(COREUART_TComData Chr);
 **         RecvBlock       - byte COREUART_RecvBlock(COREUART_TComData *Ptr, word Size, word *Rcv);
@@ -127,6 +128,7 @@ extern "C" {
 #define COMMON_ERR       0x0800U       /* Common error of RX       */
 
 LDD_TDeviceData *ASerialLdd1_DeviceDataPtr; /* Device data pointer */
+static bool EnUser;                    /* Enable/Disable SCI */
 static word SerFlag;                   /* Flags for serial communication */
                                        /* Bits: 0 - OverRun error */
                                        /*       1 - Framing error */
@@ -164,7 +166,41 @@ static bool OnFreeTxBufSemaphore;      /* Disable the false calling of the OnFre
 */
 static void HWEnDi(void)
 {
-  (void)ASerialLdd1_ReceiveBlock(ASerialLdd1_DeviceDataPtr, &BufferRead, 1U); /* Receive one data byte */
+  if (EnUser) {                        /* Enable device? */
+    (void)ASerialLdd1_Enable(ASerialLdd1_DeviceDataPtr); /* Enable device */
+    (void)ASerialLdd1_ReceiveBlock(ASerialLdd1_DeviceDataPtr, &BufferRead, 1U); /* Receive one data byte */
+    if ((COREUART_OutLen) != 0U) {     /* Is number of bytes in the transmit buffer greater then 0? */
+      SerFlag |= RUNINT_FROM_TX;       /* Set flag "running int from TX"? */
+      (void)ASerialLdd1_SendBlock(ASerialLdd1_DeviceDataPtr, (LDD_TData *)&OutBuffer[OutIndexR], 1U); /* Send one data byte */
+    }
+  } else {
+    SerFlag &= (byte)~(RUNINT_FROM_TX); /* Clear RUNINT_FROM_TX flag */
+    (void)ASerialLdd1_Disable(ASerialLdd1_DeviceDataPtr); /* Disable device */
+  }
+}
+
+/*
+** ===================================================================
+**     Method      :  COREUART_Enable (component AsynchroSerial)
+**     Description :
+**         Enables the component - it starts the send and receive
+**         functions. Events may be generated
+**         ("DisableEvent"/"EnableEvent").
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte COREUART_Enable(void)
+{
+  if (!EnUser) {                       /* Is the device disabled by user? */
+    EnUser = TRUE;                     /* If yes then set the flag "device enabled" */
+    HWEnDi();                          /* Enable the device */
+  }
+  return ERR_OK;                       /* OK */
 }
 
 /*
@@ -252,7 +288,7 @@ byte COREUART_SendChar(COREUART_TComData Chr)
   if (OutIndexW >= COREUART_OUT_BUF_SIZE) { /* Is the pointer out of the transmit buffer */
     OutIndexW = 0x00U;                 /* Set index to first item in the transmit buffer */
   }
-  if ((SerFlag & RUNINT_FROM_TX) == 0U) {
+  if ((EnUser) && ((SerFlag & RUNINT_FROM_TX) == 0U)) { /* Is the device enabled by user? */
     SerFlag |= RUNINT_FROM_TX;         /* Set flag "running int from TX"? */
     (void)ASerialLdd1_SendBlock(ASerialLdd1_DeviceDataPtr, (LDD_TData *)&OutBuffer[OutIndexR], 1U); /* Send one data byte */
   }
@@ -359,7 +395,7 @@ byte COREUART_SendBlock(COREUART_TComData *Ptr, word Size, word *Snd)
         OnFreeTxBufSemaphore = FALSE;  /* If yes then clear the OnFreeTxBufSemaphore */
       }
     }
-    if ((SerFlag & RUNINT_FROM_TX) == 0U) {
+    if ((EnUser) && ((SerFlag & RUNINT_FROM_TX) == 0U)) { /* Is the device enabled by user? */
       SerFlag |= RUNINT_FROM_TX;       /* Set flag "running int from TX"? */
       (void)ASerialLdd1_SendBlock(ASerialLdd1_DeviceDataPtr, (LDD_TData *)&OutBuffer[OutIndexR], 1U); /* Send one data byte */
     }
@@ -472,6 +508,7 @@ word COREUART_GetCharsInTxBuf(void)
 void COREUART_Init(void)
 {
   SerFlag = 0x00U;                     /* Reset flags */
+  EnUser = FALSE;                      /* Disable device */
   COREUART_InpLen = 0x00U;             /* No char in the receive buffer */
   InpIndexR = 0x00U;                   /* Set index on the first item in the receive buffer */
   InpIndexW = 0x00U;

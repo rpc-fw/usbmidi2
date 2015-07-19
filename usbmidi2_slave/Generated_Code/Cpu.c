@@ -7,7 +7,7 @@
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL26P121M48SF4RM, Rev.2, Dec 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-28, 17:16, # CodeGen: 33
+**     Date/Time   : 2015-07-12, 00:23, # CodeGen: 45
 **     Abstract    :
 **
 **     Settings    :
@@ -74,6 +74,13 @@
 #include "PTA.h"
 #include "PTB.h"
 #include "PTD.h"
+#include "TMOUT1.h"
+#include "CS1.h"
+#include "TI1.h"
+#include "TimerIntLdd1.h"
+#include "TU1.h"
+#include "DMAT1.h"
+#include "DMA1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -145,6 +152,8 @@ void __init_hardware(void)
                SIM_SCGC5_PORTC_MASK |
                SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
+  /* SIM_SCGC5: LPTMR=1 */
+  SIM_SCGC5 |= SIM_SCGC5_LPTMR_MASK;
   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
     /* PMC_REGSC: ACKISO=1 */
     PMC_REGSC |= PMC_REGSC_ACKISO_MASK; /* Release IO pads after wakeup from VLLS mode. */
@@ -437,6 +446,16 @@ void PE_low_level_init(void)
   PTD_Init();
 
 
+  /* ### CriticalSection "CS1" init code ... */
+  /* ### Timeout "TMOUT1" init code ... */
+  TMOUT1_Init();
+  /* ### TimerInt_LDD "TimerIntLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)TimerIntLdd1_Init(NULL);
+  /* ### TimerInt "TI1" init code ... */
+  /* ### DMA_LDD "DMA1" component auto initialization. Auto initialization feature can be disabled by component's property "Auto initialization". */
+  (void)DMA1_Init(NULL);
+  /* ### DMATransfer_LDD "DMAT1" component auto initialization. Auto initialization feature can be disabled by component's property "Auto initialization". */
+  (void)DMAT1_Init(NULL);
   __EI();
 }
   /* Flash configuration field */

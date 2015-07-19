@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-28, 14:10, # CodeGen: 52
+**     Date/Time   : 2015-07-11, 19:12, # CodeGen: 63
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -24,7 +24,7 @@
 **            Period                                       : 10 ms
 **            Interrupt                                    : Enabled
 **              Interrupt                                  : INT_LPTimer
-**              Interrupt priority                         : high priority
+**              Interrupt priority                         : low priority
 **          Channel list                                   : 0
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes

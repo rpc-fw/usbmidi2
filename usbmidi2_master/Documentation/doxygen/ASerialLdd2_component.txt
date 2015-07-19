@@ -451,9 +451,9 @@ registers of the peripheral(s) configured by the component.
 **            Interrupt RxD                                : INT_UART0
 **            Interrupt RxD priority                       : maximal priority
 **            Interrupt TxD                                : INT_UART0
-**            Interrupt TxD priority                       : medium priority
+**            Interrupt TxD priority                       : maximal priority
 **            Interrupt Error                              : INT_UART0
-**            Interrupt Error priority                     : medium priority
+**            Interrupt Error priority                     : maximal priority
 **          Settings                                       : 
 **            Data width                                   : 8 bits
 **            Parity                                       : None

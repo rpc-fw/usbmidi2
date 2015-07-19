@@ -10,19 +10,21 @@ typedef int (*TransmitHook_func)(midicmd_t cmd);
 #define USBMIDI_SCHEDULER_MAX_BUSES		8
 typedef struct _usbmidi_scheduler_state_t
 {
-	int have_peek_byte;
-	byte peek_byte;
-
 	int bus_count;
 
 	byte (*UsbMidiRx_NofElements) (void);
 	byte (*UsbMidiRx_Get) (byte*);
+	int (*RecvByte) (byte* b);
 
 	CanTransmit_func CanTransmit[USBMIDI_SCHEDULER_MAX_BUSES];
 	Transmit_func Transmit[USBMIDI_SCHEDULER_MAX_BUSES];
 	TransmitHook_func TransmitHook[USBMIDI_SCHEDULER_MAX_BUSES];
 
 	void* busstate[USBMIDI_SCHEDULER_MAX_BUSES];
+
+	byte msg[4];
+	int msgbytes;
+
 } usbmidi_scheduler_state_t;
 
 void usbmidi_scheduler_reset(usbmidi_scheduler_state_t* state);

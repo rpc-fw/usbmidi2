@@ -241,7 +241,7 @@ void midiout_reset(midiout_state_t* state)
 
 int midiout_can_transmit(int numbytes, midiout_state_t* state)
 {
-	return (state->OutBufSize - state->GetCharsInTxBuf()) >= numbytes;
+	return (state->OutBufSize - state->GetCharsInTxBuf()) > numbytes;
 }
 
 void midiout_resetstatus(midiout_state_t* state)

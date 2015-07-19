@@ -253,7 +253,7 @@ void COREUART_OnFreeTxBuf(void)
 */
 void TI1_OnInterrupt(void)
 {
-  TMOUT1_AddTick();
+	TMOUT1_AddTick();
 }
 
 /* END Events */

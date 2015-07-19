@@ -33,6 +33,8 @@
 - \subpage TU1
 - \subpage TimerIntLdd1
 - \subpage PTA
+- \subpage DMA1
+- \subpage DMAT1
 
 */
 

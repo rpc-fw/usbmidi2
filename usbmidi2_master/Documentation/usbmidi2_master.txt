@@ -237,6 +237,38 @@ Module "PTA"       (component Init_GPIO_VAR0)
                 this method in user code to initialize the module. By default, the method is called by PE automatically; see 
                 "Call Init method" property of the component for more details.
 
+Module "DMAT1"     (component DMATransfer_LDD)
+   - DMAT1_Init -Initializes the DMATransfer component. Allocates memory for the device data structure.  This method can be 
+                called only once. Before the second call of Init() the Deinit() must be called first.
+   - DMAT1_Deinit -Deinitializes the DMATransfer component.
+   - DMAT1_AllocateChannel -The method allocates DMA channel for the DMA transfer. This method must be called before DMA 
+                channel is initialized. Otherwise ERR_NOTAVAIL error code is returned after call of DMA_LDD channel methods.
+   - DMAT1_EnableChannel -The method initializes and/or enables the DMA channel allocated for the DMA transfer defined by the 
+                transfer descriptor input parameter DescriptorPtr. First call of this method on given DMA channel initializes 
+                it and enables HW requests if Peripheral device or Always enabled trigger source is selected in transfer 
+                descriptor Trigger source type item. This method can be also used together with Disable method to temporary 
+                switch On/Off the DMA channel HW requests. In such case DMA channel registers are not reinitialized again. New 
+                initialization of DMA channel can be done via SetChannelDescriptorUpdate method which reinitializes whole 
+                channel with new transfer descriptor.
+
+Module "DMA1"      (component DMA_LDD)
+   - DMA1_Init -Initializes the device according to design-time configuration properties. Allocates memory for the device data 
+                structure.   If the <Enable in init. code> is set to "yes" then the device is also enabled (see the description 
+                of the Enable method).  This method can be called only once. Before the second call of Init the Deinit method 
+                must be called first.
+   - DMA1_Deinit -Deinitializes the associated peripheral(s) and frees the component internal data structure.
+   - DMA1_AllocateChannel -The method allocates DMA channel for the DMA transfer defined by the transfer descriptor input 
+                parameter DescriptorPtr. This method must be called before DMA channel is initialized. Otherwise ERR_NOTAVAIL 
+                error code is returned after call of DMA_LDD channel methods.
+   - DMA1_EnableChannel -The method initializes and/or enables the DMA channel allocated for the DMA transfer defined by the 
+                transfer descriptor input parameter DescriptorPtr. First call of this method on given DMA channel initializes 
+                it and enables HW requests if Peripheral device or Always enabled trigger source is selected in transfer 
+                descriptor Trigger source type item. This method can be also used together with Disable method to temporary 
+                switch On/Off the DMA channel HW requests. In such case DMA channel registers are not reinitialized again. New 
+                initialization of DMA channel can be done via SetChannelDescriptorUpdate method which reinitializes whole 
+                channel with new transfer descriptor. After calling of EnableChannel method channel status is set to 
+                LDD_DMA_IDLE.
+
 Module "Cpu"       (component MKL26Z128FM4)
 
 ===================================================================================

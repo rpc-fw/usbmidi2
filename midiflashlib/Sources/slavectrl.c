@@ -70,7 +70,8 @@ void SlaveToBootloader()
 	LED1_On();
 	COREUART_ClearTxBuf();
 	COREUART_Disable();
-	UART0_C2_REG((volatile UART0_MemMapPtr)UART0_BASE_PTR) = 0;
+	UART0_C2 = 0;
+	UART0_C5 &= ~(1 << 5); /* RDMAE=0 Disable DMA */
 	//	  UART0_PDD_EnableTransmitter(UART0_BASE_PTR, PDD_DISABLE); /* Disable transmitter. */
 	//UART0_PDD_EnableReceiver(UART0_BASE_PTR, PDD_DISABLE); /* Disable receiver. */
 	COREUART_Init();

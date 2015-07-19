@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-28, 14:10, # CodeGen: 52
+**     Date/Time   : 2015-07-11, 19:12, # CodeGen: 63
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -24,7 +24,7 @@
 **            Period                                       : 10 ms
 **            Interrupt                                    : Enabled
 **              Interrupt                                  : INT_LPTimer
-**              Interrupt priority                         : high priority
+**              Interrupt priority                         : low priority
 **          Channel list                                   : 0
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
@@ -174,11 +174,11 @@ LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
   LPTMR0_CMR = LPTMR_CMR_COMPARE(0xEA5F); /* Set up compare register */
   /* LPTMR0_PSR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,PRESCALE=0,PBYP=0,PCS=3 */
   LPTMR0_PSR = (LPTMR_PSR_PRESCALE(0x00) | LPTMR_PSR_PCS(0x03)); /* Set up prescaler register */
-  /* NVIC_IPR7: PRI_28=0x40 */
+  /* NVIC_IPR7: PRI_28=0x80 */
   NVIC_IPR7 = (uint32_t)((NVIC_IPR7 & (uint32_t)~(uint32_t)(
-               NVIC_IP_PRI_28(0xBF)
+               NVIC_IP_PRI_28(0x7F)
               )) | (uint32_t)(
-               NVIC_IP_PRI_28(0x40)
+               NVIC_IP_PRI_28(0x80)
               ));
   /* NVIC_ISER: SETENA|=0x10000000 */
   NVIC_ISER |= NVIC_ISER_SETENA(0x10000000);

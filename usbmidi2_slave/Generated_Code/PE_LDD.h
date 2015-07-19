@@ -5,7 +5,7 @@
 **     Processor   : MKL26Z64VFM4
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-06-28, 17:16, # CodeGen: 33
+**     Date/Time   : 2015-07-12, 00:23, # CodeGen: 45
 **     Abstract    :
 **
 **     Settings    :
@@ -74,6 +74,13 @@
 #include "PTA.h"
 #include "PTB.h"
 #include "PTD.h"
+#include "TMOUT1.h"
+#include "CS1.h"
+#include "TI1.h"
+#include "TimerIntLdd1.h"
+#include "TU1.h"
+#include "DMAT1.h"
+#include "DMA1.h"
 
 
 /*
