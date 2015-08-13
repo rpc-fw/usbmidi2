@@ -51,7 +51,7 @@ byte USBMIDI1_App_Task(byte *txBuf, size_t txBufSize)
       }
 
       transactionOngoing = TRUE;
-      TMOUT1_SetCounter(usb_timeout_counter_handle, 5);
+      TMOUT1_SetCounter(usb_timeout_counter_handle, 2);
 
       if (USB_Class_MIDI_Send_Data(CONTROLLER_ID, 2, txBuf, i) != USB_OK) {
         transactionOngoing = FALSE;
