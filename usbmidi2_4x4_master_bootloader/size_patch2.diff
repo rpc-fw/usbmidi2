@@ -1,0 +1,356 @@
+diff -Naur ../Generated_Code.orig/ASerialLdd1.c Generated_Code/ASerialLdd1.c
+--- ../Generated_Code.orig/ASerialLdd1.c	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/ASerialLdd1.c	2015-08-10 18:45:31.189372162 +0200
+@@ -163,14 +163,15 @@
+   /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
+ 
++  memset(DeviceDataPrv, 0, sizeof(*DeviceDataPrv));
+   /* Clear the receive counters and pointer */
+-  DeviceDataPrv->InpRecvDataNum = 0x00U; /* Clear the counter of received characters */
+-  DeviceDataPrv->InpDataNumReq = 0x00U; /* Clear the counter of characters to receive by ReceiveBlock() */
+-  DeviceDataPrv->InpDataPtr = NULL;    /* Clear the buffer pointer for received characters */
++  //DeviceDataPrv->InpRecvDataNum = 0x00U; /* Clear the counter of received characters */
++  //DeviceDataPrv->InpDataNumReq = 0x00U; /* Clear the counter of characters to receive by ReceiveBlock() */
++  //DeviceDataPrv->InpDataPtr = NULL;    /* Clear the buffer pointer for received characters */
+   /* Clear the transmit counters and pointer */
+-  DeviceDataPrv->OutSentDataNum = 0x00U; /* Clear the counter of sent characters */
+-  DeviceDataPrv->OutDataNumReq = 0x00U; /* Clear the counter of characters to be send by SendBlock() */
+-  DeviceDataPrv->OutDataPtr = NULL;    /* Clear the buffer pointer for data to be transmitted */
++  //DeviceDataPrv->OutSentDataNum = 0x00U; /* Clear the counter of sent characters */
++  //DeviceDataPrv->OutDataNumReq = 0x00U; /* Clear the counter of characters to be send by SendBlock() */
++  //DeviceDataPrv->OutDataPtr = NULL;    /* Clear the buffer pointer for data to be transmitted */
+   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
+   /* Allocate interrupt vectors */
+   /* {Bareboard RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
+@@ -201,8 +202,8 @@
+   NVIC_ISER |= NVIC_ISER_SETENA(0x4000);
+   UART_PDD_EnableTransmitter(UART2_BASE_PTR, PDD_DISABLE); /* Disable transmitter. */
+   UART_PDD_EnableReceiver(UART2_BASE_PTR, PDD_DISABLE); /* Disable receiver. */
+-  DeviceDataPrv->SerFlag = 0x00U;      /* Reset flags */
+-  DeviceDataPrv->ErrFlag = 0x00U;      /* Reset error flags */
++  //DeviceDataPrv->SerFlag = 0x00U;      /* Reset flags */
++  //DeviceDataPrv->ErrFlag = 0x00U;      /* Reset error flags */
+   /* UART2_C1: LOOPS=0,UARTSWAI=0,RSRC=0,M=0,WAKE=0,ILT=0,PE=0,PT=0 */
+   UART2_C1 = 0x00U;                    /*  Set the C1 register */
+   /* UART2_C3: R8=0,T8=0,TXDIR=0,TXINV=0,ORIE=0,NEIE=0,FEIE=0,PEIE=0 */
+@@ -265,12 +266,12 @@
+ {
+   ASerialLdd1_TDeviceDataPtr DeviceDataPrv = (ASerialLdd1_TDeviceDataPtr)DeviceDataPtr;
+ 
+-  if (Size == 0U) {                    /* Is the parameter Size within an expected range? */
+-    return ERR_PARAM_SIZE;             /* If no then error */
+-  }
+-  if (DeviceDataPrv->InpDataNumReq != 0x00U) { /* Is the previous receive operation pending? */
+-    return ERR_BUSY;                   /* If yes then error */
+-  }
++  //if (Size == 0U) {                    /* Is the parameter Size within an expected range? */
++  //  return ERR_PARAM_SIZE;             /* If no then error */
++  //}
++  //if (DeviceDataPrv->InpDataNumReq != 0x00U) { /* Is the previous receive operation pending? */
++  //  return ERR_BUSY;                   /* If yes then error */
++  //}
+   /* {Bareboard RTOS Adapter} Critical section begin (RTOS function call is defined by Bareboard RTOS Adapter property) */
+   EnterCritical();
+   DeviceDataPrv->InpDataPtr = (uint8_t*)BufferPtr; /* Store a pointer to the input data. */
+@@ -324,12 +325,12 @@
+ {
+   ASerialLdd1_TDeviceDataPtr DeviceDataPrv = (ASerialLdd1_TDeviceDataPtr)DeviceDataPtr;
+ 
+-  if (Size == 0U) {                    /* Is the parameter Size within an expected range? */
+-    return ERR_PARAM_SIZE;             /* If no then error */
+-  }
+-  if (DeviceDataPrv->OutDataNumReq != 0x00U) { /* Is the previous transmit operation pending? */
+-    return ERR_BUSY;                   /* If yes then error */
+-  }
++  //if (Size == 0U) {                    /* Is the parameter Size within an expected range? */
++  //  return ERR_PARAM_SIZE;             /* If no then error */
++  //}
++  //if (DeviceDataPrv->OutDataNumReq != 0x00U) { /* Is the previous transmit operation pending? */
++  //  return ERR_BUSY;                   /* If yes then error */
++  //}
+   /* {Bareboard RTOS Adapter} Critical section begin (RTOS function call is defined by Bareboard RTOS Adapter property) */
+   EnterCritical();
+   DeviceDataPrv->OutDataPtr = (uint8_t*)BufferPtr; /* Set a pointer to the output data. */
+diff -Naur ../Generated_Code.orig/ASerialLdd2.c Generated_Code/ASerialLdd2.c
+--- ../Generated_Code.orig/ASerialLdd2.c	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/ASerialLdd2.c	2015-08-10 18:45:23.957492614 +0200
+@@ -165,14 +165,15 @@
+   /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
+ 
++  memset(DeviceDataPrv, 0, sizeof(*DeviceDataPrv));
+   /* Clear the receive counters and pointer */
+-  DeviceDataPrv->InpRecvDataNum = 0x00U; /* Clear the counter of received characters */
+-  DeviceDataPrv->InpDataNumReq = 0x00U; /* Clear the counter of characters to receive by ReceiveBlock() */
+-  DeviceDataPrv->InpDataPtr = NULL;    /* Clear the buffer pointer for received characters */
++  //DeviceDataPrv->InpRecvDataNum = 0x00U; /* Clear the counter of received characters */
++  //DeviceDataPrv->InpDataNumReq = 0x00U; /* Clear the counter of characters to receive by ReceiveBlock() */
++  //DeviceDataPrv->InpDataPtr = NULL;    /* Clear the buffer pointer for received characters */
+   /* Clear the transmit counters and pointer */
+-  DeviceDataPrv->OutSentDataNum = 0x00U; /* Clear the counter of sent characters */
+-  DeviceDataPrv->OutDataNumReq = 0x00U; /* Clear the counter of characters to be send by SendBlock() */
+-  DeviceDataPrv->OutDataPtr = NULL;    /* Clear the buffer pointer for data to be transmitted */
++  //DeviceDataPrv->OutSentDataNum = 0x00U; /* Clear the counter of sent characters */
++  //DeviceDataPrv->OutDataNumReq = 0x00U; /* Clear the counter of characters to be send by SendBlock() */
++  //DeviceDataPrv->OutDataPtr = NULL;    /* Clear the buffer pointer for data to be transmitted */
+   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
+   /* Allocate interrupt vectors */
+   /* {Bareboard RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
+@@ -203,9 +204,9 @@
+   NVIC_ISER |= NVIC_ISER_SETENA(0x1000);
+   UART0_PDD_EnableTransmitter(UART0_BASE_PTR, PDD_DISABLE); /* Disable transmitter. */
+   UART0_PDD_EnableReceiver(UART0_BASE_PTR, PDD_DISABLE); /* Disable receiver. */
+-  DeviceDataPrv->SerFlag = 0x00U;      /* Reset flags */
+-  DeviceDataPrv->ErrFlag = 0x00U;      /* Reset error flags */
+-  DeviceDataPrv->EnUser = FALSE;       /* Disable device */
++  //DeviceDataPrv->SerFlag = 0x00U;      /* Reset flags */
++  //DeviceDataPrv->ErrFlag = 0x00U;      /* Reset error flags */
++  //DeviceDataPrv->EnUser = FALSE;       /* Disable device */
+   /* UART0_C1: LOOPS=0,DOZEEN=0,RSRC=0,M=0,WAKE=0,ILT=0,PE=0,PT=0 */
+   UART0_C1 = 0x00U;                    /*  Set the C1 register */
+   /* UART0_C3: R8T9=0,R9T8=0,TXDIR=0,TXINV=0,ORIE=0,NEIE=0,FEIE=0,PEIE=0 */
+@@ -333,15 +334,15 @@
+ {
+   ASerialLdd2_TDeviceDataPtr DeviceDataPrv = (ASerialLdd2_TDeviceDataPtr)DeviceDataPtr;
+ 
+-  if (!DeviceDataPrv->EnUser) {        /* Is the device disabled by user? */
+-    return ERR_DISABLED;               /* If yes then error */
+-  }
+-  if (Size == 0U) {                    /* Is the parameter Size within an expected range? */
+-    return ERR_PARAM_SIZE;             /* If no then error */
+-  }
+-  if (DeviceDataPrv->InpDataNumReq != 0x00U) { /* Is the previous receive operation pending? */
+-    return ERR_BUSY;                   /* If yes then error */
+-  }
++  //if (!DeviceDataPrv->EnUser) {        /* Is the device disabled by user? */
++  //  return ERR_DISABLED;               /* If yes then error */
++  //}
++  //if (Size == 0U) {                    /* Is the parameter Size within an expected range? */
++  //  return ERR_PARAM_SIZE;             /* If no then error */
++  //}
++  //if (DeviceDataPrv->InpDataNumReq != 0x00U) { /* Is the previous receive operation pending? */
++  //  return ERR_BUSY;                   /* If yes then error */
++  //}
+   /* {Bareboard RTOS Adapter} Critical section begin (RTOS function call is defined by Bareboard RTOS Adapter property) */
+   EnterCritical();
+   DeviceDataPrv->InpDataPtr = (uint8_t*)BufferPtr; /* Store a pointer to the input data. */
+@@ -395,15 +396,15 @@
+ {
+   ASerialLdd2_TDeviceDataPtr DeviceDataPrv = (ASerialLdd2_TDeviceDataPtr)DeviceDataPtr;
+ 
+-  if (!DeviceDataPrv->EnUser) {        /* Is the device disabled by user? */
+-    return ERR_DISABLED;               /* If yes then error */
+-  }
+-  if (Size == 0U) {                    /* Is the parameter Size within an expected range? */
+-    return ERR_PARAM_SIZE;             /* If no then error */
+-  }
+-  if (DeviceDataPrv->OutDataNumReq != 0x00U) { /* Is the previous transmit operation pending? */
+-    return ERR_BUSY;                   /* If yes then error */
+-  }
++  //if (!DeviceDataPrv->EnUser) {        /* Is the device disabled by user? */
++  //  return ERR_DISABLED;               /* If yes then error */
++  //}
++  //if (Size == 0U) {                    /* Is the parameter Size within an expected range? */
++  //  return ERR_PARAM_SIZE;             /* If no then error */
++  //}
++  //if (DeviceDataPrv->OutDataNumReq != 0x00U) { /* Is the previous transmit operation pending? */
++  //  return ERR_BUSY;                   /* If yes then error */
++  //}
+   /* {Bareboard RTOS Adapter} Critical section begin (RTOS function call is defined by Bareboard RTOS Adapter property) */
+   EnterCritical();
+   DeviceDataPrv->OutDataPtr = (uint8_t*)BufferPtr; /* Set a pointer to the output data. */
+diff -Naur ../Generated_Code.orig/COREUART.c Generated_Code/COREUART.c
+--- ../Generated_Code.orig/COREUART.c	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/COREUART.c	2015-08-10 18:44:01.794861037 +0200
+@@ -379,12 +379,8 @@
+ {
+   SerFlag = 0x00U;                     /* Reset flags */
+   EnUser = FALSE;                      /* Disable device */
+-  COREUART_InpLen = 0x00U;             /* No char in the receive buffer */
+-  InpIndexR = 0x00U;                   /* Set index on the first item in the receive buffer */
+-  InpIndexW = 0x00U;
+-  COREUART_OutLen = 0x00U;             /* No char in the transmit buffer */
+-  OutIndexR = 0x00U;                   /* Set index on the first item in the transmit buffer */
+-  OutIndexW = 0x00U;
++  COREUART_ClearRxBuf();
++  COREUART_ClearTxBuf();
+   ASerialLdd2_DeviceDataPtr = ASerialLdd2_Init(NULL); /* Calling init method of the inherited component */
+   HWEnDi();                            /* Enable/disable device according to status flags */
+ }
+diff -Naur ../Generated_Code.orig/Cpu.c Generated_Code/Cpu.c
+--- ../Generated_Code.orig/Cpu.c	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/Cpu.c	2015-08-10 18:44:01.802860903 +0200
+@@ -93,7 +93,37 @@
+ volatile uint8_t SR_reg;               /* Current value of the FAULTMASK register */
+ volatile uint8_t SR_lock = 0x00U;      /* Lock */
+ 
++/* Save status register and disable interrupts */
++void EnterCritical()
++{
++  uint8_t SR_reg_local;
++  /*lint -save  -e586 -e950 Disable MISRA rule (2.1,1.1) checking. */
++   __asm (
++   "MRS R0, PRIMASK\n\t"
++   "CPSID i\n\t"
++   "STRB R0, %[output]"
++   : [output] "=m" (SR_reg_local)
++   :: "r0");
++  /*lint -restore Enable MISRA rule (2.1,1.1) checking. */
++   if (++SR_lock == 1u) {
++     SR_reg = SR_reg_local;
++   }
++}
+ 
++
++/* Restore status register  */
++void ExitCritical()
++{
++   if (--SR_lock == 0u) {
++  /*lint -save  -e586 -e950 Disable MISRA rule (2.1,1.1) checking. */
++     __asm (
++       "ldrb r0, %[input]\n\t"
++       "msr PRIMASK,r0;\n\t"
++       ::[input] "m" (SR_reg)
++       : "r0");
++  /*lint -restore Enable MISRA rule (2.1,1.1) checking. */
++   }
++ }
+ /*
+ ** ===================================================================
+ **     Method      :  Cpu_INT_NMIInterrupt (component MKL26Z128FM4)
+diff -Naur ../Generated_Code.orig/Cpu.c.orig Generated_Code/Cpu.c.orig
+--- ../Generated_Code.orig/Cpu.c.orig	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/Cpu.c.orig	2015-08-10 18:43:14.887642242 +0200
+@@ -7,7 +7,7 @@
+ **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
+ **     Datasheet   : KL26P121M48SF4RM, Rev.2, Dec 2012
+ **     Compiler    : GNU C Compiler
+-**     Date/Time   : 2015-08-10, 15:44, # CodeGen: 8
++**     Date/Time   : 2015-08-10, 18:43, # CodeGen: 10
+ **     Abstract    :
+ **
+ **     Settings    :
+diff -Naur ../Generated_Code.orig/I2S0.c Generated_Code/I2S0.c
+--- ../Generated_Code.orig/I2S0.c	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/I2S0.c	2015-08-10 18:46:29.296404333 +0200
+@@ -207,35 +207,35 @@
+               I2S_RCSR_FEF_MASK;
+     while ((I2S0_RCSR & I2S_RCSR_RE_MASK) != 0U) {} /* Wait for receiver disable */
+   /* I2S0_TCR2: SYNC=0,BCS=0,BCI=0,MSEL=1,BCP=0,BCD=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DIV=0 */
+-  I2S0_TCR2 = I2S_TCR2_SYNC(0x00) |
+-              I2S_TCR2_MSEL(0x01) |
+-              I2S_TCR2_BCD_MASK |
+-              I2S_TCR2_DIV(0x00);
++  //I2S0_TCR2 = I2S_TCR2_SYNC(0x00) |
++  //            I2S_TCR2_MSEL(0x01) |
++  //            I2S_TCR2_BCD_MASK |
++  //            I2S_TCR2_DIV(0x00);
+   /* I2S0_RCR2: SYNC=0,BCS=0,BCI=0,MSEL=1,BCP=0,BCD=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DIV=0 */
+-  I2S0_RCR2 = I2S_RCR2_SYNC(0x00) |
+-              I2S_RCR2_MSEL(0x01) |
+-              I2S_RCR2_BCD_MASK |
+-              I2S_RCR2_DIV(0x00);
++  //I2S0_RCR2 = I2S_RCR2_SYNC(0x00) |
++  //            I2S_RCR2_MSEL(0x01) |
++  //            I2S_RCR2_BCD_MASK |
++  //            I2S_RCR2_DIV(0x00);
+   /* I2S0_TCR3: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,TCE=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,WDFL=0 */
+-  I2S0_TCR3 = 0x00U;
++  //I2S0_TCR3 = 0x00U;
+   /* I2S0_RCR3: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,RCE=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,WDFL=0 */
+-  I2S0_RCR3 = 0x00U;
++  //I2S0_RCR3 = 0x00U;
+   /* I2S0_TCR4: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,FRSZ=0,??=0,??=0,??=0,SYWD=0,??=0,??=0,??=0,MF=0,FSE=0,??=0,FSP=0,FSD=1 */
+-  I2S0_TCR4 = (I2S_TCR4_SYWD(0x00) | I2S_TCR4_FSD_MASK);
++  //I2S0_TCR4 = (I2S_TCR4_SYWD(0x00) | I2S_TCR4_FSD_MASK);
+   /* I2S0_RCR4: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,FRSZ=0,??=0,??=0,??=0,SYWD=0,??=0,??=0,??=0,MF=0,FSE=0,??=0,FSP=0,FSD=1 */
+-  I2S0_RCR4 = (I2S_RCR4_SYWD(0x00) | I2S_RCR4_FSD_MASK);
++  //I2S0_RCR4 = (I2S_RCR4_SYWD(0x00) | I2S_RCR4_FSD_MASK);
+   /* I2S0_TCR5: ??=0,??=0,??=0,WNW=7,??=0,??=0,??=0,W0W=7,??=0,??=0,??=0,FBT=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+-  I2S0_TCR5 = (I2S_TCR5_WNW(0x07) | I2S_TCR5_W0W(0x07) | I2S_TCR5_FBT(0x00));
++  //I2S0_TCR5 = (I2S_TCR5_WNW(0x07) | I2S_TCR5_W0W(0x07) | I2S_TCR5_FBT(0x00));
+   /* I2S0_RCR5: ??=0,??=0,??=0,WNW=7,??=0,??=0,??=0,W0W=7,??=0,??=0,??=0,FBT=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+-  I2S0_RCR5 = (I2S_RCR5_WNW(0x07) | I2S_RCR5_W0W(0x07) | I2S_RCR5_FBT(0x00));
++  //I2S0_RCR5 = (I2S_RCR5_WNW(0x07) | I2S_RCR5_W0W(0x07) | I2S_RCR5_FBT(0x00));
+   /* I2S0_TMR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,TWM=0 */
+-  I2S0_TMR = I2S_TMR_TWM(0x00);
++  //I2S0_TMR = I2S_TMR_TWM(0x00);
+   /* I2S0_RMR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,RWM=0 */
+-  I2S0_RMR = I2S_RMR_RWM(0x00);
++  //I2S0_RMR = I2S_RMR_RWM(0x00);
+   /* I2S0_TCSR: TE=0,STOPE=0,DBGE=0,BCE=0,??=0,??=0,FR=0,SR=0,??=0,??=0,??=0,WSF=0,SEF=0,FEF=0,FWF=0,??=0,??=0,??=0,??=0,WSIE=0,SEIE=0,FEIE=0,FWIE=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,FWDE=0,??=0 */
+-  I2S0_TCSR = 0x00U;
++  //I2S0_TCSR = 0x00U;
+   /* I2S0_RCSR: RE=1,STOPE=0,DBGE=0,BCE=1,??=0,??=0,FR=0,SR=0,??=0,??=0,??=0,WSF=0,SEF=0,FEF=0,FWF=0,??=0,??=0,??=0,??=0,WSIE=0,SEIE=0,FEIE=0,FWIE=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,FWDE=0,??=0 */
+-  I2S0_RCSR = (I2S_RCSR_RE_MASK | I2S_RCSR_BCE_MASK);
++  //I2S0_RCSR = (I2S_RCSR_RE_MASK | I2S_RCSR_BCE_MASK);
+ }
+ 
+ 
+diff -Naur ../Generated_Code.orig/IntFlashLdd1.c Generated_Code/IntFlashLdd1.c
+--- ../Generated_Code.orig/IntFlashLdd1.c	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/IntFlashLdd1.c	2015-08-10 18:44:01.806860837 +0200
+@@ -440,7 +440,7 @@
+         PE_NOP();
+         PE_NOP();
+       }
+-      IntFlashLdd1_OnError(DeviceDataPrv->UserDataPtr); /* Invoke the OnError event */
++      //IntFlashLdd1_OnError(DeviceDataPrv->UserDataPtr); /* Invoke the OnError event */
+       return;                          /* End */
+     }
+     if (DeviceDataPrv->DataCounter == 0U) { /* If all the data has been successfully proceeded, finish the operation */
+diff -Naur ../Generated_Code.orig/PE_Types.h Generated_Code/PE_Types.h
+--- ../Generated_Code.orig/PE_Types.h	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/PE_Types.h	2015-08-10 18:44:01.806860837 +0200
+@@ -127,36 +127,11 @@
+ 
+ 
+ /* Save status register and disable interrupts */
+-#define EnterCritical() \
+- do {\
+-  uint8_t SR_reg_local;\
+-  /*lint -save  -e586 -e950 Disable MISRA rule (2.1,1.1) checking. */\
+-   __asm ( \
+-   "MRS R0, PRIMASK\n\t" \
+-   "CPSID i\n\t"            \
+-   "STRB R0, %[output]"  \
+-   : [output] "=m" (SR_reg_local)\
+-   :: "r0");\
+-  /*lint -restore Enable MISRA rule (2.1,1.1) checking. */\
+-   if (++SR_lock == 1u) {\
+-     SR_reg = SR_reg_local;\
+-   }\
+- } while(0)
++void EnterCritical();
+ 
+  
+ /* Restore status register  */
+-#define ExitCritical() \
+- do {\
+-   if (--SR_lock == 0u) { \
+-  /*lint -save  -e586 -e950 Disable MISRA rule (2.1,1.1) checking. */\
+-     __asm (                 \
+-       "ldrb r0, %[input]\n\t"\
+-       "msr PRIMASK,r0;\n\t" \
+-       ::[input] "m" (SR_reg)  \
+-       : "r0");                \
+-  /*lint -restore Enable MISRA rule (2.1,1.1) checking. */\
+-   }\
+- } while(0)
++void ExitCritical();
+ 
+ 
+ #define PE_DEBUGHALT() \
+diff -Naur ../Generated_Code.orig/PTE.c Generated_Code/PTE.c
+--- ../Generated_Code.orig/PTE.c	2015-08-10 18:43:56.322952169 +0200
++++ Generated_Code/PTE.c	2015-08-10 18:48:32.270355954 +0200
+@@ -103,7 +103,7 @@
+ void PTE_Init(void)
+ {
+   /* GPIOE_PDDR: PDD&=~1 */
+-  GPIOE_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x01));
++  //GPIOE_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x01));
+ }
+ 
+ 

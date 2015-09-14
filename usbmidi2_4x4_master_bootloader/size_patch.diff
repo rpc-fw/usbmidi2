@@ -1,0 +1,113 @@
+diff -Naur Generated_Code.Orig/COREUART.c Generated_Code/COREUART.c
+--- Generated_Code.Orig/COREUART.c	2015-05-17 22:11:12.399205287 +0200
++++ Generated_Code/COREUART.c	2015-05-17 22:14:08.316086197 +0200
+@@ -379,12 +379,8 @@
+ {
+   SerFlag = 0x00U;                     /* Reset flags */
+   EnUser = FALSE;                      /* Disable device */
+-  COREUART_InpLen = 0x00U;             /* No char in the receive buffer */
+-  InpIndexR = 0x00U;                   /* Set index on the first item in the receive buffer */
+-  InpIndexW = 0x00U;
+-  COREUART_OutLen = 0x00U;             /* No char in the transmit buffer */
+-  OutIndexR = 0x00U;                   /* Set index on the first item in the transmit buffer */
+-  OutIndexW = 0x00U;
++  COREUART_ClearRxBuf();
++  COREUART_ClearTxBuf();
+   ASerialLdd2_DeviceDataPtr = ASerialLdd2_Init(NULL); /* Calling init method of the inherited component */
+   HWEnDi();                            /* Enable/disable device according to status flags */
+ }
+diff -Naur Generated_Code.Orig/Cpu.c Generated_Code/Cpu.c
+--- Generated_Code.Orig/Cpu.c	2015-05-17 22:11:12.455204294 +0200
++++ Generated_Code/Cpu.c	2015-05-17 22:13:28.744787899 +0200
+@@ -92,7 +92,37 @@
+ volatile uint8_t SR_reg;               /* Current value of the FAULTMASK register */
+ volatile uint8_t SR_lock = 0x00U;      /* Lock */
+ 
++/* Save status register and disable interrupts */
++void EnterCritical()
++{
++  uint8_t SR_reg_local;
++  /*lint -save  -e586 -e950 Disable MISRA rule (2.1,1.1) checking. */
++   __asm (
++   "MRS R0, PRIMASK\n\t"
++   "CPSID i\n\t"
++   "STRB R0, %[output]"
++   : [output] "=m" (SR_reg_local)
++   :: "r0");
++  /*lint -restore Enable MISRA rule (2.1,1.1) checking. */
++   if (++SR_lock == 1u) {
++     SR_reg = SR_reg_local;
++   }
++}
+ 
++
++/* Restore status register  */
++void ExitCritical()
++{
++   if (--SR_lock == 0u) {
++  /*lint -save  -e586 -e950 Disable MISRA rule (2.1,1.1) checking. */
++     __asm (
++       "ldrb r0, %[input]\n\t"
++       "msr PRIMASK,r0;\n\t"
++       ::[input] "m" (SR_reg)
++       : "r0");
++  /*lint -restore Enable MISRA rule (2.1,1.1) checking. */
++   }
++ }
+ /*
+ ** ===================================================================
+ **     Method      :  Cpu_INT_NMIInterrupt (component MKL26Z128FM4)
+diff -Naur Generated_Code.Orig/IntFlashLdd1.c Generated_Code/IntFlashLdd1.c
+--- Generated_Code.Orig/IntFlashLdd1.c	2015-05-17 22:11:12.423204862 +0200
++++ Generated_Code/IntFlashLdd1.c	2015-05-17 22:13:28.756787684 +0200
+@@ -440,7 +440,7 @@
+         PE_NOP();
+         PE_NOP();
+       }
+-      IntFlashLdd1_OnError(DeviceDataPrv->UserDataPtr); /* Invoke the OnError event */
++      //IntFlashLdd1_OnError(DeviceDataPrv->UserDataPtr); /* Invoke the OnError event */
+       return;                          /* End */
+     }
+     if (DeviceDataPrv->DataCounter == 0U) { /* If all the data has been successfully proceeded, finish the operation */
+diff -Naur Generated_Code.Orig/PE_Types.h Generated_Code/PE_Types.h
+--- Generated_Code.Orig/PE_Types.h	2015-05-17 22:11:12.451204365 +0200
++++ Generated_Code/PE_Types.h	2015-05-17 22:13:28.756787684 +0200
+@@ -127,36 +127,11 @@
+ 
+ 
+ /* Save status register and disable interrupts */
+-#define EnterCritical() \
+- do {\
+-  uint8_t SR_reg_local;\
+-  /*lint -save  -e586 -e950 Disable MISRA rule (2.1,1.1) checking. */\
+-   __asm ( \
+-   "MRS R0, PRIMASK\n\t" \
+-   "CPSID i\n\t"            \
+-   "STRB R0, %[output]"  \
+-   : [output] "=m" (SR_reg_local)\
+-   :: "r0");\
+-  /*lint -restore Enable MISRA rule (2.1,1.1) checking. */\
+-   if (++SR_lock == 1u) {\
+-     SR_reg = SR_reg_local;\
+-   }\
+- } while(0)
++void EnterCritical();
+ 
+  
+ /* Restore status register  */
+-#define ExitCritical() \
+- do {\
+-   if (--SR_lock == 0u) { \
+-  /*lint -save  -e586 -e950 Disable MISRA rule (2.1,1.1) checking. */\
+-     __asm (                 \
+-       "ldrb r0, %[input]\n\t"\
+-       "msr PRIMASK,r0;\n\t" \
+-       ::[input] "m" (SR_reg)  \
+-       : "r0");                \
+-  /*lint -restore Enable MISRA rule (2.1,1.1) checking. */\
+-   }\
+- } while(0)
++void ExitCritical();
+ 
+ 
+ #define PE_DEBUGHALT() \
