@@ -6,7 +6,7 @@
 #include "usb/derivative.h"
 #include "usb/types.h"
 #include "usb/usb_class.h"
-#include "usb/usb_descriptor.h"
+#include "usb_descriptor.h"
 #include "usb/usb_midi.h"
 
 #if (defined __MCF52xxx_H__)||(defined __MK_xxx_H__)
@@ -22,7 +22,7 @@
 /* structure containing details of all the endpoints used by this device */
 USB_DESC_CONST USB_ENDPOINTS usb_desc_ep =
 {
-		2, /* endpoint count */
+		USB_ENDPOINT_COUNT,
 		{
 				{
 						1,				/* endpoint number */
@@ -48,13 +48,8 @@ uint_8 USB_DESC_CONST g_device_descriptor[DEVICE_DESCRIPTOR_SIZE] =
    0x00,                                 /*  Device							*/
    0x00,                                 /*  Device Protocol                */
    CONTROL_MAX_PACKET_SIZE,              /*  Max Packet size                */
-#if 0 /* << EST */
-   0xA2,0x15,                            /*  Vendor ID                      */
-   0x00,0x03,                            /*  0300 is our Product ID for CDC */
-#else
    (VID&0xFF),((VID>>8)&0xFF),     /*  Vendor ID from properties      */
    (PID&0xFF),((PID>>8)&0xFF),     /*  Product ID from properties     */
-#endif
    0x01,0x00,                            /*  BCD Device version             */
    0x01,                                 /*  Manufacturer string index      */
    0x02,                                 /*  Product string index           */
@@ -66,7 +61,7 @@ uint_8 USB_DESC_CONST g_config_descriptor[CONFIG_DESC_SIZE] =
 {
     CONFIG_ONLY_DESC_SIZE,  /*  Configuration Descriptor Size */
     USB_CONFIG_DESCRIPTOR,  /* "Configuration" type of descriptor */
-    CONFIG_DESC_SIZE, 0x00, /*  Total length of the Configuration descriptor */
+    (CONFIG_DESC_SIZE)&255, (CONFIG_DESC_SIZE)>>8, /*  Total length of the Configuration descriptor */
     (uint_8)2,              /*NumInterfaces*/
     0x01,                      /*  Configuration Value */
     0x00,                      /*  Configuration Description String Index*/
@@ -424,36 +419,6 @@ uint_8 const g_valid_config_values[USB_MAX_CONFIG_SUPPORTED+1]={0,1};
 /****************************************************************************
  * Global Variables
  ****************************************************************************/
-#ifdef _MC9S08JS16_H
-#pragma DATA_SEG APP_DATA
-#endif
-
-static uint_8 g_line_coding[USB_MAX_SUPPORTED_INTERFACES][LINE_CODING_SIZE] =
-{
-        { (LINE_CODE_DTERATE_IFACE0>> 0) & 0x000000FF,
-          (LINE_CODE_DTERATE_IFACE0>> 8) & 0x000000FF,
-          (LINE_CODE_DTERATE_IFACE0>>16) & 0x000000FF,
-          (LINE_CODE_DTERATE_IFACE0>>24) & 0x000000FF,
-          /*e.g. 0x00,0xC2,0x01,0x00 : 0x0001C200 is 115200 bits per second */
-           LINE_CODE_CHARFORMAT_IFACE0,
-           LINE_CODE_PARITYTYPE_IFACE0,
-           LINE_CODE_DATABITS_IFACE0
-        }
-};
-
-static uint_8 g_abstract_state[USB_MAX_SUPPORTED_INTERFACES][COMM_FEATURE_DATA_SIZE] =
-{
-        { (STATUS_ABSTRACT_STATE_IFACE0>>0) & 0x00FF,
-          (STATUS_ABSTRACT_STATE_IFACE0>>8) & 0x00FF
-        }
-};
-
-static uint_8 g_country_code[USB_MAX_SUPPORTED_INTERFACES][COMM_FEATURE_DATA_SIZE] =
-{
-        { (COUNTRY_SETTING_IFACE0>>0) & 0x00FF,
-          (COUNTRY_SETTING_IFACE0>>8) & 0x00FF
-        }
-};
 
 static uint_8 g_alternate_interface[USB_MAX_SUPPORTED_INTERFACES];
 
@@ -739,217 +704,4 @@ void* USB_Desc_Get_Endpoints (
 {
     UNUSED (controller_ID)
     return (void*)&usb_desc_ep;
-}
-
-/**************************************************************************//*!
- *
- * @name  USB_Desc_Get_Line_Coding
- *
- * @brief The function returns the Line Coding/Configuraion
- *
- * @param controller_ID : Controller ID
- * @param interface     : Interface number
- * @param coding_data   : Output line coding data
- *
- * @return USB_OK                              When Successfull
- *         USBERR_INVALID_REQ_TYPE             when Error
- *****************************************************************************
- * Returns current Line Coding Parameters
- *****************************************************************************/
-uint_8 USB_Desc_Get_Line_Coding (
-    uint_8 controller_ID,       /* [IN] Controller ID */
-    uint_8 interface,           /* [IN] Interface Number */
-    uint_8_ptr *coding_data     /* [OUT] Line Coding Data */
-)
-{
-    UNUSED (controller_ID)
-    /* if interface valid */
-    if(interface < USB_MAX_SUPPORTED_INTERFACES)
-    {
-        /* get line coding data*/
-        *coding_data = g_line_coding[interface];
-        return USB_OK;
-    }
-
-    return USBERR_INVALID_REQ_TYPE;
-}
-
-/**************************************************************************//*!
- *
- * @name  USB_Desc_Set_Line_Coding
- *
- * @brief The function sets the Line Coding/Configuraion
- *
- * @param controller_ID : Controller ID
- * @param interface     : Interface number
- * @param coding_data   : Output line coding data
- *
- * @return USB_OK                              When Successfull
- *         USBERR_INVALID_REQ_TYPE             when Error
- *****************************************************************************
- * Sets Line Coding Structure with the HOST specified values
- *****************************************************************************/
-uint_8 USB_Desc_Set_Line_Coding (
-    uint_8 controller_ID,       /* [IN] Controller ID */
-    uint_8 interface,           /* [IN] Interface Number */
-    uint_8_ptr *coding_data     /* [IN] Line Coding Data */
-)
-{
-    uint_8 count;
-    UNUSED (controller_ID)
-
-    /* if interface valid */
-    if(interface < USB_MAX_SUPPORTED_INTERFACES)
-    {
-        /* set line coding data*/
-        for (count = 0; count < LINE_CODING_SIZE; count++)
-        {
-            g_line_coding[interface][count] = *((*coding_data +
-                                                USB_SETUP_PKT_SIZE) + count);
-        }
-        return USB_OK;
-    }
-
-    return USBERR_INVALID_REQ_TYPE;
-}
-
-/**************************************************************************//*!
- *
- * @name  USB_Desc_Get_Abstract_State
- *
- * @brief The function gets the current setting for communication feature
- *                                                  (ABSTRACT_STATE)
- * @param controller_ID : Controller ID
- * @param interface     : Interface number
- * @param feature_data  : Output comm feature data
- *
- * @return USB_OK                              When Successfull
- *         USBERR_INVALID_REQ_TYPE             when Error
- *****************************************************************************
- * Returns ABSTRACT STATE Communication Feature to the Host
- *****************************************************************************/
-uint_8 USB_Desc_Get_Abstract_State (
-    uint_8 controller_ID,       /* [IN] Controller ID */
-    uint_8 interface,           /* [IN] Interface Number */
-    uint_8_ptr *feature_data    /* [OUT] Output Comm Feature Data */
-)
-{
-    UNUSED (controller_ID)
-    /* if interface valid */
-    if(interface < USB_MAX_SUPPORTED_INTERFACES)
-    {
-        /* get line coding data*/
-        *feature_data = g_abstract_state[interface];
-        return USB_OK;
-    }
-
-    return USBERR_INVALID_REQ_TYPE;
-}
-
-/**************************************************************************//*!
- *
- * @name  USB_Desc_Get_Country_Setting
- *
- * @brief The function gets the current setting for communication feature
- *                                                  (COUNTRY_CODE)
- * @param controller_ID : Controller ID
- * @param interface     : Interface number
- * @param feature_data  : Output comm feature data
- *
- * @return USB_OK                              When Successfull
- *         USBERR_INVALID_REQ_TYPE             when Error
- *****************************************************************************
- * Returns the country Code to the Host
- *****************************************************************************/
-uint_8 USB_Desc_Get_Country_Setting (
-    uint_8 controller_ID,       /* [IN] Controller ID */
-    uint_8 interface,           /* [IN] Interface Number */
-    uint_8_ptr *feature_data    /* [OUT] Output Comm Feature Data */
-)
-{
-    UNUSED (controller_ID)
-    /* if interface valid */
-    if(interface < USB_MAX_SUPPORTED_INTERFACES)
-    {
-        /* get line coding data*/
-        *feature_data = g_country_code[interface];
-        return USB_OK;
-    }
-
-    return USBERR_INVALID_REQ_TYPE;
-}
-
-/**************************************************************************//*!
- *
- * @name  USB_Desc_Set_Abstract_State
- *
- * @brief The function gets the current setting for communication feature
- *                                                  (ABSTRACT_STATE)
- * @param controller_ID : Controller ID
- * @param interface     : Interface number
- * @param feature_data  : Output comm feature data
- *
- * @return USB_OK                              When Successfull
- *         USBERR_INVALID_REQ_TYPE             when Error
- *****************************************************************************
- * Sets the ABSTRACT State specified by the Host
- *****************************************************************************/
-uint_8 USB_Desc_Set_Abstract_State (
-    uint_8 controller_ID,       /* [IN] Controller ID */
-    uint_8 interface,           /* [IN] Interface Number */
-    uint_8_ptr *feature_data    /* [OUT] Output Comm Feature Data */
-)
-{
-    uint_8 count;
-    UNUSED (controller_ID)
-
-    /* if interface valid */
-    if(interface < USB_MAX_SUPPORTED_INTERFACES)
-    {
-        /* set Abstract State Feature*/
-        for (count = 0; count < COMM_FEATURE_DATA_SIZE; count++)
-        {
-            g_abstract_state[interface][count] = *(*feature_data + count);
-        }
-        return USB_OK;
-    }
-
-    return USBERR_INVALID_REQ_TYPE;
-}
-
-/**************************************************************************//*!
- *
- * @name  USB_Desc_Set_Country_Setting
- *
- * @brief The function gets the current setting for communication feature
- *                                                  (COUNTRY_CODE)
- * @param controller_ID : Controller ID
- * @param interface     : Interface number
- * @param feature_data  : Output comm feature data
- *
- * @return USB_OK                              When Successfull
- *         USBERR_INVALID_REQ_TYPE             when Error
- *****************************************************************************
- * Sets the country code specified by the HOST
- *****************************************************************************/
-uint_8 USB_Desc_Set_Country_Setting(
-    uint_8 controller_ID,       /* [IN] Controller ID */
-    uint_8 interface,           /* [IN] Interface Number */
-    uint_8_ptr *feature_data    /* [OUT] Output Comm Feature Data */
-)
-{
-    uint_8 count;
-    UNUSED (controller_ID)
-
-    /* if interface valid */
-    if(interface < USB_MAX_SUPPORTED_INTERFACES)
-    {
-        for (count = 0; count < COMM_FEATURE_DATA_SIZE; count++)
-        {
-            g_country_code[interface][count] = *(*feature_data + count);
-        }
-        return USB_OK;
-    }
-
-    return USBERR_INVALID_REQ_TYPE;
 }

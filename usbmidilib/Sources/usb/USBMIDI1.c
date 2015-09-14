@@ -1,5 +1,6 @@
 #include "USB1.h"
 #include "USBMIDI1.h"
+#include "TMOUT1.h"
 #include "hidef.h"          /* for EnableInterrupts macro */
 #include "derivative.h"     /* include peripheral declarations */
 #include "types.h"          /* Contains User Defined Data Types */

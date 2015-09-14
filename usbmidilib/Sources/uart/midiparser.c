@@ -275,8 +275,10 @@ int midiout_checkstatus(byte status, midiout_state_t* state)
 	return 1;
 }
 
-void midiout_transmit(const midicmd_t cmd, midiout_state_t* state)
+void midiout_transmit(const midicmd_t cmd, void* _state)
 {
+	midiout_state_t* state = (midiout_state_t*) _state;
+
 	switch (usbmidi_msglen(cmd)) {
 	case 1:
 		// 1 byte

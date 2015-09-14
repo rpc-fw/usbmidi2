@@ -5,7 +5,7 @@
 **     Processor   : MKL26Z64VFM4
 **     Version     : Component 01.006, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-07-19, 19:14, # CodeGen: 75
+**     Date/Time   : 2015-08-06, 09:19, # CodeGen: 81
 **     Abstract    :
 **
 **     Settings    :
@@ -129,7 +129,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1B  0x0000006C   -   ivINT_SPI1                    unused by PE */
     (tIsrFunc)&ASerialLdd2_Interrupt,  /* 0x1C  0x00000070   0   ivINT_UART0                   used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1D  0x00000074   -   ivINT_UART1                   unused by PE */
-    (tIsrFunc)&ASerialLdd1_Interrupt,  /* 0x1E  0x00000078   2   ivINT_UART2                   used by PE */
+    (tIsrFunc)&ASerialLdd1_Interrupt,  /* 0x1E  0x00000078   0   ivINT_UART2                   used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1F  0x0000007C   -   ivINT_ADC0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x20  0x00000080   -   ivINT_CMP0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x21  0x00000084   -   ivINT_TPM0                    unused by PE */

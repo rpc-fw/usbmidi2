@@ -38,7 +38,7 @@
 #include "types.h"          /* Contains User Defined Data Types */
 #include "usb_class.h"      /* USB class Header File */
 #include "usb_framework.h"  /* USB Framework Header File */
-#include "usb_descriptor.h" /* USB descriptor Header File */
+#include "usb_descriptor_common.h" /* USB descriptor Header File */
 #if defined(__IAR_SYSTEMS_ICC__)
 #include <intrinsics.h>
 #endif

@@ -7,7 +7,7 @@
  * Includes
  *****************************************************************************/
 #include "types.h"
-#include "usb_descriptor.h"
+#include "usb_descriptor_common.h"
 #include "usb_class.h"
 #include "usb_devapi.h"
 #ifdef COMPOSITE_DEV

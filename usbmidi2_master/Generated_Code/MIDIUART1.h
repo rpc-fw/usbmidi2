@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.01, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-05-17, 14:33, # CodeGen: 45
+**     Date/Time   : 2015-08-06, 09:19, # CodeGen: 81
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -22,18 +22,18 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 256
-**             Output buffer size      : 256
+**             Input buffer size       : 128
+**             Output buffer size      : 128
 **
 **         Registers
 **
 **         Input interrupt
 **             Vector name             : INT_UART2
-**             Priority                : 2
+**             Priority                : 0
 **
 **         Output interrupt
 **             Vector name             : INT_UART2
-**             Priority                : 2
+**             Priority                : 0
 **
 **         Used pins:
 **         ----------------------------------------------------------
@@ -139,9 +139,9 @@ extern "C" {
   typedef byte MIDIUART1_TComData;     /* User type for communication. Size of this type depends on the communication data witdh */
 #endif
 
-#define MIDIUART1_INP_BUF_SIZE  0x0100U /* Length of the RX buffer */
+#define MIDIUART1_INP_BUF_SIZE  0x80U  /* Length of the RX buffer */
 
-#define MIDIUART1_OUT_BUF_SIZE  0x0100U /* Length of the TX buffer */
+#define MIDIUART1_OUT_BUF_SIZE  0x80U  /* Length of the TX buffer */
 
 /*
 ** ===================================================================

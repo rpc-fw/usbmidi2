@@ -53,6 +53,6 @@ typedef struct _midiout_state_t
 
 void midiout_reset(midiout_state_t *state);
 int midiout_can_transmit(int numbytes, midiout_state_t* state);
-void midiout_transmit(const midicmd_t cmd, midiout_state_t* state);
+void midiout_transmit(const midicmd_t cmd, void* _state);
 
 #endif /* MIDIPARSER_H_ */
