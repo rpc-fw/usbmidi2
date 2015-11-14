@@ -186,10 +186,13 @@ void TMOUT1_Init(void)
 {
   byte i;
 
-  for(i=0;i<TMOUT1_NOF_COUNTERS;i++) {
+  memset(TMOUT1_Counters, 0, TMOUT1_NOF_COUNTERS * sizeof(TMOUT1_Counters[0]));
+  memset(TMOUT1_FreeCounters, 1, TMOUT1_NOF_COUNTERS * sizeof(TMOUT1_FreeCounters[0]));
+
+  /*for(i=0;i<TMOUT1_NOF_COUNTERS;i++) {
     TMOUT1_Counters[i] = 0;
     TMOUT1_FreeCounters[i] = TRUE;
-  }
+  }*/
 }
 
 /*

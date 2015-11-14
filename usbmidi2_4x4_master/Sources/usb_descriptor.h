@@ -66,7 +66,7 @@
 #define USB_MAX_CONFIG_SUPPORTED          (1)
 
 /* Max string descriptors supported by the Application */
-#define USB_MAX_STRING_DESCRIPTORS        (8)
+#define USB_MAX_STRING_DESCRIPTORS        (14)
 
 /* Max language codes supported by the USB */
 #define USB_MAX_LANGUAGES_SUPPORTED       (1)
@@ -78,9 +78,15 @@
 #define USB_STR_2_SIZE  (38)
 #define USB_STR_3_SIZE  (2)
 #define USB_STR_4_SIZE  (14)
-#define USB_STR_5_SIZE  (24)
-#define USB_STR_6_SIZE  (12)
-#define USB_STR_7_SIZE  (22)
+#define USB_STR_5_SIZE  (12)
+#define USB_STR_6_SIZE  (20)
+#define USB_STR_7_SIZE  (18)
+#define USB_STR_8_SIZE  (20)
+#define USB_STR_9_SIZE  (18)
+#define USB_STR_10_SIZE  (20)
+#define USB_STR_11_SIZE  (18)
+#define USB_STR_12_SIZE  (20)
+#define USB_STR_13_SIZE  (18)
 #define USB_STR_n_SIZE  (32)
 
 /* descriptors codes */

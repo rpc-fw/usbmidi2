@@ -159,9 +159,10 @@ LDD_TDeviceData* DMA1_Init(LDD_TUserData *UserDataPtr)
     DMA_PDD_ClearInterruptFlags(DMA_BASE_PTR, i, DMA_PDD_TRANSFER_COMPLETE_FLAG); /* Clear request interrupt flags */
   }
   /* Initialization of channels record field. */
-  for(i = 0U; i < DMA1_DMA_CHANNELS_NUMBER; i++) {
-    DeviceDataPtr->ChannelRecord[i] = NULL; /* Clear pointer to descriptor record of all channels. */
-  }
+  memset(DeviceDataPtr->ChannelRecord, 0, DMA1_DMA_CHANNELS_NUMBER * sizeof(DeviceDataPtr->ChannelRecord[0]));
+  //for(i = 0U; i < DMA1_DMA_CHANNELS_NUMBER; i++) {
+  //  DeviceDataPtr->ChannelRecord[i] = NULL; /* Clear pointer to descriptor record of all channels. */
+  //}
   /* Initialization of channel and descriptor record fields. */
   for(i = 0U; i < DMA1_CONFIGURED_CHANNELS_NUMBER; i++) {
     DescriptorRecordPtr = &(DeviceDataPtr->DescriptorRecord[i]); /* Store local pointer to descriptor record. */
